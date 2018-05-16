@@ -360,6 +360,7 @@ UsedLibrary="C:/Program Files/EAGLE 9.0.1/lbr/atmel-samd21.lbr"
 UsedLibrary="C:/Program Files/EAGLE 9.0.1/lbr/onSemiconductor.lbr"
 UsedLibrary="C:/Program Files/EAGLE 9.0.1/lbr/pinhead.lbr"
 UsedLibrary="C:/Program Files/EAGLE 9.0.1/lbr/pinhead_v2.lbr"
+UsedLibrary="C:/Program Files/EAGLE 9.0.1/lbr/LM35DM_NOPB.lbr"
 
 [Win_1]
 Type="Control Panel"
