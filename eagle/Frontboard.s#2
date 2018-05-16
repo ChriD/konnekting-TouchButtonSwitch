@@ -10424,6 +10424,11 @@ It would be better to use an I2C LED Driver</text>
 <wire x1="-58.42" y1="101.6" x2="-68.58" y2="101.6" width="0.1524" layer="91"/>
 <label x="-68.58" y="101.6" size="1.016" layer="95" rot="R180" xref="yes"/>
 </segment>
+<segment>
+<pinref part="JP_I2C" gate="A" pin="6"/>
+<wire x1="7.62" y1="162.56" x2="-7.62" y2="162.56" width="0.1524" layer="91"/>
+<label x="-7.62" y="162.56" size="1.016" layer="95" rot="R180" xref="yes"/>
+</segment>
 </net>
 </nets>
 </sheet>

@@ -10194,18 +10194,6 @@ It would be better to use an I2C LED Driver</text>
 <label x="83.82" y="119.38" size="1.016" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
-<net name="LED5" class="0">
-<segment>
-<pinref part="RL5" gate="G$1" pin="1"/>
-<wire x1="35.56" y1="76.2" x2="43.18" y2="76.2" width="0.1524" layer="91"/>
-<label x="43.18" y="76.2" size="1.016" layer="95" xref="yes"/>
-</segment>
-<segment>
-<pinref part="JP3" gate="A" pin="4"/>
-<wire x1="53.34" y1="165.1" x2="43.18" y2="165.1" width="0.1524" layer="91"/>
-<label x="43.18" y="165.1" size="1.016" layer="95" rot="R180" xref="yes"/>
-</segment>
-</net>
 <net name="N$19" class="0">
 <segment>
 <pinref part="IC_SENSE" gate="G$1" pin="VCC"/>
@@ -10276,6 +10264,18 @@ It would be better to use an I2C LED Driver</text>
 <pinref part="R5" gate="G$1" pin="2"/>
 <pinref part="IC_SENSE" gate="G$1" pin="CS2/GUARD"/>
 <wire x1="99.06" y1="116.84" x2="104.14" y2="116.84" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="LED5" class="0">
+<segment>
+<pinref part="JP3" gate="A" pin="4"/>
+<wire x1="53.34" y1="165.1" x2="43.18" y2="165.1" width="0.1524" layer="91"/>
+<label x="43.18" y="165.1" size="1.016" layer="95" rot="R180" xref="yes"/>
+</segment>
+<segment>
+<pinref part="RL5" gate="G$1" pin="1"/>
+<wire x1="35.56" y1="76.2" x2="43.18" y2="76.2" width="0.1524" layer="91"/>
+<label x="43.18" y="76.2" size="1.016" layer="95" xref="yes"/>
 </segment>
 </net>
 </nets>

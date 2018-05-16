@@ -10027,7 +10027,7 @@ Source: &lt;a href="http://www.ti.com/lit/ds/symlink/lm35.pdf"&gt; Datasheet &lt
 <part name="LED2" library="SparkFun-LED" deviceset="LED" device="1206-BOTTOM" value="WHITE"/>
 <part name="LED1" library="SparkFun-LED" deviceset="LED" device="1206-BOTTOM" value="WHITE"/>
 <part name="LED5" library="SparkFun-LED" deviceset="LED" device="1206-BOTTOM" value="WHITE"/>
-<part name="LEDS" library="pinhead" deviceset="PINHD-1X4" device="_2.54-SMD"/>
+<part name="LEDS" library="pinhead" deviceset="PINHD-1X4" device="_2.54-SMD" value="LEDS"/>
 <part name="IC_SENSE" library="CY8CMBR3116-LQXIT" deviceset="CY8CMBR3116-LQXIT" device=""/>
 <part name="R1" library="resistor" library_urn="urn:adsk.eagle:library:348" deviceset="R-EU_" device="R0805" package3d_urn="urn:adsk.eagle:package:26059/1" value="560E"/>
 <part name="R2" library="resistor" library_urn="urn:adsk.eagle:library:348" deviceset="R-EU_" device="R0805" package3d_urn="urn:adsk.eagle:package:26059/1" value="560E"/>
