@@ -2,7 +2,7 @@
 
 /* TODO:  * add KNX connection
           * get manufacturere ID
-          * */
+          * aso...*/
 
 #include "Arduino.h"
 #include "XButtonSwitch.h"
