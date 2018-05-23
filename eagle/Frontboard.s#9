@@ -9865,6 +9865,9 @@ Source: &lt;a href="http://www.onsemi.com/pub/Collateral/NCT75-D.PDF"&gt; Datash
 <part name="RP1" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/2" value="330E"/>
 <part name="RP2" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/2" value="330E"/>
 <part name="IC1" library="NCT75DR2G" deviceset="NCT75DR2G" device=""/>
+<part name="RST3" library="wirepad" library_urn="urn:adsk.eagle:library:412" deviceset="SMD5" device="" package3d_urn="urn:adsk.eagle:package:30841/1" value="0"/>
+<part name="RST4" library="wirepad" library_urn="urn:adsk.eagle:library:412" deviceset="SMD5" device="" package3d_urn="urn:adsk.eagle:package:30841/1" value="0"/>
+<part name="RT1" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/2" value="100K"/>
 </parts>
 <sheets>
 <sheet>
@@ -9910,6 +9913,9 @@ Source: &lt;a href="http://www.onsemi.com/pub/Collateral/NCT75-D.PDF"&gt; Datash
 <instance part="RP1" gate="G$1" x="43.18" y="-104.14" rot="R90"/>
 <instance part="RP2" gate="G$1" x="35.56" y="-104.14" rot="R90"/>
 <instance part="IC1" gate="G$1" x="261.62" y="-71.12"/>
+<instance part="RST3" gate="1" x="236.22" y="-101.6" rot="MR90"/>
+<instance part="RST4" gate="1" x="236.22" y="-106.68" rot="MR270"/>
+<instance part="RT1" gate="G$1" x="251.46" y="-96.52" rot="R180"/>
 </instances>
 <busses>
 </busses>
@@ -10087,6 +10093,11 @@ Source: &lt;a href="http://www.onsemi.com/pub/Collateral/NCT75-D.PDF"&gt; Datash
 <wire x1="261.62" y1="-78.74" x2="254" y2="-78.74" width="0.1524" layer="91"/>
 <label x="254" y="-78.74" size="1.016" layer="95" rot="R180" xref="yes"/>
 </segment>
+<segment>
+<pinref part="RST4" gate="1" pin="P"/>
+<wire x1="236.22" y1="-109.22" x2="236.22" y2="-114.3" width="0.1524" layer="91"/>
+<label x="236.22" y="-114.3" size="1.016" layer="95" rot="R270" xref="yes"/>
+</segment>
 </net>
 <net name="+3V3" class="0">
 <segment>
@@ -10156,6 +10167,11 @@ Source: &lt;a href="http://www.onsemi.com/pub/Collateral/NCT75-D.PDF"&gt; Datash
 <wire x1="297.18" y1="-73.66" x2="302.26" y2="-73.66" width="0.1524" layer="91"/>
 <junction x="302.26" y="-73.66"/>
 <label x="302.26" y="-88.9" size="1.016" layer="95" rot="R270" xref="yes"/>
+</segment>
+<segment>
+<pinref part="RT1" gate="G$1" pin="1"/>
+<wire x1="256.54" y1="-96.52" x2="266.7" y2="-96.52" width="0.1524" layer="91"/>
+<label x="266.7" y="-96.52" size="1.016" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="OSC32_IN" class="0">
@@ -10261,22 +10277,12 @@ Source: &lt;a href="http://www.onsemi.com/pub/Collateral/NCT75-D.PDF"&gt; Datash
 <label x="170.18" y="-20.32" size="1.016" layer="95" rot="R90" xref="yes"/>
 <pinref part="BRAIN" gate="G$1" pin="PB6"/>
 </segment>
-<segment>
-<pinref part="IC1" gate="G$1" pin="SCL"/>
-<wire x1="261.62" y1="-73.66" x2="254" y2="-73.66" width="0.1524" layer="91"/>
-<label x="254" y="-73.66" size="1.016" layer="95" rot="R180" xref="yes"/>
-</segment>
 </net>
 <net name="I2C1_SDA" class="0">
 <segment>
 <wire x1="167.64" y1="-27.94" x2="167.64" y2="-20.32" width="0.1524" layer="91"/>
 <label x="167.64" y="-20.32" size="1.016" layer="95" rot="R90" xref="yes"/>
 <pinref part="BRAIN" gate="G$1" pin="PB7"/>
-</segment>
-<segment>
-<pinref part="IC1" gate="G$1" pin="SDA"/>
-<wire x1="261.62" y1="-71.12" x2="254" y2="-71.12" width="0.1524" layer="91"/>
-<label x="254" y="-71.12" size="1.016" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="N$1" class="0">
@@ -10352,10 +10358,20 @@ Source: &lt;a href="http://www.onsemi.com/pub/Collateral/NCT75-D.PDF"&gt; Datash
 <pinref part="BRAIN" gate="G$1" pin="PA11"/>
 </segment>
 </net>
-<net name="N$10" class="0">
+<net name="PRG" class="0">
 <segment>
-<wire x1="200.66" y1="-53.34" x2="208.28" y2="-53.34" width="0.1524" layer="91"/>
+<wire x1="200.66" y1="-53.34" x2="213.36" y2="-53.34" width="0.1524" layer="91"/>
 <pinref part="BRAIN" gate="G$1" pin="PA12"/>
+<label x="213.36" y="-53.34" size="1.016" layer="95" xref="yes"/>
+</segment>
+<segment>
+<pinref part="RST3" gate="1" pin="P"/>
+<wire x1="236.22" y1="-99.06" x2="236.22" y2="-96.52" width="0.1524" layer="91"/>
+<label x="236.22" y="-91.44" size="1.016" layer="95" rot="R90" xref="yes"/>
+<pinref part="RT1" gate="G$1" pin="2"/>
+<wire x1="236.22" y1="-96.52" x2="236.22" y2="-91.44" width="0.1524" layer="91"/>
+<wire x1="246.38" y1="-96.52" x2="236.22" y2="-96.52" width="0.1524" layer="91"/>
+<junction x="236.22" y="-96.52"/>
 </segment>
 </net>
 <net name="G1_IO1" class="0">
@@ -10595,12 +10611,22 @@ Source: &lt;a href="http://www.onsemi.com/pub/Collateral/NCT75-D.PDF"&gt; Datash
 <wire x1="185.42" y1="-99.06" x2="185.42" y2="-114.3" width="0.1524" layer="91"/>
 <label x="185.42" y="-114.3" size="1.016" layer="95" rot="R270" xref="yes"/>
 </segment>
+<segment>
+<pinref part="IC1" gate="G$1" pin="SCL"/>
+<wire x1="261.62" y1="-73.66" x2="254" y2="-73.66" width="0.1524" layer="91"/>
+<label x="254" y="-73.66" size="1.016" layer="95" rot="R180" xref="yes"/>
+</segment>
 </net>
 <net name="I2C2_SDA" class="0">
 <segment>
 <pinref part="BRAIN" gate="G$1" pin="PB11"/>
 <wire x1="187.96" y1="-99.06" x2="187.96" y2="-114.3" width="0.1524" layer="91"/>
 <label x="187.96" y="-114.3" size="1.016" layer="95" rot="R270" xref="yes"/>
+</segment>
+<segment>
+<pinref part="IC1" gate="G$1" pin="SDA"/>
+<wire x1="261.62" y1="-71.12" x2="254" y2="-71.12" width="0.1524" layer="91"/>
+<label x="254" y="-71.12" size="1.016" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 </nets>

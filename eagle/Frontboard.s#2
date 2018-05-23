@@ -9728,88 +9728,71 @@ Source: &lt;a href="http://www.murata.com/en-eu/api/pdfdownloadapi?cate=&amp;par
 </deviceset>
 </devicesets>
 </library>
-<library name="NCT75DR2G">
-<description>&lt;&lt;/b&gt;&lt;p&gt;
+<library name="HTS221TR">
+<description>&lt;Humidity and Temperature Sensor HLGA6 STMicroelectronics HTS221TR Temperature &amp; Humidity Sensor, -40  +120 C, 6-Pin HLGA&lt;/b&gt;&lt;p&gt;
 &lt;author&gt;Created by SamacSys&lt;/author&gt;</description>
 <packages>
-<package name="SOIC127P600X175-8N">
-<description>&lt;b&gt;SOIC-8 NB CAST 751-07&lt;/b&gt;&lt;br&gt;
+<package name="HLGA-6L">
+<description>&lt;b&gt;HLGA-6L&lt;/b&gt;&lt;br&gt;
 </description>
-<smd name="1" x="-2.712" y="1.905" dx="1.525" dy="0.7" layer="1"/>
-<smd name="2" x="-2.712" y="0.635" dx="1.525" dy="0.7" layer="1"/>
-<smd name="3" x="-2.712" y="-0.635" dx="1.525" dy="0.7" layer="1"/>
-<smd name="4" x="-2.712" y="-1.905" dx="1.525" dy="0.7" layer="1"/>
-<smd name="5" x="2.712" y="-1.905" dx="1.525" dy="0.7" layer="1"/>
-<smd name="6" x="2.712" y="-0.635" dx="1.525" dy="0.7" layer="1"/>
-<smd name="7" x="2.712" y="0.635" dx="1.525" dy="0.7" layer="1"/>
-<smd name="8" x="2.712" y="1.905" dx="1.525" dy="0.7" layer="1"/>
-<text x="0" y="0" size="1.27" layer="25" align="center">&gt;NAME</text>
-<text x="0" y="0" size="1.27" layer="27" align="center">&gt;VALUE</text>
-<wire x1="-3.725" y1="2.75" x2="3.725" y2="2.75" width="0.05" layer="51"/>
-<wire x1="3.725" y1="2.75" x2="3.725" y2="-2.75" width="0.05" layer="51"/>
-<wire x1="3.725" y1="-2.75" x2="-3.725" y2="-2.75" width="0.05" layer="51"/>
-<wire x1="-3.725" y1="-2.75" x2="-3.725" y2="2.75" width="0.05" layer="51"/>
-<wire x1="-1.95" y1="2.45" x2="1.95" y2="2.45" width="0.1" layer="51"/>
-<wire x1="1.95" y1="2.45" x2="1.95" y2="-2.45" width="0.1" layer="51"/>
-<wire x1="1.95" y1="-2.45" x2="-1.95" y2="-2.45" width="0.1" layer="51"/>
-<wire x1="-1.95" y1="-2.45" x2="-1.95" y2="2.45" width="0.1" layer="51"/>
-<wire x1="-1.95" y1="1.18" x2="-0.68" y2="2.45" width="0.1" layer="51"/>
-<wire x1="-1.6" y1="2.45" x2="1.6" y2="2.45" width="0.2" layer="21"/>
-<wire x1="1.6" y1="2.45" x2="1.6" y2="-2.45" width="0.2" layer="21"/>
-<wire x1="1.6" y1="-2.45" x2="-1.6" y2="-2.45" width="0.2" layer="21"/>
-<wire x1="-1.6" y1="-2.45" x2="-1.6" y2="2.45" width="0.2" layer="21"/>
-<wire x1="-3.475" y1="2.605" x2="-1.95" y2="2.605" width="0.2" layer="21"/>
+<smd name="1" x="-0.75" y="0.5" dx="0.5" dy="0.45" layer="1" rot="R90"/>
+<smd name="2" x="-0.75" y="-0.5" dx="0.5" dy="0.45" layer="1" rot="R90"/>
+<smd name="3" x="0" y="-0.75" dx="0.5" dy="0.45" layer="1"/>
+<smd name="4" x="0.75" y="-0.5" dx="0.5" dy="0.45" layer="1" rot="R90"/>
+<smd name="5" x="0.75" y="0.5" dx="0.5" dy="0.45" layer="1" rot="R90"/>
+<smd name="6" x="0" y="0.75" dx="0.5" dy="0.45" layer="1"/>
+<text x="-0.27133125" y="0.171" size="1.27" layer="25" align="center">&gt;NAME</text>
+<text x="-0.27133125" y="0.171" size="1.27" layer="27" align="center">&gt;VALUE</text>
+<wire x1="-1" y1="1" x2="1" y2="1" width="0.254" layer="51"/>
+<wire x1="1" y1="1" x2="1" y2="-1" width="0.254" layer="51"/>
+<wire x1="1" y1="-1" x2="-1" y2="-1" width="0.254" layer="51"/>
+<wire x1="-1" y1="-1" x2="-1" y2="1" width="0.254" layer="51"/>
+<circle x="-1.498" y="0.87433125" radius="0.0815" width="0.254" layer="25"/>
 </package>
 </packages>
 <symbols>
-<symbol name="NCT75DR2G">
-<wire x1="5.08" y1="2.54" x2="30.48" y2="2.54" width="0.254" layer="94"/>
-<wire x1="30.48" y1="-10.16" x2="30.48" y2="2.54" width="0.254" layer="94"/>
-<wire x1="30.48" y1="-10.16" x2="5.08" y2="-10.16" width="0.254" layer="94"/>
-<wire x1="5.08" y1="2.54" x2="5.08" y2="-10.16" width="0.254" layer="94"/>
-<text x="31.75" y="7.62" size="1.778" layer="95" align="center-left">&gt;NAME</text>
-<text x="31.75" y="5.08" size="1.778" layer="96" align="center-left">&gt;VALUE</text>
-<pin name="SDA" x="0" y="0" length="middle"/>
-<pin name="SCL" x="0" y="-2.54" length="middle"/>
-<pin name="!OS!/!ALERT" x="0" y="-5.08" length="middle"/>
-<pin name="GND" x="0" y="-7.62" length="middle" direction="pwr"/>
-<pin name="VDD" x="35.56" y="0" length="middle" direction="pwr" rot="R180"/>
-<pin name="A0" x="35.56" y="-2.54" length="middle" rot="R180"/>
-<pin name="A1" x="35.56" y="-5.08" length="middle" rot="R180"/>
-<pin name="A2" x="35.56" y="-7.62" length="middle" rot="R180"/>
+<symbol name="HTS221TR">
+<wire x1="5.08" y1="2.54" x2="35.56" y2="2.54" width="0.254" layer="94"/>
+<wire x1="35.56" y1="-7.62" x2="35.56" y2="2.54" width="0.254" layer="94"/>
+<wire x1="35.56" y1="-7.62" x2="5.08" y2="-7.62" width="0.254" layer="94"/>
+<wire x1="5.08" y1="2.54" x2="5.08" y2="-7.62" width="0.254" layer="94"/>
+<text x="36.83" y="7.62" size="1.778" layer="95" align="center-left">&gt;NAME</text>
+<text x="36.83" y="5.08" size="1.778" layer="96" align="center-left">&gt;VALUE</text>
+<pin name="VDD" x="0" y="0" length="middle"/>
+<pin name="SCL/SPC" x="0" y="-2.54" length="middle"/>
+<pin name="DRDY" x="0" y="-5.08" length="middle"/>
+<pin name="SDA/SDI/SDO" x="40.64" y="0" length="middle" rot="R180"/>
+<pin name="GND" x="40.64" y="-2.54" length="middle" rot="R180"/>
+<pin name="SPI_ENABLE" x="40.64" y="-5.08" length="middle" rot="R180"/>
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="NCT75DR2G" prefix="IC">
-<description>&lt;b&gt;&lt;/b&gt;&lt;p&gt;
-Source: &lt;a href="http://www.onsemi.com/pub/Collateral/NCT75-D.PDF"&gt; Datasheet &lt;/a&gt;</description>
+<deviceset name="HTS221TR" prefix="IC">
+<description>&lt;b&gt;Humidity and Temperature Sensor HLGA6 STMicroelectronics HTS221TR Temperature &amp; Humidity Sensor, -40  +120 C, 6-Pin HLGA&lt;/b&gt;&lt;p&gt;
+Source: &lt;a href="http://www.st.com/content/ccc/resource/technical/document/datasheet/4d/9a/9c/ad/25/07/42/34/DM00116291.pdf/files/DM00116291.pdf/jcr:content/translations/en.DM00116291.pdf"&gt; Datasheet &lt;/a&gt;</description>
 <gates>
-<gate name="G$1" symbol="NCT75DR2G" x="0" y="0"/>
+<gate name="G$1" symbol="HTS221TR" x="0" y="0"/>
 </gates>
 <devices>
-<device name="" package="SOIC127P600X175-8N">
+<device name="" package="HLGA-6L">
 <connects>
-<connect gate="G$1" pin="!OS!/!ALERT" pad="3"/>
-<connect gate="G$1" pin="A0" pad="7"/>
-<connect gate="G$1" pin="A1" pad="6"/>
-<connect gate="G$1" pin="A2" pad="5"/>
-<connect gate="G$1" pin="GND" pad="4"/>
-<connect gate="G$1" pin="SCL" pad="2"/>
-<connect gate="G$1" pin="SDA" pad="1"/>
-<connect gate="G$1" pin="VDD" pad="8"/>
+<connect gate="G$1" pin="DRDY" pad="3"/>
+<connect gate="G$1" pin="GND" pad="5"/>
+<connect gate="G$1" pin="SCL/SPC" pad="2"/>
+<connect gate="G$1" pin="SDA/SDI/SDO" pad="4"/>
+<connect gate="G$1" pin="SPI_ENABLE" pad="6"/>
+<connect gate="G$1" pin="VDD" pad="1"/>
 </connects>
 <technologies>
 <technology name="">
-<attribute name="ALLIED_NUMBER" value="70467171" constant="no"/>
-<attribute name="ALLIED_PRICE/STOCK" value="http://www.alliedelec.com/on-semiconductor-nct75dr2g/70467171/" constant="no"/>
-<attribute name="ARROW_PART_NUMBER" value="NCT75DR2G" constant="no"/>
-<attribute name="ARROW_PRICE/STOCK" value="https://www.arrow.com/en/products/nct75dr2g/on-semiconductor" constant="no"/>
-<attribute name="DESCRIPTION" value="" constant="no"/>
-<attribute name="HEIGHT" value="1.75mm" constant="no"/>
-<attribute name="MANUFACTURER_NAME" value="ON Semiconductor" constant="no"/>
-<attribute name="MANUFACTURER_PART_NUMBER" value="NCT75DR2G" constant="no"/>
-<attribute name="RS_PART_NUMBER" value="8051854P" constant="no"/>
-<attribute name="RS_PRICE/STOCK" value="http://uk.rs-online.com/web/p/products/8051854P" constant="no"/>
+<attribute name="ARROW_PART_NUMBER" value="HTS221TR" constant="no"/>
+<attribute name="ARROW_PRICE/STOCK" value="https://www.arrow.com/en/products/hts221tr/stmicroelectronics" constant="no"/>
+<attribute name="DESCRIPTION" value="Humidity and Temperature Sensor HLGA6 STMicroelectronics HTS221TR Temperature &amp; Humidity Sensor, -40  +120 C, 6-Pin HLGA" constant="no"/>
+<attribute name="HEIGHT" value="mm" constant="no"/>
+<attribute name="MANUFACTURER_NAME" value="STMicroelectronics" constant="no"/>
+<attribute name="MANUFACTURER_PART_NUMBER" value="HTS221TR" constant="no"/>
+<attribute name="RS_PART_NUMBER" value="1660935" constant="no"/>
+<attribute name="RS_PRICE/STOCK" value="http://uk.rs-online.com/web/p/products/1660935" constant="no"/>
 </technology>
 </technologies>
 </device>
@@ -9864,15 +9847,17 @@ Source: &lt;a href="http://www.onsemi.com/pub/Collateral/NCT75-D.PDF"&gt; Datash
 <part name="RS4" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/2" value="330E"/>
 <part name="RP1" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/2" value="330E"/>
 <part name="RP2" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/2" value="330E"/>
-<part name="IC1" library="NCT75DR2G" deviceset="NCT75DR2G" device=""/>
 <part name="RST3" library="wirepad" library_urn="urn:adsk.eagle:library:412" deviceset="SMD5" device="" package3d_urn="urn:adsk.eagle:package:30841/1" value="0"/>
 <part name="RST4" library="wirepad" library_urn="urn:adsk.eagle:library:412" deviceset="SMD5" device="" package3d_urn="urn:adsk.eagle:package:30841/1" value="0"/>
-<part name="100K" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/2" value="330E"/>
+<part name="RT1" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/2" value="100K"/>
+<part name="TEMP" library="HTS221TR" deviceset="HTS221TR" device=""/>
+<part name="C8" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0603" package3d_urn="urn:adsk.eagle:package:23616/2" value="100nf"/>
 </parts>
 <sheets>
 <sheet>
 <plain>
-<text x="264.16" y="-66.04" size="1.778" layer="91">I²C Adr.: 0x4F</text>
+<text x="276.86" y="-60.96" size="1.016" layer="91">I2C READ: 0xBF
+I2C WRITE: 0xBE</text>
 </plain>
 <instances>
 <instance part="BCU" gate="A" x="53.34" y="55.88" rot="R90"/>
@@ -9889,7 +9874,7 @@ Source: &lt;a href="http://www.onsemi.com/pub/Collateral/NCT75-D.PDF"&gt; Datash
 <instance part="C4" gate="G$1" x="88.9" y="17.78"/>
 <instance part="C5" gate="G$1" x="96.52" y="17.78"/>
 <instance part="C6" gate="G$1" x="104.14" y="17.78"/>
-<instance part="SWD" gate="G$1" x="279.4" y="-38.1"/>
+<instance part="SWD" gate="G$1" x="279.4" y="-33.02"/>
 <instance part="C7" gate="G$1" x="116.84" y="-66.04"/>
 <instance part="RST1" gate="1" x="109.22" y="-63.5" rot="MR90"/>
 <instance part="RST2" gate="1" x="109.22" y="-71.12" rot="MR270"/>
@@ -9912,10 +9897,11 @@ Source: &lt;a href="http://www.onsemi.com/pub/Collateral/NCT75-D.PDF"&gt; Datash
 <instance part="RS4" gate="G$1" x="50.8" y="-104.14" rot="R90"/>
 <instance part="RP1" gate="G$1" x="43.18" y="-104.14" rot="R90"/>
 <instance part="RP2" gate="G$1" x="35.56" y="-104.14" rot="R90"/>
-<instance part="IC1" gate="G$1" x="261.62" y="-71.12"/>
-<instance part="RST3" gate="1" x="236.22" y="-99.06" rot="MR90"/>
+<instance part="RST3" gate="1" x="236.22" y="-101.6" rot="MR90"/>
 <instance part="RST4" gate="1" x="236.22" y="-106.68" rot="MR270"/>
-<instance part="100K" gate="G$1" x="251.46" y="-96.52" rot="R180"/>
+<instance part="RT1" gate="G$1" x="251.46" y="-96.52" rot="R180"/>
+<instance part="TEMP" gate="G$1" x="261.62" y="-66.04"/>
+<instance part="C8" gate="G$1" x="259.08" y="-58.42"/>
 </instances>
 <busses>
 </busses>
@@ -10085,18 +10071,24 @@ Source: &lt;a href="http://www.onsemi.com/pub/Collateral/NCT75-D.PDF"&gt; Datash
 </segment>
 <segment>
 <pinref part="SWD" gate="G$1" pin="VSS(GND)"/>
-<wire x1="266.7" y1="-35.56" x2="256.54" y2="-35.56" width="0.1524" layer="91"/>
-<label x="256.54" y="-35.56" size="1.016" layer="95" rot="R180" xref="yes"/>
-</segment>
-<segment>
-<pinref part="IC1" gate="G$1" pin="GND"/>
-<wire x1="261.62" y1="-78.74" x2="254" y2="-78.74" width="0.1524" layer="91"/>
-<label x="254" y="-78.74" size="1.016" layer="95" rot="R180" xref="yes"/>
+<wire x1="266.7" y1="-30.48" x2="256.54" y2="-30.48" width="0.1524" layer="91"/>
+<label x="256.54" y="-30.48" size="1.016" layer="95" rot="R180" xref="yes"/>
 </segment>
 <segment>
 <pinref part="RST4" gate="1" pin="P"/>
 <wire x1="236.22" y1="-109.22" x2="236.22" y2="-114.3" width="0.1524" layer="91"/>
 <label x="236.22" y="-114.3" size="1.016" layer="95" rot="R270" xref="yes"/>
+</segment>
+<segment>
+<pinref part="TEMP" gate="G$1" pin="GND"/>
+<wire x1="302.26" y1="-68.58" x2="307.34" y2="-68.58" width="0.1524" layer="91"/>
+<label x="312.42" y="-68.58" size="1.016" layer="95" xref="yes"/>
+<pinref part="C8" gate="G$1" pin="1"/>
+<wire x1="307.34" y1="-68.58" x2="312.42" y2="-68.58" width="0.1524" layer="91"/>
+<wire x1="259.08" y1="-55.88" x2="259.08" y2="-53.34" width="0.1524" layer="91"/>
+<wire x1="259.08" y1="-53.34" x2="307.34" y2="-53.34" width="0.1524" layer="91"/>
+<wire x1="307.34" y1="-53.34" x2="307.34" y2="-68.58" width="0.1524" layer="91"/>
+<junction x="307.34" y="-68.58"/>
 </segment>
 </net>
 <net name="+3V3" class="0">
@@ -10151,27 +10143,23 @@ Source: &lt;a href="http://www.onsemi.com/pub/Collateral/NCT75-D.PDF"&gt; Datash
 <pinref part="BRAIN" gate="G$1" pin="VDD3"/>
 </segment>
 <segment>
-<pinref part="IC1" gate="G$1" pin="VDD"/>
-<wire x1="297.18" y1="-71.12" x2="302.26" y2="-71.12" width="0.1524" layer="91"/>
-<wire x1="302.26" y1="-71.12" x2="302.26" y2="-73.66" width="0.1524" layer="91"/>
-<pinref part="IC1" gate="G$1" pin="A2"/>
-<wire x1="302.26" y1="-73.66" x2="302.26" y2="-76.2" width="0.1524" layer="91"/>
-<wire x1="302.26" y1="-76.2" x2="302.26" y2="-78.74" width="0.1524" layer="91"/>
-<wire x1="302.26" y1="-78.74" x2="302.26" y2="-88.9" width="0.1524" layer="91"/>
-<wire x1="297.18" y1="-78.74" x2="302.26" y2="-78.74" width="0.1524" layer="91"/>
-<junction x="302.26" y="-78.74"/>
-<pinref part="IC1" gate="G$1" pin="A1"/>
-<wire x1="297.18" y1="-76.2" x2="302.26" y2="-76.2" width="0.1524" layer="91"/>
-<junction x="302.26" y="-76.2"/>
-<pinref part="IC1" gate="G$1" pin="A0"/>
-<wire x1="297.18" y1="-73.66" x2="302.26" y2="-73.66" width="0.1524" layer="91"/>
-<junction x="302.26" y="-73.66"/>
-<label x="302.26" y="-88.9" size="1.016" layer="95" rot="R270" xref="yes"/>
-</segment>
-<segment>
-<pinref part="100K" gate="G$1" pin="1"/>
+<pinref part="RT1" gate="G$1" pin="1"/>
 <wire x1="256.54" y1="-96.52" x2="266.7" y2="-96.52" width="0.1524" layer="91"/>
 <label x="266.7" y="-96.52" size="1.016" layer="95" xref="yes"/>
+</segment>
+<segment>
+<pinref part="TEMP" gate="G$1" pin="VDD"/>
+<wire x1="261.62" y1="-66.04" x2="259.08" y2="-66.04" width="0.1524" layer="91"/>
+<label x="254" y="-66.04" size="1.016" layer="95" rot="R180" xref="yes"/>
+<pinref part="C8" gate="G$1" pin="2"/>
+<wire x1="259.08" y1="-66.04" x2="254" y2="-66.04" width="0.1524" layer="91"/>
+<wire x1="259.08" y1="-63.5" x2="259.08" y2="-66.04" width="0.1524" layer="91"/>
+<junction x="259.08" y="-66.04"/>
+</segment>
+<segment>
+<pinref part="TEMP" gate="G$1" pin="SPI_ENABLE"/>
+<wire x1="302.26" y1="-71.12" x2="312.42" y2="-71.12" width="0.1524" layer="91"/>
+<label x="312.42" y="-71.12" size="1.016" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="OSC32_IN" class="0">
@@ -10243,8 +10231,8 @@ Source: &lt;a href="http://www.onsemi.com/pub/Collateral/NCT75-D.PDF"&gt; Datash
 </segment>
 <segment>
 <pinref part="SWD" gate="G$1" pin="VPP/MCLR"/>
-<wire x1="266.7" y1="-30.48" x2="256.54" y2="-30.48" width="0.1524" layer="91"/>
-<label x="256.54" y="-30.48" size="1.016" layer="95" rot="R180" xref="yes"/>
+<wire x1="266.7" y1="-25.4" x2="256.54" y2="-25.4" width="0.1524" layer="91"/>
+<label x="256.54" y="-25.4" size="1.016" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="SWDIO" class="0">
@@ -10255,8 +10243,8 @@ Source: &lt;a href="http://www.onsemi.com/pub/Collateral/NCT75-D.PDF"&gt; Datash
 </segment>
 <segment>
 <pinref part="SWD" gate="G$1" pin="ICSP_DAT/PGD"/>
-<wire x1="266.7" y1="-38.1" x2="256.54" y2="-38.1" width="0.1524" layer="91"/>
-<label x="256.54" y="-38.1" size="1.016" layer="95" rot="R180" xref="yes"/>
+<wire x1="266.7" y1="-33.02" x2="256.54" y2="-33.02" width="0.1524" layer="91"/>
+<label x="256.54" y="-33.02" size="1.016" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="SWCLK" class="0">
@@ -10267,8 +10255,8 @@ Source: &lt;a href="http://www.onsemi.com/pub/Collateral/NCT75-D.PDF"&gt; Datash
 </segment>
 <segment>
 <pinref part="SWD" gate="G$1" pin="ICSP_CLK/PGC"/>
-<wire x1="266.7" y1="-40.64" x2="256.54" y2="-40.64" width="0.1524" layer="91"/>
-<label x="256.54" y="-40.64" size="1.016" layer="95" rot="R180" xref="yes"/>
+<wire x1="266.7" y1="-35.56" x2="256.54" y2="-35.56" width="0.1524" layer="91"/>
+<label x="256.54" y="-35.56" size="1.016" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="I2C1_SCL" class="0">
@@ -10366,9 +10354,11 @@ Source: &lt;a href="http://www.onsemi.com/pub/Collateral/NCT75-D.PDF"&gt; Datash
 </segment>
 <segment>
 <pinref part="RST3" gate="1" pin="P"/>
-<wire x1="236.22" y1="-96.52" x2="236.22" y2="-91.44" width="0.1524" layer="91"/>
+<wire x1="236.22" y1="-99.06" x2="236.22" y2="-96.52" width="0.1524" layer="91"/>
 <label x="236.22" y="-91.44" size="1.016" layer="95" rot="R90" xref="yes"/>
-<wire x1="236.22" y1="-96.52" x2="246.38" y2="-96.52" width="0.1524" layer="91"/>
+<pinref part="RT1" gate="G$1" pin="2"/>
+<wire x1="236.22" y1="-96.52" x2="236.22" y2="-91.44" width="0.1524" layer="91"/>
+<wire x1="246.38" y1="-96.52" x2="236.22" y2="-96.52" width="0.1524" layer="91"/>
 <junction x="236.22" y="-96.52"/>
 </segment>
 </net>
@@ -10610,9 +10600,9 @@ Source: &lt;a href="http://www.onsemi.com/pub/Collateral/NCT75-D.PDF"&gt; Datash
 <label x="185.42" y="-114.3" size="1.016" layer="95" rot="R270" xref="yes"/>
 </segment>
 <segment>
-<pinref part="IC1" gate="G$1" pin="SCL"/>
-<wire x1="261.62" y1="-73.66" x2="254" y2="-73.66" width="0.1524" layer="91"/>
-<label x="254" y="-73.66" size="1.016" layer="95" rot="R180" xref="yes"/>
+<pinref part="TEMP" gate="G$1" pin="SCL/SPC"/>
+<wire x1="261.62" y1="-68.58" x2="254" y2="-68.58" width="0.1524" layer="91"/>
+<label x="254" y="-68.58" size="1.016" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="I2C2_SDA" class="0">
@@ -10622,9 +10612,9 @@ Source: &lt;a href="http://www.onsemi.com/pub/Collateral/NCT75-D.PDF"&gt; Datash
 <label x="187.96" y="-114.3" size="1.016" layer="95" rot="R270" xref="yes"/>
 </segment>
 <segment>
-<pinref part="IC1" gate="G$1" pin="SDA"/>
-<wire x1="261.62" y1="-71.12" x2="254" y2="-71.12" width="0.1524" layer="91"/>
-<label x="254" y="-71.12" size="1.016" layer="95" rot="R180" xref="yes"/>
+<pinref part="TEMP" gate="G$1" pin="SDA/SDI/SDO"/>
+<wire x1="302.26" y1="-66.04" x2="312.42" y2="-66.04" width="0.1524" layer="91"/>
+<label x="312.42" y="-66.04" size="1.016" layer="95" xref="yes"/>
 </segment>
 </net>
 </nets>
@@ -10636,6 +10626,10 @@ Source: &lt;a href="http://www.onsemi.com/pub/Collateral/NCT75-D.PDF"&gt; Datash
 </schematic>
 </drawing>
 <compatibility>
+<note version="6.3" minversion="6.2.2" severity="warning">
+Since Version 6.2.2 text objects can contain more than one line,
+which will not be processed correctly with this version.
+</note>
 <note version="8.2" severity="warning">
 Since Version 8.2, EAGLE supports online libraries. The ids
 of those online libraries will not be understood (or retained)
