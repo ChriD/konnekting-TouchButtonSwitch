@@ -10387,6 +10387,11 @@ I2C WRITE: 0xBE</text>
 <wire x1="264.16" y1="-101.6" x2="254" y2="-101.6" width="0.1524" layer="91"/>
 <junction x="254" y="-101.6"/>
 </segment>
+<segment>
+<pinref part="U1" gate="A" pin="PA5"/>
+<wire x1="147.32" y1="-73.66" x2="132.08" y2="-73.66" width="0.1524" layer="91"/>
+<label x="132.08" y="-73.66" size="1.016" layer="95" rot="R180" xref="yes"/>
+</segment>
 </net>
 <net name="IC_SENS_PROX_1" class="0">
 <segment>
@@ -10418,6 +10423,11 @@ I2C WRITE: 0xBE</text>
 <wire x1="182.88" y1="55.88" x2="190.5" y2="55.88" width="0.1524" layer="91"/>
 <label x="190.5" y="55.88" size="1.016" layer="95" xref="yes"/>
 </segment>
+<segment>
+<pinref part="U1" gate="A" pin="PB6"/>
+<wire x1="213.36" y1="-58.42" x2="228.6" y2="-58.42" width="0.1524" layer="91"/>
+<label x="228.6" y="-58.42" size="1.016" layer="95" xref="yes"/>
+</segment>
 </net>
 <net name="LED2" class="0">
 <segment>
@@ -10425,12 +10435,22 @@ I2C WRITE: 0xBE</text>
 <wire x1="182.88" y1="43.18" x2="190.5" y2="43.18" width="0.1524" layer="91"/>
 <label x="190.5" y="43.18" size="1.016" layer="95" xref="yes"/>
 </segment>
+<segment>
+<pinref part="U1" gate="A" pin="PA4"/>
+<wire x1="147.32" y1="-71.12" x2="132.08" y2="-71.12" width="0.1524" layer="91"/>
+<label x="132.08" y="-71.12" size="1.016" layer="95" rot="R180" xref="yes"/>
+</segment>
 </net>
 <net name="LED4" class="0">
 <segment>
 <pinref part="RL4" gate="G$1" pin="1"/>
 <wire x1="182.88" y1="17.78" x2="190.5" y2="17.78" width="0.1524" layer="91"/>
 <label x="190.5" y="17.78" size="1.016" layer="95" xref="yes"/>
+</segment>
+<segment>
+<pinref part="U1" gate="A" pin="PA6"/>
+<wire x1="147.32" y1="-76.2" x2="132.08" y2="-76.2" width="0.1524" layer="91"/>
+<label x="132.08" y="-76.2" size="1.016" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="N$19" class="0">
@@ -10466,6 +10486,11 @@ I2C WRITE: 0xBE</text>
 <pinref part="RL3" gate="G$1" pin="1"/>
 <wire x1="182.88" y1="30.48" x2="190.5" y2="30.48" width="0.1524" layer="91"/>
 <label x="190.5" y="30.48" size="1.016" layer="95" xref="yes"/>
+</segment>
+<segment>
+<pinref part="U1" gate="A" pin="PB4"/>
+<wire x1="213.36" y1="-63.5" x2="228.6" y2="-63.5" width="0.1524" layer="91"/>
+<label x="228.6" y="-63.5" size="1.016" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="IC_SENS_2" class="0">
