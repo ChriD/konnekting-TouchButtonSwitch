@@ -10403,12 +10403,22 @@ I2C WRITE: 0xBE</text>
 <wire x1="50.8" y1="53.34" x2="50.8" y2="43.18" width="0.1524" layer="91"/>
 <label x="50.8" y="43.18" size="1.016" layer="95" rot="R270" xref="yes"/>
 </segment>
+<segment>
+<pinref part="U1" gate="A" pin="PB7"/>
+<wire x1="213.36" y1="-55.88" x2="228.6" y2="-55.88" width="0.1524" layer="91"/>
+<label x="228.6" y="-55.88" size="1.016" layer="95" xref="yes"/>
+</segment>
 </net>
 <net name="RXD" class="0">
 <segment>
 <pinref part="BCU" gate="A" pin="7"/>
 <wire x1="55.88" y1="53.34" x2="55.88" y2="43.18" width="0.1524" layer="91"/>
 <label x="55.88" y="43.18" size="1.016" layer="95" rot="R270" xref="yes"/>
+</segment>
+<segment>
+<pinref part="U1" gate="A" pin="PB6"/>
+<wire x1="213.36" y1="-58.42" x2="228.6" y2="-58.42" width="0.1524" layer="91"/>
+<label x="228.6" y="-58.42" size="1.016" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="GND" class="0">
@@ -10557,9 +10567,6 @@ I2C WRITE: 0xBE</text>
 <label x="302.26" y="10.16" size="1.016" layer="95" xref="yes"/>
 </segment>
 <segment>
-<pinref part="IC1" gate="G$1" pin="CS15/SH/!HI"/>
-<wire x1="274.32" y1="-12.7" x2="274.32" y2="-17.78" width="0.1524" layer="91"/>
-<wire x1="274.32" y1="-17.78" x2="276.86" y2="-17.78" width="0.1524" layer="91"/>
 <pinref part="IC1" gate="G$1" pin="CS12/GP14"/>
 <wire x1="276.86" y1="-17.78" x2="279.4" y2="-17.78" width="0.1524" layer="91"/>
 <wire x1="279.4" y1="-17.78" x2="281.94" y2="-17.78" width="0.1524" layer="91"/>
@@ -10569,10 +10576,13 @@ I2C WRITE: 0xBE</text>
 <junction x="279.4" y="-17.78"/>
 <pinref part="IC1" gate="G$1" pin="CS14/GPO6"/>
 <wire x1="276.86" y1="-12.7" x2="276.86" y2="-17.78" width="0.1524" layer="91"/>
-<junction x="276.86" y="-17.78"/>
 <wire x1="281.94" y1="-17.78" x2="287.02" y2="-17.78" width="0.1524" layer="91"/>
 <junction x="281.94" y="-17.78"/>
 <label x="287.02" y="-17.78" size="1.016" layer="95" xref="yes"/>
+<pinref part="IC1" gate="G$1" pin="CS15/SH/!HI"/>
+<wire x1="274.32" y1="-12.7" x2="274.32" y2="-17.78" width="0.1524" layer="91"/>
+<wire x1="274.32" y1="-17.78" x2="276.86" y2="-17.78" width="0.1524" layer="91"/>
+<junction x="276.86" y="-17.78"/>
 </segment>
 <segment>
 <pinref part="U1" gate="A" pin="PH3-BOOT0"/>
@@ -10774,9 +10784,9 @@ I2C WRITE: 0xBE</text>
 <label x="190.5" y="55.88" size="1.016" layer="95" xref="yes"/>
 </segment>
 <segment>
-<pinref part="U1" gate="A" pin="PB6"/>
-<wire x1="213.36" y1="-58.42" x2="228.6" y2="-58.42" width="0.1524" layer="91"/>
-<label x="228.6" y="-58.42" size="1.016" layer="95" xref="yes"/>
+<pinref part="U1" gate="A" pin="PB5"/>
+<wire x1="213.36" y1="-60.96" x2="228.6" y2="-60.96" width="0.1524" layer="91"/>
+<label x="228.6" y="-60.96" size="1.016" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="LED2" class="0">

@@ -10317,6 +10317,7 @@ Source: http://www.mouser.com/ds/2/392/products_18-2245.pdf</description>
 <part name="C4" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0402" package3d_urn="urn:adsk.eagle:package:23626/1" value="0.1uF"/>
 <part name="RI2C1" library="resistor" library_urn="urn:adsk.eagle:library:348" deviceset="R-EU_" device="R0402" package3d_urn="urn:adsk.eagle:package:26058/1" value="4k7"/>
 <part name="RI2C2" library="resistor" library_urn="urn:adsk.eagle:library:348" deviceset="R-EU_" device="R0402" package3d_urn="urn:adsk.eagle:package:26058/1" value="4k7"/>
+<part name="C6" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0402" package3d_urn="urn:adsk.eagle:package:23626/1" value="100nf"/>
 </parts>
 <sheets>
 <sheet>
@@ -10366,6 +10367,7 @@ I2C WRITE: 0xBE</text>
 <instance part="C4" gate="G$1" x="243.84" y="5.08"/>
 <instance part="RI2C1" gate="G$1" x="154.94" y="-114.3" rot="R90"/>
 <instance part="RI2C2" gate="G$1" x="165.1" y="-114.3" rot="R90"/>
+<instance part="C6" gate="G$1" x="81.28" y="17.78"/>
 </instances>
 <busses>
 </busses>
@@ -10433,8 +10435,9 @@ I2C WRITE: 0xBE</text>
 <pinref part="C2" gate="G$1" pin="2"/>
 <wire x1="73.66" y1="12.7" x2="73.66" y2="10.16" width="0.1524" layer="91"/>
 <label x="73.66" y="10.16" size="1.016" layer="95" rot="R270" xref="yes"/>
+<pinref part="C6" gate="G$1" pin="2"/>
+<wire x1="81.28" y1="12.7" x2="73.66" y2="12.7" width="0.1524" layer="91"/>
 <junction x="73.66" y="12.7"/>
-<wire x1="73.66" y1="12.7" x2="104.14" y2="12.7" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <wire x1="40.64" y1="-25.4" x2="35.56" y2="-25.4" width="0.1524" layer="91"/>
@@ -10554,9 +10557,6 @@ I2C WRITE: 0xBE</text>
 <label x="302.26" y="10.16" size="1.016" layer="95" xref="yes"/>
 </segment>
 <segment>
-<pinref part="IC1" gate="G$1" pin="CS15/SH/!HI"/>
-<wire x1="274.32" y1="-12.7" x2="274.32" y2="-17.78" width="0.1524" layer="91"/>
-<wire x1="274.32" y1="-17.78" x2="276.86" y2="-17.78" width="0.1524" layer="91"/>
 <pinref part="IC1" gate="G$1" pin="CS12/GP14"/>
 <wire x1="276.86" y1="-17.78" x2="279.4" y2="-17.78" width="0.1524" layer="91"/>
 <wire x1="279.4" y1="-17.78" x2="281.94" y2="-17.78" width="0.1524" layer="91"/>
@@ -10566,10 +10566,13 @@ I2C WRITE: 0xBE</text>
 <junction x="279.4" y="-17.78"/>
 <pinref part="IC1" gate="G$1" pin="CS14/GPO6"/>
 <wire x1="276.86" y1="-12.7" x2="276.86" y2="-17.78" width="0.1524" layer="91"/>
-<junction x="276.86" y="-17.78"/>
 <wire x1="281.94" y1="-17.78" x2="287.02" y2="-17.78" width="0.1524" layer="91"/>
 <junction x="281.94" y="-17.78"/>
 <label x="287.02" y="-17.78" size="1.016" layer="95" xref="yes"/>
+<pinref part="IC1" gate="G$1" pin="CS15/SH/!HI"/>
+<wire x1="274.32" y1="-12.7" x2="274.32" y2="-17.78" width="0.1524" layer="91"/>
+<wire x1="274.32" y1="-17.78" x2="276.86" y2="-17.78" width="0.1524" layer="91"/>
+<junction x="276.86" y="-17.78"/>
 </segment>
 <segment>
 <pinref part="U1" gate="A" pin="PH3-BOOT0"/>
@@ -10589,7 +10592,10 @@ I2C WRITE: 0xBE</text>
 <label x="114.3" y="20.32" size="1.016" layer="95" xref="yes"/>
 <pinref part="C2" gate="G$1" pin="1"/>
 <junction x="73.66" y="20.32"/>
-<wire x1="73.66" y1="20.32" x2="114.3" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="73.66" y1="20.32" x2="81.28" y2="20.32" width="0.1524" layer="91"/>
+<pinref part="C6" gate="G$1" pin="1"/>
+<junction x="81.28" y="20.32"/>
+<wire x1="81.28" y1="20.32" x2="114.3" y2="20.32" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="RT1" gate="G$1" pin="1"/>
@@ -10768,9 +10774,9 @@ I2C WRITE: 0xBE</text>
 <label x="190.5" y="55.88" size="1.016" layer="95" xref="yes"/>
 </segment>
 <segment>
-<pinref part="U1" gate="A" pin="PB6"/>
-<wire x1="213.36" y1="-58.42" x2="228.6" y2="-58.42" width="0.1524" layer="91"/>
-<label x="228.6" y="-58.42" size="1.016" layer="95" xref="yes"/>
+<pinref part="U1" gate="A" pin="PB5"/>
+<wire x1="213.36" y1="-60.96" x2="228.6" y2="-60.96" width="0.1524" layer="91"/>
+<label x="228.6" y="-60.96" size="1.016" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="LED2" class="0">

@@ -10281,12 +10281,12 @@ Source: http://www.mouser.com/ds/2/392/products_18-2245.pdf</description>
 <part name="+3V1" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
 <part name="P+1" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+5V" device=""/>
 <part name="GND1" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
-<part name="C1" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0402" package3d_urn="urn:adsk.eagle:package:23626/1" value="1uF"/>
-<part name="C2" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0402" package3d_urn="urn:adsk.eagle:package:23626/1" value="1uF"/>
+<part name="C1" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0603" package3d_urn="urn:adsk.eagle:package:23616/2" value="1uF"/>
+<part name="C2" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0603" package3d_urn="urn:adsk.eagle:package:23616/2" value="1uF"/>
 <part name="Y1" library="ABS07-32.768KHZ-7-T" deviceset="ABS07-32.768KHZ-7-T" device=""/>
-<part name="CLO1" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0402" package3d_urn="urn:adsk.eagle:package:23626/1" value="7pF"/>
-<part name="CLO2" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0402" package3d_urn="urn:adsk.eagle:package:23626/1" value="7pf"/>
-<part name="C7" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0402" package3d_urn="urn:adsk.eagle:package:23626/1" value="0.1uF"/>
+<part name="CLO1" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0603" package3d_urn="urn:adsk.eagle:package:23616/2" value="7pF"/>
+<part name="CLO2" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0603" package3d_urn="urn:adsk.eagle:package:23616/2" value="7pf"/>
+<part name="C7" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0603" package3d_urn="urn:adsk.eagle:package:23616/2" value="0.1uF"/>
 <part name="RST1" library="wirepad" library_urn="urn:adsk.eagle:library:412" deviceset="SMD5" device="" package3d_urn="urn:adsk.eagle:package:30841/1" value="0"/>
 <part name="RST2" library="wirepad" library_urn="urn:adsk.eagle:library:412" deviceset="SMD5" device="" package3d_urn="urn:adsk.eagle:package:30841/1" value="0"/>
 <part name="RL2" library="resistor" library_urn="urn:adsk.eagle:library:348" deviceset="R-EU_" device="R0402" package3d_urn="urn:adsk.eagle:package:26058/1" value="330E"/>
@@ -10307,17 +10307,16 @@ Source: http://www.mouser.com/ds/2/392/products_18-2245.pdf</description>
 <part name="RST4" library="wirepad" library_urn="urn:adsk.eagle:library:412" deviceset="SMD5" device="" package3d_urn="urn:adsk.eagle:package:30841/1" value="0"/>
 <part name="RT1" library="resistor" library_urn="urn:adsk.eagle:library:348" deviceset="R-EU_" device="R0402" package3d_urn="urn:adsk.eagle:package:26058/1" value="100K"/>
 <part name="TEMP" library="HTS221TR" deviceset="HTS221TR" device=""/>
-<part name="C8" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0402" package3d_urn="urn:adsk.eagle:package:23626/1" value="100nf"/>
+<part name="C8" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0603" package3d_urn="urn:adsk.eagle:package:23616/2" value="100nf"/>
 <part name="U1" library="STM32L432KC" deviceset="STM32L432KX" device=""/>
 <part name="IC1" library="CY8CMBR3116-LQXI" deviceset="CY8CMBR3116-LQXI" device=""/>
-<part name="C9" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0402" package3d_urn="urn:adsk.eagle:package:23626/1" value="100nf"/>
-<part name="C10" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0402" package3d_urn="urn:adsk.eagle:package:23626/1" value="100nf"/>
-<part name="C5" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0402" package3d_urn="urn:adsk.eagle:package:23626/1" value="100nf"/>
-<part name="C3" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0402" package3d_urn="urn:adsk.eagle:package:23626/1" value="2.2nF"/>
-<part name="C4" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0402" package3d_urn="urn:adsk.eagle:package:23626/1" value="0.1uF"/>
-<part name="RI2C1" library="resistor" library_urn="urn:adsk.eagle:library:348" deviceset="R-EU_" device="R0402" package3d_urn="urn:adsk.eagle:package:26058/1" value="4k7"/>
-<part name="RI2C2" library="resistor" library_urn="urn:adsk.eagle:library:348" deviceset="R-EU_" device="R0402" package3d_urn="urn:adsk.eagle:package:26058/1" value="4k7"/>
-<part name="C6" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0402" package3d_urn="urn:adsk.eagle:package:23626/1" value="100nf"/>
+<part name="C9" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0603" package3d_urn="urn:adsk.eagle:package:23616/2" value="100nf"/>
+<part name="C10" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0603" package3d_urn="urn:adsk.eagle:package:23616/2" value="100nf"/>
+<part name="C5" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0603" package3d_urn="urn:adsk.eagle:package:23616/2" value="100nf"/>
+<part name="C3" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0603" package3d_urn="urn:adsk.eagle:package:23616/2" value="2.2nF"/>
+<part name="C4" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0603" package3d_urn="urn:adsk.eagle:package:23616/2" value="0.1uF"/>
+<part name="RS5" library="resistor" library_urn="urn:adsk.eagle:library:348" deviceset="R-EU_" device="R0402" package3d_urn="urn:adsk.eagle:package:26058/1" value="4k7"/>
+<part name="RS6" library="resistor" library_urn="urn:adsk.eagle:library:348" deviceset="R-EU_" device="R0402" package3d_urn="urn:adsk.eagle:package:26058/1" value="4k7"/>
 </parts>
 <sheets>
 <sheet>
@@ -10365,9 +10364,8 @@ I2C WRITE: 0xBE</text>
 <instance part="C5" gate="G$1" x="264.16" y="-17.78" rot="R90"/>
 <instance part="C3" gate="G$1" x="238.76" y="5.08"/>
 <instance part="C4" gate="G$1" x="243.84" y="5.08"/>
-<instance part="RI2C1" gate="G$1" x="154.94" y="-114.3" rot="R90"/>
-<instance part="RI2C2" gate="G$1" x="165.1" y="-114.3" rot="R90"/>
-<instance part="C6" gate="G$1" x="81.28" y="17.78"/>
+<instance part="RS5" gate="G$1" x="154.94" y="-114.3" rot="R90"/>
+<instance part="RS6" gate="G$1" x="165.1" y="-114.3" rot="R90"/>
 </instances>
 <busses>
 </busses>
@@ -10435,9 +10433,8 @@ I2C WRITE: 0xBE</text>
 <pinref part="C2" gate="G$1" pin="2"/>
 <wire x1="73.66" y1="12.7" x2="73.66" y2="10.16" width="0.1524" layer="91"/>
 <label x="73.66" y="10.16" size="1.016" layer="95" rot="R270" xref="yes"/>
-<pinref part="C6" gate="G$1" pin="2"/>
-<wire x1="81.28" y1="12.7" x2="73.66" y2="12.7" width="0.1524" layer="91"/>
 <junction x="73.66" y="12.7"/>
+<wire x1="73.66" y1="12.7" x2="104.14" y2="12.7" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <wire x1="40.64" y1="-25.4" x2="35.56" y2="-25.4" width="0.1524" layer="91"/>
@@ -10592,10 +10589,7 @@ I2C WRITE: 0xBE</text>
 <label x="114.3" y="20.32" size="1.016" layer="95" xref="yes"/>
 <pinref part="C2" gate="G$1" pin="1"/>
 <junction x="73.66" y="20.32"/>
-<wire x1="73.66" y1="20.32" x2="81.28" y2="20.32" width="0.1524" layer="91"/>
-<pinref part="C6" gate="G$1" pin="1"/>
-<junction x="81.28" y="20.32"/>
-<wire x1="81.28" y1="20.32" x2="114.3" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="73.66" y1="20.32" x2="114.3" y2="20.32" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="RT1" gate="G$1" pin="1"/>
@@ -10648,9 +10642,9 @@ I2C WRITE: 0xBE</text>
 <label x="269.24" y="-22.86" size="1.016" layer="95" rot="R270" xref="yes"/>
 </segment>
 <segment>
-<pinref part="RI2C1" gate="G$1" pin="2"/>
+<pinref part="RS5" gate="G$1" pin="2"/>
 <wire x1="154.94" y1="-109.22" x2="154.94" y2="-104.14" width="0.1524" layer="91"/>
-<pinref part="RI2C2" gate="G$1" pin="2"/>
+<pinref part="RS6" gate="G$1" pin="2"/>
 <wire x1="154.94" y1="-104.14" x2="160.02" y2="-104.14" width="0.1524" layer="91"/>
 <wire x1="160.02" y1="-104.14" x2="165.1" y2="-104.14" width="0.1524" layer="91"/>
 <wire x1="165.1" y1="-104.14" x2="165.1" y2="-109.22" width="0.1524" layer="91"/>
@@ -10941,7 +10935,7 @@ I2C WRITE: 0xBE</text>
 <label x="254" y="-68.58" size="1.016" layer="95" rot="R180" xref="yes"/>
 </segment>
 <segment>
-<pinref part="RI2C2" gate="G$1" pin="1"/>
+<pinref part="RS6" gate="G$1" pin="1"/>
 <wire x1="165.1" y1="-119.38" x2="165.1" y2="-121.92" width="0.1524" layer="91"/>
 <label x="165.1" y="-121.92" size="1.016" layer="95" rot="R270" xref="yes"/>
 </segment>
@@ -10963,7 +10957,7 @@ I2C WRITE: 0xBE</text>
 <label x="312.42" y="-66.04" size="1.016" layer="95" xref="yes"/>
 </segment>
 <segment>
-<pinref part="RI2C1" gate="G$1" pin="1"/>
+<pinref part="RS5" gate="G$1" pin="1"/>
 <wire x1="154.94" y1="-119.38" x2="154.94" y2="-121.92" width="0.1524" layer="91"/>
 <label x="154.94" y="-121.92" size="1.016" layer="95" rot="R270" xref="yes"/>
 </segment>
