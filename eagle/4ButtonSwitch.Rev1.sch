@@ -10392,7 +10392,7 @@ Source: http://www.abracon.com/Oscillators/asf1-L-L1.pdf</description>
 </class>
 </classes>
 <parts>
-<part name="BCU" library="pinhead" deviceset="PINHD-2X5" device="_2.54-SMD" value="BCU"/>
+<part name="SIEMENS-BCU" library="pinhead" deviceset="PINHD-2X5" device="_2.54-SMD" value="SIEMENS BCU"/>
 <part name="3V3_REGULATOR" library="MCP1703T-3302E_MB" deviceset="MCP1703T-3302E_MB" device=""/>
 <part name="+3V1" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
 <part name="P+1" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+5V" device=""/>
@@ -10442,9 +10442,10 @@ Source: http://www.abracon.com/Oscillators/asf1-L-L1.pdf</description>
 <plain>
 <text x="276.86" y="-60.96" size="1.016" layer="91">I2C READ: 0xBF
 I2C WRITE: 0xBE</text>
+<text x="101.6" y="-132.08" size="1.778" layer="91">ASFL-1-8.000</text>
 </plain>
 <instances>
-<instance part="BCU" gate="A" x="53.34" y="55.88" rot="R90"/>
+<instance part="SIEMENS-BCU" gate="A" x="53.34" y="55.88" rot="R90"/>
 <instance part="3V3_REGULATOR" gate="G$1" x="40.64" y="20.32"/>
 <instance part="+3V1" gate="G$1" x="22.86" y="63.5"/>
 <instance part="P+1" gate="1" x="30.48" y="63.5"/>
@@ -10494,7 +10495,7 @@ I2C WRITE: 0xBE</text>
 <nets>
 <net name="+5V" class="0">
 <segment>
-<pinref part="BCU" gate="A" pin="1"/>
+<pinref part="SIEMENS-BCU" gate="A" pin="1"/>
 <wire x1="48.26" y1="53.34" x2="48.26" y2="43.18" width="0.1524" layer="91"/>
 <label x="48.26" y="43.18" size="1.016" layer="95" rot="R270" xref="yes"/>
 </segment>
@@ -10519,7 +10520,7 @@ I2C WRITE: 0xBE</text>
 </net>
 <net name="TXD" class="0">
 <segment>
-<pinref part="BCU" gate="A" pin="3"/>
+<pinref part="SIEMENS-BCU" gate="A" pin="3"/>
 <wire x1="50.8" y1="53.34" x2="50.8" y2="43.18" width="0.1524" layer="91"/>
 <label x="50.8" y="43.18" size="1.016" layer="95" rot="R270" xref="yes"/>
 </segment>
@@ -10531,7 +10532,7 @@ I2C WRITE: 0xBE</text>
 </net>
 <net name="RXD" class="0">
 <segment>
-<pinref part="BCU" gate="A" pin="7"/>
+<pinref part="SIEMENS-BCU" gate="A" pin="7"/>
 <wire x1="55.88" y1="53.34" x2="55.88" y2="43.18" width="0.1524" layer="91"/>
 <label x="55.88" y="43.18" size="1.016" layer="95" rot="R270" xref="yes"/>
 </segment>
@@ -10543,7 +10544,7 @@ I2C WRITE: 0xBE</text>
 </net>
 <net name="GND" class="0">
 <segment>
-<pinref part="BCU" gate="A" pin="9"/>
+<pinref part="SIEMENS-BCU" gate="A" pin="9"/>
 <wire x1="58.42" y1="53.34" x2="58.42" y2="43.18" width="0.1524" layer="91"/>
 <label x="58.42" y="43.18" size="1.016" layer="95" rot="R270" xref="yes"/>
 </segment>
