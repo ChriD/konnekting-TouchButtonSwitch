@@ -186,8 +186,8 @@
 <text x="46.228" y="37.719" size="1.016" layer="25" rot="R90">SWDIO</text>
 <text x="46.228" y="28.575" size="1.016" layer="25" rot="R90">NRST</text>
 <text x="48.768" y="29.21" size="1.016" layer="25" rot="R90">GND</text>
-<text x="41.91" y="7.62" size="1.778" layer="26" rot="MR0">4TB Rev 1.0</text>
-<text x="37.465" y="5.715" size="1.016" layer="26" rot="MR0">0XCDDC</text>
+<text x="48.514" y="7.62" size="1.778" layer="26" rot="MR0">4xTouch Button Rev 1.0</text>
+<text x="47.498" y="5.207" size="1.016" layer="26" rot="MR0">Konnekting | 0XCDDC | 2018 by ChriD</text>
 <text x="30.353" y="10.033" size="1.016" layer="25" rot="R90">+5V</text>
 <text x="40.513" y="9.652" size="1.016" layer="25" rot="R90">GND</text>
 <text x="32.893" y="9.906" size="1.016" layer="25" rot="R90">TXD</text>

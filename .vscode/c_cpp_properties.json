@@ -3,6 +3,7 @@
         {
             "name": "Win32",
             "includePath": [
+                "C:\\Users\\ChristianD\\AppData\\Local\\Arduino15\\packages\\STM32\\hardware\\stm32\\1.2.0\\cores\\arduino",
                 "C:\\Program Files (x86)\\Arduino\\hardware\\arduino\\avr\\cores\\arduino",
                 "D:\\Projekte\\KNX\\Konnekting\\Devices\\Taster",
                 "${workspaceRoot}\\include",
@@ -12,6 +13,7 @@
             "browse": {
                 "limitSymbolsToIncludedHeaders": false,
                 "path": [
+                    "C:\\Users\\ChristianD\\AppData\\Local\\Arduino15\\packages\\STM32\\hardware\\stm32\\1.2.0\\cores\\arduino",
                     "C:\\Program Files (x86)\\Arduino\\hardware\\arduino\\avr\\cores\\arduino",
                     "${workspaceRoot}\\include",
                     "${workspaceRoot}",

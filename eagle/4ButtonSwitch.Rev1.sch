@@ -10443,6 +10443,10 @@ Source: http://www.abracon.com/Oscillators/asf1-L-L1.pdf</description>
 <text x="276.86" y="-60.96" size="1.016" layer="91">I2C READ: 0xBF
 I2C WRITE: 0xBE</text>
 <text x="101.6" y="-132.08" size="1.778" layer="91">ASFL-1-8.000</text>
+<text x="243.84" y="43.18" size="1.778" layer="91">I2C Adr.: 0x37</text>
+<text x="243.84" y="43.18" size="1.778" layer="91">I2C Adr.: 0x37</text>
+<text x="45.72" y="63.5" size="1.778" layer="91">WM17451-ND
+</text>
 </plain>
 <instances>
 <instance part="SIEMENS-BCU" gate="A" x="53.34" y="55.88" rot="R90"/>

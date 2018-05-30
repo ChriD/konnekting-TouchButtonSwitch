@@ -3,7 +3,7 @@
 <eagle version="8.6.0">
 <drawing>
 <settings>
-<setting alwaysvectorfont="no"/>
+<setting alwaysvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
 <grid distance="50" unitdist="mil" unit="inch" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="inch"/>
@@ -186,7 +186,7 @@
 <text x="46.228" y="37.719" size="1.016" layer="25" rot="R90">SWDIO</text>
 <text x="46.228" y="28.575" size="1.016" layer="25" rot="R90">NRST</text>
 <text x="48.768" y="29.21" size="1.016" layer="25" rot="R90">GND</text>
-<text x="41.91" y="7.62" size="1.778" layer="26" rot="MR0">4TB Rev 1.0</text>
+<text x="48.514" y="7.62" size="1.778" layer="26" rot="MR0">4xTouch Button Rev 1.0</text>
 <text x="37.465" y="5.715" size="1.016" layer="26" rot="MR0">0XCDDC</text>
 <text x="30.353" y="10.033" size="1.016" layer="25" rot="R90">+5V</text>
 <text x="40.513" y="9.652" size="1.016" layer="25" rot="R90">GND</text>
@@ -3409,8 +3409,8 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 </pass>
 </autorouter>
 <elements>
-<element name="BCU" library="pinhead" package="2X05SMD" value="BCU" x="31.115" y="18.415" smashed="yes">
-<attribute name="NAME" x="33.1978" y="12.2428" size="1.016" layer="25" ratio="10"/>
+<element name="SIEMENS-BCU" library="pinhead" package="2X05SMD" value="SIEMENS BCU" x="31.115" y="18.415" smashed="yes">
+<attribute name="NAME" x="30.0228" y="16.8148" size="1.016" layer="25" ratio="10"/>
 <attribute name="VALUE" x="28.575" y="12.7" size="1.27" layer="27"/>
 </element>
 <element name="3V3_REGULATOR" library="MCP1703T-3302E_MB" package="SOT-89(MB)" value="MCP1703T-3302E_MB" x="34.925" y="24.765" smashed="yes" rot="R180">
@@ -3630,7 +3630,7 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 </elements>
 <signals>
 <signal name="+5V">
-<contactref element="BCU" pad="1"/>
+<contactref element="SIEMENS-BCU" pad="1"/>
 <contactref element="3V3_REGULATOR" pad="2"/>
 <contactref element="C1" pad="2"/>
 <contactref element="3V3_REGULATOR" pad="4"/>
@@ -3646,7 +3646,7 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <wire x1="34.925" y1="24.005" x2="34.925" y2="26.1275" width="0.1524" layer="1"/>
 </signal>
 <signal name="TXD">
-<contactref element="BCU" pad="3"/>
+<contactref element="SIEMENS-BCU" pad="3"/>
 <contactref element="BRAIN" pad="30"/>
 <wire x1="37.275" y1="50.9151875" x2="38.069525" y2="50.9151875" width="0.1524" layer="1"/>
 <wire x1="38.069525" y1="50.9151875" x2="38.1" y2="50.9456625" width="0.1524" layer="1"/>
@@ -3658,7 +3658,7 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <wire x1="32.385" y1="15.875" x2="32.385" y2="14.605" width="0.3048" layer="1"/>
 </signal>
 <signal name="RXD">
-<contactref element="BCU" pad="7"/>
+<contactref element="SIEMENS-BCU" pad="7"/>
 <contactref element="BRAIN" pad="29"/>
 <wire x1="37.275" y1="50.4150625" x2="38.831525" y2="50.4150625" width="0.1524" layer="1"/>
 <wire x1="38.831525" y1="50.4150625" x2="38.862" y2="50.4455375" width="0.1524" layer="1"/>
@@ -3670,7 +3670,7 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <wire x1="37.465" y1="15.875" x2="37.465" y2="14.605" width="0.3048" layer="1"/>
 </signal>
 <signal name="GND">
-<contactref element="BCU" pad="9"/>
+<contactref element="SIEMENS-BCU" pad="9"/>
 <contactref element="C1" pad="1"/>
 <contactref element="C2" pad="2"/>
 <contactref element="3V3_REGULATOR" pad="1"/>
