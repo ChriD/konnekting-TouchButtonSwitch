@@ -22,6 +22,7 @@ CY8TouchSwitch::~CY8TouchSwitch()
 void CY8TouchSwitch::setup()
 {
   // create and setup the instance of the touch controller class/object which will do a lot of work for us
+  // the touvh controler itself is powerd with a standard setup on start
   this->touchController = new CY8CMBR3116(0x37);
   this->touchController->setThresholds(250, 1250);
   this->touchController->setup();

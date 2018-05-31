@@ -66,13 +66,13 @@ void CY8CMBR3116::setup()
 
 void CY8CMBR3116::interrupt()
 {
+
   this->process();
 }
 
 
 void CY8CMBR3116::process()
 {
-  Serial.print("\nInterrupt!");
 
   // when we got an interrupt we do have new touch data available (something has changed)
   // so we can read it from the approriate register value over I2C
@@ -139,8 +139,8 @@ void CY8CMBR3116::sensorStateChanged(uint8_t _sensoryType, uint8_t _sensorId, bo
     {
       // if we do touch we check the last touch end time. If it is in a certain amount of time and we already touched one
       //touchEndTime
-      uint_least64_t lastTouchEnd = this->touchEndTime[_sensorId];
-      uint_least64_t touchStart   = millis();
+      uint64_t lastTouchEnd = this->touchEndTime[_sensorId];
+      uint64_t touchStart   = millis();
 
       // when we did have a touch on the button before and we do touch again it may be a doublecklick or tripple....
       // to be aware of this we do add the touch counter, otherwise set the counter to 1
@@ -162,7 +162,7 @@ void CY8CMBR3116::sensorStateChanged(uint8_t _sensoryType, uint8_t _sensorId, bo
         // store the end time of the touch, but only if it was no long touch before
         if(this->touchCounter[_sensorId] > 0)
         {
-          uint_least64_t touchEnd   = millis();
+          uint64_t touchEnd   = millis();
           this->touchEndTime[_sensorId] = touchEnd;
           // if a button state has changed we have to process the button state in the loop
           this->loopProcess[_sensorId] = true;
@@ -177,6 +177,19 @@ void CY8CMBR3116::sensorStateChanged(uint8_t _sensoryType, uint8_t _sensorId, bo
     // TODO: gestures
     //  if Sensor A goes high, and then sensor c comes high and then sensor A is of and then sensor B, its a swipe down
 
+  }
+}
+
+
+uint16_t CY8CMBR3116::calcDiff(uint64_t _stop, uint64_t _start)
+{
+  if(_stop < _start)
+  {
+    return (uint16_t)(_stop + (UINT64_MAX - _start));
+  }
+  else
+  {
+      return (uint16_t)(_stop - _start);
   }
 }
 

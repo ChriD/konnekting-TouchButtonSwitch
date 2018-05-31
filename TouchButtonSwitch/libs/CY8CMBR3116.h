@@ -18,6 +18,7 @@ TODO:
 #define CY8CMBR3116_h
 
   #include "Arduino.h"
+  #include "DebugUtil.h"
 
   #define TOUCHSENSORCOUNT              16
 
@@ -49,20 +50,21 @@ TODO:
 
       uint16_t readData(uint8_t _register, uint8_t _length, uint8_t* _data);
       void sensorStateChanged(uint8_t _sensoryType, uint8_t _sensorId, bool _value);
+      uint16_t calcDiff(uint64_t _stop, uint64_t _start);
 
-      uint8_t         I2CAddress;
-      uint16_t        prevButtonStatus;
-      uint16_t        prevProximityStatus;
-      uint_least64_t  touchStartTime[TOUCHSENSORCOUNT];
-      uint_least64_t  touchEndTime[TOUCHSENSORCOUNT];
-      uint8_t         touchCounter[TOUCHSENSORCOUNT];
-      bool            loopProcess[TOUCHSENSORCOUNT];
-      uint_least64_t  loopLastRunTimeStart;
-      uint_least64_t  loopLastRunTimeStop;
+      uint8_t   I2CAddress;
+      uint16_t  prevButtonStatus;
+      uint16_t  prevProximityStatus;
+      uint64_t  touchStartTime[TOUCHSENSORCOUNT];
+      uint64_t  touchEndTime[TOUCHSENSORCOUNT];
+      uint8_t   touchCounter[TOUCHSENSORCOUNT];
+      bool      loopProcess[TOUCHSENSORCOUNT];
+      uint64_t  loopLastRunTimeStart;
+      uint64_t  loopLastRunTimeStop;
 
-      uint16_t        longTouchThreshold;
-      uint16_t        touchThreshold;
-      uint8_t         loopTriggerGap;
+      uint16_t  longTouchThreshold;
+      uint16_t  touchThreshold;
+      uint8_t   loopTriggerGap;
 
     };
 

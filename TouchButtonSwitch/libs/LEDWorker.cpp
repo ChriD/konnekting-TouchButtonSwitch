@@ -11,7 +11,7 @@ LEDWorker::LEDWorker(uint8_t _ledPin)
 {
   this->ledPin            = _ledPin;
   this->ledValue          = 0;
-  this->currentMode       = LW_MODE_IDLE
+  this->currentMode       = LW_MODE_IDLE;
   this->modeStartTime     = 0;
   this->modeLastCallTime  = 0;
 }
@@ -39,8 +39,15 @@ void LEDWorker::fade(uint16_t _duration, uint8_t _toValue)
 }
 
 
-void LEDWorker::blink(uint16_t _blinkPeriod, uint8_t _lowValue, uint8_t _highValue)
+void LEDWorker::blink(uint16_t _lowPeriod, uint16_t _highPeriod, uint8_t _lowValue, uint8_t _highValue)
 {
+  this->mode_blink_lowPeriod  = _lowPeriod;
+  this->mode_blink_highPeriod = _highPeriod;
+  this->mode_blink_lowValue   = _lowValue;
+  this->mode_blink_highValue  = _highValue;
+
+  this->modeStartTime = millis();
+  this->currentMode = LW_MODE_BLINK;
 }
 
 
@@ -61,10 +68,9 @@ bool LEDWorker::processMode()
 
 bool LEDWorker::processMode_Fade()
 {
-  if(millis() - this->modeLastCallTime >= this->mode_fade_callPeriod)
+  uint16_t period = this->getProcessPeriod();
+  if(period >= this->mode_fade_callPeriod)
   {
-    Serial.print("\n");
-    Serial.print(this->ledValue);
     this->modeLastCallTime = millis();
     if(this->ledValue == this->mode_fade_toValue)
     {
@@ -83,8 +89,38 @@ bool LEDWorker::processMode_Fade()
 
 bool LEDWorker::processMode_Blink()
 {
+  uint16_t period = this->getProcessPeriod();
+  if( this->mode_blink_ledStatus == HIGH && period >= this->mode_blink_highPeriod ||
+      this->mode_blink_ledStatus == LOW && period >= this->mode_blink_lowPeriod )
+  {
+    this->modeLastCallTime = millis();
+    if(this->mode_blink_ledStatus == HIGH)
+      this->ledValue = this->mode_blink_lowValue;
+    else
+      this->ledValue = this->mode_blink_highValue;
+    this->mode_blink_ledStatus = !this->mode_blink_ledStatus;
+    return true;
+  }
+  return false;
+
 }
 
+
+uint16_t LEDWorker::getProcessPeriod()
+{
+  uint64_t cur = millis();
+  // if we had an overflow we have to calculate the period in a special way
+  // in fact we have to add "(max)uint16_t - LastCallTime"  to  "cur"
+  // but ofr our purpose its okay to only return "cur".
+  if(cur < this->modeLastCallTime)
+  {
+    return (uint16_t)(cur + (UINT64_MAX - this->modeLastCallTime));
+  }
+  else
+  {
+    return (uint16_t)(cur - this->modeLastCallTime);
+  }
+}
 
 
 

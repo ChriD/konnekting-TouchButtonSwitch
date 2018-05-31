@@ -1,6 +1,6 @@
-#define MANUFACTURER_ID 21212
+#define MANUFACTURER_ID 0xCDDC
 #define DEVICE_ID 1
-#define REVISION 0
+#define REVISION 1
 
 #define COMOBJ_ledOnOff 0
 #define COMOBJ_trigger 1

@@ -12,6 +12,7 @@
 
     #include "CY8CMBR3116.h"
     #include "LEDWorker.h"
+    #include "DebugUtil.h"
 
     class CY8TouchSwitch
     {
@@ -23,8 +24,7 @@
         void interrupt();
       private:
         CY8CMBR3116 *touchController;
-
-        LEDWorker *ledWorker1;
+        LEDWorker   *ledWorker1;
 
         void sensorStateEvent(uint8_t sensorType, uint8_t _sensorId, bool _value);
         void touchEvent(uint8_t _sensorId, uint8_t _event, uint8_t _count);
