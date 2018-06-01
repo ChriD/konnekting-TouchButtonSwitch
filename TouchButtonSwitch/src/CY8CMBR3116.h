@@ -20,11 +20,14 @@ TODO:
   #include "Arduino.h"
   #include "DebugUtil.h"
 
-  #define TOUCHSENSORCOUNT              16
+  #define CY8_TOUCHSENSORCOUNT          16
 
   #define CY8_BUTTON_STATUS             0xAA
   #define CY8_LATCHED_BUTTON_STATUS     0xAC
   #define CY8_PROX_STAT                 0xAE
+
+  #define CY8_SW_RESET                  0xFF
+  #define CY8_CTRL_CMD                  0x86
 
   class CY8CMBR3116
   {
@@ -42,6 +45,8 @@ TODO:
       void setGestureEventCallback(std::function<void(uint8_t)>);
 
       void setThresholds(uint16_t _touchThreshold, uint16_t _longTouchThreshold);
+      void enableMultipleTouch(uint8_t sensorId, bool _enable = true);
+      void reset();
     private:
       std::function<void(uint8_t, uint8_t, bool)> sensorStateChangedCallback;
       std::function<void(uint8_t, uint8_t, uint8_t)> touchEventCallback;
@@ -55,10 +60,11 @@ TODO:
       uint8_t   I2CAddress;
       uint16_t  prevButtonStatus;
       uint16_t  prevProximityStatus;
-      uint64_t  touchStartTime[TOUCHSENSORCOUNT];
-      uint64_t  touchEndTime[TOUCHSENSORCOUNT];
-      uint8_t   touchCounter[TOUCHSENSORCOUNT];
-      bool      loopProcess[TOUCHSENSORCOUNT];
+      uint64_t  touchStartTime[CY8_TOUCHSENSORCOUNT];
+      uint64_t  touchEndTime[CY8_TOUCHSENSORCOUNT];
+      uint8_t   touchCounter[CY8_TOUCHSENSORCOUNT];
+      bool      loopProcess[CY8_TOUCHSENSORCOUNT];
+      bool      multipletouchEnabled[CY8_TOUCHSENSORCOUNT];
       uint64_t  loopLastRunTimeStart;
       uint64_t  loopLastRunTimeStop;
 

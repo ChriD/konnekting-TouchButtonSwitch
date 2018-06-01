@@ -10,6 +10,7 @@
 
 CY8TouchSwitch::CY8TouchSwitch()
 {
+  this->highestButtonIdx = 0;
 }
 
 
@@ -30,58 +31,62 @@ void CY8TouchSwitch::setup()
   this->touchController->setTouchEventCallback(std::bind(&CY8TouchSwitch::touchEvent, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3));
   this->touchController->setProximityEventCallback(std::bind(&CY8TouchSwitch::proximityEvent, this, std::placeholders::_1, std::placeholders::_2));
   this->touchController->setGestureEventCallback(std::bind(&CY8TouchSwitch::gestureEvent, this, std::placeholders::_1));
+  this->touchController->reset();
+}
 
-  this->ledWorker1 = new LEDWorker(D3);
-  this->ledWorker1->setup();
+
+void CY8TouchSwitch::addButton(uint8_t _sensorId, uint8_t _ledPin, bool _enableMultipleTouch)
+{
+  if(_ledPin)
+  {
+    this->ledWorkers[highestButtonIdx] = new LEDWorker(_ledPin);
+    this->ledWorkers[highestButtonIdx]->setup();
+  }
+  this->touchController->enableMultipleTouch(_sensorId, _enableMultipleTouch);
+  this->sendorIds[this->highestButtonIdx] = _sensorId;
+  this->highestButtonIdx ++;
 }
 
 void CY8TouchSwitch::sensorStateEvent(uint8_t sensorType, uint8_t _sensorId, bool _value)
 {
-  Serial.print("\n");
-  Serial.print("Sensor ");
-  Serial.print(_sensorId);
-  Serial.print(" val ");
-  Serial.print(_value);
+
 }
 
 void CY8TouchSwitch::touchEvent(uint8_t _sensorId, uint8_t _event, uint8_t _count)
 {
+  // if we are in any other mode than NORMAL, we should not handle any touches
+  if(this->mode != TS_MODE_NORMAL)
+    return;
+
   // check if this event is one we have to consider, for this we check if we do have a
   // registered button for the given sensor id
-  Serial.print("\n");
-  Serial.print("Sensor ");
-  Serial.print(_sensorId);
-  Serial.print(" says ");
-  Serial.print(_event);
-  Serial.print(" > ");
-  Serial.print(_count);
+  Debug.println(F("Touch event on sensor: %u. Event: %u (%u)"), _sensorId, _event, _count);
 }
 
 void CY8TouchSwitch::proximityEvent(uint8_t _sensorId, uint8_t _event)
 {
+  // if we are in any other mode than NORMAL, we should not handle any proximity alerts
+  if(this->mode != TS_MODE_NORMAL)
+    return;
+
   // check if this event is one we have to consider, for this we check if we do have a
   // registered proximity for the given proximity sensor id
-  Serial.print("\n");
-  Serial.print("Proximity ");
-  Serial.print(_sensorId);
-  Serial.print(" says ");
-  Serial.print(_event);
 
   if(_event == 1)
   {
-    this->ledWorker1->fade(500, 255);
-    //digitalWrite(D3, HIGH);
-    //ledController->fadeIn(1)
-    //ledController->fadeIn(2)
-    //ledController->fadeIn(3)
+    Debug.println(F("Proximity alert on %u"), _sensorId);
+    for(uint8_t i=0; i <=this->highestButtonIdx; i++)
+    {
+      this->ledWorkers[i]->fade(500, 255);
+    }
   }
   else
   {
-    this->ledWorker1->fade(500, 10);
-    //digitalWrite(D3, LOW);
-    //ledController->fadeOut(1)
-    //ledController->fadeOut(2)
-    //ledController->fadeOut(3)
+    Debug.println(F("Proximity lost on %u"), _sensorId);
+    for(uint8_t i=0; i <=this->highestButtonIdx; i++)
+    {
+      this->ledWorkers[i]->fade(500, 10);
+    }
   }
 
   // if there is a proximity detected, we do light up all leds with a fade include
@@ -92,6 +97,13 @@ void CY8TouchSwitch::proximityEvent(uint8_t _sensorId, uint8_t _event)
 
 void CY8TouchSwitch::gestureEvent(uint8_t _event)
 {
+    // TODO: @@@
+}
+
+
+void CY8TouchSwitch::resetTouchController()
+{
+  this->touchController->reset();
 }
 
 
@@ -101,6 +113,53 @@ void CY8TouchSwitch::interrupt()
 }
 
 
+void CY8TouchSwitch::changeMode(uint8_t _mode, bool _force)
+{
+  if(this->mode != _mode || _force)
+  {
+    this->mode = _mode;
+    switch(this->mode)
+    {
+      case TS_MODE_NORMAL:
+        this->setMode_Normal();
+        break;
+      case TS_MODE_PROG:
+        this->setMode_Prog();
+        break;
+      case TS_MODE_SETUP:
+        this->setMode_Setup();
+        break;
+    }
+  }
+}
+
+
+void CY8TouchSwitch::setMode_Normal()
+{
+  for(uint8_t i=0; i <=this->highestButtonIdx; i++)
+  {
+    this->ledWorkers[i]->fade(500, 10);
+  }
+}
+
+
+void CY8TouchSwitch::setMode_Prog()
+{
+  for(uint8_t i=0; i <=this->highestButtonIdx; i++)
+  {
+    this->ledWorkers[i]->blink();
+  }
+}
+
+
+void CY8TouchSwitch::setMode_Setup()
+{
+  for(uint8_t i=0; i <=this->highestButtonIdx; i++)
+  {
+    this->ledWorkers[i]->blink(250,250);
+  }
+}
+
 void CY8TouchSwitch::loop()
 {
   // the touch controler needs a loop trigger for working correctly
@@ -108,7 +167,10 @@ void CY8TouchSwitch::loop()
   this->touchController->loop();
   // now lets handle the leds output.
   // there are some options like fadeIn, fadeOut, StandbyLight, ProgrammingMode, ErrorMode...
-  this->ledWorker1->loop();
+  for(uint8_t i=0; i <=this->highestButtonIdx; i++)
+  {
+    this->ledWorkers[i]->loop();
+  }
 }
 
 

@@ -71,6 +71,15 @@ void CY8CMBR3116::interrupt()
 }
 
 
+void CY8CMBR3116::reset()
+{
+  Wire.beginTransmission(this->I2CAddress);
+  Wire.write(CY8_CTRL_CMD);
+  Wire.write(CY8_SW_RESET);
+  Wire.endTransmission();
+}
+
+
 void CY8CMBR3116::process()
 {
 
@@ -194,17 +203,23 @@ uint16_t CY8CMBR3116::calcDiff(uint64_t _stop, uint64_t _start)
 }
 
 
+void CY8CMBR3116::enableMultipleTouch(uint8_t sensorId, bool _enable)
+{
+  this->multipletouchEnabled[sensorId] = _enable;
+}
+
+
 // loop entry for checking clicks
 void CY8CMBR3116::loop()
 {
 
   //no need to do this every ms. It should be adequate ~ 10ms
-  if(this->loopTriggerGap = 0 || (micros() - this->loopLastRunTimeStop > this->loopTriggerGap ))
+  if(this->loopTriggerGap = 0 || (abs(micros() - this->loopLastRunTimeStop) > this->loopTriggerGap ))
   {
 
     this->loopLastRunTimeStart = micros();
     // we have to check "released" buttons with a touch counter
-    for(uint8_t i=0; i<TOUCHSENSORCOUNT; i++)
+    for(uint8_t i=0; i<CY8_TOUCHSENSORCOUNT; i++)
     {
       if(this->loopProcess[i])
       {
@@ -224,7 +239,7 @@ void CY8CMBR3116::loop()
 
         // if the treshhold for a click (time for waiting if there appears another click) is done
         // then we can assume the click, doubleclick aso... is done
-        if(this->touchEndTime[i] > 0 && (millis() - this->touchEndTime[i]) >= this->touchThreshold)
+        if((this->touchEndTime[i] > 0 && (millis() - this->touchEndTime[i]) >= this->touchThreshold) || !this->multipletouchEnabled[i] )
         {
           // call callback method if registered
           if(this->touchEventCallback)
@@ -238,7 +253,5 @@ void CY8CMBR3116::loop()
       }
     }
     this->loopLastRunTimeStop = micros();
-    //Serial.print("\nLoop duration: ");
-    //Serial.print((this->loopLastRunTimeStop - this->loopLastRunTimeStart));
   }
 }

@@ -9,11 +9,11 @@
 
 LEDWorker::LEDWorker(uint8_t _ledPin)
 {
-  this->ledPin            = _ledPin;
-  this->ledValue          = 0;
-  this->currentMode       = LW_MODE_IDLE;
-  this->modeStartTime     = 0;
-  this->modeLastCallTime  = 0;
+  this->ledPin              = _ledPin;
+  this->ledValue            = 0;
+  this->currentMode         = LW_MODE_IDLE;
+  this->modeStartTime       = 0;
+  this->modeLastCallTime    = 0;
 }
 
 
@@ -45,6 +45,7 @@ void LEDWorker::blink(uint16_t _lowPeriod, uint16_t _highPeriod, uint8_t _lowVal
   this->mode_blink_highPeriod = _highPeriod;
   this->mode_blink_lowValue   = _lowValue;
   this->mode_blink_highValue  = _highValue;
+  this->mode_blink_ledStatus  = false;
 
   this->modeStartTime = millis();
   this->currentMode = LW_MODE_BLINK;
@@ -57,6 +58,8 @@ bool LEDWorker::processMode()
   {
     case LW_MODE_FADE:
       return this->processMode_Fade();
+    case LW_MODE_BLINK:
+      return this->processMode_Blink();
     case LW_MODE_IDLE:
       return false;
     default:
@@ -90,11 +93,11 @@ bool LEDWorker::processMode_Fade()
 bool LEDWorker::processMode_Blink()
 {
   uint16_t period = this->getProcessPeriod();
-  if( this->mode_blink_ledStatus == HIGH && period >= this->mode_blink_highPeriod ||
-      this->mode_blink_ledStatus == LOW && period >= this->mode_blink_lowPeriod )
+  if( this->mode_blink_ledStatus == true && period >= this->mode_blink_highPeriod ||
+      this->mode_blink_ledStatus == false && period >= this->mode_blink_lowPeriod )
   {
     this->modeLastCallTime = millis();
-    if(this->mode_blink_ledStatus == HIGH)
+    if(this->mode_blink_ledStatus == true)
       this->ledValue = this->mode_blink_lowValue;
     else
       this->ledValue = this->mode_blink_highValue;
@@ -102,7 +105,6 @@ bool LEDWorker::processMode_Blink()
     return true;
   }
   return false;
-
 }
 
 
