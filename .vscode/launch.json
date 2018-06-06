@@ -1,0 +1,16 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "cortex-debug",
+            "request": "launch",
+            "servertype": "stutil",
+            "cwd": "${workspaceRoot}",
+            "executable": "TouchButtonSwitch\\TouchButtonSwitch.ino.elf",
+            "name": "Debug (ST-Util)",
+            "device": "STM32L053R8",
+            "v1": false
+        }
+        // C:\\Users\\ChristianD\\Documents\\Arduino\\hardware\\Arduino_STM32-master\\tools\\win\\texane-stlink\\st-util.exe
+    ]
+}

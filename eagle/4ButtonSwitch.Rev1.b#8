@@ -33,7 +33,7 @@
 <layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="yes"/>
 <layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="yes"/>
 <layer number="25" name="tNames" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="26" name="bNames" color="7" fill="1" visible="no" active="yes"/>
+<layer number="26" name="bNames" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="27" name="tValues" color="7" fill="1" visible="no" active="yes"/>
 <layer number="28" name="bValues" color="7" fill="1" visible="no" active="yes"/>
 <layer number="29" name="tStop" color="7" fill="3" visible="no" active="yes"/>
@@ -186,7 +186,15 @@
 <text x="46.228" y="37.719" size="1.016" layer="25" rot="R90">SWDIO</text>
 <text x="46.228" y="28.575" size="1.016" layer="25" rot="R90">NRST</text>
 <text x="48.768" y="29.21" size="1.016" layer="25" rot="R90">GND</text>
-<text x="7.62" y="6.35" size="1.778" layer="25">4TB Rev 1.0</text>
+<text x="48.514" y="7.62" size="1.778" layer="26" rot="MR0">4xTouch Button Rev 1.1</text>
+<text x="47.498" y="5.207" size="1.016" layer="26" rot="MR0">Konnekting | 0XCDDC | 2018 by ChriD</text>
+<text x="30.353" y="10.033" size="1.016" layer="25" rot="R90">+5V</text>
+<text x="40.513" y="9.652" size="1.016" layer="25" rot="R90">GND</text>
+<text x="32.893" y="9.906" size="1.016" layer="25" rot="R90">TXD</text>
+<text x="37.973" y="9.779" size="1.016" layer="25" rot="R90">RXD</text>
+<text x="26.289" y="47.371" size="0.762" layer="25" rot="R270">USB_DM</text>
+<text x="28.829" y="47.117" size="0.762" layer="25" rot="R270">USB_DP</text>
+<text x="30.734" y="40.005" size="0.762" layer="25">GND</text>
 </plain>
 <libraries>
 <library name="pinhead">
@@ -3404,8 +3412,8 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 </pass>
 </autorouter>
 <elements>
-<element name="BCU" library="pinhead" package="2X05SMD" value="BCU" x="31.115" y="18.415" smashed="yes">
-<attribute name="NAME" x="33.1978" y="12.2428" size="1.016" layer="25" ratio="10"/>
+<element name="SIEMENS-BCU" library="pinhead" package="2X05SMD" value="SIEMENS BCU" x="31.115" y="18.415" smashed="yes">
+<attribute name="NAME" x="30.0228" y="16.8148" size="1.016" layer="25" ratio="10"/>
 <attribute name="VALUE" x="28.575" y="12.7" size="1.27" layer="27"/>
 </element>
 <element name="3V3_REGULATOR" library="MCP1703T-3302E_MB" package="SOT-89(MB)" value="MCP1703T-3302E_MB" x="34.925" y="24.765" smashed="yes" rot="R180">
@@ -3625,7 +3633,7 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 </elements>
 <signals>
 <signal name="+5V">
-<contactref element="BCU" pad="1"/>
+<contactref element="SIEMENS-BCU" pad="1"/>
 <contactref element="3V3_REGULATOR" pad="2"/>
 <contactref element="C1" pad="2"/>
 <contactref element="3V3_REGULATOR" pad="4"/>
@@ -3641,7 +3649,7 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <wire x1="34.925" y1="24.005" x2="34.925" y2="26.1275" width="0.1524" layer="1"/>
 </signal>
 <signal name="TXD">
-<contactref element="BCU" pad="3"/>
+<contactref element="SIEMENS-BCU" pad="3"/>
 <contactref element="BRAIN" pad="30"/>
 <wire x1="37.275" y1="50.9151875" x2="38.069525" y2="50.9151875" width="0.1524" layer="1"/>
 <wire x1="38.069525" y1="50.9151875" x2="38.1" y2="50.9456625" width="0.1524" layer="1"/>
@@ -3653,7 +3661,7 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <wire x1="32.385" y1="15.875" x2="32.385" y2="14.605" width="0.3048" layer="1"/>
 </signal>
 <signal name="RXD">
-<contactref element="BCU" pad="7"/>
+<contactref element="SIEMENS-BCU" pad="7"/>
 <contactref element="BRAIN" pad="29"/>
 <wire x1="37.275" y1="50.4150625" x2="38.831525" y2="50.4150625" width="0.1524" layer="1"/>
 <wire x1="38.831525" y1="50.4150625" x2="38.862" y2="50.4455375" width="0.1524" layer="1"/>
@@ -3665,7 +3673,7 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <wire x1="37.465" y1="15.875" x2="37.465" y2="14.605" width="0.3048" layer="1"/>
 </signal>
 <signal name="GND">
-<contactref element="BCU" pad="9"/>
+<contactref element="SIEMENS-BCU" pad="9"/>
 <contactref element="C1" pad="1"/>
 <contactref element="C2" pad="2"/>
 <contactref element="3V3_REGULATOR" pad="1"/>
@@ -3799,6 +3807,9 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <wire x1="30.495" y1="52.705" x2="30.353" y2="52.563" width="0.3048" layer="1"/>
 <wire x1="30.353" y1="52.563" x2="30.353" y2="51.945925" width="0.3048" layer="1"/>
 <via x="30.353" y="51.945925" extent="1-16" drill="0.35"/>
+<via x="31.75" y="41.91" extent="1-16" drill="1"/>
+<wire x1="33.02" y1="42.672" x2="32.258" y2="41.91" width="0.3048" layer="1"/>
+<wire x1="32.258" y1="41.91" x2="31.75" y2="41.91" width="0.3048" layer="1"/>
 </signal>
 <signal name="+3V3">
 <contactref element="3V3_REGULATOR" pad="3"/>
@@ -4217,15 +4228,20 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <signal name="SWDIO">
 <contactref element="BRAIN" pad="23"/>
 <via x="45.72" y="36.195" extent="1-16" drill="1"/>
-<wire x1="36.175315625" y1="47.815" x2="36.175315625" y2="47.517684375" width="0.1524" layer="1"/>
-<wire x1="45.72" y1="37.973" x2="45.72" y2="36.195" width="0.1524" layer="1"/>
-<wire x1="36.175315625" y1="47.517684375" x2="45.72" y2="37.973" width="0.1524" layer="1"/>
+<wire x1="36.175315625" y1="47.815" x2="36.175315625" y2="47.390684375" width="0.1524" layer="1"/>
+<wire x1="36.175315625" y1="47.390684375" x2="36.322" y2="47.244" width="0.1524" layer="1"/>
+<wire x1="43.307" y1="47.244" x2="36.322" y2="47.244" width="0.1524" layer="1"/>
+<wire x1="45.72" y1="36.195" x2="46.482" y2="36.195" width="0.1524" layer="1"/>
+<wire x1="46.482" y1="36.195" x2="47.498" y2="37.211" width="0.1524" layer="1"/>
+<wire x1="47.498" y1="37.211" x2="47.498" y2="43.053" width="0.1524" layer="1"/>
+<wire x1="47.498" y1="43.053" x2="43.307" y2="47.244" width="0.1524" layer="1"/>
 </signal>
 <signal name="SWCLK">
 <contactref element="BRAIN" pad="24"/>
 <via x="48.26" y="36.195" extent="1-16" drill="1"/>
-<wire x1="36.675440625" y1="47.815" x2="48.26" y2="36.230440625" width="0.1524" layer="1"/>
-<wire x1="48.26" y1="36.230440625" x2="48.26" y2="36.195" width="0.1524" layer="1"/>
+<wire x1="36.675440625" y1="47.815" x2="43.625" y2="47.815" width="0.1524" layer="1"/>
+<wire x1="43.625" y1="47.815" x2="48.26" y2="43.18" width="0.1524" layer="1"/>
+<wire x1="48.26" y1="43.18" x2="48.26" y2="36.195" width="0.1524" layer="1"/>
 </signal>
 <signal name="SHIELD">
 <polygon width="0.1778" layer="16" spacing="1.143" pour="hatch" isolate="0.889" thermals="no" rank="6">
@@ -4250,7 +4266,7 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <via x="18.288" y="32.004" extent="1-16" drill="0.35"/>
 <via x="55.118" y="28.448" extent="1-16" drill="0.35"/>
 <via x="55.118" y="42.672" extent="1-16" drill="0.35"/>
-<via x="27.432" y="27.432" extent="1-16" drill="0.35"/>
+<via x="27.432" y="28.321" extent="1-16" drill="0.35"/>
 <via x="43.434" y="42.672" extent="1-16" drill="0.35"/>
 <polygon width="0.1778" layer="1" spacing="1.778" pour="hatch" isolate="0.889" thermals="no" rank="6">
 <vertex x="0.635" y="5.08"/>
@@ -4265,6 +4281,41 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <via x="65.786" y="35.56" extent="1-16" drill="0.35"/>
 <via x="3.556" y="35.56" extent="1-16" drill="0.35"/>
 <via x="36.576" y="22.86" extent="1-16" drill="0.35"/>
+</signal>
+<signal name="USB_DP">
+<contactref element="BRAIN" pad="22"/>
+<via x="29.21" y="41.91" extent="1-16" drill="1"/>
+<wire x1="35.6751875" y1="47.815" x2="35.6751875" y2="47.1288125" width="0.1524" layer="1"/>
+<wire x1="35.6751875" y1="47.1288125" x2="35.687" y2="47.117" width="0.1524" layer="1"/>
+<wire x1="35.687" y1="47.117" x2="36.068" y2="46.736" width="0.1524" layer="1"/>
+<via x="37.5694" y="44.5660125" extent="1-16" drill="0.35"/>
+<wire x1="37.6847875" y1="46.6316" x2="37.9956" y2="46.3207875" width="0.1524" layer="1"/>
+<wire x1="37.9956" y1="46.3207875" x2="37.9956" y2="45.8812125" width="0.1524" layer="1"/>
+<wire x1="36.068" y1="46.736" x2="36.1724" y2="46.6316" width="0.1524" layer="1"/>
+<wire x1="36.1724" y1="46.6316" x2="37.6847875" y2="46.6316" width="0.1524" layer="1"/>
+<wire x1="37.9956" y1="45.8812125" x2="37.5694" y2="45.4550125" width="0.1524" layer="1"/>
+<wire x1="37.5694" y1="45.4550125" x2="37.5694" y2="44.5660125" width="0.1524" layer="1"/>
+<wire x1="37.5694" y1="44.5660125" x2="31.8660125" y2="44.5660125" width="0.1524" layer="15"/>
+<wire x1="31.8660125" y1="44.5660125" x2="29.21" y2="41.91" width="0.1524" layer="15"/>
+</signal>
+<signal name="USB_DM">
+<contactref element="BRAIN" pad="21"/>
+<via x="26.67" y="41.91" extent="1-16" drill="1"/>
+<wire x1="35.1750625" y1="47.815" x2="35.1750625" y2="47.1209375" width="0.1524" layer="1"/>
+<wire x1="36.195" y1="46.101" x2="37.465" y2="46.101" width="0.1524" layer="1"/>
+<via x="37.465" y="46.101" extent="1-16" drill="0.35"/>
+<wire x1="37.465" y1="46.101" x2="37.592" y2="45.974" width="0.1524" layer="15"/>
+<wire x1="37.592" y1="45.339" x2="37.592" y2="45.974" width="0.1524" layer="15"/>
+<wire x1="35.1750625" y1="47.1209375" x2="36.195" y2="46.101" width="0.1524" layer="1"/>
+<wire x1="26.67" y1="41.91" x2="29.718" y2="44.958" width="0.1524" layer="15"/>
+<wire x1="37.211" y1="44.958" x2="37.592" y2="45.339" width="0.1524" layer="15"/>
+<wire x1="29.718" y1="44.958" x2="37.211" y2="44.958" width="0.1524" layer="15"/>
+</signal>
+<signal name="USART2_TX">
+<contactref element="BRAIN" pad="8"/>
+</signal>
+<signal name="USART2_RX">
+<contactref element="BRAIN" pad="9"/>
 </signal>
 </signals>
 <errors>

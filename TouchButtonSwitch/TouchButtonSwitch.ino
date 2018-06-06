@@ -10,10 +10,10 @@
 
 
 #define KDEBUG
-#define DEBUGSERIAL Serial
-#define KNX_SERIAL  Serial
-#define PROG_LED_PIN 13
-#define PROG_BUTTON_PIN 7
+#define DEBUGSERIAL       Serial
+#define KNX_SERIAL        Serial1
+#define PROG_LED_PIN      6
+#define PROG_BUTTON_PIN   A5
 #define TC_INTERRUPTPIN   PA8
 
 
@@ -25,6 +25,9 @@ uint64_t        mainLoopEndTime;
 void setup()
 {
 
+  //pinMode(PROG_BUTTON_PIN,  INPUT);
+  //pinMode(PROG_LED_PIN,     OUTPUT);
+
   #ifdef KDEBUG
     DEBUGSERIAL.begin(115200);
     while (!DEBUGSERIAL)
@@ -33,8 +36,6 @@ void setup()
     Debug.setPrintStream(&DEBUGSERIAL);
     Debug.println(F("KONNEKTING TouchButtonSwitch"));
   #endif
-
-  Debug.println(F("Setting up Device"));
 
   // startup I2C
   Wire.begin();
@@ -49,10 +50,13 @@ void setup()
   touchSwitch->addButton(5, D11, true);
   touchSwitch->addButton(6, D9, true);
 
-  touchSwitch->changeMode(TS_MODE_SETUP, true);
+  //touchSwitch->changeMode(TS_MODE_SETUP, true);
 
   // after we have changed the mode of the switch to SETUP, we start setting up the
   // knx device stuff
+  Debug.println(F("KNX-Device setup"));
+  delay(500);
+
   knxDeviceSetup();
 
   // setup the interrupt method for the touch controller
@@ -72,8 +76,8 @@ void knxDeviceSetup()
     //minimal difference between previous and current temperature [°C]
     //diffTempUser = (float) Konnekting.getUINT8Param(PARAM_tempDiff)*0.1;
     //intervalHumdUser = (long) Konnekting.getUINT32Param(PARAM_rhPollingTime)*1000; //humidity polling interval (ms)
-    Debug.println(F("KNX-Device settings loaded"));
   }
+  Debug.println(F("KNX-Device settings loaded"));
 }
 
 
@@ -84,18 +88,24 @@ void touchControllerInterrupt() {
 }
 
 
+void knxEvents(byte _index) {
+    // nothing to do in this sketch
+}
+
+
 void loop()
 {
   // we have to call the knx.task form the konnekting library faster then ~ 400us to not miss any telegram
   // in next versions this should be obsolete but for now we have to stay with itself
   // ATTENTION: Currently we do have some loops which will go above 400us due I2C handling, we have to ceck in
   // production mode if this will lead to problems
+  Debug.println(F("Task"));
   Knx.task();
 
   #ifdef KDEBUG
     uint64_t now = micros();
     if(mainLoopEndTime && now > mainLoopEndTime && now - mainLoopEndTime > 400)
-      Debug.println(F("ATTENTION: Main Loop exceeds KNX timing requirement! %u"), (now - mainLoopEndTime));
+      Debug.println(F("ATTENTION: Main Loop exceeds KNX timing requirement! %uus"), (now - mainLoopEndTime));
     //Debug.println(F("MainLoop %u"), (now - mainLoopEndTime));
   #endif
 
@@ -115,7 +125,7 @@ void loop()
   {
     // TODO: switch to normal mode
   }
-  else{
+  else
   {
     // TODO: switch to PRG mode
   }

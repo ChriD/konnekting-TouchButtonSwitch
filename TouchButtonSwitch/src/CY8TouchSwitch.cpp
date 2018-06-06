@@ -39,8 +39,8 @@ void CY8TouchSwitch::addButton(uint8_t _sensorId, uint8_t _ledPin, bool _enableM
 {
   if(_ledPin)
   {
-    this->ledWorkers[highestButtonIdx] = new LEDWorker(_ledPin);
-    this->ledWorkers[highestButtonIdx]->setup();
+    this->ledWorkers[this->highestButtonIdx] = new LEDWorker(_ledPin);
+    this->ledWorkers[this->highestButtonIdx]->setup();
   }
   this->touchController->enableMultipleTouch(_sensorId, _enableMultipleTouch);
   this->sendorIds[this->highestButtonIdx] = _sensorId;

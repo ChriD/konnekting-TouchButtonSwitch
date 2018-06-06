@@ -6,6 +6,7 @@
 
 /* TODO:  * add temperature and humidity sensor
           * add TouchIC reboot (manually and automatic after )s ec beyond reset?)
+          * auto reset proximity? after soem time
           * */
 
 #ifndef CY8TouchSwitch_h
