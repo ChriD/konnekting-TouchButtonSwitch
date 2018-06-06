@@ -70,14 +70,24 @@ void setup()
   delay(150);
 
   // setup the interrupt method for the touch controller
-  pinMode(TC_INTERRUPTPIN,INPUT_PULLDOWN);
+  pinMode(TC_INTERRUPTPIN, INPUT_PULLDOWN);
   attachInterrupt(TC_INTERRUPTPIN, touchControllerInterrupt, FALLING);
+
+  // setup the prog button
+  pinMode(PROG_BUTTON_PIN, INPUT_PULLUP);
+  attachInterrupt(digitalPinToInterrupt(PROG_BUTTON_PIN), progButtonPressed, RISING);
 
   touchSwitch->changeMode(TS_MODE_STARTUP4, true);
   delay(150);
 
   // be sure we do set back to the normal state after rebooting
   touchSwitch->changeMode(TS_MODE_NORMAL, true);
+}
+
+
+void progButtonPressed() {
+  Debug.println(F("Prog-Button pressed!"));
+  Konnekting.toggleProgState();
 }
 
 
@@ -88,8 +98,8 @@ void progLed (bool state){
 
 void knxDeviceSetup()
 {
-  Konnekting.init(KNX_SERIAL, PROG_BUTTON_PIN, PROG_LED_PIN, MANUFACTURER_ID, DEVICE_ID, REVISION);
-  //Konnekting.init(KNX_SERIAL, &progLed, MANUFACTURER_ID, DEVICE_ID, REVISION);
+  //Konnekting.init(KNX_SERIAL, PROG_BUTTON_PIN, PROG_LED_PIN, MANUFACTURER_ID, DEVICE_ID, REVISION);
+  Konnekting.init(KNX_SERIAL, &progLed, MANUFACTURER_ID, DEVICE_ID, REVISION);
   if (!Konnekting.isFactorySetting())
   {
     //typeTemp = (int) Konnekting.getUINT8Param(PARAM_tempSendUpdate);
