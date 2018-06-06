@@ -86,13 +86,16 @@ void setup()
 
 
 void progButtonPressed() {
-  Debug.println(F("Prog-Button pressed!"));
   Konnekting.toggleProgState();
 }
 
-
+// TODO: @@@ TEST!!!
 void progLed (bool state){
-  touchSwitch->changeMode(TS_MODE_PROG, false);
+  Debug.println(F("##########"));
+  if(state)
+    touchSwitch->changeMode(TS_MODE_PROG, false);
+  else
+    touchSwitch->changeMode(TS_MODE_NORMAL, false);
 }
 
 
