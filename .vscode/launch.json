@@ -6,11 +6,24 @@
             "request": "launch",
             "servertype": "stutil",
             "cwd": "${workspaceRoot}",
-            "executable": "TouchButtonSwitch\\TouchButtonSwitch.ino.elf",
+            "executable": "build\\TouchButtonSwitch.ino.elf",
             "name": "Debug (ST-Util)",
             "device": "STM32L053R8",
             "v1": false
-        }
+        },
         // C:\\Users\\ChristianD\\Documents\\Arduino\\hardware\\Arduino_STM32-master\\tools\\win\\texane-stlink\\st-util.exe
+        {
+            "cwd": "${workspaceRoot}",
+            "executable": "build\\TouchButtonSwitch.ino.elf",
+            "name": "Debug Microcontroller",
+            "request": "launch",
+            "type": "cortex-debug",
+            "servertype": "openocd",
+            //"configFiles": [
+            //    "board/stm32f4discovery.cfg"
+            //],
+            //"svdFile": "/Users/grzes/Documents/STM32 datasheet/SVD/STM32F4_svd_V1.2/STM32F407.svd",
+            "device": "STM32L053R0"
+        },
     ]
 }

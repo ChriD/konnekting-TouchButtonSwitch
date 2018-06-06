@@ -52,6 +52,13 @@ void LEDWorker::blink(uint16_t _lowPeriod, uint16_t _highPeriod, uint8_t _lowVal
 }
 
 
+void LEDWorker::set(uint8_t _value)
+{
+   analogWrite(this->ledPin, _value);
+   this->ledValue = _value;
+}
+
+
 bool LEDWorker::processMode()
 {
   switch(this->currentMode)

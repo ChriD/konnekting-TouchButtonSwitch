@@ -9,7 +9,14 @@
 #include "src/CY8TouchSwitch.h"
 
 
+// used for debugging
+// should not be activated on protductive environment
 #define KDEBUG
+
+// for testing purposes without having a bcu attached we have to skip
+// the knx code to test the device. For this we define the NOBCU
+#define NOBCU
+
 #define DEBUGSERIAL       Serial
 #define KNX_SERIAL        Serial1
 #define PROG_LED_PIN      6
@@ -25,9 +32,6 @@ uint64_t        mainLoopEndTime;
 void setup()
 {
 
-  //pinMode(PROG_BUTTON_PIN,  INPUT);
-  //pinMode(PROG_LED_PIN,     OUTPUT);
-
   #ifdef KDEBUG
     DEBUGSERIAL.begin(115200);
     while (!DEBUGSERIAL)
@@ -36,9 +40,6 @@ void setup()
     Debug.setPrintStream(&DEBUGSERIAL);
     Debug.println(F("KONNEKTING TouchButtonSwitch"));
   #endif
-
-  // startup I2C
-  Wire.begin();
 
   touchSwitch = new CY8TouchSwitch();
   touchSwitch->setup();
@@ -50,24 +51,45 @@ void setup()
   touchSwitch->addButton(5, D11, true);
   touchSwitch->addButton(6, D9, true);
 
-  //touchSwitch->changeMode(TS_MODE_SETUP, true);
+  touchSwitch->changeMode(TS_MODE_STARTUP1, true);
+  delay(150);
+
+  // startup I2C
+  Wire.begin();
+
+  touchSwitch->changeMode(TS_MODE_STARTUP2, true);
+  delay(150);
 
   // after we have changed the mode of the switch to SETUP, we start setting up the
   // knx device stuff
-  Debug.println(F("KNX-Device setup"));
-  delay(500);
+  #ifndef NOBCU
+    knxDeviceSetup();
+  #endif
 
-  knxDeviceSetup();
+  touchSwitch->changeMode(TS_MODE_STARTUP3, true);
+  delay(150);
 
   // setup the interrupt method for the touch controller
   pinMode(TC_INTERRUPTPIN,INPUT_PULLDOWN);
   attachInterrupt(TC_INTERRUPTPIN, touchControllerInterrupt, FALLING);
+
+  touchSwitch->changeMode(TS_MODE_STARTUP4, true);
+  delay(150);
+
+  // be sure we do set back to the normal state after rebooting
+  touchSwitch->changeMode(TS_MODE_NORMAL, true);
+}
+
+
+void progLed (bool state){
+  touchSwitch->changeMode(TS_MODE_PROG, false);
 }
 
 
 void knxDeviceSetup()
 {
   Konnekting.init(KNX_SERIAL, PROG_BUTTON_PIN, PROG_LED_PIN, MANUFACTURER_ID, DEVICE_ID, REVISION);
+  //Konnekting.init(KNX_SERIAL, &progLed, MANUFACTURER_ID, DEVICE_ID, REVISION);
   if (!Konnekting.isFactorySetting())
   {
     //typeTemp = (int) Konnekting.getUINT8Param(PARAM_tempSendUpdate);
@@ -99,8 +121,9 @@ void loop()
   // in next versions this should be obsolete but for now we have to stay with itself
   // ATTENTION: Currently we do have some loops which will go above 400us due I2C handling, we have to ceck in
   // production mode if this will lead to problems
-  Debug.println(F("Task"));
-  Knx.task();
+  #ifndef NOBCU
+    Knx.task();
+  #endif
 
   #ifdef KDEBUG
     uint64_t now = micros();

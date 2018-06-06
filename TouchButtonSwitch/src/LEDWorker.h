@@ -31,6 +31,7 @@
         bool processMode_Blink();
         void fade(uint16_t _duration, uint8_t _toValue);
         void blink(uint16_t _lowPeriod = 500, uint16_t _highPeriod = 500, uint8_t _lowValue = 0, uint8_t _highValue = 255);
+        void set(uint8_t _value);
       protected:
         uint16_t getProcessPeriod();
       private:

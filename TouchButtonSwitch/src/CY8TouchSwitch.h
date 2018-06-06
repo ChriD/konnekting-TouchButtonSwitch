@@ -20,6 +20,11 @@
     #define TS_MODE_NORMAL    0
     #define TS_MODE_PROG      1
     #define TS_MODE_SETUP     2
+    #define TS_MODE_STARTUP1  60
+    #define TS_MODE_STARTUP2  61
+    #define TS_MODE_STARTUP3  62
+    #define TS_MODE_STARTUP4  63
+
 
 
     class CY8TouchSwitch
@@ -37,7 +42,7 @@
         CY8CMBR3116 *touchController;
         LEDWorker   *ledWorkers[10];
         uint8_t     sendorIds[10];
-        uint8_t     highestButtonIdx;
+        uint8_t     nextButtonIdx;
         uint8_t     mode;
 
         void sensorStateEvent(uint8_t sensorType, uint8_t _sensorId, bool _value);
@@ -48,6 +53,7 @@
         void setMode_Normal();
         void setMode_Prog();
         void setMode_Setup();
+        void setMode_Startup(uint8_t _startupLevel);
     };
 
 #endif
