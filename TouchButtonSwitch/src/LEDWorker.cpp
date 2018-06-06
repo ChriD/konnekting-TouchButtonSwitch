@@ -126,7 +126,7 @@ uint16_t LEDWorker::getProcessPeriod()
 
 
 
-void LEDWorker::loop()
+void LEDWorker::task()
 {
   // process the mode if there is one
   // the method will update the "ledValue" variable to the value it should have for the mode

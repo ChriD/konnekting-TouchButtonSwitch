@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="50" unitdist="mil" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="inch"/>
+<grid distance="50" unitdist="mil" unit="inch" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="yes" active="yes"/>
@@ -3948,8 +3948,11 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <signal name="LED2">
 <contactref element="RL2" pad="1"/>
 <contactref element="BRAIN" pad="10"/>
-<wire x1="32.575" y1="51.415315625" x2="22.855315625" y2="51.415315625" width="0.1524" layer="1"/>
-<wire x1="22.855315625" y1="51.415315625" x2="22.24" y2="50.8" width="0.1524" layer="1"/>
+<wire x1="32.575" y1="51.415315625" x2="32.238315625" y2="51.415315625" width="0.1524" layer="1"/>
+<wire x1="32.238315625" y1="51.415315625" x2="32.0175875" y2="51.1945875" width="0.1524" layer="1"/>
+<wire x1="30.0698625" y1="50.8" x2="22.24" y2="50.8" width="0.1524" layer="1"/>
+<wire x1="30.46445" y1="51.1945875" x2="30.0698625" y2="50.8" width="0.1524" layer="1"/>
+<wire x1="32.0175875" y1="51.1945875" x2="30.46445" y2="51.1945875" width="0.1524" layer="1"/>
 </signal>
 <signal name="LED4">
 <contactref element="RL4" pad="1"/>

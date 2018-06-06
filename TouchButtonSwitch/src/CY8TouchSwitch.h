@@ -28,7 +28,7 @@
         CY8TouchSwitch();
         ~CY8TouchSwitch();
         void setup();
-        void loop();
+        void task();
         void interrupt();
         void addButton(uint8_t _sensorId, uint8_t _ledPin, bool _enableMultipleTouch = false);
         void changeMode(uint8_t _mode, bool _force = false);

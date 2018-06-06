@@ -37,7 +37,7 @@ TODO:
       void setup();
       void interrupt();
       void process();
-      void loop();
+      void task();
 
       void setSensorStateCallback(std::function<void(uint8_t, uint8_t, bool)>);
       void setTouchEventCallback(std::function<void(uint8_t, uint8_t, uint8_t)>);
@@ -63,14 +63,14 @@ TODO:
       uint64_t  touchStartTime[CY8_TOUCHSENSORCOUNT];
       uint64_t  touchEndTime[CY8_TOUCHSENSORCOUNT];
       uint8_t   touchCounter[CY8_TOUCHSENSORCOUNT];
-      bool      loopProcess[CY8_TOUCHSENSORCOUNT];
+      bool      taskProcess[CY8_TOUCHSENSORCOUNT];
       bool      multipletouchEnabled[CY8_TOUCHSENSORCOUNT];
-      uint64_t  loopLastRunTimeStart;
-      uint64_t  loopLastRunTimeStop;
+      uint64_t  taskLastRunTimeStart;
+      uint64_t  taskLastRunTimeStop;
 
       uint16_t  longTouchThreshold;
       uint16_t  touchThreshold;
-      uint8_t   loopTriggerGap;
+      uint8_t   taskTriggerGap;
 
     };
 

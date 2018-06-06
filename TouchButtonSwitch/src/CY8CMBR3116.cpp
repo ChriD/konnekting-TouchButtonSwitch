@@ -14,7 +14,7 @@ CY8CMBR3116::CY8CMBR3116(uint8_t _I2CAddress)
   this->I2CAddress              = _I2CAddress;
   this->longTouchThreshold      = 1250; // [milli]
   this->touchThreshold          = 250;  // [milli]
-  this->loopTriggerGap          = 5000; // [micro]
+  this->taskTriggerGap          = 5000; // [micro]
   this->prevButtonStatus        = 0;
   this->prevProximityStatus     = 0;
 }
@@ -163,8 +163,8 @@ void CY8CMBR3116::sensorStateChanged(uint8_t _sensoryType, uint8_t _sensorId, bo
 
       // store the new touch start time
       this->touchStartTime[_sensorId] = touchStart;
-      // if a button state has changed we have to process the button state in the loop
-      this->loopProcess[_sensorId] = true;
+      // if a button state has changed we have to process the button state in the task
+      this->taskProcess[_sensorId] = true;
     }
     else
     {
@@ -173,8 +173,8 @@ void CY8CMBR3116::sensorStateChanged(uint8_t _sensoryType, uint8_t _sensorId, bo
         {
           uint64_t touchEnd   = millis();
           this->touchEndTime[_sensorId] = touchEnd;
-          // if a button state has changed we have to process the button state in the loop
-          this->loopProcess[_sensorId] = true;
+          // if a button state has changed we have to process the button state in the task
+          this->taskProcess[_sensorId] = true;
         }
     }
   }
@@ -209,22 +209,22 @@ void CY8CMBR3116::enableMultipleTouch(uint8_t sensorId, bool _enable)
 }
 
 
-// loop entry for checking clicks
-void CY8CMBR3116::loop()
+// task entry for checking clicks
+void CY8CMBR3116::task()
 {
 
   //no need to do this every ms. It should be adequate ~ 10ms
-  if(this->loopTriggerGap = 0 || (abs(micros() - this->loopLastRunTimeStop) > this->loopTriggerGap ))
+  if(this->taskTriggerGap = 0 || (abs(micros() - this->taskLastRunTimeStop) > this->taskTriggerGap ))
   {
 
-    this->loopLastRunTimeStart = micros();
+    this->taskLastRunTimeStart = micros();
     // we have to check "released" buttons with a touch counter
     for(uint8_t i=0; i<CY8_TOUCHSENSORCOUNT; i++)
     {
-      if(this->loopProcess[i])
+      if(this->taskProcess[i])
       {
         // if the button is currently touched and it's touched beyond the long touch limit, then its a long touch
-        // is this the case we have to remove the button from the process loop and do reset the touch counter
+        // is this the case we have to remove the button from the process task and do reset the touch counter
         if((millis() - this->touchStartTime[i]) >= this->longTouchThreshold)
         {
           // call callback method if registered
@@ -234,7 +234,7 @@ void CY8CMBR3116::loop()
           this->touchStartTime[i] = 0;
           this->touchEndTime[i] = 0;
           this->touchCounter[i] = 0;
-          this->loopProcess[i]  = false;
+          this->taskProcess[i]  = false;
         }
 
         // if the treshhold for a click (time for waiting if there appears another click) is done
@@ -248,10 +248,10 @@ void CY8CMBR3116::loop()
           this->touchStartTime[i] = 0;
           this->touchEndTime[i] = 0;
           this->touchCounter[i] = 0;
-          this->loopProcess[i]  = false;
+          this->taskProcess[i]  = false;
         }
       }
     }
-    this->loopLastRunTimeStop = micros();
+    this->taskLastRunTimeStop = micros();
   }
 }

@@ -3650,8 +3650,6 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 </signal>
 <signal name="TXD">
 <contactref element="SIEMENS-BCU" pad="3"/>
-<contactref element="BRAIN" pad="30"/>
-<wire x1="37.275" y1="50.9151875" x2="38.069525" y2="50.9151875" width="0.1524" layer="1"/>
 <wire x1="38.069525" y1="50.9151875" x2="38.1" y2="50.9456625" width="0.1524" layer="1"/>
 <via x="38.1" y="50.9456625" extent="1-16" drill="0.35"/>
 <wire x1="38.1" y1="50.9456625" x2="38.1" y2="21.59" width="0.1524" layer="2"/>
@@ -3662,8 +3660,6 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 </signal>
 <signal name="RXD">
 <contactref element="SIEMENS-BCU" pad="7"/>
-<contactref element="BRAIN" pad="29"/>
-<wire x1="37.275" y1="50.4150625" x2="38.831525" y2="50.4150625" width="0.1524" layer="1"/>
 <wire x1="38.831525" y1="50.4150625" x2="38.862" y2="50.4455375" width="0.1524" layer="1"/>
 <via x="38.862" y="50.4455375" extent="1-16" drill="0.35"/>
 <wire x1="38.862" y1="50.4455375" x2="38.862" y2="17.272" width="0.1524" layer="2"/>
@@ -4316,6 +4312,12 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 </signal>
 <signal name="USART2_RX">
 <contactref element="BRAIN" pad="9"/>
+</signal>
+<signal name="USART1_RX">
+<contactref element="BRAIN" pad="30"/>
+</signal>
+<signal name="USART1_TX">
+<contactref element="BRAIN" pad="29"/>
 </signal>
 </signals>
 <errors>

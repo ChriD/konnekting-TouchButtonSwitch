@@ -111,7 +111,7 @@ void loop()
 
   // the switch itself must loop eyerytime, no matter of KNX is active or not
   // while KNX connector is not active, the switch is in a special mode and will not raise any touch events
-  touchSwitch->loop();
+  touchSwitch->task();
 
   // be sure to reset the touch controller after resetting the main controller and be sure
   // that there is time to "set up" the frontboard finish (reset for recalibration)

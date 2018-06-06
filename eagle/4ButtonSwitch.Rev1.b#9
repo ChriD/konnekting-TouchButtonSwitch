@@ -4311,6 +4311,12 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <wire x1="37.211" y1="44.958" x2="37.592" y2="45.339" width="0.1524" layer="15"/>
 <wire x1="29.718" y1="44.958" x2="37.211" y2="44.958" width="0.1524" layer="15"/>
 </signal>
+<signal name="USART2_TX">
+<contactref element="BRAIN" pad="8"/>
+</signal>
+<signal name="USART2_RX">
+<contactref element="BRAIN" pad="9"/>
+</signal>
 </signals>
 <errors>
 <approved hash="4,1,61b1b8f6746e2521"/>

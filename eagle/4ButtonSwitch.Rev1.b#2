@@ -8,8 +8,8 @@
 </settings>
 <grid distance="50" unitdist="mil" unit="inch" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="inch"/>
 <layers>
-<layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
-<layer number="2" name="Route2" color="1" fill="3" visible="yes" active="yes"/>
+<layer number="1" name="Top" color="4" fill="1" visible="no" active="yes"/>
+<layer number="2" name="Route2" color="1" fill="3" visible="no" active="yes"/>
 <layer number="3" name="Route3" color="4" fill="3" visible="no" active="no"/>
 <layer number="4" name="Route4" color="1" fill="4" visible="no" active="no"/>
 <layer number="5" name="Route5" color="4" fill="4" visible="no" active="no"/>
@@ -4298,7 +4298,13 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <signal name="USART2_RX">
 <contactref element="BRAIN" pad="9"/>
 <via x="33.655" y="65.405" extent="1-16" drill="1"/>
-<wire x1="32.575" y1="51.915440625" x2="33.655" y2="65.405" width="0" layer="19" extent="1-1"/>
+<wire x1="32.575" y1="51.915440625" x2="31.805759375" y2="51.915440625" width="0.1524" layer="1"/>
+<wire x1="31.805759375" y1="51.915440625" x2="31.75" y2="51.9712" width="0.1524" layer="1"/>
+<via x="31.75" y="51.9712" extent="1-16" drill="0.35"/>
+<wire x1="31.75" y1="51.9712" x2="31.75" y2="52.07" width="0.1524" layer="15"/>
+<wire x1="31.75" y1="52.07" x2="30.48" y2="53.34" width="0.1524" layer="15"/>
+<wire x1="30.48" y1="53.34" x2="30.48" y2="62.23" width="0.1524" layer="15"/>
+<wire x1="30.48" y1="62.23" x2="33.655" y2="65.405" width="0.1524" layer="15"/>
 </signal>
 <signal name="USART1_RX">
 <contactref element="BRAIN" pad="30"/>

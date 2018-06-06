@@ -160,16 +160,16 @@ void CY8TouchSwitch::setMode_Setup()
   }
 }
 
-void CY8TouchSwitch::loop()
+void CY8TouchSwitch::task()
 {
-  // the touch controler needs a loop trigger for working correctly
+  // the touch controler needs a task trigger for working correctly
   // it will handle the touches and will raise the events we do need
-  this->touchController->loop();
+  this->touchController->task();
   // now lets handle the leds output.
   // there are some options like fadeIn, fadeOut, StandbyLight, ProgrammingMode, ErrorMode...
   for(uint8_t i=0; i <=this->highestButtonIdx; i++)
   {
-    this->ledWorkers[i]->loop();
+    this->ledWorkers[i]->task();
   }
 }
 

@@ -24,7 +24,7 @@
       public:
         LEDWorker(uint8_t _ledPin);
         ~LEDWorker();
-        void loop();
+        void task();
         void setup();
         bool processMode();
         bool processMode_Fade();

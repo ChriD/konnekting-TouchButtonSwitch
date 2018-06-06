@@ -195,6 +195,9 @@
 <text x="26.289" y="47.371" size="0.762" layer="25" rot="R270">USB_DM</text>
 <text x="28.829" y="47.117" size="0.762" layer="25" rot="R270">USB_DP</text>
 <text x="30.734" y="40.005" size="0.762" layer="25">GND</text>
+<text x="31.623" y="66.421" size="1.016" layer="25">TXD</text>
+<text x="35.306" y="66.421" size="1.016" layer="25">RXD</text>
+<text x="20.32" y="68.58" size="1.016" layer="25">RXD</text>
 </plain>
 <libraries>
 <library name="pinhead">
