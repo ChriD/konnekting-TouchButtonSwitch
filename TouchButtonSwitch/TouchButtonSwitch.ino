@@ -61,10 +61,10 @@ void setup()
 
   // add buttons for the given type of switch (4x or 6x)
   // TODO: @@@
-  touchSwitch->addButton(3, D3, true);
-  touchSwitch->addButton(4, D4, true);
-  touchSwitch->addButton(5, D11, true);
-  touchSwitch->addButton(6, D9, true);
+  touchSwitch->addButton(1, D3, true);
+  touchSwitch->addButton(2, D4, true);
+  touchSwitch->addButton(3, D11, true);
+  touchSwitch->addButton(4, D9, true);
 
   touchSwitch->changeMode(TS_MODE_STARTUP1, true);
   delay(150);
@@ -155,6 +155,7 @@ void touchControllerInterrupt()
 void touchEvent(uint8_t _sensorId, uint8_t _event, uint8_t _count)
 {
   // send the touch event to the knx bus
+  // we can use the base index for the object and add the ID-1 for correct index????
   //Knx.write(getComObjIndex(COMOBJ_abStatusMovement), 0);
   //Knx.write(getComObjIndex(COMOBJ_abStatusClosePos), DPT1_001_on);
   //Debug.print(" COMOBJ_abStatusMovementClosePos=1", _group);

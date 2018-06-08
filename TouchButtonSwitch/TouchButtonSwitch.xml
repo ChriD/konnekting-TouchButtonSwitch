@@ -73,25 +73,25 @@
 
 
             <!-- Button 1 -->
-            <CommObject Id="1" IdName="button1">
+            <CommObject Id="7" IdName="button1">
                 <Name>Button 1</Name>
                 <Function>Touch</Function>
                 <DataPointType>1.001</DataPointType>
                 <Flags>52</Flags>
             </CommObject>
-            <CommObject Id="2" IdName="button1_double">
+            <CommObject Id="8" IdName="button1_double">
                 <Name>Button 1</Name>
                 <Function>Double Touch</Function>
                 <DataPointType>1.001</DataPointType>
                 <Flags>52</Flags>
             </CommObject>
-            <CommObject Id="3" IdName="button1_multi">
+            <CommObject Id="9" IdName="button1_multi">
                 <Name>Button 1</Name>
                 <Function>Multi Touch</Function>
                 <DataPointType>5.004</DataPointType> <!-- unsigned integer 0-255 -->  <!-- http://www.sti.uniurb.it/romanell/Domotica_e_Edifici_Intelligenti/110504-Lez10a-KNX-Datapoint%20Types%20v1.5.00%20AS.pdf -->
                 <Flags>52</Flags>
             </CommObject>
-            <CommObject Id="4" IdName="button1_long">
+            <CommObject Id="10" IdName="button1_long">
                 <Name>Button 1</Name>
                 <Function>Long Hold</Function>
                 <DataPointType>1.001</DataPointType> <!----https://support.knx.org/hc/en-us/articles/115001133744-Datapoint-Type -->
