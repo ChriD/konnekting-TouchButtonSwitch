@@ -26,7 +26,6 @@
     #define TS_MODE_STARTUP4  63
 
 
-
     class CY8TouchSwitch
     {
       public:
@@ -38,6 +37,10 @@
         void addButton(uint8_t _sensorId, uint8_t _ledPin, bool _enableMultipleTouch = false);
         void changeMode(uint8_t _mode, bool _force = false);
         void resetTouchController();
+
+        void setTouchEventCallback(std::function<void(uint8_t, uint8_t, uint8_t)>);
+        void setProximityEventCallback(std::function<void(uint8_t, uint8_t)>);
+        void setGestureEventCallback(std::function<void(uint8_t)>);
       private:
         CY8CMBR3116 *touchController;
         LEDWorker   *ledWorkers[10];
@@ -45,7 +48,9 @@
         uint8_t     nextButtonIdx;
         uint8_t     mode;
 
-        void sensorStateEvent(uint8_t sensorType, uint8_t _sensorId, bool _value);
+        bool isSensorIdActive(uint8_t _sensorId);
+
+        void sensorStateEvent(uint8_t _sensorType, uint8_t _sensorId, bool _value);
         void touchEvent(uint8_t _sensorId, uint8_t _event, uint8_t _count);
         void proximityEvent(uint8_t _sensorId, uint8_t _event);
         void gestureEvent(uint8_t _event);
@@ -54,6 +59,13 @@
         void setMode_Prog();
         void setMode_Setup();
         void setMode_Startup(uint8_t _startupLevel);
+
+        // we do forward the evens from the touch controller
+        // for now there is no need to do any bug change, the only thing which will be done
+        // is filtereing the events for the given button id's
+        std::function<void(uint8_t, uint8_t, uint8_t)> touchEventCallback;
+        std::function<void(uint8_t, uint8_t)> proximityEventCallback;
+        std::function<void(uint8_t)> gestureEventCallback;
     };
 
 #endif

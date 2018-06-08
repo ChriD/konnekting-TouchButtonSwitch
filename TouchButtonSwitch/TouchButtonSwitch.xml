@@ -4,50 +4,109 @@
                   xsi:schemaLocation="http://konnekting.de/xml/KonnektingDevice/v0 http://konnekting.de/xml/KonnektingDevice/KonnektingDeviceV0.xsd">
     <Device ManufacturerId="21212" DeviceId="1" Revision="0">
         <ManufacturerName>ChriD</ManufacturerName>
-        <DeviceName>4ButtonSwitch</DeviceName>
+        <DeviceName>TouchButtonSwitch</DeviceName>
         <Parameters>
             <ParameterGroup Name="General" Id="0">
-                <Parameter Id="0" IdName="doubleClickPeriod">
-                    <Description>Period  [500..65535ms]</Description>
+                <Parameter Id="0" IdName="multiTouchPeriod">
+                    <Description>Touch recognition period [500..65535ms]</Description>
                     <Value Type="uint16" Default="09C4" Options="" Min="01F4" Max="FFFF"/>
                 </Parameter>
                 <Parameter Id="1" IdName="longHoldPeriod">
-                    <Description>Blink Delay [500..65535ms]</Description>
-                    <Value Type="uint16" Default="09C4" Options="" Min="01F4" Max="FFFF"/>
-                </Parameter>
-                <Parameter Id="1" IdName="debouncePeriod">
-                    <Description>Blink Delay [500..65535ms]</Description>
+                    <Description>Long Hold Period [500..65535ms]</Description>
                     <Value Type="uint16" Default="09C4" Options="" Min="01F4" Max="FFFF"/>
                 </Parameter>
             </ParameterGroup>
-        </Parameters>
-        <CommObjects>
+
             <!--
-            <CommObject Id="0" IdName="button1_click">
-                <Name>LED</Name>
-                <Function>LED on/off</Function>
-                <DataPointType>1.001</DataPointType>
+            * temperature warnings (send once / resend)
+            * humidity warnings (send once / resend)
+            * allow multitouch
+            * background illumination standard
+            * background illumination proximity
+             -->
+
+        </Parameters>
+
+
+        <CommObjects>
+
+            <CommObject Id="0" IdName="firmwareTransfer">
+                <Name>FOTB</Name>
+                <Function>Firmwareupdate</Function>
+                <DataPointType>60000.60000</DataPointType>
                 <Flags>42</Flags>
             </CommObject>
-            -->
-            <CommObject Id="0" IdName="button1_click">
-                <Name>Button 1 click</Name>
-                <Function>???</Function>
+
+            <!-- Temperature -->
+            <CommObject Id="1" IdName="temperatureValue">
+                <Name>Temperature</Name>
+                <Function>Value</Function>
+                <DataPointType>9.001</DataPointType>
+            </CommObject>
+            <CommObject Id="2" IdName="temperatureAlarmLow">
+                <Name>Temperature</Name>
+                <Function>Lower alarm value reached</Function>
+                <DataPointType>1.001</DataPointType>
+            </CommObject>
+            <CommObject Id="3" IdName="temperatureAlarmHigh">
+                <Name>Temperature</Name>
+                <Function>Upper alarm value reached</Function>
+                <DataPointType>1.001</DataPointType>
+            </CommObject>
+
+            <!-- Humidity -->
+            <CommObject Id="4" IdName="humidityValue">
+                <Name>Humidity</Name>
+                <Function>Value</Function>
+                <DataPointType>9.007</DataPointType>
+            </CommObject>
+            <CommObject Id="5" IdName="humidityAlarmLow">
+                <Name>Humidity</Name>
+                <Function>Lower alarm value reached</Function>
+                <DataPointType>1.001</DataPointType>
+            </CommObject>
+            <CommObject Id="6" IdName="humidityAlarmHigh">
+                <Name>Humidity</Name>
+                <Function>Upper alarm value reached</Function>
+                <DataPointType>1.001</DataPointType>
+            </CommObject>
+
+
+            <!-- Button 1 -->
+            <CommObject Id="1" IdName="button1">
+                <Name>Button 1</Name>
+                <Function>Touch</Function>
                 <DataPointType>1.001</DataPointType>
                 <Flags>52</Flags>
             </CommObject>
-            <CommObject Id="1" IdName="button1_doubleclick">
-                <Name>Button 1 double click</Name>
-                <Function>???</Function>
+            <CommObject Id="2" IdName="button1_double">
+                <Name>Button 1</Name>
+                <Function>Double Touch</Function>
                 <DataPointType>1.001</DataPointType>
                 <Flags>52</Flags>
             </CommObject>
-            <CommObject Id="2" IdName="button1_longhold">
-                <Name>Button 1 long hold</Name>
-                <Function>???</Function>
+            <CommObject Id="3" IdName="button1_multi">
+                <Name>Button 1</Name>
+                <Function>Multi Touch</Function>
+                <DataPointType>5.004</DataPointType> <!-- unsigned integer 0-255 -->  <!-- http://www.sti.uniurb.it/romanell/Domotica_e_Edifici_Intelligenti/110504-Lez10a-KNX-Datapoint%20Types%20v1.5.00%20AS.pdf -->
+                <Flags>52</Flags>
+            </CommObject>
+            <CommObject Id="4" IdName="button1_long">
+                <Name>Button 1</Name>
+                <Function>Long Hold</Function>
                 <DataPointType>1.001</DataPointType> <!----https://support.knx.org/hc/en-us/articles/115001133744-Datapoint-Type -->
                 <Flags>52</Flags>
             </CommObject>
+
+            <!--
+            * Temperature
+            * temperature warning
+            * humidity
+            * humidity warning
+            * taster 1-6
+            * proximity
+            * gesture
+             -->
 
         </CommObjects>
     </Device>

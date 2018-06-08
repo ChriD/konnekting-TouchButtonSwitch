@@ -35,6 +35,26 @@ void CY8TouchSwitch::setup()
 }
 
 
+
+// uint8_t _sensorId, uint8_t _event, uint8_t _count
+void CY8TouchSwitch::setTouchEventCallback(std::function<void(uint8_t, uint8_t, uint8_t)> _touchEventCallback)
+{
+  this->touchEventCallback = _touchEventCallback;
+}
+
+// uint8_t _sensorId, uint8_t _event
+void CY8TouchSwitch::setProximityEventCallback(std::function<void(uint8_t, uint8_t)> _proximityEventCallback)
+{
+  this->proximityEventCallback = _proximityEventCallback;
+}
+
+// uint8_t _gesture
+void CY8TouchSwitch::setGestureEventCallback(std::function<void(uint8_t)> _gestureEventCallback)
+{
+  this->gestureEventCallback = _gestureEventCallback;
+}
+
+
 void CY8TouchSwitch::addButton(uint8_t _sensorId, uint8_t _ledPin, bool _enableMultipleTouch)
 {
   if(_ledPin)
@@ -47,10 +67,19 @@ void CY8TouchSwitch::addButton(uint8_t _sensorId, uint8_t _ledPin, bool _enableM
   this->nextButtonIdx ++;
 }
 
+
+bool CY8TouchSwitch::isSensorIdActive(uint8_t _sensorId)
+{
+  bool exists = std::find(std::begin(this->sendorIds), std::end(this->sendorIds), _sensorId) != std::end(this->sendorIds);
+  return exists;
+}
+
+
 void CY8TouchSwitch::sensorStateEvent(uint8_t sensorType, uint8_t _sensorId, bool _value)
 {
-
+  // we do nod need the state info for anything
 }
+
 
 void CY8TouchSwitch::touchEvent(uint8_t _sensorId, uint8_t _event, uint8_t _count)
 {
@@ -61,7 +90,12 @@ void CY8TouchSwitch::touchEvent(uint8_t _sensorId, uint8_t _event, uint8_t _coun
   // check if this event is one we have to consider, for this we check if we do have a
   // registered button for the given sensor id
   Debug.println(F("Touch event on sensor: %u. Event: %u (%u)"), _sensorId, _event, _count);
+
+  // only trigger event if we do have attached and if we do have the sensor id sepcified
+  if(this->touchEventCallback && this->isSensorIdActive(_sensorId))
+    this->touchEventCallback(_sensorId, _event, _count);
 }
+
 
 void CY8TouchSwitch::proximityEvent(uint8_t _sensorId, uint8_t _event)
 {
@@ -69,9 +103,7 @@ void CY8TouchSwitch::proximityEvent(uint8_t _sensorId, uint8_t _event)
   if(this->mode != TS_MODE_NORMAL)
     return;
 
-  // check if this event is one we have to consider, for this we check if we do have a
-  // registered proximity for the given proximity sensor id
-
+  // if there is a proximity detected, we do light up all leds with a fade in
   if(_event == 1)
   {
     Debug.println(F("Proximity alert on %u"), _sensorId);
@@ -80,6 +112,7 @@ void CY8TouchSwitch::proximityEvent(uint8_t _sensorId, uint8_t _event)
       this->ledWorkers[i]->fade(500, 255);
     }
   }
+  // if the proximity is disappeared we wait a little bit and fade out all leds
   else
   {
     Debug.println(F("Proximity lost on %u"), _sensorId);
@@ -89,15 +122,16 @@ void CY8TouchSwitch::proximityEvent(uint8_t _sensorId, uint8_t _event)
     }
   }
 
-  // if there is a proximity detected, we do light up all leds with a fade include
-
-  // if the proximity is disappeared we wait a little bit and fade out all leds
+  if(this->proximityEventCallback)
+    this->proximityEventCallback(_sensorId, _event);
 }
 
 
 void CY8TouchSwitch::gestureEvent(uint8_t _event)
 {
-    // TODO: @@@
+    Debug.println(F("Gesture Event: %u"), _event);
+    if(this->gestureEventCallback)
+      this->gestureEventCallback(_event);
 }
 
 

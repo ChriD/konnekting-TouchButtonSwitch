@@ -1,6 +1,13 @@
-/* TODO:  * add KNX connection
-          * get manufacturere ID
-          * aso...*/
+/*
+  Konnekting - TouchButtonSwitch (0xCDDC)
+  Created by Christian Dürnberger (Chrid), Mai 2018
+  https://github.com/ChriD
+*/
+
+
+/* TODO:
+  # add temperature and humidity/temp sensor
+*/
 
 #include "Arduino.h"
 #include "Wire.h"
@@ -9,21 +16,29 @@
 #include "src/CY8TouchSwitch.h"
 
 
+// we do use the same firmware for 4x or 6x touch switches
+// so we have to define which type of sitch is being compiled
+#define SWITCHTYPE        4
+
 // used for debugging
-// should not be activated on protductive environment
+// should not be activated on productive environment
 #define KDEBUG
 
 // for testing purposes without having a bcu attached we have to skip
 // the knx code to test the device. For this we define the NOBCU
-#define NOBCU
+//#define NOBCU
 
 #define DEBUGSERIAL       Serial
 #define KNX_SERIAL        Serial1
 #define PROG_LED_PIN      6
-#define PROG_BUTTON_PIN   A5
+#define PROG_BUTTON_PIN   PC13
 #define TC_INTERRUPTPIN   PA8
 
+// the differnt type of switches we do have
+#define SWITCHTYPE_4X     4
+#define SWITCHTYPE_6X     6
 
+// we do have some global vars
 CY8TouchSwitch  *touchSwitch;
 bool            startupRecalibrationNeeded = true;
 uint64_t        mainLoopEndTime;
@@ -45,7 +60,7 @@ void setup()
   touchSwitch->setup();
 
   // add buttons for the given type of switch (4x or 6x)
-  // this has to be done after we do have loaded the KNX settings
+  // TODO: @@@
   touchSwitch->addButton(3, D3, true);
   touchSwitch->addButton(4, D4, true);
   touchSwitch->addButton(5, D11, true);
@@ -73,9 +88,16 @@ void setup()
   pinMode(TC_INTERRUPTPIN, INPUT_PULLDOWN);
   attachInterrupt(TC_INTERRUPTPIN, touchControllerInterrupt, FALLING);
 
-  // setup the prog button
+  // setup the prog button interrupt for rising edge
   pinMode(PROG_BUTTON_PIN, INPUT_PULLUP);
   attachInterrupt(digitalPinToInterrupt(PROG_BUTTON_PIN), progButtonPressed, RISING);
+
+  // set the callbacks we do like to send to the KNX-Bus
+  touchSwitch->setTouchEventCallback(touchEvent);
+  touchSwitch->setGestureEventCallback(gestureEvent);
+  touchSwitch->setProximityEventCallback(proximityEvent);
+
+  //std::bind(&CY8TouchSwitch::sensorStateEvent, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3)
 
   touchSwitch->changeMode(TS_MODE_STARTUP4, true);
   delay(150);
@@ -85,18 +107,23 @@ void setup()
 }
 
 
-void progButtonPressed() {
+
+// if the prog button is pressed we have to switch the device into the prog mode
+// this happens if the user is pressing the prog button
+void progButtonPressed()
+{
   Konnekting.toggleProgState();
 }
 
-// TODO: @@@ TEST!!!
+
+
 void progLed (bool state){
-  Debug.println(F("##########"));
   if(state)
     touchSwitch->changeMode(TS_MODE_PROG, false);
   else
     touchSwitch->changeMode(TS_MODE_NORMAL, false);
 }
+
 
 
 void knxDeviceSetup()
@@ -116,16 +143,68 @@ void knxDeviceSetup()
 }
 
 
+
 // the touch controller will trigger an interrupt when the state of a sensor changes
 // we have to reroute the interrupt to the touchSwitch class for further processing
-void touchControllerInterrupt() {
+void touchControllerInterrupt()
+{
   touchSwitch->interrupt();
 }
 
 
-void knxEvents(byte _index) {
-    // nothing to do in this sketch
+void touchEvent(uint8_t _sensorId, uint8_t _event, uint8_t _count)
+{
+  // send the touch event to the knx bus
+  //Knx.write(getComObjIndex(COMOBJ_abStatusMovement), 0);
+  //Knx.write(getComObjIndex(COMOBJ_abStatusClosePos), DPT1_001_on);
+  //Debug.print(" COMOBJ_abStatusMovementClosePos=1", _group);
 }
+
+
+void proximityEvent(uint8_t _sensorId, uint8_t _event)
+{
+}
+
+
+void gestureEvent(uint8_t _event)
+{
+
+}
+
+
+// this method will be called when a com object is updated
+void knxEvents(byte _index)
+{
+  /*
+  switch (index)
+  {
+      case COMOBJ_btnShortInput:
+            boolShortClick = Knx.read(COMOBJ_btnShortInput);
+            Debug.println(F("KNX event: boolShortClick: %d"),boolShortClick);
+            break;
+        case COMOBJ_btnLongInput:
+            boolLongClick = Knx.read(COMOBJ_btnLongInput);
+            Debug.println(F("KNX event: boolLongClick: %d"),boolLongClick);
+            break;
+        case COMOBJ_binD0ValueInput:
+            inputStateD0 = Knx.read(COMOBJ_binD0ValueInput);
+            Debug.println(F("KNX event: inputStateD0: %d"),inputStateD0);
+            break;
+        case COMOBJ_binD1ValueInput:
+            inputStateD1 = Knx.read(COMOBJ_binD1ValueInput);
+            Debug.println(F("KNX event: inputStateD1: %d"),inputStateD1);
+            break;
+        case COMOBJ_nightMode:
+            nightMode = (bool) Knx.read(COMOBJ_nightMode);
+            Debug.println(F("KNX event: nightMode: %d"),nightMode);
+            break;
+        default:
+          break;
+  }
+  */
+}
+
+
 
 
 void loop()
@@ -163,12 +242,8 @@ void loop()
   }
   else
   {
-    // TODO: switch to PRG mode
+    // TODO: set switch auto to PRG mode
   }
-
-  // only for test!!!!
-  if ( millis() > 5000)
-    touchSwitch->changeMode(TS_MODE_NORMAL, false);
 
 
   mainLoopEndTime = micros();
