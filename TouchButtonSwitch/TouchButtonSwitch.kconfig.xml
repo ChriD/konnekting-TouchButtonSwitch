@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<KonnektingDevice xmlns="http://konnekting.de/xml/KonnektingDevice/v0">
+    <Device ManufacturerId="52700" DeviceId="1" Revision="0">
+        <ManufacturerName>ChriD</ManufacturerName>
+        <DeviceName>TouchButtonSwitch</DeviceName>
+        <Parameters>
+            <ParameterGroup Name="General" Id="0">
+                <Parameter Id="0" IdName="multiTouchPeriod">
+                    <Description>Touch recognition period [000..500ms]</Description>
+                    <Value Type="uint16" Default="00FA" Options="" Min="0000" Max="01F4"/>
+                </Parameter>
+                <Parameter Id="1" IdName="longHoldPeriod">
+                    <Description>Long Hold Period [500..10000ms]</Description>
+                    <Value Type="uint16" Default="04E2" Options="" Min="01F4" Max="2710"/>
+                </Parameter>
+            </ParameterGroup>
+        </Parameters>
+        <CommObjects>
+            <CommObject Id="0" IdName="firmwareTransfer">
+                <Name>FOTB</Name>
+                <Function>Firmwareupdate</Function>
+                <DataPointType>60000.60000</DataPointType>
+                <Flags>42</Flags>
+            </CommObject>
+            <CommObject Id="1" IdName="temperatureValue">
+                <Name>Temperature</Name>
+                <Function>Value</Function>
+                <DataPointType>9.001</DataPointType>
+                <Flags>52</Flags>
+            </CommObject>
+            <CommObject Id="2" IdName="temperatureAlarmLow">
+                <Name>Temperature</Name>
+                <Function>Lower alarm value reached</Function>
+                <DataPointType>1.001</DataPointType>
+                <Flags>52</Flags>
+            </CommObject>
+            <CommObject Id="3" IdName="temperatureAlarmHigh">
+                <Name>Temperature</Name>
+                <Function>Upper alarm value reached</Function>
+                <DataPointType>1.001</DataPointType>
+                <Flags>52</Flags>
+            </CommObject>
+            <CommObject Id="4" IdName="humidityValue">
+                <Name>Humidity</Name>
+                <Function>Value</Function>
+                <DataPointType>9.007</DataPointType>
+                <Flags>52</Flags>
+            </CommObject>
+            <CommObject Id="5" IdName="humidityAlarmLow">
+                <Name>Humidity</Name>
+                <Function>Lower alarm value reached</Function>
+                <DataPointType>1.001</DataPointType>
+                <Flags>52</Flags>
+            </CommObject>
+            <CommObject Id="6" IdName="humidityAlarmHigh">
+                <Name>Humidity</Name>
+                <Function>Upper alarm value reached</Function>
+                <DataPointType>1.001</DataPointType>
+                <Flags>52</Flags>
+            </CommObject>
+            <CommObject Id="7" IdName="button1">
+                <Name>Button 1</Name>
+                <Function>Touch</Function>
+                <DataPointType>1.001</DataPointType>
+                <Flags>52</Flags>
+            </CommObject>
+            <CommObject Id="8" IdName="button1_double">
+                <Name>Button 1</Name>
+                <Function>Double Touch</Function>
+                <DataPointType>1.001</DataPointType>
+                <Flags>52</Flags>
+            </CommObject>
+            <CommObject Id="9" IdName="button1_multi">
+                <Name>Button 1</Name>
+                <Function>Multi Touch</Function>
+                <DataPointType>5.004</DataPointType>
+                <Flags>52</Flags>
+            </CommObject>
+            <CommObject Id="10" IdName="button1_long">
+                <Name>Button 1</Name>
+                <Function>Long Hold</Function>
+                <DataPointType>1.001</DataPointType>
+                <Flags>52</Flags>
+            </CommObject>
+        </CommObjects>
+    </Device>
+    <Configuration ManufacturerId="21212" DeviceId="1" Revision="0">
+        <IndividualAddress Address="1.1."/>
+        <CommObjectConfigurations>
+            <CommObjectConfiguration Id="0" active="true"/>
+            <CommObjectConfiguration Id="1" active="true"/>
+            <CommObjectConfiguration Id="2" active="true"/>
+            <CommObjectConfiguration Id="3" active="true"/>
+            <CommObjectConfiguration Id="4" active="true"/>
+            <CommObjectConfiguration Id="5" active="true"/>
+            <CommObjectConfiguration Id="6" active="true"/>
+            <CommObjectConfiguration Id="7" active="true"/>
+            <CommObjectConfiguration Id="8" active="true"/>
+            <CommObjectConfiguration Id="9" active="true"/>
+            <CommObjectConfiguration Id="10" active="true"/>
+        </CommObjectConfigurations>
+        <ParameterConfigurations>
+            <ParameterConfiguration Id="0" Value="09C4"/>
+            <ParameterConfiguration Id="1" Value="09C4"/>
+        </ParameterConfigurations>
+    </Configuration>
+</KonnektingDevice>

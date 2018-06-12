@@ -1,78 +1,63 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<KonnektingDevice xmlns="http://konnekting.de/xml/KonnektingDevice/v0"
-                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                  xsi:schemaLocation="http://konnekting.de/xml/KonnektingDevice/v0 http://konnekting.de/xml/KonnektingDevice/KonnektingDeviceV0.xsd">
-    <Device ManufacturerId="21212" DeviceId="1" Revision="0">
+<KonnektingDevice xmlns="http://konnekting.de/xml/KonnektingDevice/v0">
+    <Device ManufacturerId="52700" DeviceId="1" Revision="0">
         <ManufacturerName>ChriD</ManufacturerName>
         <DeviceName>TouchButtonSwitch</DeviceName>
         <Parameters>
             <ParameterGroup Name="General" Id="0">
                 <Parameter Id="0" IdName="multiTouchPeriod">
-                    <Description>Touch recognition period [500..65535ms]</Description>
-                    <Value Type="uint16" Default="09C4" Options="" Min="01F4" Max="FFFF"/>
+                    <Description>Touch recognition period [000..500ms]</Description>
+                    <Value Type="uint16" Default="00FA" Options="" Min="0000" Max="01F4"/>
                 </Parameter>
                 <Parameter Id="1" IdName="longHoldPeriod">
-                    <Description>Long Hold Period [500..65535ms]</Description>
-                    <Value Type="uint16" Default="09C4" Options="" Min="01F4" Max="FFFF"/>
+                    <Description>Long Hold Period [500..10000ms]</Description>
+                    <Value Type="uint16" Default="04E2" Options="" Min="01F4" Max="2710"/>
                 </Parameter>
             </ParameterGroup>
-
-            <!--
-            * temperature warnings (send once / resend)
-            * humidity warnings (send once / resend)
-            * allow multitouch
-            * background illumination standard
-            * background illumination proximity
-             -->
-
         </Parameters>
-
-
         <CommObjects>
-
             <CommObject Id="0" IdName="firmwareTransfer">
                 <Name>FOTB</Name>
                 <Function>Firmwareupdate</Function>
                 <DataPointType>60000.60000</DataPointType>
                 <Flags>42</Flags>
             </CommObject>
-
-            <!-- Temperature -->
             <CommObject Id="1" IdName="temperatureValue">
                 <Name>Temperature</Name>
                 <Function>Value</Function>
                 <DataPointType>9.001</DataPointType>
+                <Flags>52</Flags>
             </CommObject>
             <CommObject Id="2" IdName="temperatureAlarmLow">
                 <Name>Temperature</Name>
                 <Function>Lower alarm value reached</Function>
                 <DataPointType>1.001</DataPointType>
+                <Flags>52</Flags>
             </CommObject>
             <CommObject Id="3" IdName="temperatureAlarmHigh">
                 <Name>Temperature</Name>
                 <Function>Upper alarm value reached</Function>
                 <DataPointType>1.001</DataPointType>
+                <Flags>52</Flags>
             </CommObject>
-
-            <!-- Humidity -->
             <CommObject Id="4" IdName="humidityValue">
                 <Name>Humidity</Name>
                 <Function>Value</Function>
                 <DataPointType>9.007</DataPointType>
+                <Flags>52</Flags>
             </CommObject>
             <CommObject Id="5" IdName="humidityAlarmLow">
                 <Name>Humidity</Name>
                 <Function>Lower alarm value reached</Function>
                 <DataPointType>1.001</DataPointType>
+                <Flags>52</Flags>
             </CommObject>
             <CommObject Id="6" IdName="humidityAlarmHigh">
                 <Name>Humidity</Name>
                 <Function>Upper alarm value reached</Function>
                 <DataPointType>1.001</DataPointType>
+                <Flags>52</Flags>
             </CommObject>
-
-
-            <!-- Button 1 -->
             <CommObject Id="7" IdName="button1">
                 <Name>Button 1</Name>
                 <Function>Touch</Function>
@@ -88,29 +73,35 @@
             <CommObject Id="9" IdName="button1_multi">
                 <Name>Button 1</Name>
                 <Function>Multi Touch</Function>
-                <DataPointType>5.004</DataPointType> <!-- unsigned integer 0-255 -->  <!-- http://www.sti.uniurb.it/romanell/Domotica_e_Edifici_Intelligenti/110504-Lez10a-KNX-Datapoint%20Types%20v1.5.00%20AS.pdf -->
+                <DataPointType>5.004</DataPointType>
                 <Flags>52</Flags>
             </CommObject>
             <CommObject Id="10" IdName="button1_long">
                 <Name>Button 1</Name>
                 <Function>Long Hold</Function>
-                <DataPointType>1.001</DataPointType> <!----https://support.knx.org/hc/en-us/articles/115001133744-Datapoint-Type -->
+                <DataPointType>1.001</DataPointType>
                 <Flags>52</Flags>
             </CommObject>
-
-            <!--
-            * Temperature
-            * temperature warning
-            * humidity
-            * humidity warning
-            * taster 1-6
-            * proximity
-            * gesture
-             -->
-
         </CommObjects>
     </Device>
+    <Configuration ManufacturerId="21212" DeviceId="1" Revision="0">
+        <IndividualAddress Address="15.1.50" Description="ChriD | TouchButtonSwitch | 4x | Testboard"/>
+        <CommObjectConfigurations>
+            <CommObjectConfiguration Id="0" active="true"/>
+            <CommObjectConfiguration Id="1" active="true"/>
+            <CommObjectConfiguration Id="2" active="true"/>
+            <CommObjectConfiguration Id="3" active="true"/>
+            <CommObjectConfiguration Id="4" active="true"/>
+            <CommObjectConfiguration Id="5" active="true"/>
+            <CommObjectConfiguration Id="6" active="true"/>
+            <CommObjectConfiguration Id="7" GroupAddress="15/1/50" active="true"/>
+            <CommObjectConfiguration Id="8" GroupAddress="15/1/51" active="true"/>
+            <CommObjectConfiguration Id="9" GroupAddress="15/1/52" active="true"/>
+            <CommObjectConfiguration Id="10" active="true"/>
+        </CommObjectConfigurations>
+        <ParameterConfigurations>
+            <ParameterConfiguration Id="0" Value="00FA"/>
+            <ParameterConfiguration Id="1" Value="04E2"/>
+        </ParameterConfigurations>
+    </Configuration>
 </KonnektingDevice>
-
-
-<!-- https://wiki.konnekting.de/index.php/KONNEKTING_XML_Device_Description -->
