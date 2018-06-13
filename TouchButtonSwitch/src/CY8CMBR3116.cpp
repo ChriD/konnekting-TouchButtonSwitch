@@ -51,10 +51,11 @@ void CY8CMBR3116::setGestureEventCallback(std::function<void(uint8_t)> _gestureE
 }
 
 
-void CY8CMBR3116::setThresholds(uint16_t _touchThreshold, uint16_t _longTouchThreshold)
+void CY8CMBR3116::setThresholds(uint16_t _touchThreshold, uint16_t _longTouchThreshold, uint16_t _positioningTouchThreshold)
 {
-  this->longTouchThreshold = _longTouchThreshold;
-  this->touchThreshold     = _touchThreshold;
+  this->longTouchThreshold        = _longTouchThreshold;
+  this->touchThreshold            = _touchThreshold;
+  this->positioningTouchThreshold = _positioningTouchThreshold;
 }
 
 
@@ -168,6 +169,15 @@ void CY8CMBR3116::sensorStateChanged(uint8_t _sensoryType, uint8_t _sensorId, bo
     }
     else
     {
+        // if we are releasing a positioning touch we have to send the positioning stop event immediately
+        // a positioning touch is identified by having the touchCounter set to 255 in the loop
+        if(this->touchCounter[_sensorId] == 255)
+        {
+          if(this->touchEventCallback)
+            this->touchEventCallback(_sensorId, 21, 1);
+          this->touchCounter[_sensorId] = 0;
+        }
+
         // store the end time of the touch, but only if it was no long touch before
         if(this->touchCounter[_sensorId] > 0)
         {
@@ -203,9 +213,15 @@ uint16_t CY8CMBR3116::calcDiff(uint64_t _stop, uint64_t _start)
 }
 
 
-void CY8CMBR3116::enableMultipleTouch(uint8_t sensorId, bool _enable)
+void CY8CMBR3116::enableMultipleTouch(uint8_t _sensorId, bool _enable)
 {
-  this->multipletouchEnabled[sensorId] = _enable;
+  this->multipleTouchEnabled[_sensorId] = _enable;
+}
+
+
+void CY8CMBR3116::enablePositioningTouch(uint8_t _sensorId, bool _enable)
+{
+  this->positioningTouchEnabled[_sensorId] = _enable;
 }
 
 
@@ -223,9 +239,25 @@ void CY8CMBR3116::task()
     {
       if(this->taskProcess[i])
       {
+
+        // if the button is currently touched and it's touched beyond the "positioning" touch limit, then its a positioning touch
+        // in this case we have to send the positioning start event and disable the long touch event ( both are not valid! )
+        // we also remove the button from the process list because we will handle it on touch end event in this case
+        if(this->positioningTouchEnabled[i] && (millis() - this->touchStartTime[i]) >= this->positioningTouchThreshold)
+        {
+          // call callback method if registered
+          if(this->touchEventCallback)
+            this->touchEventCallback(i, 20, 1);
+
+          this->touchStartTime[i] = 0;
+          this->touchEndTime[i] = 0;
+          this->touchCounter[i] = 255;
+          this->taskProcess[i]  = false;
+        }
+
         // if the button is currently touched and it's touched beyond the long touch limit, then its a long touch
         // is this the case we have to remove the button from the process task and do reset the touch counter
-        if((millis() - this->touchStartTime[i]) >= this->longTouchThreshold)
+        if(this->taskProcess[i] && (millis() - this->touchStartTime[i]) >= this->longTouchThreshold)
         {
           // call callback method if registered
           if(this->touchEventCallback)
@@ -239,7 +271,7 @@ void CY8CMBR3116::task()
 
         // if the treshhold for a click (time for waiting if there appears another click) is done
         // then we can assume the click, doubleclick aso... is done
-        if((this->touchEndTime[i] > 0 && (millis() - this->touchEndTime[i]) >= this->touchThreshold) || !this->multipletouchEnabled[i] )
+        if(this->taskProcess[i] && (this->touchEndTime[i] > 0 && (millis() - this->touchEndTime[i]) >= this->touchThreshold) || !this->multipleTouchEnabled[i] )
         {
           // call callback method if registered
           if(this->touchEventCallback)

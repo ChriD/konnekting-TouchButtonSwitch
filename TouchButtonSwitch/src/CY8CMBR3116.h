@@ -44,8 +44,9 @@ TODO:
       void setProximityEventCallback(std::function<void(uint8_t, uint8_t)>);
       void setGestureEventCallback(std::function<void(uint8_t)>);
 
-      void setThresholds(uint16_t _touchThreshold, uint16_t _longTouchThreshold);
+      void setThresholds(uint16_t _touchThreshold, uint16_t _longTouchThreshold, uint16_t _positioningTouchThreshold);
       void enableMultipleTouch(uint8_t sensorId, bool _enable = true);
+      void enablePositioningTouch(uint8_t _sensorId, bool _enable = true);
       void reset();
     private:
       std::function<void(uint8_t, uint8_t, bool)> sensorStateChangedCallback;
@@ -63,13 +64,15 @@ TODO:
       uint64_t  touchStartTime[CY8_TOUCHSENSORCOUNT];
       uint64_t  touchEndTime[CY8_TOUCHSENSORCOUNT];
       uint8_t   touchCounter[CY8_TOUCHSENSORCOUNT];
+      bool      positioningTouchEnabled[CY8_TOUCHSENSORCOUNT];
       bool      taskProcess[CY8_TOUCHSENSORCOUNT];
-      bool      multipletouchEnabled[CY8_TOUCHSENSORCOUNT];
+      bool      multipleTouchEnabled[CY8_TOUCHSENSORCOUNT];
       uint64_t  taskLastRunTimeStart;
       uint64_t  taskLastRunTimeStop;
 
       uint16_t  longTouchThreshold;
       uint16_t  touchThreshold;
+      uint16_t  positioningTouchThreshold;
       uint8_t   taskTriggerGap;
 
     };

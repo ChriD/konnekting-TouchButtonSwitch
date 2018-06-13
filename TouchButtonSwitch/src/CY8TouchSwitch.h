@@ -34,7 +34,7 @@
         void setup();
         void task();
         void interrupt();
-        void addButton(uint8_t _sensorId, uint8_t _ledPin, bool _enableMultipleTouch = false);
+        void addButton(uint8_t _sensorId, uint8_t _ledPin, bool _enableMultipleTouch = false, bool _enablePositioningTouch = false);
         void changeMode(uint8_t _mode, bool _force = false);
         void resetTouchController();
 

@@ -25,7 +25,7 @@ void CY8TouchSwitch::setup()
   // create and setup the instance of the touch controller class/object which will do a lot of work for us
   // the touvh controler itself is powerd with a standard setup on start
   this->touchController = new CY8CMBR3116(0x37);
-  this->touchController->setThresholds(250, 1250);
+  this->touchController->setThresholds(250, 1250, 750);
   this->touchController->setup();
   this->touchController->setSensorStateCallback(std::bind(&CY8TouchSwitch::sensorStateEvent, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3));
   this->touchController->setTouchEventCallback(std::bind(&CY8TouchSwitch::touchEvent, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3));
@@ -55,7 +55,7 @@ void CY8TouchSwitch::setGestureEventCallback(std::function<void(uint8_t)> _gestu
 }
 
 
-void CY8TouchSwitch::addButton(uint8_t _sensorId, uint8_t _ledPin, bool _enableMultipleTouch)
+void CY8TouchSwitch::addButton(uint8_t _sensorId, uint8_t _ledPin, bool _enableMultipleTouch,bool _enablePositioningTouch)
 {
   if(_ledPin)
   {
@@ -63,6 +63,7 @@ void CY8TouchSwitch::addButton(uint8_t _sensorId, uint8_t _ledPin, bool _enableM
     this->ledWorkers[this->nextButtonIdx]->setup();
   }
   this->touchController->enableMultipleTouch(_sensorId, _enableMultipleTouch);
+  this->touchController->enablePositioningTouch(_sensorId, _enablePositioningTouch);
   this->sendorIds[this->nextButtonIdx] = _sensorId;
   this->nextButtonIdx ++;
 }

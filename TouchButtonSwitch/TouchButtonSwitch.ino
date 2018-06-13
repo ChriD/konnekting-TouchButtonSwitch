@@ -61,10 +61,10 @@ void setup()
 
   // add buttons for the given type of switch (4x or 6x)
   // TODO: @@@
-  touchSwitch->addButton(1, D3, true);
-  touchSwitch->addButton(2, D4, true);
-  touchSwitch->addButton(3, D11, true);
-  touchSwitch->addButton(4, D9, true);
+  touchSwitch->addButton(3, D3, true, true);
+  touchSwitch->addButton(4, D4, true, true);
+  touchSwitch->addButton(5, D11, true, true);
+  touchSwitch->addButton(6, D9, true, true);
 
   touchSwitch->changeMode(TS_MODE_STARTUP1, true);
   delay(150);
@@ -138,8 +138,13 @@ void knxDeviceSetup()
     //minimal difference between previous and current temperature [°C]
     //diffTempUser = (float) Konnekting.getUINT8Param(PARAM_tempDiff)*0.1;
     //intervalHumdUser = (long) Konnekting.getUINT32Param(PARAM_rhPollingTime)*1000; //humidity polling interval (ms)
+    Debug.println(F("User settings loaded"));
   }
-  Debug.println(F("KNX-Device settings loaded"));
+  else
+  {
+    Debug.println(F("Factory settings loaded"));
+  }
+
 }
 
 
@@ -154,11 +159,26 @@ void touchControllerInterrupt()
 
 void touchEvent(uint8_t _sensorId, uint8_t _event, uint8_t _count)
 {
+  // calculate the offset for the KNX-Comobject id given on the sensor id
+  // sensor ids are from 1 to the count of the buttons
+  uint8_t idOffset = 0;
+  //uint8_t idOffset = (_sensorId - 1) * 4;
+
   // send the touch event to the knx bus
   // we can use the base index for the object and add the ID-1 for correct index????
-  //Knx.write(getComObjIndex(COMOBJ_abStatusMovement), 0);
-  //Knx.write(getComObjIndex(COMOBJ_abStatusClosePos), DPT1_001_on);
-  //Debug.print(" COMOBJ_abStatusMovementClosePos=1", _group);
+  if(_event == 1)
+  {
+    if(_count == 1)
+      Knx.write(COMOBJ_button1 + idOffset, DPT1_001_on);
+    else if(_count == 2)
+      Knx.write(COMOBJ_button1_double + idOffset, DPT1_001_on);
+    else
+      Knx.write(COMOBJ_button1_multi + idOffset, _count);
+  }
+  else if (_event == 2)
+  {
+    Knx.write(COMOBJ_button1_long + idOffset, DPT1_001_on);
+  }
 }
 
 

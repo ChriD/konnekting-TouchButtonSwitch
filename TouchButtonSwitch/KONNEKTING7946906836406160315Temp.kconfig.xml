@@ -6,16 +6,16 @@
         <Parameters>
             <ParameterGroup Name="General" Id="0">
                 <Parameter Id="0" IdName="multiTouchPeriod">
-                    <Description>Touch recognition threshold [000..500ms]</Description>
+                    <Description>Touch recognition period [000..500ms]</Description>
                     <Value Type="uint16" Default="00FA" Options="" Min="0000" Max="01F4"/>
                 </Parameter>
-                <Parameter Id="1" IdName="longTouchPeriod">
-                    <Description>Long hold threshold [500..10000ms]</Description>
+                <Parameter Id="1" IdName="longtouchPeriod">
+                    <Description>Long Hold Period [500..10000ms]</Description>
                     <Value Type="uint16" Default="04E2" Options="" Min="01F4" Max="2710"/>
                 </Parameter>
                 <Parameter Id="2" IdName="disableMultiTouch">
-                    <Description>Position mode threshold [500..10000ms]</Description>
-                    <Value Type="uint16" Default="04E2" Options="" Min="01F4" Max="2710"/>
+                    <Description>Disable Multitouch</Description>
+                    <Value Type="uint8" Default="00" Options="00=No|01=Yes" Min="00" Max="01"/>
                 </Parameter>
             </ParameterGroup>
 
@@ -35,41 +35,25 @@
                     <Description>Use positioning mode instead of long touch</Description>
                     <Value Type="uint8" Default="00" Options="00=No|01=Yes" Min="00" Max="01"/>
                 </Parameter>
-                <Parameter Id="6" IdName="button1_disableMultiTouch">
-                    <Description>Disable Multitouch</Description>
-                    <Value Type="uint8" Default="00" Options="00=No|01=Yes" Min="00" Max="01"/>
-                </Parameter>
             </ParameterGroup>
 
             <ParameterGroup Name="Button 2" Id="3">
-                <Parameter Id="7" IdName="button2_enablePositioningMode">
+                <Parameter Id="5" IdName="button2_enablePositioningMode">
                     <Description>Use positioning mode instead of long touch</Description>
-                    <Value Type="uint8" Default="00" Options="00=No|01=Yes" Min="00" Max="01"/>
-                </Parameter>
-                <Parameter Id="8" IdName="button2_disableMultiTouch">
-                    <Description>Disable Multitouch</Description>
                     <Value Type="uint8" Default="00" Options="00=No|01=Yes" Min="00" Max="01"/>
                 </Parameter>
             </ParameterGroup>
 
             <ParameterGroup Name="Button 3" Id="4">
-                <Parameter Id="9" IdName="button3_enablePositioningMode">
+                <Parameter Id="5" IdName="button3_enablePositioningMode">
                     <Description>Use positioning mode instead of long touch</Description>
-                    <Value Type="uint8" Default="00" Options="00=No|01=Yes" Min="00" Max="01"/>
-                </Parameter>
-                <Parameter Id="10" IdName="button3_disableMultiTouch">
-                    <Description>Disable Multitouch</Description>
                     <Value Type="uint8" Default="00" Options="00=No|01=Yes" Min="00" Max="01"/>
                 </Parameter>
             </ParameterGroup>
 
             <ParameterGroup Name="Button 7" Id="5">
-                <Parameter Id="11" IdName="button4_enablePositioningMode">
+                <Parameter Id="5" IdName="button4_enablePositioningMode">
                     <Description>Use positioning mode instead of long touch</Description>
-                    <Value Type="uint8" Default="00" Options="00=No|01=Yes" Min="00" Max="01"/>
-                </Parameter>
-                <Parameter Id="12" IdName="button4_disableMultiTouch">
-                    <Description>Disable Multitouch</Description>
                     <Value Type="uint8" Default="00" Options="00=No|01=Yes" Min="00" Max="01"/>
                 </Parameter>
             </ParameterGroup>
@@ -148,51 +132,13 @@
                 <DataPointType>1.001</DataPointType>
                 <Flags>52</Flags>
             </CommObject>
-            <CommObject Id="11" IdName="button1_position_touchstart">
+            <CommObject Id="11" IdName="button1_touchstart">
                 <Name>Button 1</Name>
                 <Function>Position - Touch start</Function>
                 <DataPointType>1.001</DataPointType>
                 <Flags>52</Flags>
             </CommObject>
-            <CommObject Id="12" IdName="button1_position_touchend">
-                <Name>Button 1</Name>
-                <Function>Position - Touch end</Function>
-                <DataPointType>1.001</DataPointType>
-                <Flags>52</Flags>
-            </CommObject>
-
-
-            <CommObject Id="13" IdName="button2">
-                <Name>Button 2</Name>
-                <Function>Touch</Function>
-                <DataPointType>1.001</DataPointType>
-                <Flags>52</Flags>
-            </CommObject>
-            <CommObject Id="14" IdName="button2_double">
-                <Name>Button 2</Name>
-                <Function>Double Touch</Function>
-                <DataPointType>1.001</DataPointType>
-                <Flags>52</Flags>
-            </CommObject>
-            <CommObject Id="15" IdName="button2_multi">
-                <Name>Button 2</Name>
-                <Function>Multi Touch</Function>
-                <DataPointType>5.004</DataPointType>
-                <Flags>52</Flags>
-            </CommObject>
-            <CommObject Id="16" IdName="button2_long">
-                <Name>Button 2</Name>
-                <Function>Long Hold</Function>
-                <DataPointType>1.001</DataPointType>
-                <Flags>52</Flags>
-            </CommObject>
-            <CommObject Id="17" IdName="button2_position_touchstart">
-                <Name>Button 1</Name>
-                <Function>Position - Touch start</Function>
-                <DataPointType>1.001</DataPointType>
-                <Flags>52</Flags>
-            </CommObject>
-            <CommObject Id="18" IdName="button2_position_touchend">
+            <CommObject Id="12" IdName="button1_touchend">
                 <Name>Button 1</Name>
                 <Function>Position - Touch end</Function>
                 <DataPointType>1.001</DataPointType>
@@ -200,6 +146,31 @@
             </CommObject>
 
             <!--
+            <CommObject Id="11" IdName="button2">
+                <Name>Button 2</Name>
+                <Function>Touch</Function>
+                <DataPointType>1.001</DataPointType>
+                <Flags>52</Flags>
+            </CommObject>
+            <CommObject Id="12" IdName="button2_double">
+                <Name>Button 2</Name>
+                <Function>Double Touch</Function>
+                <DataPointType>1.001</DataPointType>
+                <Flags>52</Flags>
+            </CommObject>
+            <CommObject Id="13" IdName="button2_multi">
+                <Name>Button 2</Name>
+                <Function>Multi Touch</Function>
+                <DataPointType>5.004</DataPointType>
+                <Flags>52</Flags>
+            </CommObject>
+            <CommObject Id="14" IdName="button2_long">
+                <Name>Button 2</Name>
+                <Function>Long Hold</Function>
+                <DataPointType>1.001</DataPointType>
+                <Flags>52</Flags>
+            </CommObject>
+
             <CommObject Id="15" IdName="button3">
                 <Name>Button 3</Name>
                 <Function>Touch</Function>
