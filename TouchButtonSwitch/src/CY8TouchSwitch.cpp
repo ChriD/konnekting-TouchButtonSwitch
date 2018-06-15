@@ -10,7 +10,9 @@
 
 CY8TouchSwitch::CY8TouchSwitch()
 {
-  this->nextButtonIdx = 0;
+  this->nextButtonIdx             = 0;
+  this->backlight_standbyValue    = LIGHT_BACKGROUND_STANDARDSTANDBY;
+  this->backlight_proximityValue  = LIGHT_BACKGROUND_STANDARDHIGHVALUE;
 }
 
 
@@ -62,19 +64,44 @@ void CY8TouchSwitch::addButton(uint8_t _sensorId, uint8_t _ledPin, bool _enableM
     this->ledWorkers[this->nextButtonIdx] = new LEDWorker(_ledPin);
     this->ledWorkers[this->nextButtonIdx]->setup();
   }
-  this->setButtonSettings(_sensorId, _enableMultipleTouch, _enablePositioningTouch);
+  this->setButtonParameters(_sensorId, _enableMultipleTouch, _enablePositioningTouch);
   this->sendorIds[this->nextButtonIdx] = _sensorId;
   this->nextButtonIdx ++;
 }
 
 
-void CY8TouchSwitch::setButtonSettings(uint8_t _sensorId, bool _enableMultipleTouch, uint8_t _mode)
+void CY8TouchSwitch::setButtonParameters(uint8_t _sensorId, bool _enableMultipleTouch, uint8_t _mode)
 {
   if(!this->isSensorIdActive(_sensorId))
     return;
 
   this->touchController->enableMultipleTouch(_sensorId, _enableMultipleTouch);
   this->touchController->enablePositioningTouch(_sensorId, _mode == TS_BUTTON_MODE_POSITIONING ? true : false);
+}
+
+
+void CY8TouchSwitch::setBacklightParameters(uint8_t _valueStandby, uint8_t _valueProximity)
+{
+  this->backlight_standbyValue    = _valueStandby;
+  this->backlight_proximityValue  = _valueProximity;
+}
+
+
+void CY8TouchSwitch::setThresholds(uint16_t _touchThreshold, uint16_t _longTouchThreshold, uint16_t _positioningTouchThreshold)
+{
+  this->touchController->setThresholds(_touchThreshold, _longTouchThreshold, _positioningTouchThreshold);
+}
+
+
+uint8_t CY8TouchSwitch::getBacklightStandbyValue()
+{
+  return this->backlight_standbyValue;
+}
+
+
+uint8_t CY8TouchSwitch::getBacklightProximityValue()
+{
+  return this->backlight_proximityValue;
 }
 
 
@@ -119,7 +146,7 @@ void CY8TouchSwitch::proximityEvent(uint8_t _sensorId, uint8_t _event)
     Debug.println(F("Proximity alert on %u"), _sensorId);
     for(uint8_t i=0; i < this->nextButtonIdx; i++)
     {
-      this->ledWorkers[i]->fade(500, 255);
+      this->ledWorkers[i]->fade(500, this->getBacklightProximityValue());
     }
   }
   // if the proximity is disappeared we wait a little bit and fade out all leds
@@ -128,7 +155,7 @@ void CY8TouchSwitch::proximityEvent(uint8_t _sensorId, uint8_t _event)
     Debug.println(F("Proximity lost on %u"), _sensorId);
     for(uint8_t i=0; i < this->nextButtonIdx; i++)
     {
-      this->ledWorkers[i]->fade(500, 10);
+      this->ledWorkers[i]->fade(500, this->getBacklightStandbyValue());
     }
   }
 
@@ -194,7 +221,7 @@ void CY8TouchSwitch::setMode_Normal()
 {
   for(uint8_t i=0; i < this->nextButtonIdx; i++)
   {
-    this->ledWorkers[i]->fade(500, 10);
+    this->ledWorkers[i]->fade(500, this->getBacklightStandbyValue());
   }
 }
 
@@ -203,7 +230,7 @@ void CY8TouchSwitch::setMode_Prog()
 {
   for(uint8_t i=0; i < this->nextButtonIdx; i++)
   {
-    this->ledWorkers[i]->blink();
+    this->ledWorkers[i]->blink(500, 500, 0, LIGHT_BACKGROUND_STANDARDHIGHVALUE);
   }
 }
 
@@ -212,7 +239,7 @@ void CY8TouchSwitch::setMode_Setup()
 {
   for(uint8_t i=0; i < this->nextButtonIdx; i++)
   {
-    this->ledWorkers[i]->blink(250,250);
+    this->ledWorkers[i]->blink(250,250, 0, LIGHT_BACKGROUND_STANDARDHIGHVALUE);
   }
 }
 
@@ -220,13 +247,13 @@ void CY8TouchSwitch::setMode_Setup()
 void CY8TouchSwitch::setMode_Startup(uint8_t _startupLevel)
 {
   if(_startupLevel >= 1 && this->ledWorkers[0] != NULL)
-    this->ledWorkers[0]->set(255);
+    this->ledWorkers[0]->set(LIGHT_BACKGROUND_STANDARDHIGHVALUE);
   if(_startupLevel >= 2 && this->ledWorkers[1] != NULL)
-    this->ledWorkers[1]->set(255);
+    this->ledWorkers[1]->set(LIGHT_BACKGROUND_STANDARDHIGHVALUE);
   if(_startupLevel >= 3 && this->ledWorkers[2] != NULL)
-    this->ledWorkers[2]->set(255);
+    this->ledWorkers[2]->set(LIGHT_BACKGROUND_STANDARDHIGHVALUE);
   if(_startupLevel >= 4 && this->ledWorkers[3] != NULL)
-    this->ledWorkers[3]->set(255);
+    this->ledWorkers[3]->set(LIGHT_BACKGROUND_STANDARDHIGHVALUE);
 }
 
 

@@ -30,56 +30,102 @@
                 </Parameter>
             </ParameterGroup>
 
-            <ParameterGroup Name="Button 1" Id="2">
-                <Parameter Id="5" IdName="button1_mode">
+            <ParameterGroup Name="Temperatur/Humidity" Id="2">
+                <Parameter Id="5" IdName="temp_sendPeriod">
+                    <Description>@@@</Description>
+                    <Value Type="uint32" Default="0A" Options="" Min="00" Max="FF"/>
+                </Parameter>
+                <Parameter Id="6" IdName="temp_alarmCheckPeriod">
+                    <Description>@@@</Description>
+                    <Value Type="uint32" Default="0A" Options="" Min="00" Max="FF"/>
+                </Parameter>
+                <Parameter Id="7" IdName="temp_alarmResendPeriod">
+                    <Description>@@@</Description>
+                    <Value Type="uint32" Default="0A" Options="" Min="00" Max="FF"/>
+                </Parameter>
+                <Parameter Id="8" IdName="temp_alarm_min">
+                    <Description>@@@</Description>
+                    <Value Type="int8" Default="0A" Options="" Min="00" Max="FF"/>
+                </Parameter>
+                <Parameter Id="9" IdName="temp_alarm_max">
+                    <Description>@@@</Description>
+                    <Value Type="int8" Default="FF" Options="" Min="00" Max="FF"/>
+                </Parameter>
+
+                <Parameter Id="10" IdName="humidity_sendPeriod">
+                    <Description>@@@</Description>
+                    <Value Type="uint32" Default="0A" Options="" Min="00" Max="FF"/>
+                </Parameter>
+                <Parameter Id="11" IdName="humidity_alarmCheckPeriod">
+                    <Description>@@@</Description>
+                    <Value Type="uint32" Default="0A" Options="" Min="00" Max="FF"/>
+                </Parameter>
+                <Parameter Id="12" IdName="humidity_alarmResendPeriod">
+                    <Description>@@@</Description>
+                    <Value Type="uint32" Default="0A" Options="" Min="00" Max="FF"/>
+                </Parameter>
+                <Parameter Id="13" IdName="humidity_alarm_min">
+                    <Description>@@@</Description>
+                    <Value Type="int8" Default="0A" Options="" Min="00" Max="FF"/>
+                </Parameter>
+                <Parameter Id="14" IdName="humidity_alarm_max">
+                    <Description>@@@</Description>
+                    <Value Type="int8" Default="FF" Options="" Min="00" Max="FF"/>
+                </Parameter>
+            </ParameterGroup>
+
+            <ParameterGroup Name="Button 1" Id="3">
+                <Parameter Id="15" IdName="button1_mode">
                     <Description>Mode</Description>
                     <Value Type="uint8" Default="00" Options="00Long Touch|01=Positioning" Min="00" Max="01"/>
                 </Parameter>
-                <Parameter Id="6" IdName="button1_enableMultiTouch">
+                <Parameter Id="16" IdName="button1_enableMultiTouch">
                     <Description>Enable Multitouch</Description>
                     <Value Type="uint8" Default="00" Options="00=No|01=Yes" Min="00" Max="01"/>
                 </Parameter>
             </ParameterGroup>
 
-            <ParameterGroup Name="Button 2" Id="3">
-                <Parameter Id="7" IdName="button2_mode">
+            <ParameterGroup Name="Button 2" Id="4">
+                <Parameter Id="17" IdName="button2_mode">
                     <Description>Mode</Description>
                     <Value Type="uint8" Default="00" Options="00Long Touch|01=Positioning" Min="00" Max="01"/>
                 </Parameter>
-                <Parameter Id="8" IdName="button2_enableMultiTouch">
+                <Parameter Id="18" IdName="button2_enableMultiTouch">
                     <Description>Enable Multitouch</Description>
                     <Value Type="uint8" Default="00" Options="00=No|01=Yes" Min="00" Max="01"/>
                 </Parameter>
             </ParameterGroup>
 
-            <ParameterGroup Name="Button 3" Id="4">
-                <Parameter Id="9" IdName="button3_mode">
+            <ParameterGroup Name="Button 3" Id="5">
+                <Parameter Id="19" IdName="button3_mode">
                     <Description>Mode</Description>
                     <Value Type="uint8" Default="00" Options="00Long Touch|01=Positioning" Min="00" Max="01"/>
                 </Parameter>
-                <Parameter Id="10" IdName="button3_enableMultiTouch">
+                <Parameter Id="20" IdName="button3_enableMultiTouch">
                     <Description>Enable Multitouch</Description>
                     <Value Type="uint8" Default="00" Options="00=No|01=Yes" Min="00" Max="01"/>
                 </Parameter>
             </ParameterGroup>
 
-            <ParameterGroup Name="Button 4" Id="5">
-                <Parameter Id="11" IdName="button4_mode">
+            <ParameterGroup Name="Button 4" Id="6">
+                <Parameter Id="21" IdName="button4_mode">
                     <Description>Mode</Description>
                     <Value Type="uint8" Default="00" Options="00Long Touch|01=Positioning" Min="00" Max="01"/>
                 </Parameter>
-                <Parameter Id="12" IdName="button4_enableMultiTouch">
+                <Parameter Id="22" IdName="button4_enableMultiTouch">
                     <Description>Enable Multitouch</Description>
                     <Value Type="uint8" Default="00" Options="00=No|01=Yes" Min="00" Max="01"/>
                 </Parameter>
             </ParameterGroup>
+        </Parameters>
+
 
         <!--
         * start Dimming / Stop Diming 4 bit object (dimming or long hold can be used, not both)
         * posizioning?!
         -->
 
-        </Parameters>
+
         <CommObjects>
             <CommObject Id="0" IdName="firmwareTransfer">
                 <Name>FOTB</Name>

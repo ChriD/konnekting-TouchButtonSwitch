@@ -28,6 +28,8 @@
     #define TS_MODE_STARTUP3  62
     #define TS_MODE_STARTUP4  63
 
+    #define LIGHT_BACKGROUND_STANDARDSTANDBY    10
+    #define LIGHT_BACKGROUND_STANDARDHIGHVALUE  200
 
     class CY8TouchSwitch
     {
@@ -38,7 +40,9 @@
         void task();
         void interrupt();
         void addButton(uint8_t _sensorId, uint8_t _ledPin, bool _enableMultipleTouch = false, bool _enablePositioningTouch = false);
-        void setButtonSettings(uint8_t _sensorId, bool _enableMultipleTouch, uint8_t _mode);
+        void setButtonParameters(uint8_t _sensorId, bool _enableMultipleTouch, uint8_t _mode);
+        void setBacklightParameters(uint8_t _valueStandby = LIGHT_BACKGROUND_STANDARDSTANDBY, uint8_t _valueProximity = LIGHT_BACKGROUND_STANDARDHIGHVALUE);
+        void setThresholds(uint16_t _touchThreshold, uint16_t, uint16_t _longTouchThreshold, uint16_t _positioningTouchThreshold);
         void changeMode(uint8_t _mode, bool _force = false);
         void resetTouchController();
 
@@ -52,6 +56,9 @@
         uint8_t     nextButtonIdx;
         uint8_t     mode;
 
+        uint8_t     backlight_standbyValue;
+        uint8_t     backlight_proximityValue;
+
         bool isSensorIdActive(uint8_t _sensorId);
 
         void sensorStateEvent(uint8_t _sensorType, uint8_t _sensorId, bool _value);
@@ -63,6 +70,9 @@
         void setMode_Prog();
         void setMode_Setup();
         void setMode_Startup(uint8_t _startupLevel);
+
+        uint8_t getBacklightStandbyValue();
+        uint8_t getBacklightProximityValue();
 
         // we do forward the evens from the touch controller
         // for now there is no need to do any bug change, the only thing which will be done
