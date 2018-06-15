@@ -17,6 +17,9 @@
     #include "DebugUtil.h"
 
 
+    #define TS_BUTTON_MODE_LONGTOUCH      0
+    #define TS_BUTTON_MODE_POSITIONING    1
+
     #define TS_MODE_NORMAL    0
     #define TS_MODE_PROG      1
     #define TS_MODE_SETUP     2
@@ -35,6 +38,7 @@
         void task();
         void interrupt();
         void addButton(uint8_t _sensorId, uint8_t _ledPin, bool _enableMultipleTouch = false, bool _enablePositioningTouch = false);
+        void setButtonSettings(uint8_t _sensorId, bool _enableMultipleTouch, uint8_t _mode);
         void changeMode(uint8_t _mode, bool _force = false);
         void resetTouchController();
 

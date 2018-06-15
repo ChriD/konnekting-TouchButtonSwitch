@@ -5,17 +5,17 @@
         <DeviceName>TouchButtonSwitch</DeviceName>
         <Parameters>
             <ParameterGroup Name="General" Id="0">
-                <Parameter Id="0" IdName="multiTouchPeriod">
+                <Parameter Id="0" IdName="touch_threshold">
                     <Description>Touch recognition threshold [000..500ms]</Description>
                     <Value Type="uint16" Default="00FA" Options="" Min="0000" Max="01F4"/>
                 </Parameter>
-                <Parameter Id="1" IdName="longTouchPeriod">
+                <Parameter Id="1" IdName="mode_longtouch_threshold">
                     <Description>Long hold threshold [500..10000ms]</Description>
                     <Value Type="uint16" Default="04E2" Options="" Min="01F4" Max="2710"/>
                 </Parameter>
-                <Parameter Id="2" IdName="disableMultiTouch">
+                <Parameter Id="2" IdName="mode_position_threshold">
                     <Description>Position mode threshold [500..10000ms]</Description>
-                    <Value Type="uint16" Default="04E2" Options="" Min="01F4" Max="2710"/>
+                    <Value Type="uint16" Default="02EE" Options="" Min="01F4" Max="2710"/>
                 </Parameter>
             </ParameterGroup>
 
@@ -31,45 +31,45 @@
             </ParameterGroup>
 
             <ParameterGroup Name="Button 1" Id="2">
-                <Parameter Id="5" IdName="button1_enablePositioningMode">
-                    <Description>Use positioning mode instead of long touch</Description>
-                    <Value Type="uint8" Default="00" Options="00=No|01=Yes" Min="00" Max="01"/>
+                <Parameter Id="5" IdName="button1_mode">
+                    <Description>Mode</Description>
+                    <Value Type="uint8" Default="00" Options="00Long Touch|01=Positioning" Min="00" Max="01"/>
                 </Parameter>
-                <Parameter Id="6" IdName="button1_disableMultiTouch">
-                    <Description>Disable Multitouch</Description>
+                <Parameter Id="6" IdName="button1_enableMultiTouch">
+                    <Description>Enable Multitouch</Description>
                     <Value Type="uint8" Default="00" Options="00=No|01=Yes" Min="00" Max="01"/>
                 </Parameter>
             </ParameterGroup>
 
             <ParameterGroup Name="Button 2" Id="3">
-                <Parameter Id="7" IdName="button2_enablePositioningMode">
-                    <Description>Use positioning mode instead of long touch</Description>
-                    <Value Type="uint8" Default="00" Options="00=No|01=Yes" Min="00" Max="01"/>
+                <Parameter Id="7" IdName="button2_mode">
+                    <Description>Mode</Description>
+                    <Value Type="uint8" Default="00" Options="00Long Touch|01=Positioning" Min="00" Max="01"/>
                 </Parameter>
-                <Parameter Id="8" IdName="button2_disableMultiTouch">
-                    <Description>Disable Multitouch</Description>
+                <Parameter Id="8" IdName="button2_enableMultiTouch">
+                    <Description>Enable Multitouch</Description>
                     <Value Type="uint8" Default="00" Options="00=No|01=Yes" Min="00" Max="01"/>
                 </Parameter>
             </ParameterGroup>
 
             <ParameterGroup Name="Button 3" Id="4">
-                <Parameter Id="9" IdName="button3_enablePositioningMode">
-                    <Description>Use positioning mode instead of long touch</Description>
-                    <Value Type="uint8" Default="00" Options="00=No|01=Yes" Min="00" Max="01"/>
+                <Parameter Id="9" IdName="button3_mode">
+                    <Description>Mode</Description>
+                    <Value Type="uint8" Default="00" Options="00Long Touch|01=Positioning" Min="00" Max="01"/>
                 </Parameter>
-                <Parameter Id="10" IdName="button3_disableMultiTouch">
-                    <Description>Disable Multitouch</Description>
+                <Parameter Id="10" IdName="button3_enableMultiTouch">
+                    <Description>Enable Multitouch</Description>
                     <Value Type="uint8" Default="00" Options="00=No|01=Yes" Min="00" Max="01"/>
                 </Parameter>
             </ParameterGroup>
 
-            <ParameterGroup Name="Button 7" Id="5">
-                <Parameter Id="11" IdName="button4_enablePositioningMode">
-                    <Description>Use positioning mode instead of long touch</Description>
-                    <Value Type="uint8" Default="00" Options="00=No|01=Yes" Min="00" Max="01"/>
+            <ParameterGroup Name="Button 4" Id="5">
+                <Parameter Id="11" IdName="button4_mode">
+                    <Description>Mode</Description>
+                    <Value Type="uint8" Default="00" Options="00Long Touch|01=Positioning" Min="00" Max="01"/>
                 </Parameter>
-                <Parameter Id="12" IdName="button4_disableMultiTouch">
-                    <Description>Disable Multitouch</Description>
+                <Parameter Id="12" IdName="button4_enableMultiTouch">
+                    <Description>Enable Multitouch</Description>
                     <Value Type="uint8" Default="00" Options="00=No|01=Yes" Min="00" Max="01"/>
                 </Parameter>
             </ParameterGroup>
@@ -187,13 +187,13 @@
                 <Flags>52</Flags>
             </CommObject>
             <CommObject Id="17" IdName="button2_position_touchstart">
-                <Name>Button 1</Name>
+                <Name>Button 2</Name>
                 <Function>Position - Touch start</Function>
                 <DataPointType>1.001</DataPointType>
                 <Flags>52</Flags>
             </CommObject>
             <CommObject Id="18" IdName="button2_position_touchend">
-                <Name>Button 1</Name>
+                <Name>Button 2</Name>
                 <Function>Position - Touch end</Function>
                 <DataPointType>1.001</DataPointType>
                 <Flags>52</Flags>

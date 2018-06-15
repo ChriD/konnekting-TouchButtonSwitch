@@ -148,7 +148,6 @@ void CY8CMBR3116::sensorStateChanged(uint8_t _sensoryType, uint8_t _sensorId, bo
     if(_value == 1)
     {
       // if we do touch we check the last touch end time. If it is in a certain amount of time and we already touched one
-      //touchEndTime
       uint64_t lastTouchEnd = this->touchEndTime[_sensorId];
       uint64_t touchStart   = millis();
 
@@ -177,6 +176,7 @@ void CY8CMBR3116::sensorStateChanged(uint8_t _sensoryType, uint8_t _sensorId, bo
             this->touchEventCallback(_sensorId, 21, 1);
           this->touchCounter[_sensorId] = 0;
         }
+
 
         // store the end time of the touch, but only if it was no long touch before
         if(this->touchCounter[_sensorId] > 0)
@@ -269,9 +269,9 @@ void CY8CMBR3116::task()
           this->taskProcess[i]  = false;
         }
 
-        // if the treshhold for a click (time for waiting if there appears another click) is done
-        // then we can assume the click, doubleclick aso... is done
-        if(this->taskProcess[i] && (this->touchEndTime[i] > 0 && (millis() - this->touchEndTime[i]) >= this->touchThreshold) || !this->multipleTouchEnabled[i] )
+        // if there is a touch end time for a sensor we may check if its a normal click (touchThreshold)
+        // we have a special or clause that will be used if multiple clicks are disabled, so we do not ave to wait for the whole touchThreshold to be exceeded!
+        if(this->taskProcess[i] && this->touchEndTime[i] > 0 && ((millis() - this->touchEndTime[i]) >= this->touchThreshold || !this->multipleTouchEnabled[i] ))
         {
           // call callback method if registered
           if(this->touchEventCallback)

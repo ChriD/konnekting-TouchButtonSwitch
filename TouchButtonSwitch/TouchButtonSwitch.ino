@@ -20,6 +20,22 @@
 // so we have to define which type of sitch is being compiled
 #define SWITCHTYPE        4
 
+// define the sensorids for the given buttons (There are 16 sensors 0 - 15)
+#define SENSORID_1        3
+#define SENSORID_2        4
+#define SENSORID_3        5
+#define SENSORID_4        6
+#define SENSORID_5        0
+#define SENSORID_6        0
+
+// define the led pins for the given buttons
+#define SENSORLED_1_PIN        D3
+#define SENSORLED_2_PIN        D4
+#define SENSORLED_3_PIN        D11
+#define SENSORLED_4_PIN        D9
+#define SENSORLED_5_PIN        0
+#define SENSORLED_6_PIN        0
+
 // used for debugging
 // should not be activated on productive environment
 #define KDEBUG
@@ -60,11 +76,11 @@ void setup()
   touchSwitch->setup();
 
   // add buttons for the given type of switch (4x or 6x)
-  // TODO: @@@
-  touchSwitch->addButton(3, D3, true, true);
-  touchSwitch->addButton(4, D4, true, true);
-  touchSwitch->addButton(5, D11, true, true);
-  touchSwitch->addButton(6, D9, true, true);
+  // TODO: use correct sensor ID!
+  touchSwitch->addButton(SENSORID_1, SENSORLED_1_PIN, true, false);
+  touchSwitch->addButton(SENSORID_2, SENSORLED_2_PIN, true, false);
+  touchSwitch->addButton(SENSORID_3, SENSORLED_3_PIN, true, false);
+  touchSwitch->addButton(SENSORID_4, SENSORLED_4_PIN, true, false);
 
   touchSwitch->changeMode(TS_MODE_STARTUP1, true);
   delay(150);
@@ -128,10 +144,62 @@ void progLed (bool state){
 
 void knxDeviceSetup()
 {
-  //Konnekting.init(KNX_SERIAL, PROG_BUTTON_PIN, PROG_LED_PIN, MANUFACTURER_ID, DEVICE_ID, REVISION);
   Konnekting.init(KNX_SERIAL, &progLed, MANUFACTURER_ID, DEVICE_ID, REVISION);
   if (!Konnekting.isFactorySetting())
   {
+      /*
+touch_threshold
+mode_longtouch_threshold
+mode_position_threshold
+light_intensity_standy
+light_intensity_proximity
+      */
+
+
+
+    // setup settings for sensor 1
+    bool    enableMultiTouch  = (bool) Konnekting.getUINT8Param(PARAM_button1_enableMultiTouch);
+    uint8_t mode              = (uint8_t) Konnekting.getUINT8Param(PARAM_button1_mode);
+    touchSwitch->setButtonSettings(SENSORID_1, enableMultiTouch, mode);
+    Debug.println(F("Sensor %u settings: MultiTouch=%u, Mode=%u"), SENSORID_1, enableMultiTouch, mode);
+
+     // setup settings for sensor 2
+    enableMultiTouch  = (bool) Konnekting.getUINT8Param(PARAM_button2_enableMultiTouch);
+    mode              = (uint8_t) Konnekting.getUINT8Param(PARAM_button2_mode);
+    touchSwitch->setButtonSettings(SENSORID_2, enableMultiTouch, mode);
+    Debug.println(F("Sensor %u settings: MultiTouch=%u, Mode=%u"), SENSORID_2, enableMultiTouch, mode);
+
+     // setup settings for sensor 3
+    enableMultiTouch  = (bool) Konnekting.getUINT8Param(PARAM_button3_enableMultiTouch);
+    mode              = (uint8_t) Konnekting.getUINT8Param(PARAM_button3_mode);
+    touchSwitch->setButtonSettings(SENSORID_3, enableMultiTouch, mode);
+    Debug.println(F("Sensor %u settings: MultiTouch=%u, Mode=%u"), SENSORID_3, enableMultiTouch, mode);
+
+    // setup settings for sensor 4
+    enableMultiTouch  = (bool) Konnekting.getUINT8Param(PARAM_button4_enableMultiTouch);
+    mode              = (uint8_t) Konnekting.getUINT8Param(PARAM_button4_mode);
+    touchSwitch->setButtonSettings(SENSORID_4, enableMultiTouch, mode);
+    Debug.println(F("Sensor %u settings: MultiTouch=%u, Mode=%u"), SENSORID_4, enableMultiTouch, mode);
+
+    /*
+    if(SWITCHTYPE == 6)
+    {
+       // setup settings for sensor 5
+      enableMultiTouch  = (bool) Konnekting.getUINT8Param(PARAM_button5_enableMultiTouch);
+      mode              = (uint8_t) Konnekting.getUINT8Param(PARAM_button5_mode);
+      touchSwitch->setButtonSettings(SENSORID_5, enableMultiTouch, mode);
+      Debug.println(F("Sensor %u settings: MultiTouch=%u, Mode=%u"), SENSORID_5, enableMultiTouch, mode);
+
+      // setup settings for sensor 6
+      enableMultiTouch  = (bool) Konnekting.getUINT8Param(PARAM_button6_enableMultiTouch);
+      mode              = (uint8_t) Konnekting.getUINT8Param(PARAM_button6_mode);
+      touchSwitch->setButtonSettings(SENSORID_6, enableMultiTouch, mode);
+      Debug.println(F("Sensor %u settings: MultiTouch=%u, Mode=%u"), SENSORID_6, enableMultiTouch, mode);
+    }
+    */
+
+
+
     //typeTemp = (int) Konnekting.getUINT8Param(PARAM_tempSendUpdate);
     //temperature polling interval (ms)
     //intervalTempUser = (long) Konnekting.getUINT32Param(PARAM_tempPollingTime)*1000;

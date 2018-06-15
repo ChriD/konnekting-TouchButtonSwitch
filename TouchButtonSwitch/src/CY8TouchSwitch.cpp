@@ -62,10 +62,19 @@ void CY8TouchSwitch::addButton(uint8_t _sensorId, uint8_t _ledPin, bool _enableM
     this->ledWorkers[this->nextButtonIdx] = new LEDWorker(_ledPin);
     this->ledWorkers[this->nextButtonIdx]->setup();
   }
-  this->touchController->enableMultipleTouch(_sensorId, _enableMultipleTouch);
-  this->touchController->enablePositioningTouch(_sensorId, _enablePositioningTouch);
+  this->setButtonSettings(_sensorId, _enableMultipleTouch, _enablePositioningTouch);
   this->sendorIds[this->nextButtonIdx] = _sensorId;
   this->nextButtonIdx ++;
+}
+
+
+void CY8TouchSwitch::setButtonSettings(uint8_t _sensorId, bool _enableMultipleTouch, uint8_t _mode)
+{
+  if(!this->isSensorIdActive(_sensorId))
+    return;
+
+  this->touchController->enableMultipleTouch(_sensorId, _enableMultipleTouch);
+  this->touchController->enablePositioningTouch(_sensorId, _mode == TS_BUTTON_MODE_POSITIONING ? true : false);
 }
 
 

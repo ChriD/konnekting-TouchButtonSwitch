@@ -9,7 +9,7 @@
                     <Description>Touch recognition period [000..500ms]</Description>
                     <Value Type="uint16" Default="00FA" Options="" Min="0000" Max="01F4"/>
                 </Parameter>
-                <Parameter Id="1" IdName="longHoldPeriod">
+                <Parameter Id="1" IdName="longtouchPeriod">
                     <Description>Long Hold Period [500..10000ms]</Description>
                     <Value Type="uint16" Default="04E2" Options="" Min="01F4" Max="2710"/>
                 </Parameter>
@@ -18,16 +18,51 @@
                     <Value Type="uint8" Default="00" Options="00=No|01=Yes" Min="00" Max="01"/>
                 </Parameter>
             </ParameterGroup>
+
             <ParameterGroup Name="Lightning" Id="1">
-                <Parameter Id="3" IdName="multiTouchPeriod">
+                <Parameter Id="3" IdName="light_intensity_standy">
                     <Description>Background intensity standby</Description>
                     <Value Type="uint8" Default="0A" Options="" Min="00" Max="FF"/>
                 </Parameter>
-                <Parameter Id="4" IdName="longHoldPeriod">
+                <Parameter Id="4" IdName="light_intensity_proximity">
                     <Description>Background intensity proximity</Description>
                     <Value Type="uint8" Default="FF" Options="" Min="00" Max="FF"/>
                 </Parameter>
             </ParameterGroup>
+
+            <ParameterGroup Name="Button 1" Id="2">
+                <Parameter Id="5" IdName="button1_enablePositioningMode">
+                    <Description>Use positioning mode instead of long touch</Description>
+                    <Value Type="uint8" Default="00" Options="00=No|01=Yes" Min="00" Max="01"/>
+                </Parameter>
+            </ParameterGroup>
+
+            <ParameterGroup Name="Button 2" Id="3">
+                <Parameter Id="5" IdName="button2_enablePositioningMode">
+                    <Description>Use positioning mode instead of long touch</Description>
+                    <Value Type="uint8" Default="00" Options="00=No|01=Yes" Min="00" Max="01"/>
+                </Parameter>
+            </ParameterGroup>
+
+            <ParameterGroup Name="Button 3" Id="4">
+                <Parameter Id="5" IdName="button3_enablePositioningMode">
+                    <Description>Use positioning mode instead of long touch</Description>
+                    <Value Type="uint8" Default="00" Options="00=No|01=Yes" Min="00" Max="01"/>
+                </Parameter>
+            </ParameterGroup>
+
+            <ParameterGroup Name="Button 7" Id="5">
+                <Parameter Id="5" IdName="button4_enablePositioningMode">
+                    <Description>Use positioning mode instead of long touch</Description>
+                    <Value Type="uint8" Default="00" Options="00=No|01=Yes" Min="00" Max="01"/>
+                </Parameter>
+            </ParameterGroup>
+
+        <!--
+        * start Dimming / Stop Diming 4 bit object (dimming or long hold can be used, not both)
+        * posizioning?!
+        -->
+
         </Parameters>
         <CommObjects>
             <CommObject Id="0" IdName="firmwareTransfer">
@@ -72,6 +107,7 @@
                 <DataPointType>1.001</DataPointType>
                 <Flags>52</Flags>
             </CommObject>
+
             <CommObject Id="7" IdName="button1">
                 <Name>Button 1</Name>
                 <Function>Touch</Function>
@@ -96,6 +132,20 @@
                 <DataPointType>1.001</DataPointType>
                 <Flags>52</Flags>
             </CommObject>
+            <CommObject Id="11" IdName="button1_touchstart">
+                <Name>Button 1</Name>
+                <Function>Position - Touch start</Function>
+                <DataPointType>1.001</DataPointType>
+                <Flags>52</Flags>
+            </CommObject>
+            <CommObject Id="12" IdName="button1_touchend">
+                <Name>Button 1</Name>
+                <Function>Position - Touch end</Function>
+                <DataPointType>1.001</DataPointType>
+                <Flags>52</Flags>
+            </CommObject>
+
+            <!--
             <CommObject Id="11" IdName="button2">
                 <Name>Button 2</Name>
                 <Function>Touch</Function>
@@ -120,6 +170,7 @@
                 <DataPointType>1.001</DataPointType>
                 <Flags>52</Flags>
             </CommObject>
+
             <CommObject Id="15" IdName="button3">
                 <Name>Button 3</Name>
                 <Function>Touch</Function>
@@ -144,6 +195,7 @@
                 <DataPointType>1.001</DataPointType>
                 <Flags>52</Flags>
             </CommObject>
+
             <CommObject Id="19" IdName="button4">
                 <Name>Button 4</Name>
                 <Function>Touch</Function>
@@ -168,10 +220,12 @@
                 <DataPointType>1.001</DataPointType>
                 <Flags>52</Flags>
             </CommObject>
+            -->
+
         </CommObjects>
     </Device>
     <Configuration ManufacturerId="21212" DeviceId="1" Revision="0">
-        <IndividualAddress Address="1.1." Description="ChriD TouchButtonSwitch"/>
+        <IndividualAddress Address="1.1."/>
         <CommObjectConfigurations>
             <CommObjectConfiguration Id="0" active="true"/>
             <CommObjectConfiguration Id="1" active="true"/>
@@ -188,7 +242,6 @@
         <ParameterConfigurations>
             <ParameterConfiguration Id="0" Value="00FA"/>
             <ParameterConfiguration Id="1" Value="04E2"/>
-            <ParameterConfiguration Id="2" Value="00"/>
         </ParameterConfigurations>
     </Configuration>
 </KonnektingDevice>
