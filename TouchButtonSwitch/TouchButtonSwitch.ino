@@ -36,6 +36,11 @@
 #define SENSORLED_5_PIN        0
 #define SENSORLED_6_PIN        0
 
+// This is the time in miliseconds how long the button should wait after setup to allow touch_threshold
+// There has to be a enough time for the user to put the frontplate on the switch before recalibration of
+// the touch sensor has been done
+#define STARTUP_IDLETIME       10000
+
 // used for debugging
 // should not be activated on productive environment
 #define KDEBUG
@@ -118,8 +123,9 @@ void setup()
   touchSwitch->changeMode(TS_MODE_STARTUP4, true);
   delay(150);
 
-  // be sure we do set back to the normal state after rebooting
-  touchSwitch->changeMode(TS_MODE_NORMAL, true);
+  // after rebooting setup we have to wait a little bit for the user to put the frontboard
+  // to the button, in this state we do stay "Setup" mode
+  touchSwitch->changeMode(TS_MODE_SETUP, true);
 }
 
 
@@ -149,8 +155,12 @@ void knxDeviceSetup()
   {
 
     /*
+    temperature send
+    temperature alarm resend
     temperature min alarm
     temperature max alarm
+    humidity send
+    humidity alarm resend
     humidity min alarm
     humidity max alarm
     */
@@ -160,6 +170,7 @@ void knxDeviceSetup()
     uint16_t mode_longtouch_threshold = Konnekting.getUINT16Param(PARAM_mode_longtouch_threshold);
     uint16_t mode_position_threshold  = Konnekting.getUINT16Param(PARAM_mode_position_threshold);
     touchSwitch->setThresholds(touch_threshold, mode_longtouch_threshold, mode_position_threshold);
+    Debug.println(F("Thresholds: Touch=%u, Longtouch=%u, Position=%u"), touch_threshold, mode_longtouch_threshold, mode_position_threshold);
 
     // backlights
     uint8_t valueStandby      = Konnekting.getUINT8Param(PARAM_light_intensity_standy);
@@ -171,25 +182,25 @@ void knxDeviceSetup()
     bool    enableMultiTouch  = (bool) Konnekting.getUINT8Param(PARAM_button1_enableMultiTouch);
     uint8_t mode              = (uint8_t) Konnekting.getUINT8Param(PARAM_button1_mode);
     touchSwitch->setButtonParameters(SENSORID_1, enableMultiTouch, mode);
-    Debug.println(F("Sensor %u settings: MultiTouch=%u, Mode=%u"), SENSORID_1, enableMultiTouch, mode);
+    Debug.println(F("Sensor %u: MultiTouch=%u, Mode=%u"), SENSORID_1, enableMultiTouch, mode);
 
      // setup settings for sensor 2
     enableMultiTouch  = (bool) Konnekting.getUINT8Param(PARAM_button2_enableMultiTouch);
     mode              = (uint8_t) Konnekting.getUINT8Param(PARAM_button2_mode);
     touchSwitch->setButtonParameters(SENSORID_2, enableMultiTouch, mode);
-    Debug.println(F("Sensor %u settings: MultiTouch=%u, Mode=%u"), SENSORID_2, enableMultiTouch, mode);
+    Debug.println(F("Sensor %u: MultiTouch=%u, Mode=%u"), SENSORID_2, enableMultiTouch, mode);
 
      // setup settings for sensor 3
     enableMultiTouch  = (bool) Konnekting.getUINT8Param(PARAM_button3_enableMultiTouch);
     mode              = (uint8_t) Konnekting.getUINT8Param(PARAM_button3_mode);
     touchSwitch->setButtonParameters(SENSORID_3, enableMultiTouch, mode);
-    Debug.println(F("Sensor %u settings: MultiTouch=%u, Mode=%u"), SENSORID_3, enableMultiTouch, mode);
+    Debug.println(F("Sensor %u: MultiTouch=%u, Mode=%u"), SENSORID_3, enableMultiTouch, mode);
 
     // setup settings for sensor 4
     enableMultiTouch  = (bool) Konnekting.getUINT8Param(PARAM_button4_enableMultiTouch);
     mode              = (uint8_t) Konnekting.getUINT8Param(PARAM_button4_mode);
     touchSwitch->setButtonParameters(SENSORID_4, enableMultiTouch, mode);
-    Debug.println(F("Sensor %u settings: MultiTouch=%u, Mode=%u"), SENSORID_4, enableMultiTouch, mode);
+    Debug.println(F("Sensor %u: MultiTouch=%u, Mode=%u"), SENSORID_4, enableMultiTouch, mode);
 
     /*
     if(SWITCHTYPE == 6)
@@ -274,6 +285,8 @@ void gestureEvent(uint8_t _event)
 // this method will be called when a com object is updated
 void knxEvents(byte _index)
 {
+  // TODO: Temp/humidity asking
+
   /*
   switch (index)
   {
@@ -311,7 +324,7 @@ void loop()
   // we have to call the knx.task form the konnekting library faster then ~ 400us to not miss any telegram
   // in next versions this should be obsolete but for now we have to stay with itself
   // ATTENTION: Currently we do have some loops which will go above 400us due I2C handling, we have to ceck in
-  // production mode if this will lead to problems
+  // production mode if this will create any problems
   #ifndef NOBCU
     Knx.task();
   #endif
@@ -320,7 +333,6 @@ void loop()
     uint64_t now = micros();
     if(mainLoopEndTime && now > mainLoopEndTime && now - mainLoopEndTime > 400)
       Debug.println(F("ATTENTION: Main Loop exceeds KNX timing requirement! %uus"), (now - mainLoopEndTime));
-    //Debug.println(F("MainLoop %u"), (now - mainLoopEndTime));
   #endif
 
   // the switch itself must loop eyerytime, no matter of KNX is active or not
@@ -329,19 +341,21 @@ void loop()
 
   // be sure to reset the touch controller after resetting the main controller and be sure
   // that there is time to "set up" the frontboard finish (reset for recalibration)
-  if (startupRecalibrationNeeded &&  millis() > 10000)
+  if (startupRecalibrationNeeded &&  millis() > STARTUP_IDLETIME)
   {
     startupRecalibrationNeeded = false;
     touchSwitch->resetTouchController();
+    touchSwitch->changeMode(TS_MODE_NORMAL, true);
+    Debug.println(F("Switch is ready for action!"));
   }
 
   if (Konnekting.isReadyForApplication())
   {
-    // TODO: switch to normal mode
+    // TODO: ???
   }
   else
   {
-    // TODO: set switch auto to PRG mode
+    // TODO: ???
   }
 
 

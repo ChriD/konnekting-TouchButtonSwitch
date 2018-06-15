@@ -61,23 +61,186 @@ void CY8CMBR3116::setThresholds(uint16_t _touchThreshold, uint16_t _longTouchThr
 
 void CY8CMBR3116::setup()
 {
-  // TODO: @@@
+    //Paste/Initialize the configuration array copied from the IIC file of Ez-Click here under the configData array
+    unsigned char configData[128] = {
+    //Buzzer and Host Int Enabled: Jumper J15 in Configuration A on CY3280-MBR3 Kit
+    0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x80, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x03, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x80, 0x05, 0x00, 0x00, 0x02, 0x00, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x1E, 0x00, 0x00, 0x00, 0x1E, 0x00, 0x00, 0x00, 0x00, 0x01, 0x01, 0x00, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0x00, 0x00, 0x00, 0x00, 0x03, 0x01, 0x48, 0x00, 0x37, 0x01, 0x00, 0x00, 0x0A, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x5A, 0x79
+    };
+
+    // TODO: Productive configuration / Tesboard configuration
+    // TODO: @@@
+
+    // TODO: @@@  be sure device is out of standby mode
+    // for now we do this with 2 dummy writes but there should be a better solution?
+    // In fact we never will go in standby mode?!
+    /*
+    Wire.beginTransmission(this->I2CAddress);
+    Wire.write(REGMAP_ORIGIN);
+    Wire.write(00);
+    Wire.endTransmission();
+    delay(10);
+    Wire.beginTransmission(this->I2CAddress);
+    Wire.write(REGMAP_ORIGIN);
+    Wire.write(00);
+    Wire.endTransmission();
+    */
+
+    // set the register to the settings
+    Wire.beginTransmission(this->I2CAddress);
+    Wire.write(REGMAP_ORIGIN);
+    Wire.endTransmission();
+
+    // we have to send the data in chunks because arduino only can send 32 byte at a time
+    uint16_t  dataToSend    = 128;
+    uint16_t  dataIdx       = 0;
+    uint8_t   chunkSize     = 31;
+    uint8_t   chunkSizeSent;
+    while(dataToSend > 0)
+    {
+      chunkSizeSent = 0;
+      Wire.beginTransmission(this->I2CAddress);
+      for(uint8_t i=0; (i<chunkSize && i<dataToSend); i++)
+      {
+        Wire.write(configData[dataIdx+i]);
+        chunkSizeSent++;
+      }
+      Wire.endTransmission();
+      dataIdx     += chunkSizeSent;
+      dataToSend  -= chunkSizeSent;
+    }
+
+    /*
+
+
+
+    //2 Dummy Writes to Wake up the MBR3 device
+    Wire.beginTransmission(SLAVE_ADDR); // transmit to device #0x37
+    TinyWireM.send(REGMAP_ORIGIN);
+    TinyWireM.send(00);
+    TinyWireM.endTransmission();
+
+    delay(10);
+    TinyWireM.beginTransmission(SLAVE_ADDR); // transmit to device #0x37
+    TinyWireM.send(REGMAP_ORIGIN);          // sends Offset byte
+    TinyWireM.send(00);
+    TinyWireM.endTransmission();
+
+
+    //Arduino function can send only 32 bytes at a time hence the ConfigData is sent to MBR3 in chunks
+    TinyWireM.beginTransmission(SLAVE_ADDR); // transmit to device #0x37
+    TinyWireM.send(REGMAP_ORIGIN);          // sends Offset byte
+    for(int i =0; i<31;i++){
+      TinyWireM.send(configData[i]);// sends 31 bytes
+    }
+    if(TinyWireM.endTransmission()!=0){
+      digitalWrite(PB4, HIGH);
+      delay(100);
+      digitalWrite(PB4, LOW);
+      delay(100);
+
+    }
+
+
+    TinyWireM.beginTransmission(SLAVE_ADDR); // transmit to device #0x37
+    TinyWireM.send(31);          // sends Offset byte
+    for(int i =0; i<31;i++){
+      TinyWireM.send(configData[31+i]);        // sends next 31 bytes
+    }
+    if(TinyWireM.endTransmission()!=0){
+      digitalWrite(PB4, HIGH);
+      delay(100);
+      digitalWrite(PB4, LOW);
+      delay(100);
+    }
+
+    TinyWireM.beginTransmission(SLAVE_ADDR); // transmit to device #0x37
+    TinyWireM.send(62);          // sends Offset byte
+    for(int i=0; i<31; i++){
+      TinyWireM.send(configData[62+i]);        // sends further 31 bytes
+    }
+    if(TinyWireM.endTransmission()!=0){
+      digitalWrite(PB4, HIGH);
+      delay(100);
+      digitalWrite(PB4, LOW);
+      delay(100);
+    }
+    TinyWireM.beginTransmission(SLAVE_ADDR); // transmit to device #0x37
+    TinyWireM.send(93);          // sends Offset byte
+    for(int i=0; i<31; i++){
+      TinyWireM.send(configData[93+i]);        // sends 31 bytes
+    }
+    if(TinyWireM.endTransmission()!=0){
+      digitalWrite(PB4, HIGH);
+      delay(100);
+      digitalWrite(PB4, LOW);
+      delay(100);
+    }
+
+    TinyWireM.beginTransmission(SLAVE_ADDR); // transmit to device #0x37
+    TinyWireM.send(124);          // sends Offset byte
+    for(int i =0; i<4;i++){
+      TinyWireM.send(configData[124+i]);        // sends remaining 4 bytes
+    }
+    if(TinyWireM.endTransmission()!=0){
+      digitalWrite(PB4, HIGH);
+      delay(100);
+      digitalWrite(PB4, LOW);
+      delay(100);
+    }
+    TinyWireM.beginTransmission(SLAVE_ADDR); // transmit to device #0x37
+    TinyWireM.send(CTRL_CMD);
+    TinyWireM.send(SAVE_CHECK_CRC);
+    TinyWireM.endTransmission();    // stop transmitting
+
+    delay(200);
+
+    TinyWireM.beginTransmission(SLAVE_ADDR); // transmit to device #0x37
+    TinyWireM.send(CTRL_CMD);
+    TinyWireM.send(SW_RESET);
+    TinyWireM.endTransmission();    // stop transmitting
+
+    //Provide a delay to calculate and Save CRC
+    delay(200);
+    */
+
 }
 
 
 void CY8CMBR3116::interrupt()
 {
-
-  this->process();
+  if(this->active)
+    this->process();
 }
 
 
 void CY8CMBR3116::reset()
 {
+  this->resetCacheData();
+
   Wire.beginTransmission(this->I2CAddress);
   Wire.write(CY8_CTRL_CMD);
   Wire.write(CY8_SW_RESET);
   Wire.endTransmission();
+}
+
+
+void CY8CMBR3116::setActive(bool _active)
+{
+  this->active = _active;
+  if(!_active)
+    this->resetCacheData();
+}
+
+
+void CY8CMBR3116::resetCacheData()
+{
+  for(uint8_t i=0; i<CY8_TOUCHSENSORCOUNT; i++)
+  {
+    touchStartTime[i] = 0;
+    touchEndTime[i]   = 0;
+    touchCounter[i]   = 0;
+    taskProcess[i]    = false;
+  }
 }
 
 

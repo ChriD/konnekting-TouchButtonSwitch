@@ -188,6 +188,7 @@ void CY8TouchSwitch::changeMode(uint8_t _mode, bool _force)
 {
   if(this->mode != _mode || _force)
   {
+    Debug.println(F("Set mode to: %u"), _mode);
     this->mode = _mode;
     switch(this->mode)
     {
@@ -223,6 +224,8 @@ void CY8TouchSwitch::setMode_Normal()
   {
     this->ledWorkers[i]->fade(500, this->getBacklightStandbyValue());
   }
+  // be sure we do set the touch controller active
+  this->touchController->setActive();
 }
 
 
@@ -232,6 +235,8 @@ void CY8TouchSwitch::setMode_Prog()
   {
     this->ledWorkers[i]->blink(500, 500, 0, LIGHT_BACKGROUND_STANDARDHIGHVALUE);
   }
+  // be sure we "disable" the touch controller
+  this->touchController->setActive(false);
 }
 
 
@@ -241,6 +246,8 @@ void CY8TouchSwitch::setMode_Setup()
   {
     this->ledWorkers[i]->blink(250,250, 0, LIGHT_BACKGROUND_STANDARDHIGHVALUE);
   }
+  // be sure we "disable" the touch controller
+  this->touchController->setActive(false);
 }
 
 
@@ -254,14 +261,18 @@ void CY8TouchSwitch::setMode_Startup(uint8_t _startupLevel)
     this->ledWorkers[2]->set(LIGHT_BACKGROUND_STANDARDHIGHVALUE);
   if(_startupLevel >= 4 && this->ledWorkers[3] != NULL)
     this->ledWorkers[3]->set(LIGHT_BACKGROUND_STANDARDHIGHVALUE);
+  // be sure we "disable" the touch controller
+  this->touchController->setActive(false);
 }
 
 
 void CY8TouchSwitch::task()
 {
-  // the touch controler needs a task trigger for working correctly
+  // the touch controller needs a task trigger for working correctly
   // it will handle the touches and will raise the events we do need
-  this->touchController->task();
+  // controller only has to be running if we are in  "normal mode"
+  if(this->mode == TS_MODE_NORMAL)
+    this->touchController->task();
   // now lets handle the leds output.
   // there are some options like fadeIn, fadeOut, StandbyLight, ProgrammingMode, ErrorMode...
   for(uint8_t i=0; i < this->nextButtonIdx; i++)

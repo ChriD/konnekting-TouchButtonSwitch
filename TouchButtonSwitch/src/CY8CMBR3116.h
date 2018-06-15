@@ -22,12 +22,32 @@ TODO:
 
   #define CY8_TOUCHSENSORCOUNT          16
 
+  // register offset mao of the CY8CMBR3116
+  #define REGMAP_ORIGIN                 0x00
   #define CY8_BUTTON_STATUS             0xAA
   #define CY8_LATCHED_BUTTON_STATUS     0xAC
   #define CY8_PROX_STAT                 0xAE
-
-  #define CY8_SW_RESET                  0xFF
   #define CY8_CTRL_CMD                  0x86
+
+  // command codes for the CY8CMBR3116
+  #define CY8_CMD_NULL                  0x00
+  #define CY8_SAVE_CHECK_CRC            0x02
+  #define CY8_CALC_CRC                  0x03
+  #define CY8_LOAD_FACTORY              0x04
+  #define CY8_LOAD_PRIMARY              0x05
+  #define CY8_LOAD_SECONDARY            0x06
+  #define CY8_SLEEP                     0x07
+  #define CY8_CLEAR_LATCHED_STATUS      0x08
+  #define CY8_CMD_RESET_PROX0_FILTER    0x09
+  #define CY8_CMD_RESET_PROX1_FILTER    0x0A
+  #define CY8_ENTER_CONFIG_MODE         0x0B
+  #define CY8_EXIT_CONTROL_RUN          0xFE
+  #define CY8_SW_RESET                  0xFF
+
+
+  /*
+    TODO: other codes!!!
+  */
 
   class CY8CMBR3116
   {
@@ -44,10 +64,12 @@ TODO:
       void setProximityEventCallback(std::function<void(uint8_t, uint8_t)>);
       void setGestureEventCallback(std::function<void(uint8_t)>);
 
+      void setActive(bool _active = true);
       void setThresholds(uint16_t _touchThreshold, uint16_t _longTouchThreshold, uint16_t _positioningTouchThreshold);
       void enableMultipleTouch(uint8_t sensorId, bool _enable = true);
       void enablePositioningTouch(uint8_t _sensorId, bool _enable = true);
       void reset();
+      void resetCacheData();
     private:
       std::function<void(uint8_t, uint8_t, bool)> sensorStateChangedCallback;
       std::function<void(uint8_t, uint8_t, uint8_t)> touchEventCallback;
@@ -58,14 +80,15 @@ TODO:
       void sensorStateChanged(uint8_t _sensoryType, uint8_t _sensorId, bool _value);
       uint16_t calcDiff(uint64_t _stop, uint64_t _start);
 
+      bool      active;
       uint8_t   I2CAddress;
       uint16_t  prevButtonStatus;
       uint16_t  prevProximityStatus;
       uint64_t  touchStartTime[CY8_TOUCHSENSORCOUNT];
       uint64_t  touchEndTime[CY8_TOUCHSENSORCOUNT];
       uint8_t   touchCounter[CY8_TOUCHSENSORCOUNT];
-      bool      positioningTouchEnabled[CY8_TOUCHSENSORCOUNT];
       bool      taskProcess[CY8_TOUCHSENSORCOUNT];
+      bool      positioningTouchEnabled[CY8_TOUCHSENSORCOUNT];
       bool      multipleTouchEnabled[CY8_TOUCHSENSORCOUNT];
       uint64_t  taskLastRunTimeStart;
       uint64_t  taskLastRunTimeStop;

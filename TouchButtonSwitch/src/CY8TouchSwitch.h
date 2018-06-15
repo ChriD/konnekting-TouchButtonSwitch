@@ -42,7 +42,7 @@
         void addButton(uint8_t _sensorId, uint8_t _ledPin, bool _enableMultipleTouch = false, bool _enablePositioningTouch = false);
         void setButtonParameters(uint8_t _sensorId, bool _enableMultipleTouch, uint8_t _mode);
         void setBacklightParameters(uint8_t _valueStandby = LIGHT_BACKGROUND_STANDARDSTANDBY, uint8_t _valueProximity = LIGHT_BACKGROUND_STANDARDHIGHVALUE);
-        void setThresholds(uint16_t _touchThreshold, uint16_t, uint16_t _longTouchThreshold, uint16_t _positioningTouchThreshold);
+        void setThresholds(uint16_t _touchThreshold, uint16_t _longTouchThreshold, uint16_t _positioningTouchThreshold);
         void changeMode(uint8_t _mode, bool _force = false);
         void resetTouchController();
 
