@@ -26,14 +26,24 @@
 #define PARAM_mode_position_threshold 2
 #define PARAM_light_intensity_standy 3
 #define PARAM_light_intensity_proximity 4
-#define PARAM_button1_mode 5
-#define PARAM_button1_enableMultiTouch 6
-#define PARAM_button2_mode 7
-#define PARAM_button2_enableMultiTouch 8
-#define PARAM_button3_mode 9
-#define PARAM_button3_enableMultiTouch 10
-#define PARAM_button4_mode 11
-#define PARAM_button4_enableMultiTouch 12
+#define PARAM_temp_sendPeriod 5
+#define PARAM_temp_alarmCheckPeriod 6
+#define PARAM_temp_alarmResendPeriod 7
+#define PARAM_temp_alarm_min 8
+#define PARAM_temp_alarm_max 9
+#define PARAM_humidity_sendPeriod 10
+#define PARAM_humidity_alarmCheckPeriod 11
+#define PARAM_humidity_alarmResendPeriod 12
+#define PARAM_humidity_alarm_min 13
+#define PARAM_humidity_alarm_max 14
+#define PARAM_button1_mode 15
+#define PARAM_button1_enableMultiTouch 16
+#define PARAM_button2_mode 17
+#define PARAM_button2_enableMultiTouch 18
+#define PARAM_button3_mode 19
+#define PARAM_button3_enableMultiTouch 20
+#define PARAM_button4_mode 21
+#define PARAM_button4_enableMultiTouch 22
 
 KnxComObject KnxDevice::_comObjectsList[] = {
     /* Index 0 - firmwareTransfer */ KnxComObject(KNX_DPT_60000_60000, 0x2a),
@@ -64,13 +74,23 @@ byte KonnektingDevice::_paramSizeList[] = {
     /* Index 2 - mode_position_threshold */ PARAM_UINT16,
     /* Index 3 - light_intensity_standy */ PARAM_UINT8,
     /* Index 4 - light_intensity_proximity */ PARAM_UINT8,
-    /* Index 5 - button1_mode */ PARAM_UINT8,
-    /* Index 6 - button1_enableMultiTouch */ PARAM_UINT8,
-    /* Index 7 - button2_mode */ PARAM_UINT8,
-    /* Index 8 - button2_enableMultiTouch */ PARAM_UINT8,
-    /* Index 9 - button3_mode */ PARAM_UINT8,
-    /* Index 10 - button3_enableMultiTouch */ PARAM_UINT8,
-    /* Index 11 - button4_mode */ PARAM_UINT8,
-    /* Index 12 - button4_enableMultiTouch */ PARAM_UINT8
+    /* Index 5 - temp_sendPeriod */ PARAM_UINT32,
+    /* Index 6 - temp_alarmCheckPeriod */ PARAM_UINT32,
+    /* Index 7 - temp_alarmResendPeriod */ PARAM_UINT32,
+    /* Index 8 - temp_alarm_min */ PARAM_INT8,
+    /* Index 9 - temp_alarm_max */ PARAM_INT8,
+    /* Index 10 - humidity_sendPeriod */ PARAM_UINT32,
+    /* Index 11 - humidity_alarmCheckPeriod */ PARAM_UINT32,
+    /* Index 12 - humidity_alarmResendPeriod */ PARAM_UINT32,
+    /* Index 13 - humidity_alarm_min */ PARAM_INT8,
+    /* Index 14 - humidity_alarm_max */ PARAM_INT8,
+    /* Index 15 - button1_mode */ PARAM_UINT8,
+    /* Index 16 - button1_enableMultiTouch */ PARAM_UINT8,
+    /* Index 17 - button2_mode */ PARAM_UINT8,
+    /* Index 18 - button2_enableMultiTouch */ PARAM_UINT8,
+    /* Index 19 - button3_mode */ PARAM_UINT8,
+    /* Index 20 - button3_enableMultiTouch */ PARAM_UINT8,
+    /* Index 21 - button4_mode */ PARAM_UINT8,
+    /* Index 22 - button4_enableMultiTouch */ PARAM_UINT8
 };
 const int KonnektingDevice::_numberOfParams = sizeof (_paramSizeList); // do not change this code

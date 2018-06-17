@@ -59,150 +59,145 @@ void CY8CMBR3116::setThresholds(uint16_t _touchThreshold, uint16_t _longTouchThr
 }
 
 
-void CY8CMBR3116::setup()
+void CY8CMBR3116::setup(uint8_t _setupConfig)
 {
-    //Paste/Initialize the configuration array copied from the IIC file of Ez-Click here under the configData array
-    unsigned char configData[128] = {
-    //Buzzer and Host Int Enabled: Jumper J15 in Configuration A on CY3280-MBR3 Kit
-    0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x80, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x03, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x80, 0x05, 0x00, 0x00, 0x02, 0x00, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x1E, 0x00, 0x00, 0x00, 0x1E, 0x00, 0x00, 0x00, 0x00, 0x01, 0x01, 0x00, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0x00, 0x00, 0x00, 0x00, 0x03, 0x01, 0x48, 0x00, 0x37, 0x01, 0x00, 0x00, 0x0A, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x5A, 0x79
+  // upload the selected configuration to the touch controller
+  // the data is stored into the flash, so we should not call this method to extend the life of memory
+  this->uploadConfiguration(_setupConfig);
+}
+
+
+bool CY8CMBR3116::uploadConfiguration(uint8_t _setupConfig)
+{
+  uint8_t               errorCode[1];
+  std::array<char, 128> configurationData;
+
+  // setup configuration for the testboard
+  if(_setupConfig == 99)
+  {
+    configurationData = {
+      0x7Bu, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u,
+      0x00u, 0x00u, 0x00u, 0x00u, 0x80u, 0x80u, 0x7Fu, 0x80u,
+      0x80u, 0x80u, 0x80u, 0x7Fu, 0x7Fu, 0x7Fu, 0x7Fu, 0x7Fu,
+      0x7Fu, 0x7Fu, 0x7Fu, 0x7Fu, 0x03u, 0x00u, 0x00u, 0x00u,
+      0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x03u, 0x83u,
+      0x05u, 0x00u, 0x00u, 0x02u, 0x00u, 0x02u, 0x00u, 0x00u,
+      0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x1Eu, 0x1Eu, 0x00u,
+      0x00u, 0x1Eu, 0x1Eu, 0x00u, 0x00u, 0x00u, 0x01u, 0x01u,
+      0x00u, 0xFFu, 0xFFu, 0xFFu, 0xFFu, 0xFFu, 0xFFu, 0xFFu,
+      0xFFu, 0x00u, 0x00u, 0x00u, 0x40u, 0x03u, 0x01u, 0x08u,
+      0x00u, 0x37u, 0x05u, 0x00u, 0x00u, 0x0Au, 0x00u, 0x00u,
+      0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u,
+      0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u,
+      0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u,
+      0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u,
+      0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x7Du, 0x0Bu
     };
+  }
+  // setup configuration for hardware rev 1.0
+  // TODO: @@@
+  else
+  {
+    configurationData = {
+      0x7Bu, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u,
+      0x00u, 0x00u, 0x00u, 0x00u, 0x80u, 0x80u, 0x7Fu, 0x80u,
+      0x80u, 0x80u, 0x80u, 0x7Fu, 0x7Fu, 0x7Fu, 0x7Fu, 0x7Fu,
+      0x7Fu, 0x7Fu, 0x7Fu, 0x7Fu, 0x03u, 0x00u, 0x00u, 0x00u,
+      0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x03u, 0x83u,
+      0x05u, 0x00u, 0x00u, 0x02u, 0x00u, 0x02u, 0x00u, 0x00u,
+      0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x1Eu, 0x1Eu, 0x00u,
+      0x00u, 0x1Eu, 0x1Eu, 0x00u, 0x00u, 0x00u, 0x01u, 0x01u,
+      0x00u, 0xFFu, 0xFFu, 0xFFu, 0xFFu, 0xFFu, 0xFFu, 0xFFu,
+      0xFFu, 0x00u, 0x00u, 0x00u, 0x40u, 0x03u, 0x01u, 0x08u,
+      0x00u, 0x37u, 0x05u, 0x00u, 0x00u, 0x0Au, 0x00u, 0x00u,
+      0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u,
+      0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u,
+      0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u,
+      0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u,
+      0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x7Du, 0x0Bu
+    };
+  }
 
-    // TODO: Productive configuration / Tesboard configuration
-    // TODO: @@@
 
-    // TODO: @@@  be sure device is out of standby mode
-    // for now we do this with 2 dummy writes but there should be a better solution?
-    // In fact we never will go in standby mode?!
-    /*
+  // be sure device is out of standby mode when writing the configuration
+  // for this we do a dummy read to bring it on (otherwise I2C may return NACK)
+  this->readData(CY8_CTRL_CMD_ERR, 1, errorCode, 250);
+  this->readData(CY8_CTRL_CMD_ERR, 1, errorCode, 250);
+
+  Debug.println(F("TouchController pushing configuration to : %u"), this->I2CAddress);
+
+  // set the register to the settings
+  Wire.beginTransmission(this->I2CAddress);
+  Wire.write(CY8_REGMAP_ORIGIN);
+  Wire.endTransmission();
+  delay(10);
+
+  // we have to send the configuration data in chunks because arduino only can send 32 byte at a time
+  uint16_t  dataToSend    = 128;
+  uint16_t  dataIdx       = 0;
+  uint8_t   chunkSize     = 31;
+  uint8_t   chunkSizeSent;
+  uint8_t   transferState;
+  uint8_t   transferError = 0;
+
+  while(dataToSend > 0)
+  {
+    chunkSizeSent = 0;
+    // begin chunk send and jump to the offset register
     Wire.beginTransmission(this->I2CAddress);
-    Wire.write(REGMAP_ORIGIN);
-    Wire.write(00);
-    Wire.endTransmission();
-    delay(10);
-    Wire.beginTransmission(this->I2CAddress);
-    Wire.write(REGMAP_ORIGIN);
-    Wire.write(00);
-    Wire.endTransmission();
-    */
-
-    // set the register to the settings
-    Wire.beginTransmission(this->I2CAddress);
-    Wire.write(REGMAP_ORIGIN);
-    Wire.endTransmission();
-
-    // we have to send the data in chunks because arduino only can send 32 byte at a time
-    uint16_t  dataToSend    = 128;
-    uint16_t  dataIdx       = 0;
-    uint8_t   chunkSize     = 31;
-    uint8_t   chunkSizeSent;
-    while(dataToSend > 0)
+    Wire.write(dataIdx);
+    // now send the next bytes
+    for(uint8_t i=0; (i<chunkSize && i<dataToSend); i++)
     {
-      chunkSizeSent = 0;
-      Wire.beginTransmission(this->I2CAddress);
-      for(uint8_t i=0; (i<chunkSize && i<dataToSend); i++)
-      {
-        Wire.write(configData[dataIdx+i]);
-        chunkSizeSent++;
-      }
-      Wire.endTransmission();
-      dataIdx     += chunkSizeSent;
-      dataToSend  -= chunkSizeSent;
+      Wire.write(configurationData[dataIdx+i]);
+      chunkSizeSent++;
     }
-
-    /*
-
-
-
-    //2 Dummy Writes to Wake up the MBR3 device
-    Wire.beginTransmission(SLAVE_ADDR); // transmit to device #0x37
-    TinyWireM.send(REGMAP_ORIGIN);
-    TinyWireM.send(00);
-    TinyWireM.endTransmission();
-
-    delay(10);
-    TinyWireM.beginTransmission(SLAVE_ADDR); // transmit to device #0x37
-    TinyWireM.send(REGMAP_ORIGIN);          // sends Offset byte
-    TinyWireM.send(00);
-    TinyWireM.endTransmission();
-
-
-    //Arduino function can send only 32 bytes at a time hence the ConfigData is sent to MBR3 in chunks
-    TinyWireM.beginTransmission(SLAVE_ADDR); // transmit to device #0x37
-    TinyWireM.send(REGMAP_ORIGIN);          // sends Offset byte
-    for(int i =0; i<31;i++){
-      TinyWireM.send(configData[i]);// sends 31 bytes
+    transferState = Wire.endTransmission();
+    if(transferState != 0)
+    {
+      transferError = 1;
+      Debug.println(F("Error sending configuration: %u"), transferState);
     }
-    if(TinyWireM.endTransmission()!=0){
-      digitalWrite(PB4, HIGH);
-      delay(100);
-      digitalWrite(PB4, LOW);
-      delay(100);
+    dataIdx     += chunkSizeSent;
+    dataToSend  -= chunkSizeSent;
+    Debug.println(F("TouchController config loaded: %u/%u"), dataIdx, 128);
+  }
 
-    }
+  // acknowledge the sent configuration data
+  if(!transferError)
+  {
+    Wire.beginTransmission(this->I2CAddress);
+    Wire.write(CY8_CTRL_CMD);
+    Wire.write(CY8_SAVE_CHECK_CRC);
+    Wire.endTransmission();
+    Debug.println(F("ACK config"));
+    delay(300);
 
+    // read the register that contains the status of the last executed command
+    // if the ACK command failed the new configuration was not stored
+    this->readData(CY8_CTRL_CMD_ERR, 1, errorCode, 300);
+    if(errorCode[0] != 0x00)
+    {
+      transferError = errorCode[0];
+      Debug.println(F("Error register: %u"), errorCode[0]);
+    }
+  }
 
-    TinyWireM.beginTransmission(SLAVE_ADDR); // transmit to device #0x37
-    TinyWireM.send(31);          // sends Offset byte
-    for(int i =0; i<31;i++){
-      TinyWireM.send(configData[31+i]);        // sends next 31 bytes
-    }
-    if(TinyWireM.endTransmission()!=0){
-      digitalWrite(PB4, HIGH);
-      delay(100);
-      digitalWrite(PB4, LOW);
-      delay(100);
-    }
-
-    TinyWireM.beginTransmission(SLAVE_ADDR); // transmit to device #0x37
-    TinyWireM.send(62);          // sends Offset byte
-    for(int i=0; i<31; i++){
-      TinyWireM.send(configData[62+i]);        // sends further 31 bytes
-    }
-    if(TinyWireM.endTransmission()!=0){
-      digitalWrite(PB4, HIGH);
-      delay(100);
-      digitalWrite(PB4, LOW);
-      delay(100);
-    }
-    TinyWireM.beginTransmission(SLAVE_ADDR); // transmit to device #0x37
-    TinyWireM.send(93);          // sends Offset byte
-    for(int i=0; i<31; i++){
-      TinyWireM.send(configData[93+i]);        // sends 31 bytes
-    }
-    if(TinyWireM.endTransmission()!=0){
-      digitalWrite(PB4, HIGH);
-      delay(100);
-      digitalWrite(PB4, LOW);
-      delay(100);
-    }
-
-    TinyWireM.beginTransmission(SLAVE_ADDR); // transmit to device #0x37
-    TinyWireM.send(124);          // sends Offset byte
-    for(int i =0; i<4;i++){
-      TinyWireM.send(configData[124+i]);        // sends remaining 4 bytes
-    }
-    if(TinyWireM.endTransmission()!=0){
-      digitalWrite(PB4, HIGH);
-      delay(100);
-      digitalWrite(PB4, LOW);
-      delay(100);
-    }
-    TinyWireM.beginTransmission(SLAVE_ADDR); // transmit to device #0x37
-    TinyWireM.send(CTRL_CMD);
-    TinyWireM.send(SAVE_CHECK_CRC);
-    TinyWireM.endTransmission();    // stop transmitting
-
+  // reboot the touch controller so the setting will be used
+  if(!transferError)
+  {
+    Wire.beginTransmission(this->I2CAddress);
+    Wire.write(CY8_CTRL_CMD);
+    Wire.write(CY8_SW_RESET);
+    Wire.endTransmission();
+    Debug.println(F("Touch Controller reset"));
     delay(200);
+  }
 
-    TinyWireM.beginTransmission(SLAVE_ADDR); // transmit to device #0x37
-    TinyWireM.send(CTRL_CMD);
-    TinyWireM.send(SW_RESET);
-    TinyWireM.endTransmission();    // stop transmitting
+  if(transferError)
+    Debug.println(F("Error programming touch controller configuration: %u"), transferError);
 
-    //Provide a delay to calculate and Save CRC
-    delay(200);
-    */
-
+  return transferError > 0 ? true : false;
 }
 
 
@@ -277,7 +272,7 @@ void CY8CMBR3116::process()
 }
 
 
-uint16_t CY8CMBR3116::readData(uint8_t _register, uint8_t _length, uint8_t* _data)
+uint16_t CY8CMBR3116::readData(uint8_t _register, uint8_t _length, uint8_t* _data, uint16_t _waitTimeAfterWrite)
 {
   uint16_t bytes_received = 0;
   uint16_t remaining = _length;
@@ -286,6 +281,9 @@ uint16_t CY8CMBR3116::readData(uint8_t _register, uint8_t _length, uint8_t* _dat
   Wire.beginTransmission(this->I2CAddress);
   Wire.write(_register);
   Wire.endTransmission();
+
+  if(_waitTimeAfterWrite > 0)
+    delay(_waitTimeAfterWrite);
 
   Wire.requestFrom(this->I2CAddress, _length);
   while (Wire.available() && remaining--)

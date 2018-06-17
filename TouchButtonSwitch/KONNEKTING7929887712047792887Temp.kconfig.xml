@@ -77,7 +77,7 @@
             <ParameterGroup Name="Button 1" Id="3">
                 <Parameter Id="15" IdName="button1_mode">
                     <Description>Mode</Description>
-                    <Value Type="uint8" Default="00" Options="00=Long Touch|01=Positioning" Min="00" Max="01"/>
+                    <Value Type="uint8" Default="00" Options="00Long Touch|01=Positioning" Min="00" Max="01"/>
                 </Parameter>
                 <Parameter Id="16" IdName="button1_enableMultiTouch">
                     <Description>Enable Multitouch</Description>
@@ -88,7 +88,7 @@
             <ParameterGroup Name="Button 2" Id="4">
                 <Parameter Id="17" IdName="button2_mode">
                     <Description>Mode</Description>
-                    <Value Type="uint8" Default="00" Options="00=Long Touch|01=Positioning" Min="00" Max="01"/>
+                    <Value Type="uint8" Default="00" Options="00Long Touch|01=Positioning" Min="00" Max="01"/>
                 </Parameter>
                 <Parameter Id="18" IdName="button2_enableMultiTouch">
                     <Description>Enable Multitouch</Description>
@@ -99,7 +99,7 @@
             <ParameterGroup Name="Button 3" Id="5">
                 <Parameter Id="19" IdName="button3_mode">
                     <Description>Mode</Description>
-                    <Value Type="uint8" Default="00" Options="00=Long Touch|01=Positioning" Min="00" Max="01"/>
+                    <Value Type="uint8" Default="00" Options="00Long Touch|01=Positioning" Min="00" Max="01"/>
                 </Parameter>
                 <Parameter Id="20" IdName="button3_enableMultiTouch">
                     <Description>Enable Multitouch</Description>
@@ -110,7 +110,7 @@
             <ParameterGroup Name="Button 4" Id="6">
                 <Parameter Id="21" IdName="button4_mode">
                     <Description>Mode</Description>
-                    <Value Type="uint8" Default="00" Options="00=Long Touch|01=Positioning" Min="00" Max="01"/>
+                    <Value Type="uint8" Default="00" Options="00Long Touch|01=Positioning" Min="00" Max="01"/>
                 </Parameter>
                 <Parameter Id="22" IdName="button4_enableMultiTouch">
                     <Description>Enable Multitouch</Description>

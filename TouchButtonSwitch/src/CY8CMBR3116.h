@@ -2,7 +2,9 @@
   CY8MBR3116.h Library for controlling/handling the Cypress CY8MBR3116 touch controller
   Created by Christian Dürnberger, June 2018
   Released into the public domain.
-  http://www.cypress.com/file/127221/download
+  Register description:     http://www.cypress.com/file/127221/download
+  Datasheet:                http://www.cypress.com/file/46236/download
+  Device programming specs: http://www.cypress.com/file/133376/download
 */
 
 
@@ -23,11 +25,12 @@ TODO:
   #define CY8_TOUCHSENSORCOUNT          16
 
   // register offset mao of the CY8CMBR3116
-  #define REGMAP_ORIGIN                 0x00
+  #define CY8_REGMAP_ORIGIN             0x00
   #define CY8_BUTTON_STATUS             0xAA
   #define CY8_LATCHED_BUTTON_STATUS     0xAC
   #define CY8_PROX_STAT                 0xAE
   #define CY8_CTRL_CMD                  0x86
+  #define CY8_CTRL_CMD_ERR              0x89
 
   // command codes for the CY8CMBR3116
   #define CY8_CMD_NULL                  0x00
@@ -54,7 +57,7 @@ TODO:
     public:
       CY8CMBR3116(uint8_t _I2CAddress);
       ~CY8CMBR3116();
-      void setup();
+      void setup(uint8_t _setupConfig = 0);
       void interrupt();
       void process();
       void task();
@@ -76,9 +79,10 @@ TODO:
       std::function<void(uint8_t, uint8_t)> proximityEventCallback;
       std::function<void(uint8_t)> gestureEventCallback;
 
-      uint16_t readData(uint8_t _register, uint8_t _length, uint8_t* _data);
+      uint16_t readData(uint8_t _register, uint8_t _length, uint8_t* _data ,uint16_t _waitTimeAfterWrite = 0);
       void sensorStateChanged(uint8_t _sensoryType, uint8_t _sensorId, bool _value);
       uint16_t calcDiff(uint64_t _stop, uint64_t _start);
+      bool uploadConfiguration(uint8_t _setupConfig = 0);
 
       bool      active;
       uint8_t   I2CAddress;

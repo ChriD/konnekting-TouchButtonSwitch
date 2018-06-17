@@ -25,17 +25,20 @@ CY8TouchSwitch::~CY8TouchSwitch()
 void CY8TouchSwitch::setup()
 {
   // create and setup the instance of the touch controller class/object which will do a lot of work for us
-  // the touvh controler itself is powerd with a standard setup on start
+  // the touch controler itself is powerd with a standard setup on start
   this->touchController = new CY8CMBR3116(0x37);
   this->touchController->setThresholds(250, 1250, 750);
-  this->touchController->setup();
   this->touchController->setSensorStateCallback(std::bind(&CY8TouchSwitch::sensorStateEvent, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3));
   this->touchController->setTouchEventCallback(std::bind(&CY8TouchSwitch::touchEvent, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3));
   this->touchController->setProximityEventCallback(std::bind(&CY8TouchSwitch::proximityEvent, this, std::placeholders::_1, std::placeholders::_2));
   this->touchController->setGestureEventCallback(std::bind(&CY8TouchSwitch::gestureEvent, this, std::placeholders::_1));
-  this->touchController->reset();
 }
 
+
+void CY8TouchSwitch::setupTouchController(uint8_t _setupConfig)
+{
+  this->touchController->setup(_setupConfig);
+}
 
 
 // uint8_t _sensorId, uint8_t _event, uint8_t _count

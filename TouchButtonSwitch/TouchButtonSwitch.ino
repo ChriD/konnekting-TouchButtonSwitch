@@ -7,6 +7,7 @@
 
 /* TODO:
   # add temperature and humidity/temp sensor
+  # sensor does not startup ver well with testboard settings, dont know why
 */
 
 #include "Arduino.h"
@@ -48,6 +49,9 @@
 // for testing purposes without having a bcu attached we have to skip
 // the knx code to test the device. For this we define the NOBCU
 //#define NOBCU
+
+// if set then testboard settings are used
+#define TESTBOARD
 
 #define DEBUGSERIAL       Serial
 #define KNX_SERIAL        Serial1
@@ -96,13 +100,24 @@ void setup()
   touchSwitch->changeMode(TS_MODE_STARTUP2, true);
   delay(150);
 
+  // after I2C is setup we may setup the touch controller
+  // I'm not sure if its the best to update the config every time on start (due it should be persistent)
+  #ifdef TESTBOARD
+    touchSwitch->setupTouchController(99);
+  #else
+    touchSwitch->setupTouchController();
+  #endif
+
+  touchSwitch->changeMode(TS_MODE_STARTUP3, true);
+  delay(150);
+
   // after we have changed the mode of the switch to SETUP, we start setting up the
   // knx device stuff
   #ifndef NOBCU
     knxDeviceSetup();
   #endif
 
-  touchSwitch->changeMode(TS_MODE_STARTUP3, true);
+  touchSwitch->changeMode(TS_MODE_STARTUP4, true);
   delay(150);
 
   // setup the interrupt method for the touch controller
@@ -117,11 +132,6 @@ void setup()
   touchSwitch->setTouchEventCallback(touchEvent);
   touchSwitch->setGestureEventCallback(gestureEvent);
   touchSwitch->setProximityEventCallback(proximityEvent);
-
-  //std::bind(&CY8TouchSwitch::sensorStateEvent, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3)
-
-  touchSwitch->changeMode(TS_MODE_STARTUP4, true);
-  delay(150);
 
   // after rebooting setup we have to wait a little bit for the user to put the frontboard
   // to the button, in this state we do stay "Setup" mode
@@ -242,6 +252,7 @@ void knxDeviceSetup()
 // we have to reroute the interrupt to the touchSwitch class for further processing
 void touchControllerInterrupt()
 {
+  Debug.println(F("Touch controller fired interrupt"));
   touchSwitch->interrupt();
 }
 
