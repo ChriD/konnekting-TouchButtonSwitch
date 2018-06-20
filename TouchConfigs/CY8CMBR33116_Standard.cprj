@@ -5,7 +5,7 @@
   <Configurations>
     <CapSenseConfig>
       <proximityAutoReset>DISABLE</proximityAutoReset>
-      <scanRate>6</scanRate>
+      <scanRate>5</scanRate>
       <debounce>3</debounce>
       <sliderDebounce>3</sliderDebounce>
       <medianFilter>true</medianFilter>

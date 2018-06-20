@@ -7,8 +7,9 @@
 
 /* TODO:
   # add temperature and humidity/temp sensor
-  # sensor does not startup ver well with testboard settings, dont know why
+  # sensor does not startup very well with testboard settings, dont know why
 */
+
 
 #include "Arduino.h"
 #include "Wire.h"
@@ -16,6 +17,9 @@
 #include "TouchButtonSwitch.h"
 #include "src/CY8TouchSwitch.h"
 
+
+// if TESTBOARD set then testboard settings are used
+//#define TESTBOARD
 
 // we do use the same firmware for 4x or 6x touch switches
 // so we have to define which type of sitch is being compiled
@@ -30,12 +34,21 @@
 #define SENSORID_6        0
 
 // define the led pins for the given buttons
-#define SENSORLED_1_PIN        D3
-#define SENSORLED_2_PIN        D4
-#define SENSORLED_3_PIN        D11
-#define SENSORLED_4_PIN        D9
-#define SENSORLED_5_PIN        0
-#define SENSORLED_6_PIN        0
+#ifdef TESTBOARD
+  #define SENSORLED_1_PIN        D3
+  #define SENSORLED_2_PIN        D4
+  #define SENSORLED_3_PIN        D11
+  #define SENSORLED_4_PIN        D9
+  #define SENSORLED_5_PIN        0
+  #define SENSORLED_6_PIN        0
+#else
+  #define SENSORLED_1_PIN        PB5
+  #define SENSORLED_2_PIN        PA4
+  #define SENSORLED_3_PIN        PB4
+  #define SENSORLED_4_PIN        PA6
+  #define SENSORLED_5_PIN        0
+  #define SENSORLED_6_PIN        0
+#endif
 
 // This is the time in miliseconds how long the button should wait after setup to allow touch_threshold
 // There has to be a enough time for the user to put the frontplate on the switch before recalibration of
@@ -50,14 +63,19 @@
 // the knx code to test the device. For this we define the NOBCU
 //#define NOBCU
 
-// if set then testboard settings are used
-#define TESTBOARD
-
-#define DEBUGSERIAL       Serial
-#define KNX_SERIAL        Serial1
-#define PROG_LED_PIN      6
-#define PROG_BUTTON_PIN   PC13
-#define TC_INTERRUPTPIN   PA8
+#ifdef TESTBOARD
+  #define DEBUGSERIAL       Serial
+  #define KNX_SERIAL        Serial1
+  #define PROG_LED_PIN      6
+  #define PROG_BUTTON_PIN   PC13
+  #define TC_INTERRUPTPIN   PA8
+#else
+  #define DEBUGSERIAL       Serial1
+  #define KNX_SERIAL        Serial
+  #define PROG_LED_PIN      0
+  #define PROG_BUTTON_PIN   PA5
+  #define TC_INTERRUPTPIN   PA8
+#endif
 
 // the differnt type of switches we do have
 #define SWITCHTYPE_4X     4
