@@ -32,6 +32,24 @@ TODO:
   #define CY8_CTRL_CMD                  0x86
   #define CY8_CTRL_CMD_ERR              0x89
 
+  // thresholds
+  #define BASE_THRESHOLD0               0x0C
+  #define BASE_THRESHOLD1               0x0D
+  #define FINGER_THRESHOLD2             0x0E
+  #define FINGER_THRESHOLD3             0x0F
+  #define FINGER_THRESHOLD4             0x10
+  #define FINGER_THRESHOLD5             0x11
+  #define FINGER_THRESHOLD6             0x12
+  #define FINGER_THRESHOLD7             0x13
+  #define FINGER_THRESHOLD8             0x14
+  #define FINGER_THRESHOLD9             0x15
+  #define FINGER_THRESHOLD10            0x16
+  #define FINGER_THRESHOLD11            0x17
+  #define FINGER_THRESHOLD12            0x18
+  #define FINGER_THRESHOLD13            0x19
+  #define FINGER_THRESHOLD14            0x1A
+  #define FINGER_THRESHOLD15            0x1B
+
   // command codes for the CY8CMBR3116
   #define CY8_CMD_NULL                  0x00
   #define CY8_SAVE_CHECK_CRC            0x02
@@ -57,7 +75,7 @@ TODO:
     public:
       CY8CMBR3116(uint8_t _I2CAddress);
       ~CY8CMBR3116();
-      void setup(uint8_t _setupConfig = 0);
+      bool setup(uint8_t _setupConfig = 0);
       void interrupt();
       void process();
       void task();

@@ -28,18 +28,24 @@ void CY8TouchSwitch::setup()
   // the touch controler itself is powerd with a standard setup on start
   this->touchController = new CY8CMBR3116(0x37);
   this->touchController->setThresholds(250, 1250, 750);
-  this->touchController->setSensorStateCallback(std::bind(&CY8TouchSwitch::sensorStateEvent, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3));
+  this->touchController->setSensorStateCallback(std::bind(&CY8TouchSwitch::sensorStateChangedEvent, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3));
   this->touchController->setTouchEventCallback(std::bind(&CY8TouchSwitch::touchEvent, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3));
   this->touchController->setProximityEventCallback(std::bind(&CY8TouchSwitch::proximityEvent, this, std::placeholders::_1, std::placeholders::_2));
   this->touchController->setGestureEventCallback(std::bind(&CY8TouchSwitch::gestureEvent, this, std::placeholders::_1));
 }
 
 
-void CY8TouchSwitch::setupTouchController(uint8_t _setupConfig)
+bool CY8TouchSwitch::setupTouchController(uint8_t _setupConfig)
 {
-  this->touchController->setup(_setupConfig);
+  return this->touchController->setup(_setupConfig);
 }
 
+
+// uint8_t _sensoryType, uint8_t _sensorId, bool _value
+void CY8TouchSwitch::setSensorStateChangedEventCallback(std::function<void(uint8_t, uint8_t, bool)> _sensorStateChangedCallback)
+{
+  this->sensorStateChangedEventCallback = _sensorStateChangedCallback;
+}
 
 // uint8_t _sensorId, uint8_t _event, uint8_t _count
 void CY8TouchSwitch::setTouchEventCallback(std::function<void(uint8_t, uint8_t, uint8_t)> _touchEventCallback)
@@ -115,9 +121,14 @@ bool CY8TouchSwitch::isSensorIdActive(uint8_t _sensorId)
 }
 
 
-void CY8TouchSwitch::sensorStateEvent(uint8_t sensorType, uint8_t _sensorId, bool _value)
+void CY8TouchSwitch::sensorStateChangedEvent(uint8_t sensorType, uint8_t _sensorId, bool _value)
 {
-  // we do nod need the state info for anything
+  // if we are in any other mode than NORMAL, we should not handle any touches
+  if(this->mode != TS_MODE_NORMAL)
+    return;
+
+  if(this->sensorStateChangedEventCallback && this->isSensorIdActive(_sensorId))
+    this->sensorStateChangedEventCallback(sensorType, _sensorId, _value);
 }
 
 

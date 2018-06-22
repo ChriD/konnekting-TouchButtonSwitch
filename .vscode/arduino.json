@@ -1,7 +1,7 @@
 {
     "port": "COM8",
-    "board": "STM32:stm32:Nucleo_32",
-    "configuration": "pnum=NUCLEO_L432KC,upload_method=STLink,xserial=generic,usb=none,opt=osstd",
+    "board": "STM32:stm32:Nucleo_64",
+    "configuration": "pnum=NUCLEO_L053R8,upload_method=MassStorage,xserial=generic,usb=none,opt=osstd",
     "sketch": "TouchButtonSwitch\\TouchButtonSwitch.ino",
     "output": "./build"
 }

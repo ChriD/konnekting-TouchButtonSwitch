@@ -7,13 +7,19 @@
 #include "Arduino.h"
 #include "LEDWorker.h"
 
-LEDWorker::LEDWorker(uint8_t _ledPin)
+LEDWorker::LEDWorker(uint8_t _ledPin, bool _useSoftPWM)
 {
   this->ledPin              = _ledPin;
   this->ledValue            = 0;
   this->currentMode         = LW_MODE_IDLE;
   this->modeStartTime       = 0;
   this->modeLastCallTime    = 0;
+  this->taskLastCallTime    = 0;
+
+  this->useSoftPWM          = _useSoftPWM;
+  this->softPWMPeriod       = 0;
+  this->softPWMValue        = 0;
+
 }
 
 
@@ -25,6 +31,7 @@ LEDWorker::~LEDWorker()
 void LEDWorker::setup()
 {
    pinMode(this->ledPin, OUTPUT);
+   //pinMode(this->ledPin, PWM);
 }
 
 void LEDWorker::fade(uint16_t _duration, uint8_t _toValue)
@@ -78,7 +85,7 @@ bool LEDWorker::processMode()
 
 bool LEDWorker::processMode_Fade()
 {
-  uint16_t period = this->getProcessPeriod();
+  uint16_t period = this->getProcessPeriod(this->modeLastCallTime);
   if(period >= this->mode_fade_callPeriod)
   {
     this->modeLastCallTime = millis();
@@ -99,7 +106,7 @@ bool LEDWorker::processMode_Fade()
 
 bool LEDWorker::processMode_Blink()
 {
-  uint16_t period = this->getProcessPeriod();
+  uint16_t period = this->getProcessPeriod(this->modeLastCallTime);
   if( this->mode_blink_ledStatus == true && period >= this->mode_blink_highPeriod ||
       this->mode_blink_ledStatus == false && period >= this->mode_blink_lowPeriod )
   {
@@ -115,19 +122,24 @@ bool LEDWorker::processMode_Blink()
 }
 
 
-uint16_t LEDWorker::getProcessPeriod()
+uint16_t LEDWorker::getProcessPeriod(uint64_t _lastCallTime, bool _useMicros)
 {
-  uint64_t cur = millis();
+  uint64_t cur;
+
+  if(_useMicros)
+    cur = micros();
+  else
+    cur = millis();
   // if we had an overflow we have to calculate the period in a special way
   // in fact we have to add "(max)uint16_t - LastCallTime"  to  "cur"
   // but ofr our purpose its okay to only return "cur".
-  if(cur < this->modeLastCallTime)
+  if(cur < _lastCallTime)
   {
-    return (uint16_t)(cur + (UINT64_MAX - this->modeLastCallTime));
+    return (uint16_t)(cur + (UINT64_MAX - _lastCallTime));
   }
   else
   {
-    return (uint16_t)(cur - this->modeLastCallTime);
+    return (uint16_t)(cur - _lastCallTime);
   }
 }
 
@@ -139,6 +151,29 @@ void LEDWorker::task()
   // the method will update the "ledValue" variable to the value it should have for the mode
   if(this->processMode())
   {
-    analogWrite(this->ledPin, this->ledValue);
+    // for analog write the pin has to be a PWM pin
+    if(!this->useSoftPWM)
+      analogWrite(this->ledPin, this->ledValue);
   }
+  else
+  {
+    if(this->useSoftPWM)
+    {
+      uint16_t period = this->getProcessPeriod(this->taskLastCallTime, true);
+
+      // TODO: @@ calc on value set!
+      //this->softPWMPeriod =
+      //10 127
+      if( period >= this->softPWMPeriod )
+      {
+        // TODO: use SoftPWM Lib? (uses timers and interrupts, would be better?)
+        // TODO: use native pin set (much faster) gpio_write_bit(GPIOB, 0, LOW);
+        // TODO: generate PWM signal on pin for given value (SOFT PWM)
+        // TODO: calculate pwm period
+        this->softPWMValue != this->softPWMValue;
+        digitalWrite(this->ledPin, this->softPWMValue);
+      }
+    }
+  }
+  this->taskLastCallTime = micros();
 }

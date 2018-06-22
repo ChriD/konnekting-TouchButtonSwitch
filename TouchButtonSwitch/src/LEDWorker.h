@@ -22,7 +22,7 @@
     class LEDWorker
     {
       public:
-        LEDWorker(uint8_t _ledPin);
+        LEDWorker(uint8_t _ledPin, bool _useSoftPWM = false);
         ~LEDWorker();
         void task();
         void setup();
@@ -33,13 +33,18 @@
         void blink(uint16_t _lowPeriod = 500, uint16_t _highPeriod = 500, uint8_t _lowValue = 0, uint8_t _highValue = 255);
         void set(uint8_t _value);
       protected:
-        uint16_t getProcessPeriod();
+        uint16_t getProcessPeriod(uint64_t _lastCallTime, bool _useMicros = false);
       private:
         uint8_t   ledPin;
         uint8_t   ledValue;
         uint8_t   currentMode;
         uint64_t  modeStartTime;
         uint64_t  modeLastCallTime;
+        uint64_t  taskLastCallTime;
+
+        bool      useSoftPWM;
+        bool      softPWMValue;
+        uint16_t  softPWMPeriod;
 
         uint16_t  mode_fade_callPeriod;
         uint16_t  mode_fade_toValue;

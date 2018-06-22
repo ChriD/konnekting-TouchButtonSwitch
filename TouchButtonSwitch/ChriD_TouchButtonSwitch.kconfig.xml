@@ -255,6 +255,18 @@
             <ParameterConfiguration Id="20" Value="01"/>
             <ParameterConfiguration Id="21" Value="00"/>
             <ParameterConfiguration Id="22" Value="01"/>
+            <ParameterConfiguration Id="3" Value="0A"/>
+            <ParameterConfiguration Id="4" Value="FF"/>
+            <ParameterConfiguration Id="5" Value="0000000A"/>
+            <ParameterConfiguration Id="6" Value="0000000A"/>
+            <ParameterConfiguration Id="7" Value="0000000A"/>
+            <ParameterConfiguration Id="8" Value="00"/>
+            <ParameterConfiguration Id="9" Value="FF"/>
+            <ParameterConfiguration Id="10" Value="00000000"/>
+            <ParameterConfiguration Id="11" Value="00000000"/>
+            <ParameterConfiguration Id="12" Value="00000000"/>
+            <ParameterConfiguration Id="13" Value="00"/>
+            <ParameterConfiguration Id="14" Value="FF"/>
         </ParameterConfigurations>
     </Configuration>
 </KonnektingDevice>

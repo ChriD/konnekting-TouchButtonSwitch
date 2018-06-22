@@ -59,11 +59,11 @@ void CY8CMBR3116::setThresholds(uint16_t _touchThreshold, uint16_t _longTouchThr
 }
 
 
-void CY8CMBR3116::setup(uint8_t _setupConfig)
+bool CY8CMBR3116::setup(uint8_t _setupConfig)
 {
   // upload the selected configuration to the touch controller
   // the data is stored into the flash, so we should not call this method to extend the life of memory
-  this->uploadConfiguration(_setupConfig);
+  return this->uploadConfiguration(_setupConfig);
 }
 
 
@@ -200,7 +200,7 @@ bool CY8CMBR3116::uploadConfiguration(uint8_t _setupConfig)
   if(transferError)
     Debug.println(F("Error programming touch controller configuration: %u"), transferError);
 
-  return transferError > 0 ? true : false;
+  return transferError > 0 ? false : true;
 }
 
 
