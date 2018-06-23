@@ -376,7 +376,7 @@ void touchEvent(uint8_t _sensorId, uint8_t _event, uint8_t _count)
   }
   else if (_event == 21)
   {
-    Knx.write(COMOBJ_button1_position_touchstop + idOffset, DPT1_001_on);
+    Knx.write(COMOBJ_button1_position_touchend+ idOffset, DPT1_001_on);
   }
   
 
