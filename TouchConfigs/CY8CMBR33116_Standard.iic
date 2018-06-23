@@ -3,11 +3,11 @@
 ; Attempt to get attention
 r 37 x p [delay=10] r 37 x p [delay=10]
 
-w 37 00 cf 00 00 00 00 00 00 00 00 00 00 00 80 80 80 80 7f 7f 80 80 7f 7f 7f 7f 7f 7f 7f 7f 03 00 00 00 00 00 00 00 00 00 03 83 05 00 00 02 00 02 00 00 00 00 00 00 00 1e 1e 00 00 1e 1e 00 00 00 01 01 00 ff ff ff ff ff ff ff ff 00 00 00 24 03 01 09 00 37 05 00 00 0a 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 97 90 p
+w 37 00 cf 00 00 00 00 00 00 00 a0 a0 00 00 64 64 96 96 7f 7f 96 96 7f 7f 7f 7f 7f 7f 7f 7f 03 00 00 00 00 00 00 00 00 00 03 83 04 00 00 02 00 02 00 00 00 00 00 00 00 1e 1e 00 00 1e 1e 00 00 00 01 01 00 ff ff ff ff ff ff ff ff 00 00 00 24 03 01 01 00 37 05 00 00 0a 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 2b 49 p
 w 37 86 02 p
 
 ; Raw config data
-; 0xCF, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x80, 0x80, 0x80, 0x80, 0x7F, 0x7F, 0x80, 0x80, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x03, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x03, 0x83, 0x05, 0x00, 0x00, 0x02, 0x00, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x1E, 0x1E, 0x00, 0x00, 0x1E, 0x1E, 0x00, 0x00, 0x00, 0x01, 0x01, 0x00, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0x00, 0x00, 0x00, 0x24, 0x03, 0x01, 0x09, 0x00, 0x37, 0x05, 0x00, 0x00, 0x0A, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x97, 0x90
+; 0xCF, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xA0, 0xA0, 0x00, 0x00, 0x64, 0x64, 0x96, 0x96, 0x7F, 0x7F, 0x96, 0x96, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x03, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x03, 0x83, 0x04, 0x00, 0x00, 0x02, 0x00, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x1E, 0x1E, 0x00, 0x00, 0x1E, 0x1E, 0x00, 0x00, 0x00, 0x01, 0x01, 0x00, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0x00, 0x00, 0x00, 0x24, 0x03, 0x01, 0x01, 0x00, 0x37, 0x05, 0x00, 0x00, 0x0A, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x2B, 0x49
 
 
 ; #00       #02    #04       #06       
@@ -16,11 +16,11 @@ w 37 86 02 p
 
 ; #08          #09          #0A          #0B          
 ; SENSITIVITY0 SENSITIVITY1 SENSITIVITY2 SENSITIVITY3 
-; 00           00           00           00           
+; A0           A0           00           00           
 
 ; #0C             #0D             #0E               #0F               #10               #11               #12               #13               #14               #15               #16                #17                #18                #19                #1A                #1B                
 ; BASE_THRESHOLD0 BASE_THRESHOLD1 FINGER_THRESHOLD2 FINGER_THRESHOLD3 FINGER_THRESHOLD4 FINGER_THRESHOLD5 FINGER_THRESHOLD6 FINGER_THRESHOLD7 FINGER_THRESHOLD8 FINGER_THRESHOLD9 FINGER_THRESHOLD10 FINGER_THRESHOLD11 FINGER_THRESHOLD12 FINGER_THRESHOLD13 FINGER_THRESHOLD14 FINGER_THRESHOLD15 
-; 80              80              80                80                7F                7F                80                80                7F                7F                7F                 7F                 7F                 7F                 7F                 7F                 
+; 64              64              96                96                7F                7F                96                96                7F                7F                7F                 7F                 7F                 7F                 7F                 7F                 
 
 ; #1C             
 ; SENSOR_DEBOUNCE 
@@ -32,7 +32,7 @@ w 37 86 02 p
 
 ; #26     #27      #28       #29       #2A            #2C            #2E              #2F              #30      #31       #32      #33      #34     #35               #36               #37       #39               #3A               #3B       
 ; PROX_EN PROX_CFG PROX_CFG2 RESERVED2 PROX_TOUCH_TH0 PROX_TOUCH_TH1 PROX_RESOLUTION0 PROX_RESOLUTION1 PROX_HYS RESERVED3 PROX_LBR PROX_NNT PROX_NT PROX_POSITIVE_TH0 PROX_POSITIVE_TH1 RESERVED4 PROX_NEGATIVE_TH0 PROX_NEGATIVE_TH1 RESERVED5 
-; 03      83       05        00        00 02          00 02          00               00               00       00        00       00       00      1E                1E                00 00     1E                1E                00 00     
+; 03      83       04        00        00 02          00 02          00               00               00       00        00       00       00      1E                1E                00 00     1E                1E                00 00     
 
 ; #3D         
 ; LED_ON_TIME 
@@ -44,7 +44,7 @@ w 37 86 02 p
 
 ; #40     #41                #42                #43                #44                #45                #46                #47                #48                #49       #4C     #4D         #4E         #4F         #50         
 ; GPO_CFG PWM_DUTYCYCLE_CFG0 PWM_DUTYCYCLE_CFG1 PWM_DUTYCYCLE_CFG2 PWM_DUTYCYCLE_CFG3 PWM_DUTYCYCLE_CFG4 PWM_DUTYCYCLE_CFG5 PWM_DUTYCYCLE_CFG6 PWM_DUTYCYCLE_CFG7 RESERVED6 SPO_CFG DEVICE_CFG0 DEVICE_CFG1 DEVICE_CFG2 DEVICE_CFG3 
-; 00      FF                 FF                 FF                 FF                 FF                 FF                 FF                 FF                 00 00 00  24      03          01          09          00          
+; 00      FF                 FF                 FF                 FF                 FF                 FF                 FF                 FF                 00 00 00  24      03          01          01          00          
 
 ; #51      
 ; I2C_ADDR 
@@ -60,4 +60,4 @@ w 37 86 02 p
 
 ; #7E        
 ; CONFIG_CRC 
-; 97 90      
+; 2B 49      

@@ -44,7 +44,13 @@
 #define PARAM_button3_enableMultiTouch 20
 #define PARAM_button4_mode 21
 #define PARAM_button4_enableMultiTouch 22
-
+#define PARAM_button5_mode 23
+#define PARAM_button5_enableMultiTouch 24
+#define PARAM_button6_mode 25
+#define PARAM_button6_enableMultiTouch 26
+#define PARAM_tsic_sensitivity 27
+#define PARAM_tsic_fingerThreshold 28
+        
 KnxComObject KnxDevice::_comObjectsList[] = {
     /* Index 0 - firmwareTransfer */ KnxComObject(KNX_DPT_60000_60000, 0x2a),
     /* Index 1 - temperatureValue */ KnxComObject(KNX_DPT_9_001, 0x34),
@@ -67,7 +73,7 @@ KnxComObject KnxDevice::_comObjectsList[] = {
     /* Index 18 - button2_position_touchend */ KnxComObject(KNX_DPT_1_001, 0x34)
 };
 const byte KnxDevice::_numberOfComObjects = sizeof (_comObjectsList) / sizeof (KnxComObject); // do not change this code
-
+       
 byte KonnektingDevice::_paramSizeList[] = {
     /* Index 0 - touch_threshold */ PARAM_UINT16,
     /* Index 1 - mode_longtouch_threshold */ PARAM_UINT16,
@@ -91,6 +97,12 @@ byte KonnektingDevice::_paramSizeList[] = {
     /* Index 19 - button3_mode */ PARAM_UINT8,
     /* Index 20 - button3_enableMultiTouch */ PARAM_UINT8,
     /* Index 21 - button4_mode */ PARAM_UINT8,
-    /* Index 22 - button4_enableMultiTouch */ PARAM_UINT8
+    /* Index 22 - button4_enableMultiTouch */ PARAM_UINT8,
+    /* Index 23 - button5_mode */ PARAM_UINT8,
+    /* Index 24 - button5_enableMultiTouch */ PARAM_UINT8,
+    /* Index 25 - button6_mode */ PARAM_UINT8,
+    /* Index 26 - button6_enableMultiTouch */ PARAM_UINT8,
+    /* Index 27 - tsic_sensitivity */ PARAM_UINT8,
+    /* Index 28 - tsic_fingerThreshold */ PARAM_UINT8
 };
 const int KonnektingDevice::_numberOfParams = sizeof (_paramSizeList); // do not change this code

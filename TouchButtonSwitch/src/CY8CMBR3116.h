@@ -32,23 +32,29 @@ TODO:
   #define CY8_CTRL_CMD                  0x86
   #define CY8_CTRL_CMD_ERR              0x89
 
+  // sensitivity
+  #define CY8_SENSITIVITY0              0x08
+  #define CY8_SENSITIVITY1              0x09
+  #define CY8_SENSITIVITY2              0x0A
+  #define CY8_SENSITIVITY3              0x0B
+
   // thresholds
-  #define BASE_THRESHOLD0               0x0C
-  #define BASE_THRESHOLD1               0x0D
-  #define FINGER_THRESHOLD2             0x0E
-  #define FINGER_THRESHOLD3             0x0F
-  #define FINGER_THRESHOLD4             0x10
-  #define FINGER_THRESHOLD5             0x11
-  #define FINGER_THRESHOLD6             0x12
-  #define FINGER_THRESHOLD7             0x13
-  #define FINGER_THRESHOLD8             0x14
-  #define FINGER_THRESHOLD9             0x15
-  #define FINGER_THRESHOLD10            0x16
-  #define FINGER_THRESHOLD11            0x17
-  #define FINGER_THRESHOLD12            0x18
-  #define FINGER_THRESHOLD13            0x19
-  #define FINGER_THRESHOLD14            0x1A
-  #define FINGER_THRESHOLD15            0x1B
+  #define CY8_BASE_THRESHOLD0           0x0C
+  #define CY8_BASE_THRESHOLD1           0x0D
+  #define CY8_FINGER_THRESHOLD2         0x0E
+  #define CY8_FINGER_THRESHOLD3         0x0F
+  #define CY8_FINGER_THRESHOLD4         0x10
+  #define CY8_FINGER_THRESHOLD5         0x11
+  #define CY8_FINGER_THRESHOLD6         0x12
+  #define CY8_FINGER_THRESHOLD7         0x13
+  #define CY8_FINGER_THRESHOLD8         0x14
+  #define CY8_FINGER_THRESHOLD9         0x15
+  #define CY8_FINGER_THRESHOLD10        0x16
+  #define CY8_FINGER_THRESHOLD11        0x17
+  #define CY8_FINGER_THRESHOLD12        0x18
+  #define CY8_FINGER_THRESHOLD13        0x19
+  #define CY8_FINGER_THRESHOLD14        0x1A
+  #define CY8_FINGER_THRESHOLD15        0x1B
 
   // command codes for the CY8CMBR3116
   #define CY8_CMD_NULL                  0x00
@@ -85,9 +91,12 @@ TODO:
       void setProximityEventCallback(std::function<void(uint8_t, uint8_t)>);
       void setGestureEventCallback(std::function<void(uint8_t)>);
 
+      void setSensorSensitivity(uint8_t _sensitivity);
+      void setSensorFingerThreshold(uint8_t _threshold);
+
       void setActive(bool _active = true);
       void setThresholds(uint16_t _touchThreshold, uint16_t _longTouchThreshold, uint16_t _positioningTouchThreshold);
-      void enableMultipleTouch(uint8_t sensorId, bool _enable = true);
+      void enableMultipleTouch(uint8_t _sensorId, bool _enable = true);
       void enablePositioningTouch(uint8_t _sensorId, bool _enable = true);
       void reset();
       void resetCacheData();

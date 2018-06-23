@@ -256,6 +256,13 @@ void knxDeviceSetup()
     touchSwitch->setBacklightParameters(valueStandby, valueProximity);
     Debug.println(F("Backlight: Standby=%u, Proximity=%u"), valueStandby, valueProximity);
 
+    // touch ic settings
+    uint8_t tsic_sensitivity = Konnekting.getUINT8Param(PARAM_tsic_sensitivity);
+    touchSwitch->getTouchControllerObject()->setSensorSensitivity(tsic_sensitivity);    
+    uint8_t tsic_fingerThreshold = Konnekting.getUINT8Param(PARAM_tsic_fingerThreshold);
+    touchSwitch->getTouchControllerObject()->setSensorFingerThreshold(tsic_fingerThreshold);
+    Debug.println(F("TouchIC ButtonSensitivity: %u, ButtonFingerThreshold=%u"), tsic_sensitivity, tsic_fingerThreshold);
+
     // setup settings for sensor 1
     bool    enableMultiTouch  = (bool) Konnekting.getUINT8Param(PARAM_button1_enableMultiTouch);
     uint8_t mode              = (uint8_t) Konnekting.getUINT8Param(PARAM_button1_mode);
@@ -281,7 +288,6 @@ void knxDeviceSetup()
     Debug.println(F("Sensor %u: MultiTouch=%u, Mode=%u"), SENSORID_4, enableMultiTouch, mode);
 
   
-
     /*
     if(SWITCHTYPE == 6)
     {
@@ -334,7 +340,8 @@ void sensorStateChangedEvent(uint8_t sensorType, uint8_t _sensorId, bool _value)
   if(_sensorId > 1)
   {
     //Knx.write(COMOBJ_button1, _sensorId);
-    Knx.write(COMOBJ_button1_double, _value);
+    //Knx.write(COMOBJ_button1_multi, _sensorId);
+    //Knx.write(COMOBJ_button1_double, _value);
   }
 }
 
@@ -349,7 +356,7 @@ void touchEvent(uint8_t _sensorId, uint8_t _event, uint8_t _count)
   // send the touch event to the knx bus
   // we can use the base index for the object and add the ID-1 for correct index????
 
-  /*
+  
   if(_event == 1)
   {
     if(_count == 1)
@@ -363,14 +370,22 @@ void touchEvent(uint8_t _sensorId, uint8_t _event, uint8_t _count)
   {
     Knx.write(COMOBJ_button1_long + idOffset, DPT1_001_on);
   }
-  */
+  else if (_event == 20)
+  {
+    Knx.write(COMOBJ_button1_position_touchstart + idOffset, DPT1_001_on);
+  }
+  else if (_event == 21)
+  {
+    Knx.write(COMOBJ_button1_position_touchstop + idOffset, DPT1_001_on);
+  }
+  
 
 }
 
 
 void proximityEvent(uint8_t _sensorId, uint8_t _event)
 {
-  //Knx.write(COMOBJ_button1_multi, _sensorId);
+  //Knx.write(COMOBJ_button1_double, _sensorId);
   //Knx.write(COMOBJ_button1_multi, _event);
 }
 
@@ -446,6 +461,7 @@ void loop()
     touchSwitch->resetTouchController();
     touchSwitch->changeMode(TS_MODE_NORMAL, true);
     Debug.println(F("Switch is ready for action!"));
+    Knx.write(COMOBJ_button1_multi, 254);
   }  
   
 

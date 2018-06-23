@@ -41,6 +41,12 @@ bool CY8TouchSwitch::setupTouchController(uint8_t _setupConfig)
 }
 
 
+CY8CMBR3116* CY8TouchSwitch::getTouchControllerObject()
+{
+  return this->touchController;
+}
+
+
 // uint8_t _sensoryType, uint8_t _sensorId, bool _value
 void CY8TouchSwitch::setSensorStateChangedEventCallback(std::function<void(uint8_t, uint8_t, bool)> _sensorStateChangedCallback)
 {

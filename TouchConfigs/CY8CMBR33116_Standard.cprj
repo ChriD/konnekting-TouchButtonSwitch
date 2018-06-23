@@ -11,7 +11,7 @@
       <medianFilter>true</medianFilter>
       <iirFilter>true</iirFilter>
       <advFilter>true</advFilter>
-      <advFilterWeight>ALP_FILTER_K_1_32</advFilterWeight>
+      <advFilterWeight>ALP_FILTER_K_1_16</advFilterWeight>
       <buzzerDuration>1</buzzerDuration>
       <guardEnabled>false</guardEnabled>
       <shieldEnabled>true</shieldEnabled>
@@ -28,7 +28,7 @@
           <name>Sensor1</name>
           <pin>1</pin>
           <sensitivity>S_100fF</sensitivity>
-          <fingerThreshold>128</fingerThreshold>
+          <fingerThreshold>100</fingerThreshold>
           <flankingSensorSuppression>false</flankingSensorSuppression>
           <minSNR>0</minSNR>
           <maxSNR>15</maxSNR>
@@ -46,7 +46,7 @@
           <name>Sensor2</name>
           <pin>2</pin>
           <sensitivity>S_100fF</sensitivity>
-          <fingerThreshold>128</fingerThreshold>
+          <fingerThreshold>100</fingerThreshold>
           <flankingSensorSuppression>false</flankingSensorSuppression>
           <minSNR>0</minSNR>
           <maxSNR>15</maxSNR>
@@ -63,8 +63,8 @@
           <enabled>true</enabled>
           <name>Button3</name>
           <pin>3</pin>
-          <sensitivity>S_100fF</sensitivity>
-          <fingerThreshold>128</fingerThreshold>
+          <sensitivity>S_300fF</sensitivity>
+          <fingerThreshold>150</fingerThreshold>
           <flankingSensorSuppression>false</flankingSensorSuppression>
           <minSNR>0</minSNR>
           <maxSNR>15</maxSNR>
@@ -81,8 +81,8 @@
           <enabled>true</enabled>
           <name>Button4</name>
           <pin>4</pin>
-          <sensitivity>S_100fF</sensitivity>
-          <fingerThreshold>128</fingerThreshold>
+          <sensitivity>S_300fF</sensitivity>
+          <fingerThreshold>150</fingerThreshold>
           <flankingSensorSuppression>false</flankingSensorSuppression>
           <minSNR>0</minSNR>
           <maxSNR>15</maxSNR>
@@ -135,8 +135,8 @@
           <enabled>true</enabled>
           <name>Button7</name>
           <pin>18</pin>
-          <sensitivity>S_100fF</sensitivity>
-          <fingerThreshold>128</fingerThreshold>
+          <sensitivity>S_300fF</sensitivity>
+          <fingerThreshold>150</fingerThreshold>
           <flankingSensorSuppression>false</flankingSensorSuppression>
           <minSNR>0</minSNR>
           <maxSNR>15</maxSNR>
@@ -153,8 +153,8 @@
           <enabled>true</enabled>
           <name>Button8</name>
           <pin>17</pin>
-          <sensitivity>S_100fF</sensitivity>
-          <fingerThreshold>128</fingerThreshold>
+          <sensitivity>S_300fF</sensitivity>
+          <fingerThreshold>150</fingerThreshold>
           <flankingSensorSuppression>false</flankingSensorSuppression>
           <minSNR>0</minSNR>
           <maxSNR>15</maxSNR>
@@ -308,7 +308,7 @@
       </CSButtons>
       <Sliders />
       <emcImmunity>false</emcImmunity>
-      <adaptiveThreshold>true</adaptiveThreshold>
+      <adaptiveThreshold>false</adaptiveThreshold>
       <autoReset>DISABLE</autoReset>
       <buzzer>false</buzzer>
       <buzzerFrequency>4</buzzerFrequency>

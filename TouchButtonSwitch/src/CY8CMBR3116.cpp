@@ -103,21 +103,21 @@ bool CY8CMBR3116::uploadConfiguration(uint8_t _setupConfig)
   {
     configurationData = {
       0xCFu, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u,
-      0x00u, 0x00u, 0x00u, 0x00u, 0x80u, 0x80u, 0x80u, 0x80u,
-      0x7Fu, 0x7Fu, 0x80u, 0x80u, 0x7Fu, 0x7Fu, 0x7Fu, 0x7Fu,
+      0xA0u, 0xA0u, 0x00u, 0x00u, 0x3Cu, 0x3Cu, 0x96u, 0x96u,
+      0x7Fu, 0x7Fu, 0x96u, 0x96u, 0x7Fu, 0x7Fu, 0x7Fu, 0x7Fu,
       0x7Fu, 0x7Fu, 0x7Fu, 0x7Fu, 0x03u, 0x00u, 0x00u, 0x00u,
       0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x03u, 0x83u,
-      0x05u, 0x00u, 0x00u, 0x02u, 0x00u, 0x02u, 0x00u, 0x00u,
+      0x04u, 0x00u, 0x00u, 0x02u, 0x00u, 0x02u, 0x00u, 0x00u,
       0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x1Eu, 0x1Eu, 0x00u,
       0x00u, 0x1Eu, 0x1Eu, 0x00u, 0x00u, 0x00u, 0x01u, 0x01u,
       0x00u, 0xFFu, 0xFFu, 0xFFu, 0xFFu, 0xFFu, 0xFFu, 0xFFu,
-      0xFFu, 0x00u, 0x00u, 0x00u, 0x24u, 0x03u, 0x01u, 0x09u,
+      0xFFu, 0x00u, 0x00u, 0x00u, 0x24u, 0x03u, 0x01u, 0x01u,
       0x00u, 0x37u, 0x05u, 0x00u, 0x00u, 0x0Au, 0x00u, 0x00u,
       0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u,
       0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u,
       0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u,
       0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u,
-      0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x97u, 0x90u
+      0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x71u, 0xFBu
     };
   }
 
@@ -218,6 +218,67 @@ void CY8CMBR3116::reset()
   Wire.beginTransmission(this->I2CAddress);
   Wire.write(CY8_CTRL_CMD);
   Wire.write(CY8_SW_RESET);
+  Wire.endTransmission();
+}
+
+  /*
+  _sensitivity:
+    0: 50 counts/0.1 pF
+    1: 50 counts/0.2 pF
+    2: 50 counts/0.3 pF
+    3: 50 counts/0.4 pF
+  */
+ //TODO: @@@ TEST! Doesnt seem to work!
+void CY8CMBR3116::setSensorSensitivity(uint8_t _sensitivity)
+{
+  uint8_t sensitivityValue;
+
+  // we do set the sensitivity for all the sensors with the same value
+  // This is enough for a touch switch where all sensors do have the same setup (more or less)
+  // the advantage is that we do not have to read the register value and update only the bits for a sensor
+  switch(_sensitivity)
+  {
+    case 0:   sensitivityValue = 0;   break;
+    case 1:   sensitivityValue = 85;  break;
+    case 2:   sensitivityValue = 170; break;
+    case 3:   sensitivityValue = 255; break;
+    default:  sensitivityValue = 255;
+  }
+
+  // we do update the sensitivity for all buttons, so set to address and write all 4 registers
+  Wire.beginTransmission(this->I2CAddress);
+  Wire.write(CY8_SENSITIVITY0);
+  Wire.write(sensitivityValue);
+  Wire.write(sensitivityValue);
+  Wire.write(sensitivityValue);
+  Wire.write(sensitivityValue);
+  Wire.endTransmission();
+}
+
+
+//TODO: @@@ TEST! Doesnt seem to work!
+void CY8CMBR3116::setSensorFingerThreshold(uint8_t _threshold)
+{
+  // we do set the finger threshold  for all the sensors with the same value
+  // This is enough for a touch switch where all sensors do have the same setup (more or less)
+  // the advantage is that we do not have to read the register value and update only the bits for a sensor
+
+  Wire.beginTransmission(this->I2CAddress);
+  Wire.write(CY8_FINGER_THRESHOLD2);
+  Wire.write(_threshold); // 2
+  Wire.write(_threshold);
+  Wire.write(_threshold);
+  Wire.write(_threshold); // 5
+  Wire.write(_threshold);
+  Wire.write(_threshold);
+  Wire.write(_threshold);
+  Wire.write(_threshold);
+  Wire.write(_threshold); // 10
+  Wire.write(_threshold);
+  Wire.write(_threshold);
+  Wire.write(_threshold);
+  Wire.write(_threshold);
+  Wire.write(_threshold); // 15
   Wire.endTransmission();
 }
 

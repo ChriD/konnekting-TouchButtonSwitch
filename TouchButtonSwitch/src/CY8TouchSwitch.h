@@ -51,6 +51,7 @@
         void setTouchEventCallback(std::function<void(uint8_t, uint8_t, uint8_t)>);
         void setProximityEventCallback(std::function<void(uint8_t, uint8_t)>);
         void setGestureEventCallback(std::function<void(uint8_t)>);
+        CY8CMBR3116* getTouchControllerObject();
       private:
         CY8CMBR3116 *touchController;
         LEDWorker   *ledWorkers[10];

@@ -110,6 +110,36 @@
                     <Value Type="uint8" Default="00" Options="00=No|01=Yes" Min="00" Max="01"/>
                 </Parameter>
             </ParameterGroup>
+            <ParameterGroup Name="Button 5" Id="7">
+                <Parameter Id="23" IdName="button5_mode">
+                    <Description>Mode</Description>
+                    <Value Type="uint8" Default="00" Options="00=Long Touch|01=Positioning" Min="00" Max="01"/>
+                </Parameter>
+                <Parameter Id="24" IdName="button5_enableMultiTouch">
+                    <Description>Enable Multitouch</Description>
+                    <Value Type="uint8" Default="00" Options="00=No|01=Yes" Min="00" Max="01"/>
+                </Parameter>
+            </ParameterGroup>
+            <ParameterGroup Name="Button 6" Id="8">
+                <Parameter Id="25" IdName="button6_mode">
+                    <Description>Mode</Description>
+                    <Value Type="uint8" Default="00" Options="00=Long Touch|01=Positioning" Min="00" Max="01"/>
+                </Parameter>
+                <Parameter Id="26" IdName="button6_enableMultiTouch">
+                    <Description>Enable Multitouch</Description>
+                    <Value Type="uint8" Default="00" Options="00=No|01=Yes" Min="00" Max="01"/>
+                </Parameter>
+            </ParameterGroup>
+            <ParameterGroup Name="Touch sensor IC" Id="9">
+                <Parameter Id="27" IdName="tsic_sensitivity">
+                    <Description>Button Sensitivity</Description>
+                    <Value Type="uint8" Default="00" Options="00=100|01=200|02=300|03=400" Min="00" Max="03"/>
+                </Parameter>
+                <Parameter Id="28" IdName="tsic_fingerThreshold">
+                    <Description>Button Finger Threshold</Description>
+                    <Value Type="uint8" Default="96" Options="" Min="3C" Max="FA"/>
+                </Parameter>
+            </ParameterGroup>
         </Parameters>
         <CommObjects>
             <CommObject Id="0" IdName="firmwareTransfer">
@@ -247,14 +277,6 @@
             <ParameterConfiguration Id="0" Value="00FA"/>
             <ParameterConfiguration Id="1" Value="04E2"/>
             <ParameterConfiguration Id="2" Value="02EE"/>
-            <ParameterConfiguration Id="15" Value="01"/>
-            <ParameterConfiguration Id="16" Value="00"/>
-            <ParameterConfiguration Id="17" Value="01"/>
-            <ParameterConfiguration Id="18" Value="00"/>
-            <ParameterConfiguration Id="19" Value="00"/>
-            <ParameterConfiguration Id="20" Value="01"/>
-            <ParameterConfiguration Id="21" Value="00"/>
-            <ParameterConfiguration Id="22" Value="01"/>
             <ParameterConfiguration Id="3" Value="0A"/>
             <ParameterConfiguration Id="4" Value="FF"/>
             <ParameterConfiguration Id="5" Value="0000000A"/>
@@ -267,6 +289,12 @@
             <ParameterConfiguration Id="12" Value="00000000"/>
             <ParameterConfiguration Id="13" Value="00"/>
             <ParameterConfiguration Id="14" Value="FF"/>
+            <ParameterConfiguration Id="27" Value="00"/>
+            <ParameterConfiguration Id="28" Value="96"/>
+            <ParameterConfiguration Id="25" Value="00"/>
+            <ParameterConfiguration Id="26" Value="00"/>
+            <ParameterConfiguration Id="23" Value="00"/>
+            <ParameterConfiguration Id="24" Value="00"/>
         </ParameterConfigurations>
     </Configuration>
 </KonnektingDevice>
