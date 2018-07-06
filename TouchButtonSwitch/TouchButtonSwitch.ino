@@ -20,6 +20,11 @@
 #include "TouchButtonSwitch.h"
 #include "src/CY8TouchSwitch.h"
 
+//#include "src/swo.h"
+
+// TODO: define in CY8 Switch class
+//#include "src/STM32SoftPWM.h"
+
 
 //#include <SoftPWM.h>
 //#include <SoftPWM_timer.h>
@@ -123,12 +128,13 @@ void setup()
     Debug.println(F("KONNEKTING TouchButtonSwitch"));
   #endif
 
-  
+  printf("hello from stm32\n");
+
   touchSwitch = new CY8TouchSwitch();
   touchSwitch->setup();
 
   // add buttons for the given type of switch (4x or 6x)
-  // TODO: use correct sensor ID!  
+  // TODO: use correct sensor ID!
   touchSwitch->addButton(SENSORID_1, SENSORLED_1_PIN, true, false);
   touchSwitch->addButton(SENSORID_2, SENSORLED_2_PIN, true, false);
   touchSwitch->addButton(SENSORID_3, SENSORLED_3_PIN, true, false);
@@ -136,7 +142,7 @@ void setup()
 
   touchSwitch->changeMode(TS_MODE_STARTUP1, true);
   delay(150);
-  
+
 
   // startup I2C
   Wire.setSCL(PA9);
@@ -152,7 +158,7 @@ void setup()
   #ifdef TESTBOARD
     touchSwitch->setupTouchController(99);
   #else
-    touchSetupOk = touchSwitch->setupTouchController();    
+    touchSetupOk = touchSwitch->setupTouchController();
   #endif
 
   touchSwitch->changeMode(TS_MODE_STARTUP3, true);
@@ -214,10 +220,10 @@ void progButtonPressed()
 void progLed (bool state){
   if(state)
   {
-    touchSwitch->changeMode(TS_MODE_PROG, false);    
+    touchSwitch->changeMode(TS_MODE_PROG, false);
   }
   else
-  {    
+  {
     touchSwitch->changeMode(TS_MODE_NORMAL, false);
   }
 }
@@ -240,8 +246,9 @@ void knxDeviceSetup()
     humidity min alarm
     humidity max alarm
     */
+   //assert(1==2);
 
-    
+
 
     // thresholds
     int16_t touch_threshold           = Konnekting.getUINT16Param(PARAM_touch_threshold);
@@ -258,7 +265,7 @@ void knxDeviceSetup()
 
     // touch ic settings
     uint8_t tsic_sensitivity = Konnekting.getUINT8Param(PARAM_tsic_sensitivity);
-    touchSwitch->getTouchControllerObject()->setSensorSensitivity(tsic_sensitivity);    
+    touchSwitch->getTouchControllerObject()->setSensorSensitivity(tsic_sensitivity);
     uint8_t tsic_fingerThreshold = Konnekting.getUINT8Param(PARAM_tsic_fingerThreshold);
     touchSwitch->getTouchControllerObject()->setSensorFingerThreshold(tsic_fingerThreshold);
     Debug.println(F("TouchIC ButtonSensitivity: %u, ButtonFingerThreshold=%u"), tsic_sensitivity, tsic_fingerThreshold);
@@ -287,7 +294,7 @@ void knxDeviceSetup()
     touchSwitch->setButtonParameters(SENSORID_4, enableMultiTouch, mode);
     Debug.println(F("Sensor %u: MultiTouch=%u, Mode=%u"), SENSORID_4, enableMultiTouch, mode);
 
-  
+
     /*
     if(SWITCHTYPE == 6)
     {
@@ -327,8 +334,8 @@ void knxDeviceSetup()
 // the touch controller will trigger an interrupt when the state of a sensor changes
 // we have to reroute the interrupt to the touchSwitch class for further processing
 void touchControllerInterrupt()
-{  
-  Debug.println(F("Touch controller fired interrupt"));  
+{
+  Debug.println(F("Touch controller fired interrupt"));
   touchSwitch->interrupt();
 }
 
@@ -351,12 +358,12 @@ void touchEvent(uint8_t _sensorId, uint8_t _event, uint8_t _count)
   // calculate the offset for the KNX-Comobject id given on the sensor id
   // sensor ids are from 1 to the count of the buttons
   uint8_t idOffset = 0;
-  //uint8_t idOffset = (_sensorId - 1) * 4;  
+  //uint8_t idOffset = (_sensorId - 1) * 4;
 
   // send the touch event to the knx bus
   // we can use the base index for the object and add the ID-1 for correct index????
 
-  
+
   if(_event == 1)
   {
     if(_count == 1)
@@ -376,9 +383,9 @@ void touchEvent(uint8_t _sensorId, uint8_t _event, uint8_t _count)
   }
   else if (_event == 21)
   {
-    Knx.write(COMOBJ_button1_position_touchend+ idOffset, DPT1_001_on);
+    Knx.write(COMOBJ_button1_position_touchend + idOffset, DPT1_001_on);
   }
-  
+
 
 }
 
@@ -454,7 +461,7 @@ void loop()
 
   // be sure to reset the touch controller after resetting the main controller and be sure
   // that there is time to "set up" the frontboard finish (reset for recalibration)
-  
+
   if (startupRecalibrationNeeded &&  millis() > STARTUP_IDLETIME)
   {
     startupRecalibrationNeeded = false;
@@ -462,14 +469,14 @@ void loop()
     touchSwitch->changeMode(TS_MODE_NORMAL, true);
     Debug.println(F("Switch is ready for action!"));
     Knx.write(COMOBJ_button1_multi, 254);
-  }  
-  
+  }
+
 
   if (Konnekting.isReadyForApplication())
   {
   }
   else
-  {  
+  {
   }
 
 

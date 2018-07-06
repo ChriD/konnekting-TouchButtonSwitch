@@ -268,10 +268,12 @@
             <CommObjectConfiguration Id="4" active="true"/>
             <CommObjectConfiguration Id="5" active="true"/>
             <CommObjectConfiguration Id="6" active="true"/>
-            <CommObjectConfiguration Id="7" active="true"/>
-            <CommObjectConfiguration Id="8" active="true"/>
-            <CommObjectConfiguration Id="9" active="true"/>
-            <CommObjectConfiguration Id="10" active="true"/>
+            <CommObjectConfiguration Id="7" GroupAddress="1/1/10" Description="1/1/100" active="true"/>
+            <CommObjectConfiguration Id="8" GroupAddress="1/1/20" Description="1/1/200" active="true"/>
+            <CommObjectConfiguration Id="9" GroupAddress="1/1/30" Description="1/1/300" active="true"/>
+            <CommObjectConfiguration Id="10" GroupAddress="1/1/40" Description="1/1/400" active="true"/>
+            <CommObjectConfiguration Id="11" GroupAddress="1/1/60" Description="1/2/60" active="true"/>
+            <CommObjectConfiguration Id="12" GroupAddress="1/1/61" active="true"/>
         </CommObjectConfigurations>
         <ParameterConfigurations>
             <ParameterConfiguration Id="0" Value="00FA"/>
@@ -290,11 +292,19 @@
             <ParameterConfiguration Id="13" Value="00"/>
             <ParameterConfiguration Id="14" Value="FF"/>
             <ParameterConfiguration Id="27" Value="00"/>
-            <ParameterConfiguration Id="28" Value="96"/>
+            <ParameterConfiguration Id="28" Value="3C"/>
             <ParameterConfiguration Id="25" Value="00"/>
             <ParameterConfiguration Id="26" Value="00"/>
             <ParameterConfiguration Id="23" Value="00"/>
             <ParameterConfiguration Id="24" Value="00"/>
+            <ParameterConfiguration Id="17" Value="00"/>
+            <ParameterConfiguration Id="18" Value="01"/>
+            <ParameterConfiguration Id="19" Value="01"/>
+            <ParameterConfiguration Id="20" Value="00"/>
+            <ParameterConfiguration Id="21" Value="00"/>
+            <ParameterConfiguration Id="22" Value="00"/>
+            <ParameterConfiguration Id="15" Value="00"/>
+            <ParameterConfiguration Id="16" Value="01"/>
         </ParameterConfigurations>
     </Configuration>
 </KonnektingDevice>

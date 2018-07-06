@@ -152,11 +152,12 @@ void LEDWorker::task()
   if(this->processMode())
   {
     // for analog write the pin has to be a PWM pin
-    if(!this->useSoftPWM)
+    //if(!this->useSoftPWM)
       analogWrite(this->ledPin, this->ledValue);
   }
   else
   {
+    /*
     if(this->useSoftPWM)
     {
       uint16_t period = this->getProcessPeriod(this->taskLastCallTime, true);
@@ -174,6 +175,7 @@ void LEDWorker::task()
         digitalWrite(this->ledPin, this->softPWMValue);
       }
     }
+    */
   }
   this->taskLastCallTime = micros();
 }

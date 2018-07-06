@@ -19,9 +19,9 @@
             "request": "launch",
             "type": "cortex-debug",
             "servertype": "openocd",
-            //"configFiles": [
-            //    "board/stm32f4discovery.cfg"
-            //],
+            "configFiles": [
+                "board/stm32f4discovery.cfg"
+            ],
             //"svdFile": "/Users/grzes/Documents/STM32 datasheet/SVD/STM32F4_svd_V1.2/STM32F407.svd",
             "device": "STM32L053R0"
         },

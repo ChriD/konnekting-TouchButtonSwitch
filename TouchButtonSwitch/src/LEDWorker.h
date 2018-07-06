@@ -4,9 +4,6 @@
   Released into the public domain.
 */
 
-/* TODO:  * add temperature and humidity sensor
-          * */
-
 #ifndef LEDWorker_h
 #define LEDWorker_h
 
