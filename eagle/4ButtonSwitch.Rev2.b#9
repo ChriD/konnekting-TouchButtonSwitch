@@ -180,8 +180,8 @@
 <wire x1="-3.81" y1="52.705" x2="74.93" y2="52.705" width="0.1524" layer="51"/>
 <wire x1="-2.54" y1="17.145" x2="73.025" y2="17.145" width="0.1524" layer="51"/>
 <wire x1="73.025" y1="17.145" x2="73.66" y2="17.78" width="0.1524" layer="51"/>
-<hole x="8.89" y="34.925" drill="3"/>
-<hole x="22.225" y="34.925" drill="3"/>
+<hole x="8.89" y="34.925" drill="4.999990625"/>
+<hole x="4.445" y="34.925" drill="4.999990625"/>
 <text x="48.768" y="37.465" size="1.016" layer="25" rot="R90">SWCLK</text>
 <text x="46.228" y="37.719" size="1.016" layer="25" rot="R90">SWDIO</text>
 <text x="46.228" y="28.575" size="1.016" layer="25" rot="R90">NRST</text>
@@ -192,8 +192,6 @@
 <text x="40.513" y="9.652" size="1.016" layer="25" rot="R90">GND</text>
 <text x="32.893" y="9.906" size="1.016" layer="25" rot="R90">TXD</text>
 <text x="37.973" y="9.779" size="1.016" layer="25" rot="R90">RXD</text>
-<text x="26.289" y="47.371" size="0.762" layer="25" rot="R270">USB_DM</text>
-<text x="28.829" y="47.117" size="0.762" layer="25" rot="R270">USB_DP</text>
 <text x="30.734" y="40.005" size="0.762" layer="25">GND</text>
 <text x="31.623" y="66.421" size="1.016" layer="25">TXD</text>
 <text x="35.306" y="66.421" size="1.016" layer="25">RXD</text>
@@ -3236,6 +3234,96 @@ Source: http://www.abracon.com/Oscillators/asf1-L-L1.pdf</description>
 </package3d>
 </packages3d>
 </library>
+<library name="STM32F303RET6">
+<description>&lt;MCU+FPU 32-Bit Cortex-M4 512KB LQFP64&lt;/b&gt;&lt;p&gt;
+&lt;author&gt;Created by SamacSys&lt;/author&gt;</description>
+<packages>
+<package name="QFP50P1200X1200X160-64N">
+<description>&lt;b&gt;LQFP, 10 X 10 X 1.4 PKG, 0.5 PITCH, 64LD&lt;/b&gt;&lt;br&gt;
+</description>
+<smd name="1" x="-5.738" y="3.75" dx="1.475" dy="0.3" layer="1"/>
+<smd name="2" x="-5.738" y="3.25" dx="1.475" dy="0.3" layer="1"/>
+<smd name="3" x="-5.738" y="2.75" dx="1.475" dy="0.3" layer="1"/>
+<smd name="4" x="-5.738" y="2.25" dx="1.475" dy="0.3" layer="1"/>
+<smd name="5" x="-5.738" y="1.75" dx="1.475" dy="0.3" layer="1"/>
+<smd name="6" x="-5.738" y="1.25" dx="1.475" dy="0.3" layer="1"/>
+<smd name="7" x="-5.738" y="0.75" dx="1.475" dy="0.3" layer="1"/>
+<smd name="8" x="-5.738" y="0.25" dx="1.475" dy="0.3" layer="1"/>
+<smd name="9" x="-5.738" y="-0.25" dx="1.475" dy="0.3" layer="1"/>
+<smd name="10" x="-5.738" y="-0.75" dx="1.475" dy="0.3" layer="1"/>
+<smd name="11" x="-5.738" y="-1.25" dx="1.475" dy="0.3" layer="1"/>
+<smd name="12" x="-5.738" y="-1.75" dx="1.475" dy="0.3" layer="1"/>
+<smd name="13" x="-5.738" y="-2.25" dx="1.475" dy="0.3" layer="1"/>
+<smd name="14" x="-5.738" y="-2.75" dx="1.475" dy="0.3" layer="1"/>
+<smd name="15" x="-5.738" y="-3.25" dx="1.475" dy="0.3" layer="1"/>
+<smd name="16" x="-5.738" y="-3.75" dx="1.475" dy="0.3" layer="1"/>
+<smd name="17" x="-3.75" y="-5.738" dx="1.475" dy="0.3" layer="1" rot="R90"/>
+<smd name="18" x="-3.25" y="-5.738" dx="1.475" dy="0.3" layer="1" rot="R90"/>
+<smd name="19" x="-2.75" y="-5.738" dx="1.475" dy="0.3" layer="1" rot="R90"/>
+<smd name="20" x="-2.25" y="-5.738" dx="1.475" dy="0.3" layer="1" rot="R90"/>
+<smd name="21" x="-1.75" y="-5.738" dx="1.475" dy="0.3" layer="1" rot="R90"/>
+<smd name="22" x="-1.25" y="-5.738" dx="1.475" dy="0.3" layer="1" rot="R90"/>
+<smd name="23" x="-0.75" y="-5.738" dx="1.475" dy="0.3" layer="1" rot="R90"/>
+<smd name="24" x="-0.25" y="-5.738" dx="1.475" dy="0.3" layer="1" rot="R90"/>
+<smd name="25" x="0.25" y="-5.738" dx="1.475" dy="0.3" layer="1" rot="R90"/>
+<smd name="26" x="0.75" y="-5.738" dx="1.475" dy="0.3" layer="1" rot="R90"/>
+<smd name="27" x="1.25" y="-5.738" dx="1.475" dy="0.3" layer="1" rot="R90"/>
+<smd name="28" x="1.75" y="-5.738" dx="1.475" dy="0.3" layer="1" rot="R90"/>
+<smd name="29" x="2.25" y="-5.738" dx="1.475" dy="0.3" layer="1" rot="R90"/>
+<smd name="30" x="2.75" y="-5.738" dx="1.475" dy="0.3" layer="1" rot="R90"/>
+<smd name="31" x="3.25" y="-5.738" dx="1.475" dy="0.3" layer="1" rot="R90"/>
+<smd name="32" x="3.75" y="-5.738" dx="1.475" dy="0.3" layer="1" rot="R90"/>
+<smd name="33" x="5.738" y="-3.75" dx="1.475" dy="0.3" layer="1"/>
+<smd name="34" x="5.738" y="-3.25" dx="1.475" dy="0.3" layer="1"/>
+<smd name="35" x="5.738" y="-2.75" dx="1.475" dy="0.3" layer="1"/>
+<smd name="36" x="5.738" y="-2.25" dx="1.475" dy="0.3" layer="1"/>
+<smd name="37" x="5.738" y="-1.75" dx="1.475" dy="0.3" layer="1"/>
+<smd name="38" x="5.738" y="-1.25" dx="1.475" dy="0.3" layer="1"/>
+<smd name="39" x="5.738" y="-0.75" dx="1.475" dy="0.3" layer="1"/>
+<smd name="40" x="5.738" y="-0.25" dx="1.475" dy="0.3" layer="1"/>
+<smd name="41" x="5.738" y="0.25" dx="1.475" dy="0.3" layer="1"/>
+<smd name="42" x="5.738" y="0.75" dx="1.475" dy="0.3" layer="1"/>
+<smd name="43" x="5.738" y="1.25" dx="1.475" dy="0.3" layer="1"/>
+<smd name="44" x="5.738" y="1.75" dx="1.475" dy="0.3" layer="1"/>
+<smd name="45" x="5.738" y="2.25" dx="1.475" dy="0.3" layer="1"/>
+<smd name="46" x="5.738" y="2.75" dx="1.475" dy="0.3" layer="1"/>
+<smd name="47" x="5.738" y="3.25" dx="1.475" dy="0.3" layer="1"/>
+<smd name="48" x="5.738" y="3.75" dx="1.475" dy="0.3" layer="1"/>
+<smd name="49" x="3.75" y="5.738" dx="1.475" dy="0.3" layer="1" rot="R90"/>
+<smd name="50" x="3.25" y="5.738" dx="1.475" dy="0.3" layer="1" rot="R90"/>
+<smd name="51" x="2.75" y="5.738" dx="1.475" dy="0.3" layer="1" rot="R90"/>
+<smd name="52" x="2.25" y="5.738" dx="1.475" dy="0.3" layer="1" rot="R90"/>
+<smd name="53" x="1.75" y="5.738" dx="1.475" dy="0.3" layer="1" rot="R90"/>
+<smd name="54" x="1.25" y="5.738" dx="1.475" dy="0.3" layer="1" rot="R90"/>
+<smd name="55" x="0.75" y="5.738" dx="1.475" dy="0.3" layer="1" rot="R90"/>
+<smd name="56" x="0.25" y="5.738" dx="1.475" dy="0.3" layer="1" rot="R90"/>
+<smd name="57" x="-0.25" y="5.738" dx="1.475" dy="0.3" layer="1" rot="R90"/>
+<smd name="58" x="-0.75" y="5.738" dx="1.475" dy="0.3" layer="1" rot="R90"/>
+<smd name="59" x="-1.25" y="5.738" dx="1.475" dy="0.3" layer="1" rot="R90"/>
+<smd name="60" x="-1.75" y="5.738" dx="1.475" dy="0.3" layer="1" rot="R90"/>
+<smd name="61" x="-2.25" y="5.738" dx="1.475" dy="0.3" layer="1" rot="R90"/>
+<smd name="62" x="-2.75" y="5.738" dx="1.475" dy="0.3" layer="1" rot="R90"/>
+<smd name="63" x="-3.25" y="5.738" dx="1.475" dy="0.3" layer="1" rot="R90"/>
+<smd name="64" x="-3.75" y="5.738" dx="1.475" dy="0.3" layer="1" rot="R90"/>
+<text x="0" y="0" size="1.27" layer="25" align="center">&gt;NAME</text>
+<text x="0" y="0" size="1.27" layer="27" align="center">&gt;VALUE</text>
+<wire x1="-6.725" y1="6.725" x2="6.725" y2="6.725" width="0.05" layer="51"/>
+<wire x1="6.725" y1="6.725" x2="6.725" y2="-6.725" width="0.05" layer="51"/>
+<wire x1="6.725" y1="-6.725" x2="-6.725" y2="-6.725" width="0.05" layer="51"/>
+<wire x1="-6.725" y1="-6.725" x2="-6.725" y2="6.725" width="0.05" layer="51"/>
+<wire x1="-5" y1="5" x2="5" y2="5" width="0.1" layer="51"/>
+<wire x1="5" y1="5" x2="5" y2="-5" width="0.1" layer="51"/>
+<wire x1="5" y1="-5" x2="-5" y2="-5" width="0.1" layer="51"/>
+<wire x1="-5" y1="-5" x2="-5" y2="5" width="0.1" layer="51"/>
+<wire x1="-5" y1="4.5" x2="-4.5" y2="5" width="0.1" layer="51"/>
+<wire x1="-4.65" y1="4.65" x2="4.65" y2="4.65" width="0.2" layer="21"/>
+<wire x1="4.65" y1="4.65" x2="4.65" y2="-4.65" width="0.2" layer="21"/>
+<wire x1="4.65" y1="-4.65" x2="-4.65" y2="-4.65" width="0.2" layer="21"/>
+<wire x1="-4.65" y1="-4.65" x2="-4.65" y2="4.65" width="0.2" layer="21"/>
+<circle x="-6.225" y="4.5" radius="0.125" width="0.25" layer="25"/>
+</package>
+</packages>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -3467,16 +3555,11 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <attribute name="SPICEPREFIX" value="C" x="33.655" y="59.69" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="VALUE" x="31.75" y="60.325" size="1.27" layer="27" rot="R270"/>
 </element>
-<element name="C7" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C0402" package3d_urn="urn:adsk.eagle:package:23626/1" value="0.1uF" x="31.75" y="59.69" smashed="yes" rot="R90">
-<attribute name="NAME" x="32.385" y="61.595" size="1.016" layer="25" rot="R90"/>
-<attribute name="SPICEPREFIX" value="C" x="31.75" y="59.69" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="VALUE" x="33.655" y="59.055" size="1.27" layer="27" rot="R90"/>
+<element name="NRST1" library="wirepad" library_urn="urn:adsk.eagle:library:412" package="SMD2,54-5,08" package3d_urn="urn:adsk.eagle:package:30841/1" value="0" x="4.445" y="39.37" smashed="yes">
+<attribute name="NAME" x="2.945" y="36.87" size="1.016" layer="25" rot="R90"/>
+<attribute name="VALUE" x="4.445" y="39.37" size="0.0254" layer="27"/>
 </element>
-<element name="RST1" library="wirepad" library_urn="urn:adsk.eagle:library:412" package="SMD2,54-5,08" package3d_urn="urn:adsk.eagle:package:30841/1" value="0" x="22.225" y="39.37" smashed="yes">
-<attribute name="NAME" x="20.725" y="36.87" size="1.016" layer="25" rot="R90"/>
-<attribute name="VALUE" x="22.225" y="39.37" size="0.0254" layer="27"/>
-</element>
-<element name="PRG2" library="wirepad" library_urn="urn:adsk.eagle:library:412" package="SMD2,54-5,08" package3d_urn="urn:adsk.eagle:package:30841/1" value="0" x="8.89" y="30.48" smashed="yes">
+<element name="GND_NRST" library="wirepad" library_urn="urn:adsk.eagle:library:412" package="SMD2,54-5,08" package3d_urn="urn:adsk.eagle:package:30841/1" value="0" x="8.89" y="30.48" smashed="yes">
 <attribute name="NAME" x="7.39" y="27.98" size="1.016" layer="25" rot="R90"/>
 <attribute name="VALUE" x="8.89" y="30.48" size="0.0254" layer="27"/>
 </element>
@@ -3540,13 +3623,13 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <attribute name="NAME" x="7.39" y="36.87" size="1.016" layer="25" rot="R90"/>
 <attribute name="VALUE" x="8.89" y="39.37" size="0.0254" layer="27"/>
 </element>
-<element name="RST4" library="wirepad" library_urn="urn:adsk.eagle:library:412" package="SMD2,54-5,08" package3d_urn="urn:adsk.eagle:package:30841/1" value="0" x="22.225" y="30.48" smashed="yes">
-<attribute name="NAME" x="20.725" y="27.98" size="1.016" layer="25" rot="R90"/>
-<attribute name="VALUE" x="22.225" y="30.48" size="0.0254" layer="27"/>
+<element name="GND_PRG" library="wirepad" library_urn="urn:adsk.eagle:library:412" package="SMD2,54-5,08" package3d_urn="urn:adsk.eagle:package:30841/1" value="0" x="4.445" y="30.48" smashed="yes">
+<attribute name="NAME" x="2.945" y="27.98" size="1.016" layer="25" rot="R90"/>
+<attribute name="VALUE" x="4.445" y="30.48" size="0.0254" layer="27"/>
 </element>
-<element name="RT1" library="resistor" library_urn="urn:adsk.eagle:library:348" package="R0402" package3d_urn="urn:adsk.eagle:package:26058/1" value="100K" x="29.845" y="49.53" smashed="yes" rot="R90">
-<attribute name="NAME" x="28.956" y="48.26" size="1.016" layer="25" rot="R90"/>
-<attribute name="VALUE" x="31.75" y="48.895" size="1.27" layer="27" rot="R90"/>
+<element name="RT1" library="resistor" library_urn="urn:adsk.eagle:library:348" package="R0402" package3d_urn="urn:adsk.eagle:package:26058/1" value="100K" x="-12.065" y="31.75" smashed="yes" rot="R90">
+<attribute name="NAME" x="-12.954" y="30.48" size="1.016" layer="25" rot="R90"/>
+<attribute name="VALUE" x="-10.16" y="31.115" size="1.27" layer="27" rot="R90"/>
 </element>
 <element name="TEMP" library="HTS221TR" package="HLGA-6L" value="HTS221TR" x="47.879" y="28.448" smashed="yes" rot="R180">
 <attribute name="ARROW_PART_NUMBER" value="HTS221TR" x="47.879" y="28.448" size="1.778" layer="27" rot="R180" display="off"/>
@@ -3570,7 +3653,7 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <attribute name="NAME" x="40.259" y="47.5996" size="1.016" layer="25" ratio="6" rot="SR90"/>
 <attribute name="VENDOR" value="ST Microelectronics" x="34.925" y="50.165" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
-<element name="SENSBRAIN" library="CY8CMBR3116-LQXI" package="QFN50P400X400X60-25N" value="CY8CMBR3116-LQXI" x="34.925" y="35.052" smashed="yes">
+<element name="SENSORMCU" library="CY8CMBR3116-LQXI" package="QFN50P400X400X60-25N" value="CY8CMBR3116-LQXI" x="34.925" y="35.052" smashed="yes">
 <attribute name="ARROW_PART_NUMBER" value="CY8CMBR3116-LQXI" x="34.925" y="35.052" size="1.778" layer="27" display="off"/>
 <attribute name="ARROW_PRICE/STOCK" value="https://www.arrow.com/en/products/cy8cmbr3116-lqxi/cypress-semiconductor" x="34.925" y="35.052" size="1.778" layer="27" display="off"/>
 <attribute name="DESCRIPTION" value="Touch Screen Controllers CapSense Express 16 Buttons" x="34.925" y="35.052" size="1.778" layer="27" display="off"/>
@@ -3582,20 +3665,20 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <attribute name="RS_PRICE/STOCK" value="http://uk.rs-online.com/web/p/products/1242976P" x="34.925" y="35.052" size="1.778" layer="27" display="off"/>
 <attribute name="VALUE" x="34.925" y="35.052" size="1.27" layer="27" align="center"/>
 </element>
-<element name="C9" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C0402" package3d_urn="urn:adsk.eagle:package:23626/1" value="100nf" x="36.195" y="29.845" smashed="yes" rot="R270">
-<attribute name="NAME" x="36.957" y="30.607" size="1.016" layer="25" rot="R270"/>
-<attribute name="SPICEPREFIX" value="C" x="36.195" y="29.845" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="VALUE" x="34.29" y="30.48" size="1.27" layer="27" rot="R270"/>
+<element name="C9" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C0402" package3d_urn="urn:adsk.eagle:package:23626/1" value="100nf" x="-4.445" y="47.625" smashed="yes" rot="R270">
+<attribute name="NAME" x="-3.683" y="48.387" size="1.016" layer="25" rot="R270"/>
+<attribute name="SPICEPREFIX" value="C" x="-4.445" y="47.625" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="VALUE" x="-6.35" y="48.26" size="1.27" layer="27" rot="R270"/>
 </element>
-<element name="C10" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C0402" package3d_urn="urn:adsk.eagle:package:23626/1" value="100nf" x="38.1" y="59.69" smashed="yes" rot="R90">
-<attribute name="NAME" x="38.735" y="61.595" size="1.016" layer="25" rot="R90"/>
-<attribute name="SPICEPREFIX" value="C" x="38.1" y="59.69" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="VALUE" x="40.005" y="59.055" size="1.27" layer="27" rot="R90"/>
+<element name="C10" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C0402" package3d_urn="urn:adsk.eagle:package:23626/1" value="100nf" x="-5.08" y="31.75" smashed="yes" rot="R90">
+<attribute name="NAME" x="-4.445" y="33.655" size="1.016" layer="25" rot="R90"/>
+<attribute name="SPICEPREFIX" value="C" x="-5.08" y="31.75" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="VALUE" x="-3.175" y="31.115" size="1.27" layer="27" rot="R90"/>
 </element>
-<element name="C5" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C0402" package3d_urn="urn:adsk.eagle:package:23626/1" value="100nf" x="33.02" y="44.45" smashed="yes" rot="R90">
-<attribute name="NAME" x="32.258" y="43.561" size="1.016" layer="25" rot="R90"/>
-<attribute name="SPICEPREFIX" value="C" x="33.02" y="44.45" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="VALUE" x="34.925" y="43.815" size="1.27" layer="27" rot="R90"/>
+<element name="C5" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C0402" package3d_urn="urn:adsk.eagle:package:23626/1" value="100nf" x="35.56" y="29.845" smashed="yes" rot="R90">
+<attribute name="NAME" x="34.798" y="28.956" size="1.016" layer="25" rot="R90"/>
+<attribute name="SPICEPREFIX" value="C" x="35.56" y="29.845" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="VALUE" x="37.465" y="29.21" size="1.27" layer="27" rot="R90"/>
 </element>
 <element name="C3" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C0402" package3d_urn="urn:adsk.eagle:package:23626/1" value="2.2nF" x="32.385" y="29.845" smashed="yes" rot="R270">
 <attribute name="NAME" x="30.607" y="30.607" size="1.016" layer="25" rot="R270"/>
@@ -3628,10 +3711,23 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <attribute name="OC_NEWARK" value="unknown" x="31.115" y="55.88" size="1.778" layer="27" display="off"/>
 <attribute name="VALUE" x="28.575" y="52.07" size="1.27" layer="27"/>
 </element>
-<element name="C11" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C0402" package3d_urn="urn:adsk.eagle:package:23626/1" value="0.01uF" x="29.845" y="52.705" smashed="yes">
-<attribute name="NAME" x="28.067" y="51.308" size="1.016" layer="25" rot="R90"/>
-<attribute name="SPICEPREFIX" value="C" x="29.845" y="52.705" size="1.778" layer="27" display="off"/>
-<attribute name="VALUE" x="29.21" y="50.8" size="1.27" layer="27"/>
+<element name="C11" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C0402" package3d_urn="urn:adsk.eagle:package:23626/1" value="0.01uF" x="12.065" y="48.895" smashed="yes">
+<attribute name="NAME" x="10.287" y="47.498" size="1.016" layer="25" rot="R90"/>
+<attribute name="SPICEPREFIX" value="C" x="12.065" y="48.895" size="1.778" layer="27" display="off"/>
+<attribute name="VALUE" x="11.43" y="46.99" size="1.27" layer="27"/>
+</element>
+<element name="MCU" library="STM32F303RET6" package="QFP50P1200X1200X160-64N" value="STM32F303RET6" x="-10.16" y="40.64">
+<attribute name="ARROW_PART_NUMBER" value="STM32F303RET6" x="-10.16" y="40.64" size="1.778" layer="27" display="off"/>
+<attribute name="ARROW_PRICE/STOCK" value="https://www.arrow.com/en/products/stm32f303ret6/stmicroelectronics" x="-10.16" y="40.64" size="1.778" layer="27" display="off"/>
+<attribute name="DESCRIPTION" value="MCU+FPU 32-Bit Cortex-M4 512KB LQFP64" x="-10.16" y="40.64" size="1.778" layer="27" display="off"/>
+<attribute name="HEIGHT" value="1.6mm" x="-10.16" y="40.64" size="1.778" layer="27" display="off"/>
+<attribute name="MANUFACTURER_NAME" value="STMicroelectronics" x="-10.16" y="40.64" size="1.778" layer="27" display="off"/>
+<attribute name="MANUFACTURER_PART_NUMBER" value="STM32F303RET6" x="-10.16" y="40.64" size="1.778" layer="27" display="off"/>
+<attribute name="RS_PART_NUMBER" value="1458887" x="-10.16" y="40.64" size="1.778" layer="27" display="off"/>
+<attribute name="RS_PRICE/STOCK" value="http://uk.rs-online.com/web/p/products/1458887" x="-10.16" y="40.64" size="1.778" layer="27" display="off"/>
+</element>
+<element name="C7" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C0402" package3d_urn="urn:adsk.eagle:package:23626/1" value="0.1uF" x="38.1" y="59.69" rot="R90">
+<attribute name="SPICEPREFIX" value="C" x="20.32" y="59.69" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
 </elements>
 <signals>
@@ -3640,16 +3736,12 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <contactref element="3V3_REGULATOR" pad="2"/>
 <contactref element="C1" pad="2"/>
 <contactref element="3V3_REGULATOR" pad="4"/>
-<wire x1="34.925" y1="24.005" x2="39.26" y2="24.005" width="0" layer="19" extent="1-16"/>
 <wire x1="39.26" y1="24.005" x2="39.37" y2="24.115" width="0.3048" layer="1"/>
 <wire x1="29.845" y1="14.605" x2="29.845" y2="15.875" width="0.3048" layer="1"/>
-<wire x1="29.845" y1="15.875" x2="31.115" y2="17.145" width="0" layer="19" extent="1-16"/>
-<wire x1="31.115" y1="17.145" x2="31.115" y2="21.336" width="0" layer="19" extent="1-16"/>
-<wire x1="32.004" y1="22.225" x2="33.147" y2="22.225" width="0" layer="19" extent="1-16"/>
-<wire x1="33.147" y1="22.225" x2="34.925" y2="24.003" width="0" layer="19" extent="1-16"/>
 <wire x1="34.925" y1="24.003" x2="34.925" y2="24.005" width="0.3048" layer="1"/>
-<wire x1="31.115" y1="21.336" x2="32.004" y2="22.225" width="0" layer="19" extent="1-16"/>
 <wire x1="34.925" y1="24.005" x2="34.925" y2="26.1275" width="0.1524" layer="1"/>
+<wire x1="34.925" y1="24.005" x2="39.26" y2="24.005" width="0" layer="19" extent="1-1"/>
+<wire x1="29.845" y1="15.875" x2="34.925" y2="24.005" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="GND">
 <contactref element="SIEMENS-BCU" pad="9"/>
@@ -3658,33 +3750,26 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <contactref element="3V3_REGULATOR" pad="1"/>
 <contactref element="CLO1" pad="1"/>
 <contactref element="CLO2" pad="1"/>
-<contactref element="C7" pad="2"/>
-<contactref element="PRG2" pad="1"/>
 <contactref element="LED1" pad="1"/>
 <contactref element="LED2" pad="1"/>
 <contactref element="LED3" pad="1"/>
 <contactref element="LED4" pad="1"/>
-<contactref element="RST4" pad="1"/>
+<contactref element="GND_PRG" pad="1"/>
 <contactref element="TEMP" pad="5"/>
 <contactref element="C8" pad="1"/>
-<contactref element="BRAIN" pad="16"/>
-<contactref element="BRAIN" pad="32"/>
-<contactref element="C9" pad="1"/>
-<contactref element="C10" pad="2"/>
 <contactref element="C5" pad="1"/>
 <contactref element="C4" pad="2"/>
 <contactref element="C3" pad="2"/>
-<contactref element="SENSBRAIN" pad="8"/>
-<contactref element="SENSBRAIN" pad="20"/>
-<contactref element="SENSBRAIN" pad="19"/>
-<contactref element="SENSBRAIN" pad="13"/>
-<contactref element="SENSBRAIN" pad="16"/>
-<contactref element="SENSBRAIN" pad="15"/>
-<contactref element="SENSBRAIN" pad="14"/>
-<contactref element="SENSBRAIN" pad="12"/>
-<contactref element="SENSBRAIN" pad="11"/>
-<contactref element="SENSBRAIN" pad="10"/>
-<contactref element="BRAIN" pad="31"/>
+<contactref element="SENSORMCU" pad="8"/>
+<contactref element="SENSORMCU" pad="20"/>
+<contactref element="SENSORMCU" pad="19"/>
+<contactref element="SENSORMCU" pad="13"/>
+<contactref element="SENSORMCU" pad="16"/>
+<contactref element="SENSORMCU" pad="15"/>
+<contactref element="SENSORMCU" pad="14"/>
+<contactref element="SENSORMCU" pad="12"/>
+<contactref element="SENSORMCU" pad="11"/>
+<contactref element="SENSORMCU" pad="10"/>
 <contactref element="C6" pad="2"/>
 <polygon width="0.1778" layer="2" spacing="1.778" pour="hatch" isolate="0.254" thermals="no" rank="6">
 <vertex x="1.27" y="63.5"/>
@@ -3706,80 +3791,61 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <via x="37.338" y="28.448" extent="1-16" drill="0.35"/>
 <wire x1="40.005" y1="14.605" x2="40.005" y2="13.335" width="0.3048" layer="1"/>
 <via x="40.005" y="10.668" extent="1-16" drill="0.35"/>
-<wire x1="36.195" y1="60.34" x2="38.1" y2="60.34" width="0.3048" layer="1"/>
-<wire x1="52.07" y1="54.405" x2="43.4" y2="54.405" width="0.3048" layer="1"/>
-<wire x1="31.75" y1="60.34" x2="33.655" y2="60.34" width="0.3048" layer="1"/>
-<wire x1="37.275" y1="51.415315625" x2="37.275" y2="51.915440625" width="0.3048" layer="1"/>
-<wire x1="37.275" y1="51.915440625" x2="38.000559375" y2="51.915440625" width="0.3048" layer="1"/>
-<wire x1="32.575" y1="48.414559375" x2="32.412559375" y2="48.414559375" width="0.3048" layer="1"/>
-<wire x1="32.412559375" y1="48.414559375" x2="32.004" y2="48.006" width="0.3048" layer="1"/>
-<via x="32.004" y="48.006" extent="1-16" drill="0.35"/>
-<wire x1="33.02" y1="43.8" x2="33.02" y2="42.672" width="0.3048" layer="1"/>
 <via x="33.02" y="42.672" extent="1-16" drill="0.35"/>
 <wire x1="33.02" y1="42.672" x2="33.02" y2="43.18" width="0.3048" layer="2"/>
-<wire x1="52.07" y1="15.445" x2="47.293" y2="10.668" width="0.3048" layer="1"/>
-<wire x1="47.293" y1="10.668" x2="40.005" y2="10.668" width="0.3048" layer="1"/>
-<wire x1="17.78" y1="15.445" x2="22.557" y2="10.668" width="0.3048" layer="1"/>
-<wire x1="22.557" y1="10.668" x2="40.005" y2="10.668" width="0.3048" layer="1"/>
 <via x="48.26" y="33.655" extent="1-16" drill="1"/>
-<wire x1="36.175" y1="37.052" x2="37.052" y2="37.052" width="0.3048" layer="1"/>
-<wire x1="37.052" y1="37.052" x2="37.338" y2="37.338" width="0.3048" layer="1"/>
-<via x="37.338" y="37.338" extent="1-16" drill="0.35"/>
-<wire x1="38.000559375" y1="51.915440625" x2="39.116" y2="53.03088125" width="0.3048" layer="1"/>
-<wire x1="39.116" y1="53.03088125" x2="39.116" y2="53.34" width="0.3048" layer="1"/>
-<via x="39.116" y="53.34" extent="1-16" drill="0.35"/>
 <wire x1="40.005" y1="14.605" x2="40.005" y2="10.668" width="0.3048" layer="1"/>
 <wire x1="47.229" y1="27.848" x2="47.129" y2="27.948" width="0.1524" layer="1"/>
 <wire x1="47.129" y1="27.948" x2="46.728" y2="27.948" width="0.3048" layer="1"/>
-<wire x1="46.728" y1="27.948" x2="46.228" y2="28.448" width="0.3048" layer="1"/>
 <via x="46.228" y="28.448" extent="1-16" drill="0.35"/>
 <wire x1="47.129" y1="27.948" x2="47.129" y2="26.135" width="0.3048" layer="1"/>
 <wire x1="47.129" y1="26.135" x2="47.229" y2="26.035" width="0.3048" layer="1"/>
 <contactref element="OSC8M" pad="2"/>
 <contactref element="C11" pad="2"/>
-<wire x1="33.655" y1="60.34" x2="36.195" y2="60.34" width="0.3048" layer="1"/>
-<wire x1="43.4" y1="54.405" x2="41.9175" y2="55.8875" width="0.3048" layer="1"/>
-<wire x1="41.9175" y1="55.8875" x2="40.64" y2="57.165" width="0.3048" layer="1"/>
-<wire x1="40.64" y1="57.165" x2="40.64" y2="58.42" width="0.3048" layer="1"/>
-<wire x1="40.64" y1="58.42" x2="38.72" y2="60.34" width="0.3048" layer="1"/>
-<wire x1="38.72" y1="60.34" x2="38.1" y2="60.34" width="0.3048" layer="1"/>
-<wire x1="39.116" y1="53.34" x2="41.6635" y2="55.8875" width="0.3048" layer="1"/>
-<wire x1="41.6635" y1="55.8875" x2="41.9175" y2="55.8875" width="0.3048" layer="1"/>
-<wire x1="30.495" y1="60.34" x2="31.75" y2="60.34" width="0.3048" layer="1"/>
-<wire x1="30.48" y1="60.325" x2="30.495" y2="60.34" width="0.3048" layer="1"/>
-<wire x1="30.495" y1="52.705" x2="30.5232" y2="52.7332" width="0.3048" layer="1"/>
-<wire x1="17.78" y1="54.405" x2="26.084" y2="54.405" width="0.3048" layer="1"/>
-<wire x1="26.084" y1="54.405" x2="27.305" y2="55.626" width="0.3048" layer="1"/>
-<wire x1="30.495" y1="60.34" x2="28.844" y2="60.34" width="0.3048" layer="1"/>
-<wire x1="28.844" y1="60.34" x2="27.305" y2="58.801" width="0.3048" layer="1"/>
-<wire x1="27.305" y1="58.801" x2="27.305" y2="55.626" width="0.3048" layer="1"/>
-<wire x1="30.495" y1="52.705" x2="30.622" y2="52.578" width="0.3048" layer="1"/>
-<wire x1="30.622" y1="52.578" x2="32.131" y2="52.578" width="0.3048" layer="1"/>
-<wire x1="32.131" y1="52.578" x2="32.512" y2="52.959" width="0.3048" layer="1"/>
-<wire x1="32.512" y1="52.959" x2="32.512" y2="54.583" width="0.3048" layer="1"/>
-<wire x1="32.512" y1="54.583" x2="32.365" y2="54.73" width="0.3048" layer="1"/>
-<wire x1="30.495" y1="52.705" x2="30.353" y2="52.563" width="0.3048" layer="1"/>
-<wire x1="30.353" y1="52.563" x2="30.353" y2="51.945925" width="0.3048" layer="1"/>
-<via x="30.353" y="51.945925" extent="1-16" drill="0.35"/>
-<wire x1="46.228" y1="28.448" x2="48.26" y2="33.655" width="0" layer="19" extent="1-1"/>
-<wire x1="39.37" y1="25.415" x2="46.228" y2="28.448" width="0" layer="19" extent="1-1"/>
-<wire x1="36.425" y1="26.19" x2="39.37" y2="25.415" width="0" layer="19" extent="1-1"/>
-<wire x1="37.338" y1="28.448" x2="36.425" y2="26.19" width="0" layer="19" extent="1-1"/>
-<wire x1="36.195" y1="30.495" x2="37.338" y2="28.448" width="0" layer="19" extent="1-1"/>
-<wire x1="36.175" y1="33.052" x2="36.195" y2="30.495" width="0" layer="19" extent="1-1"/>
+<contactref element="C7" pad="2"/>
+<contactref element="GND_NRST" pad="1"/>
+<contactref element="MCU" pad="60"/>
+<contactref element="MCU" pad="63"/>
+<contactref element="MCU" pad="47"/>
+<contactref element="MCU" pad="31"/>
+<contactref element="MCU" pad="18"/>
+<contactref element="MCU" pad="12"/>
+<contactref element="C9" pad="2"/>
+<contactref element="C10" pad="1"/>
+<wire x1="38.1" y1="60.34" x2="52.07" y2="54.405" width="0" layer="19" extent="1-1"/>
+<wire x1="36.195" y1="60.34" x2="38.1" y2="60.34" width="0" layer="19" extent="1-1"/>
+<wire x1="33.655" y1="60.34" x2="36.195" y2="60.34" width="0" layer="19" extent="1-1"/>
+<wire x1="32.365" y1="54.73" x2="33.655" y2="60.34" width="0" layer="19" extent="1-1"/>
+<wire x1="33.02" y1="43.18" x2="32.365" y2="54.73" width="0" layer="19" extent="1-2"/>
+<wire x1="35.675" y1="37.052" x2="33.02" y2="42.672" width="0" layer="19" extent="1-1"/>
+<wire x1="36.925" y1="35.302" x2="36.175" y2="37.052" width="0" layer="19" extent="1-1"/>
 <wire x1="34.175" y1="33.052" x2="35.175" y2="33.052" width="0" layer="19" extent="1-1"/>
-<wire x1="37.052" y1="37.052" x2="36.925" y2="35.302" width="0" layer="19" extent="1-1"/>
-<wire x1="33.655" y1="29.195" x2="36.195" y2="30.495" width="0" layer="19" extent="1-1"/>
+<wire x1="35.56" y1="29.195" x2="35.675" y2="33.052" width="0" layer="19" extent="1-1"/>
+<wire x1="33.655" y1="29.195" x2="35.56" y2="29.195" width="0" layer="19" extent="1-1"/>
 <wire x1="32.385" y1="29.195" x2="33.655" y2="29.195" width="0" layer="19" extent="1-1"/>
+<wire x1="37.338" y1="28.448" x2="35.56" y2="29.195" width="0" layer="19" extent="1-1"/>
+<wire x1="36.425" y1="26.19" x2="37.338" y2="28.448" width="0" layer="19" extent="1-1"/>
+<wire x1="39.37" y1="25.415" x2="36.425" y2="26.19" width="0" layer="19" extent="1-1"/>
 <wire x1="31.115" y1="24.115" x2="32.385" y2="29.195" width="0" layer="19" extent="1-1"/>
 <wire x1="29.845" y1="24.115" x2="31.115" y2="24.115" width="0" layer="19" extent="1-1"/>
-<wire x1="33.02" y1="42.672" x2="35.675" y2="37.052" width="0" layer="19" extent="1-1"/>
-<wire x1="32.004" y1="48.006" x2="33.02" y2="43.8" width="0" layer="19" extent="1-1"/>
-<wire x1="30.353" y1="51.945925" x2="32.412559375" y2="48.414559375" width="0" layer="19" extent="1-1"/>
-<wire x1="27.305" y1="55.626" x2="30.495" y2="52.705" width="0" layer="19" extent="1-1"/>
-<wire x1="22.225" y1="30.48" x2="29.845" y2="24.115" width="0" layer="19" extent="1-1"/>
+<wire x1="46.228" y1="28.448" x2="39.37" y2="25.415" width="0" layer="19" extent="1-1"/>
+<wire x1="46.728" y1="27.948" x2="46.228" y2="28.448" width="0" layer="19" extent="1-1"/>
+<wire x1="48.26" y1="33.655" x2="46.228" y2="28.448" width="0" layer="19" extent="1-1"/>
 <wire x1="40.005" y1="14.605" x2="39.37" y2="25.415" width="0" layer="19" extent="1-1"/>
-<wire x1="8.89" y1="30.48" x2="22.225" y2="30.48" width="0" layer="19" extent="1-1"/>
+<wire x1="52.07" y1="15.445" x2="47.229" y2="26.035" width="0" layer="19" extent="1-1"/>
+<wire x1="17.78" y1="54.405" x2="32.365" y2="54.73" width="0" layer="19" extent="1-1"/>
+<wire x1="12.715" y1="48.895" x2="17.78" y2="54.405" width="0" layer="19" extent="1-1"/>
+<wire x1="17.78" y1="15.445" x2="29.845" y2="24.115" width="0" layer="19" extent="1-1"/>
+<wire x1="-4.445" y1="46.975" x2="12.715" y2="48.895" width="0" layer="19" extent="1-1"/>
+<wire x1="-4.422" y1="43.89" x2="-4.445" y2="46.975" width="0" layer="19" extent="1-1"/>
+<wire x1="-11.91" y1="46.378" x2="-4.445" y2="46.975" width="0" layer="19" extent="1-1"/>
+<wire x1="-13.41" y1="46.378" x2="-11.91" y2="46.378" width="0" layer="19" extent="1-1"/>
+<wire x1="-15.898" y1="38.89" x2="-13.41" y2="46.378" width="0" layer="19" extent="1-1"/>
+<wire x1="-13.41" y1="34.902" x2="-15.898" y2="38.89" width="0" layer="19" extent="1-1"/>
+<wire x1="-6.91" y1="34.902" x2="-13.41" y2="34.902" width="0" layer="19" extent="1-1"/>
+<wire x1="-5.08" y1="31.1" x2="-6.91" y2="34.902" width="0" layer="19" extent="1-1"/>
+<wire x1="4.445" y1="30.48" x2="-5.08" y2="31.1" width="0" layer="19" extent="1-1"/>
+<wire x1="8.89" y1="30.48" x2="4.445" y2="30.48" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="+3V3">
 <contactref element="3V3_REGULATOR" pad="3"/>
@@ -3788,23 +3854,11 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <contactref element="TEMP" pad="1"/>
 <contactref element="TEMP" pad="6"/>
 <contactref element="C8" pad="2"/>
-<contactref element="BRAIN" pad="1"/>
-<contactref element="BRAIN" pad="17"/>
-<contactref element="C9" pad="2"/>
-<contactref element="C10" pad="1"/>
-<contactref element="BRAIN" pad="5"/>
-<contactref element="SENSBRAIN" pad="7"/>
+<contactref element="SENSORMCU" pad="7"/>
 <contactref element="C5" pad="2"/>
 <contactref element="RI2C1" pad="2"/>
 <contactref element="RI2C2" pad="2"/>
 <contactref element="C6" pad="1"/>
-<wire x1="33.675" y1="33.052" x2="33.675" y2="31.715" width="0" layer="19" extent="1-16"/>
-<wire x1="33.675" y1="31.715" x2="36.195" y2="29.195" width="0" layer="19" extent="1-16"/>
-<wire x1="36.195" y1="28.96" x2="36.195" y2="29.195" width="0.3048" layer="1"/>
-<wire x1="31.115" y1="25.415" x2="32.65" y2="25.415" width="0" layer="19" extent="1-16"/>
-<wire x1="32.65" y1="25.415" x2="33.425" y2="26.19" width="0" layer="19" extent="1-16"/>
-<wire x1="31.115" y1="25.415" x2="29.845" y2="25.415" width="0" layer="19" extent="1-16"/>
-<wire x1="34.91" y1="45.085" x2="34.91" y2="43.815" width="0.3048" layer="1"/>
 <wire x1="47.879" y1="27.698" x2="47.879" y2="26.685" width="0.3048" layer="1"/>
 <wire x1="47.879" y1="26.685" x2="48.529" y2="26.035" width="0.3048" layer="1"/>
 <wire x1="47.879" y1="27.698" x2="48.379" y2="27.698" width="0.3048" layer="1"/>
@@ -3812,134 +3866,97 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <contactref element="OSC8M" pad="4"/>
 <contactref element="C11" pad="1"/>
 <wire x1="29.865" y1="57.03" x2="29.865" y2="56.67513125" width="0.3048" layer="1"/>
-<wire x1="36.675440625" y1="52.515" x2="38.1" y2="59.04" width="0" layer="19" extent="1-1"/>
-<wire x1="34.6749375" y1="52.515" x2="36.675440625" y2="52.515" width="0" layer="19" extent="1-1"/>
-<wire x1="33.174559375" y1="47.815" x2="34.6749375" y2="52.515" width="0" layer="19" extent="1-1"/>
-<wire x1="33.02" y1="45.1" x2="33.174559375" y2="47.815" width="0" layer="19" extent="1-1"/>
-<wire x1="34.91" y1="45.085" x2="33.02" y2="45.1" width="0" layer="19" extent="1-1"/>
-<wire x1="29.845" y1="48.88" x2="33.174559375" y2="47.815" width="0" layer="19" extent="1-1"/>
-<wire x1="29.195" y1="52.705" x2="29.845" y2="48.88" width="0" layer="19" extent="1-1"/>
-<wire x1="29.865" y1="56.67513125" x2="29.195" y2="52.705" width="0" layer="19" extent="1-1"/>
+<contactref element="MCU" pad="64"/>
+<contactref element="MCU" pad="32"/>
+<contactref element="MCU" pad="19"/>
+<contactref element="C9" pad="1"/>
+<contactref element="MCU" pad="48"/>
+<contactref element="C10" pad="2"/>
+<wire x1="34.91" y1="45.085" x2="29.865" y2="56.67513125" width="0" layer="19" extent="1-1"/>
+<wire x1="34.91" y1="43.815" x2="34.91" y2="45.085" width="0" layer="19" extent="1-1"/>
 <wire x1="33.675" y1="33.052" x2="34.91" y2="43.815" width="0" layer="19" extent="1-1"/>
-<wire x1="33.425" y1="26.19" x2="36.195" y2="28.96" width="0" layer="19" extent="1-1"/>
-<wire x1="47.879" y1="27.698" x2="36.195" y2="28.96" width="0" layer="19" extent="1-1"/>
+<wire x1="35.56" y1="30.495" x2="33.675" y2="33.052" width="0" layer="19" extent="1-1"/>
+<wire x1="33.425" y1="26.19" x2="35.56" y2="30.495" width="0" layer="19" extent="1-1"/>
+<wire x1="31.115" y1="25.415" x2="33.425" y2="26.19" width="0" layer="19" extent="1-1"/>
+<wire x1="29.845" y1="25.415" x2="31.115" y2="25.415" width="0" layer="19" extent="1-1"/>
+<wire x1="47.879" y1="27.698" x2="35.56" y2="30.495" width="0" layer="19" extent="1-1"/>
+<wire x1="11.415" y1="48.895" x2="29.865" y2="56.67513125" width="0" layer="19" extent="1-1"/>
+<wire x1="-4.445" y1="48.275" x2="11.415" y2="48.895" width="0" layer="19" extent="1-1"/>
+<wire x1="-4.422" y1="44.39" x2="-4.445" y2="48.275" width="0" layer="19" extent="1-1"/>
+<wire x1="-13.91" y1="46.378" x2="-4.445" y2="48.275" width="0" layer="19" extent="1-1"/>
+<wire x1="-6.41" y1="34.902" x2="-4.422" y2="44.39" width="0" layer="19" extent="1-1"/>
+<wire x1="-5.08" y1="32.4" x2="-6.41" y2="34.902" width="0" layer="19" extent="1-1"/>
+<wire x1="-12.91" y1="34.902" x2="-6.41" y2="34.902" width="0" layer="19" extent="1-1"/>
+<wire x1="-12.065" y1="31.1" x2="-12.91" y2="34.902" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="OSC32_IN">
 <contactref element="CLO1" pad="2"/>
 <contactref element="OSC32" pad="1"/>
 <contactref element="BRAIN" pad="2"/>
-<wire x1="36.175315625" y1="52.515" x2="36.175315625" y2="53.119903125" width="0.1524" layer="1"/>
-<wire x1="36.175315625" y1="53.119903125" x2="36.17500625" y2="53.1202125" width="0.1524" layer="1"/>
-<wire x1="36.17500625" y1="53.1202125" x2="36.17500625" y2="53.97500625" width="0.1524" layer="1"/>
-<wire x1="36.17500625" y1="53.97500625" x2="38.08" y2="55.88" width="0.1524" layer="1"/>
 <wire x1="38.08" y1="55.88" x2="38.08" y2="56.52" width="0.1524" layer="1"/>
-<wire x1="38.08" y1="55.88" x2="36.195" y2="57.765" width="0.1524" layer="1"/>
-<wire x1="36.195" y1="57.765" x2="36.195" y2="59.04" width="0.1524" layer="1"/>
+<wire x1="38.08" y1="56.52" x2="36.195" y2="59.04" width="0" layer="19" extent="1-1"/>
+<wire x1="36.175315625" y1="52.515" x2="38.08" y2="55.88" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="OSC32_OUT">
 <contactref element="CLO2" pad="2"/>
 <contactref element="OSC32" pad="2"/>
 <contactref element="BRAIN" pad="3"/>
-<wire x1="35.6751875" y1="52.515" x2="35.6751875" y2="55.7848125" width="0.1524" layer="1"/>
-<wire x1="35.6751875" y1="55.7848125" x2="35.58" y2="55.88" width="0.1524" layer="1"/>
 <wire x1="35.58" y1="55.88" x2="35.58" y2="56.48" width="0.1524" layer="1"/>
-<wire x1="35.58" y1="55.88" x2="35.56" y2="55.9" width="0.1524" layer="1"/>
-<wire x1="35.56" y1="55.9" x2="35.56" y2="57.785" width="0.1524" layer="1"/>
-<wire x1="35.56" y1="57.785" x2="34.305" y2="59.04" width="0.1524" layer="1"/>
-<wire x1="34.305" y1="59.04" x2="33.655" y2="59.04" width="0.1524" layer="1"/>
+<wire x1="35.58" y1="56.48" x2="33.655" y2="59.04" width="0" layer="19" extent="1-1"/>
+<wire x1="35.6751875" y1="52.515" x2="35.58" y2="55.88" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="NRST">
-<contactref element="C7" pad="1"/>
-<contactref element="RST1" pad="1"/>
-<contactref element="BRAIN" pad="4"/>
-<via x="24.638" y="52.451" extent="1-16" drill="0.35"/>
-<wire x1="24.638" y1="52.451" x2="24.638" y2="48.006" width="0.1524" layer="2"/>
-<via x="24.638" y="48.006" extent="1-16" drill="0.35"/>
-<wire x1="24.638" y1="48.006" x2="22.225" y2="45.593" width="0.1524" layer="1"/>
-<wire x1="22.225" y1="45.593" x2="22.225" y2="39.37" width="0.1524" layer="1"/>
 <via x="45.72" y="33.655" extent="1-16" drill="1"/>
-<via x="24.6154" y="38.354" extent="1-16" drill="0.35"/>
 <wire x1="28.1597875" y1="34.8206" x2="28.1488" y2="34.8206" width="0.1524" layer="16"/>
-<wire x1="28.1488" y1="34.8206" x2="24.6154" y2="38.354" width="0.1524" layer="16"/>
-<wire x1="45.72" y1="33.655" x2="29.3253875" y2="33.655" width="0.1524" layer="16"/>
-<wire x1="29.3253875" y1="33.655" x2="28.1597875" y2="34.8206" width="0.1524" layer="16"/>
-<wire x1="24.6154" y1="38.354" x2="23.5994" y2="39.37" width="0.1524" layer="1"/>
-<wire x1="23.5994" y1="39.37" x2="22.225" y2="39.37" width="0.1524" layer="1"/>
-<wire x1="35.1750625" y1="52.515" x2="35.1750625" y2="53.9789375" width="0.1524" layer="1"/>
-<wire x1="34.671" y1="54.483" x2="35.1750625" y2="53.9789375" width="0.1524" layer="1"/>
-<wire x1="31.75" y1="59.04" x2="32.624" y2="58.166" width="0.1524" layer="1"/>
-<wire x1="32.624" y1="58.166" x2="34.163" y2="58.166" width="0.1524" layer="1"/>
-<wire x1="34.163" y1="58.166" x2="34.671" y2="57.658" width="0.1524" layer="1"/>
-<wire x1="34.671" y1="57.658" x2="34.671" y2="54.483" width="0.1524" layer="1"/>
-<wire x1="31.75" y1="59.04" x2="29.449" y2="59.04" width="0.1524" layer="1"/>
-<wire x1="27.813" y1="57.404" x2="27.813" y2="53.467" width="0.1524" layer="1"/>
-<wire x1="27.813" y1="53.467" x2="26.797" y2="52.451" width="0.1524" layer="1"/>
-<wire x1="26.797" y1="52.451" x2="24.638" y2="52.451" width="0.1524" layer="1"/>
-<wire x1="29.449" y1="59.04" x2="27.813" y2="57.404" width="0.1524" layer="1"/>
+<contactref element="C7" pad="1"/>
+<contactref element="MCU" pad="7"/>
+<contactref element="NRST1" pad="1"/>
+<wire x1="28.1597875" y1="34.8206" x2="45.72" y2="33.655" width="0" layer="19" extent="16-16"/>
+<wire x1="4.445" y1="39.37" x2="28.1488" y2="34.8206" width="0" layer="19" extent="1-16"/>
+<wire x1="-15.898" y1="41.39" x2="4.445" y2="39.37" width="0" layer="19" extent="1-1"/>
+<wire x1="38.1" y1="59.04" x2="-15.898" y2="41.39" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="SENS_PROX_1">
-<wire x1="5.715" y1="67.945" x2="64.135" y2="67.945" width="1.27" layer="16"/>
-<wire x1="64.135" y1="67.945" x2="67.945" y2="64.135" width="1.27" layer="16"/>
-<wire x1="5.715" y1="67.945" x2="1.905" y2="64.135" width="1.27" layer="16"/>
-<wire x1="1.905" y1="64.135" x2="1.905" y2="40.005" width="1.27" layer="16"/>
-<wire x1="1.905" y1="40.005" x2="19.05" y2="40.005" width="0" layer="19" extent="1-16"/>
-<wire x1="19.05" y1="40.005" x2="27.94" y2="40.005" width="0" layer="19" extent="1-16"/>
-<wire x1="27.94" y1="40.005" x2="67.945" y2="40.005" width="0" layer="19" extent="1-16"/>
-<wire x1="67.945" y1="40.005" x2="67.945" y2="64.135" width="1.27" layer="16"/>
 <contactref element="RP1" pad="1"/>
-<wire x1="18.9865" y1="39.9415" x2="19.05" y2="40.005" width="0.1524" layer="16"/>
-<wire x1="19.05" y1="39.878" x2="18.9865" y2="39.9415" width="0.1524" layer="16"/>
-<wire x1="29.195" y1="37.465" x2="27.94" y2="38.1" width="0" layer="19" extent="1-16"/>
 <via x="27.94" y="38.1" extent="1-16" drill="0.35"/>
-<wire x1="27.94" y1="38.1" x2="27.94" y2="40.005" width="0.1524" layer="15"/>
 <via x="27.94" y="40.005" extent="1-16" drill="0.35"/>
+<wire x1="29.195" y1="37.465" x2="27.94" y2="38.1" width="0" layer="19" extent="1-1"/>
+<wire x1="27.94" y1="40.005" x2="27.94" y2="38.1" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="LED1">
 <contactref element="RL1" pad="1"/>
 <contactref element="BRAIN" pad="28"/>
-<wire x1="37.275" y1="49.9149375" x2="46.7249375" y2="49.9149375" width="0.1524" layer="1"/>
-<wire x1="46.7249375" y1="49.9149375" x2="47.61" y2="50.8" width="0.1524" layer="1"/>
+<wire x1="37.275" y1="49.9149375" x2="47.61" y2="50.8" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="LED2">
 <contactref element="RL2" pad="1"/>
 <contactref element="BRAIN" pad="10"/>
-<wire x1="32.575" y1="51.415315625" x2="32.238315625" y2="51.415315625" width="0.1524" layer="1"/>
-<wire x1="32.238315625" y1="51.415315625" x2="32.0175875" y2="51.1945875" width="0.1524" layer="1"/>
-<wire x1="30.0698625" y1="50.8" x2="22.24" y2="50.8" width="0.1524" layer="1"/>
-<wire x1="30.46445" y1="51.1945875" x2="30.0698625" y2="50.8" width="0.1524" layer="1"/>
-<wire x1="32.0175875" y1="51.1945875" x2="30.46445" y2="51.1945875" width="0.1524" layer="1"/>
+<wire x1="22.24" y1="50.8" x2="32.575" y2="51.415315625" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="LED4">
 <contactref element="RL4" pad="1"/>
 <contactref element="BRAIN" pad="12"/>
-<wire x1="32.575" y1="50.4150625" x2="32.0000625" y2="50.4150625" width="0.1524" layer="1"/>
-<wire x1="31.115" y1="49.53" x2="32.0000625" y2="50.4150625" width="0.1524" layer="1"/>
-<wire x1="19.558" y1="24.868" x2="17.78" y2="23.09" width="0.1524" layer="1"/>
-<wire x1="24.638" y1="49.53" x2="31.115" y2="49.53" width="0.1524" layer="1"/>
-<wire x1="24.638" y1="49.53" x2="19.558" y2="44.45" width="0.1524" layer="1"/>
-<wire x1="19.558" y1="44.45" x2="19.558" y2="24.868" width="0.1524" layer="1"/>
+<wire x1="17.78" y1="23.09" x2="32.575" y2="50.4150625" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$19">
 <contactref element="RL1" pad="2"/>
 <contactref element="LED1" pad="2"/>
-<wire x1="48.91" y1="50.8" x2="51.865" y2="50.8" width="0.1524" layer="1"/>
-<wire x1="51.865" y1="50.8" x2="52.07" y2="51.005" width="0.1524" layer="1"/>
+<wire x1="48.91" y1="50.8" x2="52.07" y2="51.005" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$20">
 <contactref element="RL2" pad="2"/>
 <contactref element="LED2" pad="2"/>
-<wire x1="20.94" y1="50.8" x2="17.985" y2="50.8" width="0.1524" layer="1"/>
-<wire x1="17.985" y1="50.8" x2="17.78" y2="51.005" width="0.1524" layer="1"/>
+<wire x1="17.78" y1="51.005" x2="20.94" y2="50.8" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$21">
 <contactref element="RL3" pad="2"/>
 <contactref element="LED3" pad="2"/>
-<wire x1="52.07" y1="18.845" x2="52.07" y2="21.79" width="0.1524" layer="1"/>
+<wire x1="52.07" y1="18.845" x2="52.07" y2="21.79" width="0" layer="19" extent="1-16"/>
 </signal>
 <signal name="N$22">
 <contactref element="RL4" pad="2"/>
 <contactref element="LED4" pad="2"/>
-<wire x1="17.78" y1="18.845" x2="17.78" y2="21.79" width="0.1524" layer="1"/>
+<wire x1="17.78" y1="18.845" x2="17.78" y2="21.79" width="0" layer="19" extent="1-16"/>
 </signal>
 <signal name="SENS_1">
 <polygon width="0.1524" layer="16">
@@ -3950,10 +3967,10 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <vertex x="39.37" y="64.135"/>
 </polygon>
 <contactref element="RS1" pad="1"/>
-<wire x1="40.655" y1="36.195" x2="41.91" y2="36.195" width="0.1524" layer="1"/>
 <via x="41.91" y="36.195" extent="1-16" drill="0.35"/>
-<wire x1="41.91" y1="36.195" x2="41.91" y2="44.45" width="0.1524" layer="15"/>
 <via x="41.91" y="44.45" extent="1-16" drill="0.35"/>
+<wire x1="41.91" y1="36.195" x2="40.655" y2="36.195" width="0" layer="19" extent="1-1"/>
+<wire x1="41.91" y1="44.45" x2="41.91" y2="36.195" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="SENS_2">
 <polygon width="0.1524" layer="16">
@@ -3964,11 +3981,10 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <vertex x="7.62" y="64.135"/>
 </polygon>
 <contactref element="RS2" pad="1"/>
-<wire x1="29.195" y1="34.29" x2="27.94" y2="34.29" width="0" layer="19" extent="1-16"/>
 <via x="27.94" y="34.29" extent="1-16" drill="0.35"/>
-<wire x1="27.94" y1="34.29" x2="25.4" y2="36.83" width="0.1524" layer="15"/>
-<wire x1="25.4" y1="36.83" x2="25.4" y2="44.45" width="0.1524" layer="15"/>
 <via x="25.4" y="44.45" extent="1-16" drill="0.35"/>
+<wire x1="27.94" y1="34.29" x2="29.195" y2="34.29" width="0" layer="19" extent="1-1"/>
+<wire x1="25.4" y1="44.45" x2="27.94" y2="34.29" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="SENS_4">
 <polygon width="0.1524" layer="16">
@@ -3979,63 +3995,53 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <vertex x="5.715" y="7.62"/>
 </polygon>
 <contactref element="RS4" pad="1"/>
-<wire x1="29.195" y1="33.02" x2="27.94" y2="33.02" width="0" layer="19" extent="1-16"/>
 <via x="27.94" y="33.02" extent="1-16" drill="0.35"/>
-<wire x1="27.94" y1="33.02" x2="25.4" y2="30.48" width="0.1524" layer="15"/>
-<wire x1="25.4" y1="30.48" x2="25.4" y2="25.4" width="0.1524" layer="15"/>
 <via x="25.4" y="25.4" extent="1-16" drill="0.35"/>
+<wire x1="27.94" y1="33.02" x2="29.195" y2="33.02" width="0" layer="19" extent="1-1"/>
+<wire x1="25.4" y1="25.4" x2="27.94" y2="33.02" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="IC_SENS_3">
 <contactref element="RS3" pad="2"/>
-<contactref element="SENSBRAIN" pad="17"/>
-<wire x1="36.925" y1="35.802" x2="38.478" y2="35.802" width="0.1524" layer="1"/>
-<wire x1="38.478" y1="35.802" x2="39.355" y2="34.925" width="0.1524" layer="1"/>
+<contactref element="SENSORMCU" pad="17"/>
+<wire x1="36.925" y1="35.802" x2="39.355" y2="34.925" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="IC_SENS_1">
 <contactref element="RS1" pad="2"/>
-<contactref element="SENSBRAIN" pad="18"/>
-<wire x1="36.925" y1="36.302" x2="39.248" y2="36.302" width="0.1524" layer="1"/>
+<contactref element="SENSORMCU" pad="18"/>
 <wire x1="39.248" y1="36.302" x2="39.355" y2="36.195" width="0.1524" layer="1"/>
+<wire x1="36.925" y1="36.302" x2="39.248" y2="36.302" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="PRG">
 <contactref element="PRG1" pad="1"/>
 <contactref element="RT1" pad="2"/>
-<contactref element="BRAIN" pad="11"/>
-<wire x1="32.575" y1="50.9151875" x2="30.5801875" y2="50.9151875" width="0.1524" layer="1"/>
-<wire x1="30.5801875" y1="50.9151875" x2="29.845" y2="50.18" width="0.1524" layer="1"/>
-<wire x1="29.845" y1="50.18" x2="29.83" y2="50.165" width="0.1524" layer="1"/>
-<wire x1="29.83" y1="50.165" x2="23.495" y2="50.165" width="0.1524" layer="1"/>
-<wire x1="23.495" y1="50.165" x2="12.7" y2="39.37" width="0.1524" layer="1"/>
-<wire x1="12.7" y1="39.37" x2="8.89" y2="39.37" width="0.1524" layer="1"/>
+<contactref element="MCU" pad="21"/>
+<wire x1="8.89" y1="39.37" x2="-12.065" y2="32.4" width="0" layer="19" extent="1-1"/>
+<wire x1="-11.91" y1="34.902" x2="8.89" y2="39.37" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="IC_SENS_PROX_1">
 <contactref element="RP1" pad="2"/>
-<contactref element="SENSBRAIN" pad="1"/>
+<contactref element="SENSORMCU" pad="1"/>
 <wire x1="32.925" y1="36.302" x2="30.495" y2="37.465" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="IC_SENS_PROX_2">
 <contactref element="RP2" pad="2"/>
-<contactref element="SENSBRAIN" pad="2"/>
+<contactref element="SENSORMCU" pad="2"/>
 <wire x1="32.925" y1="35.802" x2="30.495" y2="36.195" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="LED3">
 <contactref element="RL3" pad="1"/>
 <contactref element="BRAIN" pad="27"/>
 <wire x1="52.07" y1="23.09" x2="51.84" y2="23.09" width="0.1524" layer="1"/>
-<wire x1="37.275" y1="49.4148125" x2="44.5651875" y2="49.4148125" width="0.1524" layer="1"/>
-<wire x1="44.5651875" y1="49.4148125" x2="50.292" y2="43.688" width="0.1524" layer="1"/>
-<wire x1="50.292" y1="24.868" x2="52.07" y2="23.09" width="0.1524" layer="1"/>
-<wire x1="50.292" y1="43.688" x2="50.292" y2="24.868" width="0.1524" layer="1"/>
+<wire x1="51.84" y1="23.09" x2="37.275" y2="49.4148125" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="IC_SENS_2">
 <contactref element="RS2" pad="2"/>
-<contactref element="SENSBRAIN" pad="3"/>
-<wire x1="30.495" y1="34.29" x2="31.507" y2="35.302" width="0" layer="19" extent="1-16"/>
-<wire x1="31.507" y1="35.302" x2="32.925" y2="35.302" width="0" layer="19" extent="1-16"/>
+<contactref element="SENSORMCU" pad="3"/>
+<wire x1="32.925" y1="35.302" x2="30.495" y2="34.29" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="IC_SENS_4">
 <contactref element="RS4" pad="2"/>
-<contactref element="SENSBRAIN" pad="4"/>
+<contactref element="SENSORMCU" pad="4"/>
 <wire x1="32.925" y1="34.802" x2="30.495" y2="33.02" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="SENS_PROX_2">
@@ -4043,16 +4049,13 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <wire x1="64.135" y1="1.905" x2="5.715" y2="1.905" width="1.27" layer="16"/>
 <wire x1="5.715" y1="1.905" x2="1.905" y2="5.715" width="1.27" layer="16"/>
 <wire x1="1.905" y1="5.715" x2="1.905" y2="29.845" width="1.27" layer="16"/>
-<wire x1="1.905" y1="29.845" x2="29.21" y2="29.845" width="0" layer="19" extent="1-16"/>
-<wire x1="29.21" y1="29.845" x2="67.31" y2="29.845" width="0" layer="19" extent="1-16"/>
 <wire x1="67.945" y1="29.845" x2="67.945" y2="5.715" width="1.27" layer="16"/>
 <wire x1="67.945" y1="5.715" x2="64.135" y2="1.905" width="1.27" layer="16"/>
-<wire x1="29.195" y1="36.195" x2="27.94" y2="36.83" width="0" layer="19" extent="1-16"/>
 <via x="27.94" y="36.83" extent="1-16" drill="0.35"/>
-<wire x1="27.94" y1="36.83" x2="27.94" y2="35.56" width="0.1524" layer="15"/>
-<wire x1="27.94" y1="35.56" x2="29.21" y2="34.29" width="0.1524" layer="15"/>
-<wire x1="29.21" y1="34.29" x2="29.21" y2="29.845" width="0.1524" layer="15"/>
 <via x="29.21" y="29.845" extent="1-16" drill="0.35"/>
+<wire x1="27.94" y1="36.83" x2="29.195" y2="36.195" width="0" layer="19" extent="1-1"/>
+<wire x1="29.21" y1="29.845" x2="29.195" y2="36.195" width="0" layer="19" extent="1-1"/>
+<wire x1="1.905" y1="29.845" x2="27.94" y2="36.83" width="0" layer="19" extent="16-16"/>
 </signal>
 <signal name="SENS_3">
 <contactref element="RS3" pad="1"/>
@@ -4063,115 +4066,59 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <vertex x="64.135" y="26.035"/>
 <vertex x="39.37" y="26.035"/>
 </polygon>
-<wire x1="40.655" y1="34.925" x2="41.91" y2="34.925" width="0.1524" layer="1"/>
 <via x="41.91" y="34.925" extent="1-16" drill="0.35"/>
-<wire x1="41.91" y1="34.925" x2="41.91" y2="25.4" width="0.1524" layer="15"/>
 <via x="41.91" y="25.4" extent="1-16" drill="0.35"/>
+<wire x1="41.91" y1="34.925" x2="40.655" y2="34.925" width="0" layer="19" extent="1-1"/>
+<wire x1="41.91" y1="25.4" x2="41.91" y2="34.925" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="EP_GND">
-<contactref element="SENSBRAIN" pad="25"/>
+<contactref element="SENSORMCU" pad="25"/>
 </signal>
 <signal name="EXT_CLK">
 <contactref element="BRAIN" pad="6"/>
 <contactref element="OSC8M" pad="3"/>
-<wire x1="34.1748125" y1="52.515" x2="34.1748125" y2="52.9471875" width="0.1524" layer="1"/>
-<wire x1="34.1748125" y1="52.9471875" x2="33.909" y2="53.213" width="0.1524" layer="1"/>
-<wire x1="33.909" y1="53.213" x2="33.909" y2="56.134" width="0.1524" layer="1"/>
-<wire x1="33.909" y1="56.134" x2="33.013" y2="57.03" width="0.1524" layer="1"/>
-<wire x1="33.013" y1="57.03" x2="32.365" y2="57.03" width="0.1524" layer="1"/>
+<wire x1="34.1748125" y1="52.515" x2="32.365" y2="57.03" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="VCC">
-<contactref element="SENSBRAIN" pad="6"/>
+<contactref element="SENSORMCU" pad="6"/>
 <contactref element="C4" pad="1"/>
-<wire x1="32.925" y1="33.802" x2="32.925" y2="31.225" width="0" layer="19" extent="1-16"/>
-<wire x1="32.925" y1="31.225" x2="33.655" y2="30.495" width="0" layer="19" extent="1-16"/>
+<wire x1="33.655" y1="30.495" x2="32.925" y2="33.802" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="I2C_SCL">
-<contactref element="SENSBRAIN" pad="22"/>
-<contactref element="BRAIN" pad="19"/>
+<contactref element="SENSORMCU" pad="22"/>
 <contactref element="TEMP" pad="2"/>
 <contactref element="RI2C2" pad="1"/>
-<wire x1="34.1748125" y1="47.815" x2="34.1748125" y2="47.2321875" width="0.1524" layer="1"/>
-<wire x1="36.21" y1="45.197" x2="36.21" y2="45.085" width="0.1524" layer="1"/>
-<wire x1="34.1748125" y1="47.2321875" x2="36.21" y2="45.197" width="0.1524" layer="1"/>
-<wire x1="36.21" y1="45.085" x2="36.21" y2="44.90236875" width="0.1524" layer="1"/>
-<wire x1="34.671" y1="38.354" x2="34.671" y2="37.056" width="0.1524" layer="1"/>
-<wire x1="34.671" y1="37.056" x2="34.675" y2="37.052" width="0.1524" layer="1"/>
-<wire x1="36.21" y1="45.085" x2="35.56" y2="44.435" width="0.1524" layer="1"/>
-<wire x1="35.56" y1="39.243" x2="34.671" y2="38.354" width="0.1524" layer="1"/>
-<wire x1="35.56" y1="44.435" x2="35.56" y2="41.91" width="0.1524" layer="1"/>
-<wire x1="35.56" y1="41.91" x2="35.56" y2="39.243" width="0.1524" layer="1"/>
-<via x="35.56" y="41.91" extent="1-16" drill="0.35"/>
-<wire x1="35.56" y1="41.91" x2="36.83" y2="41.91" width="0.1524" layer="2"/>
-<via x="36.83" y="41.91" extent="1-16" drill="0.35"/>
-<wire x1="36.83" y1="41.91" x2="40.64" y2="41.91" width="0.1524" layer="1"/>
-<wire x1="40.64" y1="41.91" x2="43.815" y2="38.735" width="0.1524" layer="1"/>
-<wire x1="43.815" y1="38.735" x2="43.815" y2="32.385" width="0.1524" layer="1"/>
-<wire x1="43.815" y1="32.385" x2="45.085" y2="31.115" width="0.1524" layer="1"/>
-<wire x1="45.085" y1="31.115" x2="47.625" y2="31.115" width="0.1524" layer="1"/>
-<wire x1="47.625" y1="31.115" x2="48.629" y2="30.111" width="0.1524" layer="1"/>
-<wire x1="48.629" y1="30.111" x2="48.629" y2="28.948" width="0.1524" layer="1"/>
+<wire x1="34.675" y1="37.052" x2="36.21" y2="45.085" width="0" layer="19" extent="1-1"/>
+<wire x1="48.629" y1="28.948" x2="34.675" y2="37.052" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="I2C_SDA">
-<contactref element="SENSBRAIN" pad="21"/>
-<contactref element="BRAIN" pad="20"/>
+<contactref element="SENSORMCU" pad="21"/>
 <contactref element="TEMP" pad="4"/>
 <contactref element="RI2C1" pad="1"/>
-<wire x1="34.6749375" y1="47.815" x2="34.671" y2="47.8110625" width="0.1524" layer="1"/>
-<wire x1="34.671" y1="47.8110625" x2="34.671" y2="47.1311375" width="0.1524" layer="1"/>
-<wire x1="36.0639375" y1="45.7382" x2="36.64416875" y2="45.7382" width="0.1524" layer="1"/>
-<wire x1="36.64416875" y1="45.7382" x2="36.7632" y2="45.61916875" width="0.1524" layer="1"/>
-<wire x1="36.7632" y1="45.61916875" x2="36.7632" y2="44.55083125" width="0.1524" layer="1"/>
-<wire x1="36.21" y1="43.99763125" x2="36.21" y2="43.815" width="0.1524" layer="1"/>
-<wire x1="36.7632" y1="44.55083125" x2="36.21" y2="43.99763125" width="0.1524" layer="1"/>
-<wire x1="34.671" y1="47.1311375" x2="36.0639375" y2="45.7382" width="0.1524" layer="1"/>
-<wire x1="36.21" y1="43.815" x2="36.21" y2="40.64" width="0.1524" layer="1"/>
-<wire x1="36.21" y1="40.64" x2="36.21" y2="39.258" width="0.1524" layer="1"/>
-<wire x1="35.175" y1="38.223" x2="35.175" y2="37.052" width="0.1524" layer="1"/>
-<wire x1="36.21" y1="39.258" x2="35.175" y2="38.223" width="0.1524" layer="1"/>
-<wire x1="36.21" y1="40.64" x2="40.64" y2="40.64" width="0.1524" layer="1"/>
-<wire x1="40.64" y1="40.64" x2="43.18" y2="38.1" width="0.1524" layer="1"/>
-<wire x1="43.18" y1="31.75" x2="45.085" y2="29.845" width="0.1524" layer="1"/>
-<wire x1="45.085" y1="29.845" x2="46.355" y2="29.845" width="0.1524" layer="1"/>
-<wire x1="46.355" y1="29.845" x2="47.129" y2="29.071" width="0.1524" layer="1"/>
-<wire x1="47.129" y1="29.071" x2="47.129" y2="28.948" width="0.1524" layer="1"/>
-<wire x1="43.18" y1="38.1" x2="43.18" y2="31.75" width="0.1524" layer="1"/>
+<wire x1="35.175" y1="37.052" x2="36.21" y2="43.815" width="0" layer="19" extent="1-1"/>
+<wire x1="47.129" y1="28.948" x2="35.175" y2="37.052" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="HOST_INT">
-<contactref element="SENSBRAIN" pad="23"/>
+<contactref element="SENSORMCU" pad="23"/>
 <contactref element="BRAIN" pad="18"/>
-<wire x1="33.674684375" y1="47.815" x2="33.674684375" y2="46.970315625" width="0.1524" layer="1"/>
-<wire x1="34.036" y1="38.354" x2="34.175" y2="38.215" width="0.1524" layer="1"/>
-<wire x1="34.175" y1="38.215" x2="34.175" y2="37.052" width="0.1524" layer="1"/>
-<wire x1="33.674684375" y1="46.970315625" x2="34.036" y2="46.609" width="0.1524" layer="1"/>
-<wire x1="34.036" y1="46.609" x2="34.036" y2="38.354" width="0.1524" layer="1"/>
+<wire x1="34.175" y1="37.052" x2="33.674684375" y2="47.815" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="CMOD">
-<contactref element="SENSBRAIN" pad="5"/>
+<contactref element="SENSORMCU" pad="5"/>
 <contactref element="C3" pad="1"/>
 <wire x1="32.925" y1="34.302" x2="32.913" y2="34.29" width="0.1524" layer="1"/>
-<wire x1="32.913" y1="34.29" x2="32.385" y2="34.29" width="0.1524" layer="1"/>
-<wire x1="32.385" y1="34.29" x2="32.131" y2="34.036" width="0.1524" layer="1"/>
-<wire x1="32.131" y1="34.036" x2="32.131" y2="30.749" width="0.1524" layer="1"/>
 <wire x1="32.131" y1="30.749" x2="32.385" y2="30.495" width="0.1524" layer="1"/>
+<wire x1="32.131" y1="30.749" x2="32.913" y2="34.29" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="SWDIO">
-<contactref element="BRAIN" pad="23"/>
 <via x="45.72" y="36.195" extent="1-16" drill="1"/>
-<wire x1="36.175315625" y1="47.815" x2="36.175315625" y2="47.390684375" width="0.1524" layer="1"/>
-<wire x1="36.175315625" y1="47.390684375" x2="36.322" y2="47.244" width="0.1524" layer="1"/>
-<wire x1="43.307" y1="47.244" x2="36.322" y2="47.244" width="0.1524" layer="1"/>
-<wire x1="45.72" y1="36.195" x2="46.482" y2="36.195" width="0.1524" layer="1"/>
-<wire x1="46.482" y1="36.195" x2="47.498" y2="37.211" width="0.1524" layer="1"/>
-<wire x1="47.498" y1="37.211" x2="47.498" y2="43.053" width="0.1524" layer="1"/>
-<wire x1="47.498" y1="43.053" x2="43.307" y2="47.244" width="0.1524" layer="1"/>
+<contactref element="MCU" pad="46"/>
+<wire x1="-4.422" y1="43.39" x2="45.72" y2="36.195" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="SWCLK">
-<contactref element="BRAIN" pad="24"/>
 <via x="48.26" y="36.195" extent="1-16" drill="1"/>
-<wire x1="36.675440625" y1="47.815" x2="43.625" y2="47.815" width="0.1524" layer="1"/>
-<wire x1="43.625" y1="47.815" x2="48.26" y2="43.18" width="0.1524" layer="1"/>
-<wire x1="48.26" y1="43.18" x2="48.26" y2="36.195" width="0.1524" layer="1"/>
+<contactref element="MCU" pad="49"/>
+<wire x1="-6.41" y1="46.378" x2="48.26" y2="36.195" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="SHIELD">
 <polygon width="0.1778" layer="16" spacing="1.143" pour="hatch" isolate="0.889" thermals="no" rank="6">
@@ -4185,14 +4132,8 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <vertex x="6.35" y="67.31"/>
 <vertex x="2.54" y="63.5"/>
 </polygon>
-<contactref element="SENSBRAIN" pad="9"/>
+<contactref element="SENSORMCU" pad="9"/>
 <via x="36.068" y="32.004" extent="1-16" drill="0.35"/>
-<wire x1="34.675" y1="32.5179" x2="34.675" y2="33.052" width="0.1524" layer="1"/>
-<wire x1="34.675" y1="32.5179" x2="35.1889" y2="32.004" width="0.1524" layer="1"/>
-<wire x1="35.1889" y1="32.004" x2="36.068" y2="32.004" width="0.1524" layer="1"/>
-<wire x1="36.068" y1="32.004" x2="36.576" y2="32.004" width="0.1524" layer="1"/>
-<wire x1="36.576" y1="32.004" x2="38.354" y2="30.226" width="0.1524" layer="1"/>
-<wire x1="38.354" y1="30.226" x2="39.116" y2="30.226" width="0.1524" layer="1"/>
 <via x="18.288" y="32.004" extent="1-16" drill="0.35"/>
 <via x="55.118" y="28.448" extent="1-16" drill="0.35"/>
 <via x="55.118" y="42.672" extent="1-16" drill="0.35"/>
@@ -4211,48 +4152,63 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <via x="65.786" y="35.56" extent="1-16" drill="0.35"/>
 <via x="3.556" y="35.56" extent="1-16" drill="0.35"/>
 <via x="36.576" y="22.86" extent="1-16" drill="0.35"/>
-</signal>
-<signal name="USB_DP">
-<contactref element="BRAIN" pad="22"/>
-</signal>
-<signal name="USB_DM">
-<contactref element="BRAIN" pad="21"/>
+<wire x1="36.068" y1="32.004" x2="34.675" y2="33.052" width="0" layer="19" extent="1-1"/>
+<wire x1="3.556" y1="35.56" x2="18.288" y2="32.004" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="USART2_TX">
-<contactref element="BRAIN" pad="8"/>
 <via x="36.195" y="65.405" extent="1-16" drill="1"/>
-<wire x1="33.174559375" y1="52.515" x2="33.0678875" y2="52.621671875" width="0.1524" layer="1"/>
-<wire x1="33.0678875" y1="52.621671875" x2="33.0678875" y2="52.6567375" width="0.1524" layer="1"/>
-<via x="33.0678875" y="52.6567375" extent="1-16" drill="0.35"/>
-<wire x1="33.0678875" y1="52.6567375" x2="33.0678875" y2="62.2778875" width="0.1524" layer="15"/>
-<wire x1="33.0678875" y1="62.2778875" x2="36.195" y2="65.405" width="0.1524" layer="15"/>
+<contactref element="MCU" pad="16"/>
+<wire x1="-15.898" y1="36.89" x2="36.195" y2="65.405" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="USART2_RX">
-<contactref element="BRAIN" pad="9"/>
 <via x="33.655" y="65.405" extent="1-16" drill="1"/>
-<wire x1="32.575" y1="51.915440625" x2="31.805759375" y2="51.915440625" width="0.1524" layer="1"/>
-<wire x1="31.805759375" y1="51.915440625" x2="31.75" y2="51.9712" width="0.1524" layer="1"/>
-<via x="31.75" y="51.9712" extent="1-16" drill="0.35"/>
-<wire x1="31.75" y1="51.9712" x2="31.75" y2="52.07" width="0.1524" layer="15"/>
-<wire x1="31.75" y1="52.07" x2="30.48" y2="53.34" width="0.1524" layer="15"/>
-<wire x1="30.48" y1="53.34" x2="30.48" y2="62.23" width="0.1524" layer="15"/>
-<wire x1="30.48" y1="62.23" x2="33.655" y2="65.405" width="0.1524" layer="15"/>
+<contactref element="MCU" pad="17"/>
+<wire x1="-13.91" y1="34.902" x2="33.655" y2="65.405" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="USART1_RX">
-<contactref element="BRAIN" pad="30"/>
 <contactref element="SIEMENS-BCU" pad="3"/>
-<wire x1="38.069525" y1="50.9151875" x2="38.1" y2="50.9456625" width="0.1524" layer="1"/>
-<via x="38.1" y="50.9456625" extent="1-16" drill="0.35"/>
-<wire x1="38.1" y1="50.9456625" x2="38.1" y2="21.59" width="0" layer="19" extent="1-16"/>
-<wire x1="38.1" y1="21.59" x2="33.655" y2="17.145" width="0" layer="19" extent="1-16"/>
-<wire x1="32.385" y1="15.875" x2="32.385" y2="14.605" width="0.3048" layer="1"/>
-<wire x1="37.275" y1="50.9151875" x2="38.069525" y2="50.9151875" width="0.1524" layer="1"/>
-<wire x1="32.385" y1="15.875" x2="33.655" y2="17.145" width="0" layer="19" extent="1-2"/>
+<contactref element="MCU" pad="25"/>
+<wire x1="-9.91" y1="34.902" x2="32.385" y2="14.605" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="USART1_TX">
-<contactref element="BRAIN" pad="29"/>
 <contactref element="SIEMENS-BCU" pad="7"/>
-<wire x1="37.465" y1="14.605" x2="37.275" y2="50.4150625" width="0" layer="19" extent="1-1"/>
+<contactref element="MCU" pad="24"/>
+<wire x1="-10.41" y1="34.902" x2="37.465" y2="14.605" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="N$5">
+<contactref element="MCU" pad="1"/>
+</signal>
+<signal name="N$10">
+<contactref element="MCU" pad="13"/>
+</signal>
+<signal name="USART3_RX">
+<contactref element="MCU" pad="30"/>
+</signal>
+<signal name="USART3_TX">
+<contactref element="MCU" pad="29"/>
+</signal>
+<signal name="N$12">
+</signal>
+<signal name="VDD_2">
+<contactref element="BRAIN" pad="1"/>
+</signal>
+<signal name="VDD">
+<contactref element="BRAIN" pad="17"/>
+</signal>
+<signal name="VSS_2">
+<contactref element="BRAIN" pad="16"/>
+</signal>
+<signal name="VSS">
+<contactref element="BRAIN" pad="32"/>
+</signal>
+<signal name="VDDA/VREF+">
+<contactref element="BRAIN" pad="5"/>
+</signal>
+<signal name="I2C2_SDA">
+<contactref element="MCU" pad="5"/>
+</signal>
+<signal name="I2C2_SCL">
+<contactref element="MCU" pad="6"/>
 </signal>
 </signals>
 <errors>
