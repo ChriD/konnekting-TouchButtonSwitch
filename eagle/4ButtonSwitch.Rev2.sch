@@ -4948,519 +4948,6 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/2/ABS07-32.768K
 </deviceset>
 </devicesets>
 </library>
-<library name="Wurth_Elektronik_Optoelectronics_rev15b (1)">
-<description>&lt;BR&gt;Würth Elektronik --Signal LEDs,White LEDs&lt;br&gt;&lt;Hr&gt;
-&lt;BR&gt;&lt;BR&gt; 
-&lt;TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0&gt;
-&lt;TR&gt;   
-&lt;TD BGCOLOR="#cccccc" ALIGN=CENTER&gt;&lt;FONT FACE=ARIAL SIZE=3&gt;&lt;BR&gt;&lt;br&gt;
-      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&lt;BR&gt;
-       &lt;BR&gt;
-       &lt;BR&gt;
-       &lt;BR&gt;&lt;BR&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-&lt;TD BGCOLOR="#cccccc" ALIGN=CENTER&gt;&lt;FONT FACE=ARIAL SIZE=3&gt;&lt;br&gt;
-      -----&lt;BR&gt;
-      -----&lt;BR&gt;
-      -----&lt;BR&gt;
-      -----&lt;BR&gt;
-      -----&lt;BR&gt;&lt;BR&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-    &lt;TD BGCOLOR="#cccccc" ALIGN=CENTER&gt; &lt;FONT FACE=ARIAL SIZE=3&gt;&lt;br&gt;
-      ---------------------------&lt;BR&gt;
-&lt;B&gt;&lt;I&gt;&lt;span style='font-size:26pt;
-  color:#FF6600;'&gt;WE &lt;/span&gt;&lt;/i&gt;&lt;/b&gt;
-&lt;BR&gt;
-      ---------------------------&lt;BR&gt;&lt;b&gt;Würth Elektronik&lt;/b&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-    &lt;TD BGCOLOR="#cccccc" ALIGN=CENTER&gt;&lt;FONT FACE=ARIAL SIZE=3&gt;&lt;br&gt;
-      ---------O---&lt;BR&gt;
-      ----O--------&lt;BR&gt;
-      ---------O---&lt;BR&gt;
-      ----O--------&lt;BR&gt;
-      ---------O---&lt;BR&gt;&lt;BR&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-   
-&lt;TD BGCOLOR="#cccccc" ALIGN=CENTER&gt;&lt;FONT FACE=ARIAL SIZE=3&gt;&lt;BR&gt;
-      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&lt;BR&gt;
-       &lt;BR&gt;
-       &lt;BR&gt;
-       &lt;BR&gt;
-       &lt;BR&gt;&lt;BR&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-  &lt;/TR&gt;
-
-  &lt;TR&gt;
-    &lt;TD COLSPAN=7&gt;&amp;nbsp;
-    &lt;/TD&gt;
-  &lt;/TR&gt;
-  
-&lt;/TABLE&gt;
-&lt;B&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;More than you expect&lt;BR&gt;&lt;BR&gt;&lt;BR&gt;&lt;/B&gt;
-
-&lt;HR&gt;&lt;BR&gt;
-&lt;b&gt;Würth Elektronik eiSos GmbH &amp; Co. KG&lt;/b&gt;&lt;br&gt;
-EMC &amp; Inductive Solutions&lt;br&gt;
-
-Max-Eyth-Str.1&lt;br&gt;
-D-74638 Waldenburg&lt;br&gt;
-&lt;br&gt;
-Tel: +49 (0)7942-945-0&lt;br&gt;
-Fax:+49 (0)7942-945-405&lt;br&gt;
-&lt;br&gt;
-&lt;a href="http://www.we-online.com/eagle"&gt;http://www.we-online.com/eagle&lt;/a&gt;&lt;br&gt;
-&lt;a href="mailto:libraries@we-online.com"&gt;libraries@we-online.com&lt;/a&gt; &lt;BR&gt;&lt;BR&gt;
-&lt;br&gt;&lt;HR&gt;&lt;BR&gt;
-Neither CadSoft nor WE-eiSos does warrant that this library is error-free or &lt;br&gt;
-that it meets your specific requirements.&lt;br&gt;&lt;BR&gt;
-Please contact us for more information.&lt;br&gt;&lt;BR&gt;&lt;br&gt;
-&lt;hr&gt;
-Eagle Version 6, Library Revision 2015b, 08.04.2015&lt;br&gt;
-&lt;HR&gt;
-Copyright: Würth Elektronik</description>
-<packages>
-<package name="WL-SMRW-1206-RECT">
-<description>WL-SMRW SMD mono-color reverse mount waterclear, Size: 1206</description>
-<wire x1="-2.8" y1="1.1" x2="2.8" y2="1.1" width="0.127" layer="39"/>
-<wire x1="2.8" y1="1.1" x2="2.8" y2="-1.1" width="0.127" layer="39"/>
-<wire x1="2.8" y1="-1.1" x2="-2.8" y2="-1.1" width="0.127" layer="39"/>
-<wire x1="-2.8" y1="-1.1" x2="-2.8" y2="1.1" width="0.127" layer="39"/>
-<wire x1="1.6" y1="0.8" x2="1.6" y2="-0.8" width="0.127" layer="51"/>
-<wire x1="-1.6" y1="-0.8" x2="-1.6" y2="0.8" width="0.127" layer="51"/>
-<smd name="1" x="-1.75" y="0" dx="1.5" dy="1.6" layer="1" rot="R180"/>
-<smd name="2" x="1.75" y="0" dx="1.5" dy="1.6" layer="1" rot="R180"/>
-<text x="-2.54" y="2.54" size="1.27" layer="25">&gt;NAME</text>
-<text x="-2.54" y="-3.81" size="1.27" layer="27">&gt;VALUE</text>
-<text x="-4.1" y="-0.7" size="1.27" layer="21">K</text>
-<wire x1="-0.9" y1="1.1" x2="0.9" y2="1.1" width="0.127" layer="43"/>
-<wire x1="0.9" y1="1.1" x2="0.9" y2="-1.1" width="0.127" layer="43"/>
-<wire x1="0.9" y1="-1.1" x2="-0.9" y2="-1.1" width="0.127" layer="43"/>
-<wire x1="-0.9" y1="-1.1" x2="-0.9" y2="1.1" width="0.127" layer="43"/>
-<wire x1="-1.6" y1="0.8" x2="-0.9" y2="0.8" width="0.127" layer="51"/>
-<wire x1="-0.9" y1="0.8" x2="0.9" y2="0.8" width="0.127" layer="21"/>
-<wire x1="0.9" y1="0.8" x2="1.6" y2="0.8" width="0.127" layer="51"/>
-<wire x1="-1.6" y1="-0.8" x2="-0.9" y2="-0.8" width="0.127" layer="51"/>
-<wire x1="-0.9" y1="-0.8" x2="0.9" y2="-0.8" width="0.127" layer="21"/>
-<wire x1="0.9" y1="-0.8" x2="1.6" y2="-0.8" width="0.127" layer="51"/>
-</package>
-<package name="WL-SMRW-1206-RECT-REVERSE-MOUNT">
-<description>WL-SMRW SMD mono-color reverse mount waterclear, Size: 1206</description>
-<wire x1="-2.5" y1="1.6" x2="2.5" y2="1.6" width="0.127" layer="39"/>
-<wire x1="2.5" y1="1.6" x2="2.5" y2="-1.6" width="0.127" layer="39"/>
-<wire x1="2.5" y1="-1.6" x2="-2.5" y2="-1.6" width="0.127" layer="39"/>
-<wire x1="-2.5" y1="-1.6" x2="-2.5" y2="1.6" width="0.127" layer="39"/>
-<wire x1="1.6" y1="0.8" x2="1.6" y2="-0.8" width="0.127" layer="51"/>
-<wire x1="-1.6" y1="-0.8" x2="-1.6" y2="0.8" width="0.127" layer="51"/>
-<smd name="1" x="-1.8" y="0" dx="0.8" dy="1.6" layer="1" rot="R180"/>
-<smd name="2" x="1.8" y="0" dx="0.8" dy="1.6" layer="1" rot="R180"/>
-<text x="-2.54" y="2.54" size="1.27" layer="25">&gt;NAME</text>
-<text x="-2.54" y="-3.81" size="1.27" layer="27">&gt;VALUE</text>
-<text x="-4.1" y="-0.7" size="1.27" layer="21">C</text>
-<hole x="0" y="0" drill="2.6"/>
-<wire x1="-1.6" y1="0.8" x2="-1.3" y2="0.8" width="0.1227" layer="51"/>
-<wire x1="-1.6" y1="-0.8" x2="-1.3" y2="-0.8" width="0.1227" layer="51"/>
-<wire x1="-1.3" y1="-0.8" x2="1.3" y2="-0.8" width="0.1227" layer="21"/>
-<wire x1="1.3" y1="-0.8" x2="1.6" y2="-0.8" width="0.1227" layer="51"/>
-<wire x1="-1.3" y1="0.8" x2="1.3" y2="0.8" width="0.1227" layer="21"/>
-<wire x1="1.3" y1="0.8" x2="1.6" y2="0.8" width="0.1227" layer="51"/>
-</package>
-<package name="WL-SMRW-1206-CYLDR">
-<description>WL-SMRW SMD mono-color reverse mount waterclear ,Size: 1206</description>
-<wire x1="-2.8" y1="1.1" x2="2.8" y2="1.1" width="0.127" layer="39"/>
-<wire x1="2.8" y1="1.1" x2="2.8" y2="-1.1" width="0.127" layer="39"/>
-<wire x1="2.8" y1="-1.1" x2="-2.8" y2="-1.1" width="0.127" layer="39"/>
-<wire x1="-2.8" y1="-1.1" x2="-2.8" y2="1.1" width="0.127" layer="39"/>
-<wire x1="1.6" y1="0.8" x2="1.6" y2="-0.8" width="0.127" layer="51"/>
-<wire x1="-1.6" y1="-0.8" x2="-1.6" y2="0.8" width="0.127" layer="51"/>
-<smd name="1" x="-1.7" y="0" dx="1.6" dy="1.6" layer="1" rot="R180"/>
-<smd name="2" x="1.7" y="0" dx="1.6" dy="1.6" layer="1" rot="R180"/>
-<text x="-2.54" y="2.54" size="1.27" layer="25">&gt;NAME</text>
-<text x="-2.54" y="-3.81" size="1.27" layer="27">&gt;VALUE</text>
-<text x="-4.1" y="-0.7" size="1.27" layer="21">C</text>
-<wire x1="-0.8" y1="1.1" x2="0.8" y2="1.1" width="0.127" layer="43"/>
-<wire x1="0.8" y1="1.1" x2="0.8" y2="-1.1" width="0.127" layer="43"/>
-<wire x1="0.8" y1="-1.1" x2="-0.8" y2="-1.1" width="0.127" layer="43"/>
-<wire x1="-0.8" y1="-1.1" x2="-0.8" y2="1.1" width="0.127" layer="43"/>
-<wire x1="-1.6" y1="0.8" x2="-0.8" y2="0.8" width="0.127" layer="51"/>
-<wire x1="-0.8" y1="0.8" x2="0.8" y2="0.8" width="0.127" layer="21"/>
-<wire x1="0.8" y1="0.8" x2="1.6" y2="0.8" width="0.127" layer="51"/>
-<wire x1="-1.6" y1="-0.8" x2="-0.8" y2="-0.8" width="0.127" layer="51"/>
-<wire x1="-0.8" y1="-0.8" x2="0.8" y2="-0.8" width="0.127" layer="21"/>
-<wire x1="0.8" y1="-0.8" x2="1.6" y2="-0.8" width="0.127" layer="51"/>
-</package>
-<package name="WL-SMRW-1206-CYLDR-REVERSE-MOUNT">
-<description>WL-SMRW SMD mono-color reverse mount waterclear, Size: 1206</description>
-<wire x1="-2.5" y1="1.4" x2="2.5" y2="1.4" width="0.127" layer="39"/>
-<wire x1="2.5" y1="1.4" x2="2.5" y2="-1.4" width="0.127" layer="39"/>
-<wire x1="2.5" y1="-1.4" x2="-2.5" y2="-1.4" width="0.127" layer="39"/>
-<wire x1="-2.5" y1="-1.4" x2="-2.5" y2="1.4" width="0.127" layer="39"/>
-<wire x1="1.6" y1="0.8" x2="1.6" y2="-0.8" width="0.127" layer="51"/>
-<wire x1="-1.6" y1="-0.8" x2="-1.6" y2="0.8" width="0.127" layer="51"/>
-<smd name="1" x="-1.7" y="0" dx="1.1" dy="1.6" layer="1" rot="R180"/>
-<smd name="2" x="1.7" y="0" dx="1.1" dy="1.6" layer="1" rot="R180"/>
-<text x="-2.64" y="2.14" size="1.27" layer="25">&gt;NAME</text>
-<text x="-2.64" y="-2.81" size="1.27" layer="27">&gt;VALUE</text>
-<text x="-4.1" y="-0.7" size="1.27" layer="21">C</text>
-<hole x="0" y="0" drill="2.1"/>
-<wire x1="-1.6" y1="0.8" x2="-1.4" y2="0.8" width="0.127" layer="51"/>
-<wire x1="-1.4" y1="0.8" x2="1.3" y2="0.8" width="0.127" layer="21"/>
-<wire x1="1.3" y1="0.8" x2="1.6" y2="0.8" width="0.127" layer="51"/>
-<wire x1="-1.6" y1="-0.8" x2="-1.3" y2="-0.8" width="0.127" layer="51"/>
-<wire x1="-1.3" y1="-0.8" x2="1.3" y2="-0.8" width="0.127" layer="21"/>
-<wire x1="1.3" y1="-0.8" x2="1.6" y2="-0.8" width="0.127" layer="51"/>
-</package>
-</packages>
-<symbols>
-<symbol name="LED">
-<description>LED</description>
-<wire x1="-2.54" y1="0" x2="2.54" y2="2.54" width="0.254" layer="94"/>
-<wire x1="2.54" y1="2.54" x2="2.54" y2="0" width="0.254" layer="94"/>
-<wire x1="2.54" y1="0" x2="2.54" y2="-2.54" width="0.254" layer="94"/>
-<wire x1="2.54" y1="-2.54" x2="-2.54" y2="0" width="0.254" layer="94"/>
-<wire x1="-2.54" y1="0" x2="2.54" y2="0" width="0.254" layer="94"/>
-<wire x1="-2.54" y1="2.54" x2="-2.54" y2="-2.54" width="0.254" layer="94"/>
-<wire x1="-1.75" y1="3.25" x2="-1.75" y2="2.5" width="0.254" layer="94"/>
-<wire x1="-1.75" y1="2.5" x2="-1" y2="3.25" width="0.254" layer="94"/>
-<wire x1="-1" y1="3.25" x2="-1.75" y2="3.25" width="0.254" layer="94"/>
-<wire x1="-0.75" y1="4.25" x2="-1.228" y2="3.5" width="0.254" layer="94"/>
-<wire x1="-1.228" y1="3.5" x2="0" y2="4.25" width="0.254" layer="94"/>
-<wire x1="0" y1="4.25" x2="-0.75" y2="4.25" width="0.254" layer="94"/>
-<wire x1="-0.5" y1="2" x2="-1.75" y2="3.25" width="0.254" layer="94"/>
-<wire x1="-0.75" y1="4.25" x2="0.5" y2="3" width="0.254" layer="94"/>
-<text x="-1.288" y="5.172" size="1.27" layer="95">&gt;NAME</text>
-<text x="-1.228" y="-5.528" size="1.27" layer="96">&gt;VALUE</text>
-<pin name="K" x="-5.08" y="0" visible="pad" length="short"/>
-<pin name="A" x="5.08" y="0" visible="pad" length="short" rot="R180"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="WL-SMRW" prefix="D">
-<description>&lt;b&gt;SMD Reverse mount mono-color rectangular
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;&lt;b&gt; Characteristics
-&lt;br&gt;&lt;br&gt;&lt;/b&gt;&lt;/b&gt; Small size &amp; thin body for space saving
-
-&lt;br&gt; Ideal for narrow space applications
-
-&lt;br&gt; Wide viewing angle
-
-&lt;br&gt; Low power consumption
-
-&lt;br&gt; Industry standard footprint
-
-&lt;br&gt; Small package for exceptional brightness
-&lt;br&gt; To emit light through a small cut-out hole in PCB
-
-&lt;br&gt; Compatible with automatic placement machine
-&lt;br&gt;
-
-&lt;br&gt;&lt;b&gt; Applications
-
-&lt;br&gt;&lt;br&gt;&lt;/b&gt; Front panel indicators
-
-&lt;br&gt; LCD backlighting
-
-&lt;br&gt; Keypad backlighting
-
-&lt;br&gt; Push button backlighting
-
-&lt;br&gt; Symbol and switch backlighting
-
-&lt;br&gt; General lighting
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;&lt;a href="http://katalog.we-online.de/media/images/eipal/WL-SMRW_pf2.jpg" title="Enlarge picture"&gt;
-&lt;img src="http://katalog.we-online.de/media/thumbs2/eipal/thb_WL-SMRW_pf2.jpg" width="320"&gt;&lt;/a&gt;&lt;p&gt;
-Details see: &lt;a href="http://katalog.we-online.de/en/led/WL-SMRW?m"&gt;http://katalog.we-online.de/en/led/WL-SMRW?m&lt;/a&gt;&lt;p&gt;
-
-&lt;/b&gt;Updated  2015-04-10&lt;br&gt;
-&lt;/b&gt;2015 (C) Wurth Elektronik</description>
-<gates>
-<gate name="G$1" symbol="LED" x="0" y="0"/>
-</gates>
-<devices>
-<device name="156120RS75000-R" package="WL-SMRW-1206-RECT">
-<connects>
-<connect gate="G$1" pin="A" pad="2"/>
-<connect gate="G$1" pin="K" pad="1"/>
-</connects>
-<technologies>
-<technology name="">
-<attribute name="COMPANY-URL" value="http://www.we-online.de"/>
-<attribute name="CREATED-BY" value="Christin Otto" constant="no"/>
-<attribute name="CREATED-DATE" value="APR 2013" constant="no"/>
-<attribute name="DATASHEET-URL" value="http://katalog.we-online.de/en/led/WL-SMRW?m=t&amp;sq=smrw&amp;sp=&amp;sp=http%3A%2F%2Fwww.we-online.de%2Fweb%2Fen%2Felectronic_components%2Fsearchpage_PBS.php%3Fsearch%3Dsmrw#vs_ct:1" constant="no"/>
-<attribute name="MANUFACTURER" value="Würth Elektronik eiSos GmbH"/>
-</technology>
-</technologies>
-</device>
-<device name="156120YS75000-Y" package="WL-SMRW-1206-RECT">
-<connects>
-<connect gate="G$1" pin="A" pad="2"/>
-<connect gate="G$1" pin="K" pad="1"/>
-</connects>
-<technologies>
-<technology name="">
-<attribute name="COMPANY-URL" value="http://www.we-online.de"/>
-<attribute name="CREATED-BY" value="Christin Otto" constant="no"/>
-<attribute name="CREATED-DATE" value="APR 2013" constant="no"/>
-<attribute name="DATASHEET-URL" value="http://katalog.we-online.de/en/led/WL-SMRW?m=t&amp;sq=smrw&amp;sp=&amp;sp=http%3A%2F%2Fwww.we-online.de%2Fweb%2Fen%2Felectronic_components%2Fsearchpage_PBS.php%3Fsearch%3Dsmrw#vs_ct:1;" constant="no"/>
-<attribute name="MANUFACTURER" value="Würth Elektronik eiSos GmbH"/>
-</technology>
-</technologies>
-</device>
-<device name="156120VS75000-B-G" package="WL-SMRW-1206-RECT">
-<connects>
-<connect gate="G$1" pin="A" pad="2"/>
-<connect gate="G$1" pin="K" pad="1"/>
-</connects>
-<technologies>
-<technology name="">
-<attribute name="COMPANY-URL" value="http://www.we-online.de"/>
-<attribute name="CREATED-BY" value="Christin Otto" constant="no"/>
-<attribute name="CREATED-DATE" value="APR 2013" constant="no"/>
-<attribute name="DATASHEET-URL" value="http://katalog.we-online.de/en/led/WL-SMRW?m=t&amp;sq=smrw&amp;sp=&amp;sp=http%3A%2F%2Fwww.we-online.de%2Fweb%2Fen%2Felectronic_components%2Fsearchpage_PBS.php%3Fsearch%3Dsmrw#vs_ct:1;" constant="no"/>
-<attribute name="MANUFACTURER" value="Würth Elektronik eiSos GmbH"/>
-</technology>
-</technologies>
-</device>
-<device name="156120GS75000-G" package="WL-SMRW-1206-RECT">
-<connects>
-<connect gate="G$1" pin="A" pad="2"/>
-<connect gate="G$1" pin="K" pad="1"/>
-</connects>
-<technologies>
-<technology name="">
-<attribute name="COMPANY-URL" value="http://www.we-online.de"/>
-<attribute name="CREATED-BY" value="Christin Otto" constant="no"/>
-<attribute name="CREATED-DATE" value="APR 2013" constant="no"/>
-<attribute name="DATASHEET-URL" value="http://katalog.we-online.de/en/led/WL-SMRW?m=t&amp;sq=smrw&amp;sp=&amp;sp=http%3A%2F%2Fwww.we-online.de%2Fweb%2Fen%2Felectronic_components%2Fsearchpage_PBS.php%3Fsearch%3Dsmrw#vs_ct:1;" constant="no"/>
-<attribute name="MANUFACTURER" value="Würth Elektronik eiSos GmbH"/>
-</technology>
-</technologies>
-</device>
-<device name="156120RS75000-R_RVS-MOUNT" package="WL-SMRW-1206-RECT-REVERSE-MOUNT">
-<connects>
-<connect gate="G$1" pin="A" pad="2"/>
-<connect gate="G$1" pin="K" pad="1"/>
-</connects>
-<technologies>
-<technology name="">
-<attribute name="COMPANY-URL" value="http://www.we-online.de"/>
-<attribute name="CREATED-BY" value="Christin Otto" constant="no"/>
-<attribute name="CREATED-DATE" value="APR 2013" constant="no"/>
-<attribute name="DATASHEET-URL" value="http://katalog.we-online.de/en/led/WL-SMRW?m=t&amp;sq=smrw&amp;sp=&amp;sp=http%3A%2F%2Fwww.we-online.de%2Fweb%2Fen%2Felectronic_components%2Fsearchpage_PBS.php%3Fsearch%3Dsmrw#vs_ct:1;" constant="no"/>
-<attribute name="MANUFACTURER" value="Würth Elektronik eiSos GmbH"/>
-</technology>
-</technologies>
-</device>
-<device name="156120YS75000-Y_RVS-MOUNT" package="WL-SMRW-1206-RECT-REVERSE-MOUNT">
-<connects>
-<connect gate="G$1" pin="A" pad="2"/>
-<connect gate="G$1" pin="K" pad="1"/>
-</connects>
-<technologies>
-<technology name="">
-<attribute name="COMPANY-URL" value="http://www.we-online.de"/>
-<attribute name="CREATED-BY" value="Christin Otto" constant="no"/>
-<attribute name="CREATED-DATE" value="APR 2013" constant="no"/>
-<attribute name="DATASHEET-URL" value="http://katalog.we-online.de/en/led/WL-SMRW?m=t&amp;sq=smrw&amp;sp=&amp;sp=http%3A%2F%2Fwww.we-online.de%2Fweb%2Fen%2Felectronic_components%2Fsearchpage_PBS.php%3Fsearch%3Dsmrw#vs_ct:1;" constant="no"/>
-<attribute name="MANUFACTURER" value="Würth Elektronik eiSos GmbH"/>
-</technology>
-</technologies>
-</device>
-<device name="156120VS75000-B-G_RVS-MOUNT" package="WL-SMRW-1206-RECT-REVERSE-MOUNT">
-<connects>
-<connect gate="G$1" pin="A" pad="2"/>
-<connect gate="G$1" pin="K" pad="1"/>
-</connects>
-<technologies>
-<technology name="">
-<attribute name="COMPANY-URL" value="http://www.we-online.de"/>
-<attribute name="CREATED-BY" value="Christin Otto" constant="no"/>
-<attribute name="CREATED-DATE" value="APR 2013" constant="no"/>
-<attribute name="DATASHEET-URL" value="http://katalog.we-online.de/en/led/WL-SMRW?m=t&amp;sq=smrw&amp;sp=&amp;sp=http%3A%2F%2Fwww.we-online.de%2Fweb%2Fen%2Felectronic_components%2Fsearchpage_PBS.php%3Fsearch%3Dsmrw#vs_ct:1;" constant="no"/>
-<attribute name="MANUFACTURER" value="Würth Elektronik eiSos GmbH"/>
-</technology>
-</technologies>
-</device>
-<device name="156120GS75000-G_RVS-MOUNT" package="WL-SMRW-1206-RECT-REVERSE-MOUNT">
-<connects>
-<connect gate="G$1" pin="A" pad="2"/>
-<connect gate="G$1" pin="K" pad="1"/>
-</connects>
-<technologies>
-<technology name="">
-<attribute name="COMPANY-URL" value="http://www.we-online.de"/>
-<attribute name="CREATED-BY" value="Christin Otto" constant="no"/>
-<attribute name="CREATED-DATE" value="APR 2013" constant="no"/>
-<attribute name="DATASHEET-URL" value="http://katalog.we-online.de/en/led/WL-SMRW?m=t&amp;sq=smrw&amp;sp=&amp;sp=http%3A%2F%2Fwww.we-online.de%2Fweb%2Fen%2Felectronic_components%2Fsearchpage_PBS.php%3Fsearch%3Dsmrw#vs_ct:1;" constant="no"/>
-<attribute name="MANUFACTURER" value="Würth Elektronik eiSos GmbH"/>
-</technology>
-</technologies>
-</device>
-<device name="156120RS75300-R" package="WL-SMRW-1206-CYLDR">
-<connects>
-<connect gate="G$1" pin="A" pad="2"/>
-<connect gate="G$1" pin="K" pad="1"/>
-</connects>
-<technologies>
-<technology name="">
-<attribute name="COMPANY-URL" value="http://www.we-online.de"/>
-<attribute name="CREATED-BY" value="Christin Otto" constant="no"/>
-<attribute name="CREATED-DATE" value="APR 2013" constant="no"/>
-<attribute name="DATASHEET-URL" value="http://katalog.we-online.de/en/led/WL-SMRW?m=t&amp;sq=smrw&amp;sp=&amp;sp=http%3A%2F%2Fwww.we-online.de%2Fweb%2Fen%2Felectronic_components%2Fsearchpage_PBS.php%3Fsearch%3Dsmrw#vs_ct:1;" constant="no"/>
-<attribute name="MANUFACTURER" value="Würth Elektronik eiSos GmbH"/>
-</technology>
-</technologies>
-</device>
-<device name="156120YS75300-Y" package="WL-SMRW-1206-CYLDR">
-<connects>
-<connect gate="G$1" pin="A" pad="2"/>
-<connect gate="G$1" pin="K" pad="1"/>
-</connects>
-<technologies>
-<technology name="">
-<attribute name="COMPANY-URL" value="http://www.we-online.de"/>
-<attribute name="CREATED-BY" value="Christin Otto" constant="no"/>
-<attribute name="CREATED-DATE" value="APR 2013" constant="no"/>
-<attribute name="DATASHEET-URL" value="http://katalog.we-online.de/en/led/WL-SMRW?m=t&amp;sq=smrw&amp;sp=&amp;sp=http%3A%2F%2Fwww.we-online.de%2Fweb%2Fen%2Felectronic_components%2Fsearchpage_PBS.php%3Fsearch%3Dsmrw#vs_ct:1;" constant="no"/>
-<attribute name="MANUFACTURER" value="Würth Elektronik eiSos GmbH"/>
-</technology>
-</technologies>
-</device>
-<device name="156120VS75300-B-G" package="WL-SMRW-1206-CYLDR">
-<connects>
-<connect gate="G$1" pin="A" pad="2"/>
-<connect gate="G$1" pin="K" pad="1"/>
-</connects>
-<technologies>
-<technology name="">
-<attribute name="COMPANY-URL" value="http://www.we-online.de"/>
-<attribute name="CREATED-BY" value="Christin Otto" constant="no"/>
-<attribute name="CREATED-DATE" value="APR 2013" constant="no"/>
-<attribute name="DATASHEET-URL" value="http://katalog.we-online.de/en/led/WL-SMRW?m=t&amp;sq=smrw&amp;sp=&amp;sp=http%3A%2F%2Fwww.we-online.de%2Fweb%2Fen%2Felectronic_components%2Fsearchpage_PBS.php%3Fsearch%3Dsmrw#vs_ct:1;" constant="no"/>
-<attribute name="MANUFACTURER" value="Würth Elektronik eiSos GmbH"/>
-</technology>
-</technologies>
-</device>
-<device name="156120GS75300-G" package="WL-SMRW-1206-CYLDR">
-<connects>
-<connect gate="G$1" pin="A" pad="2"/>
-<connect gate="G$1" pin="K" pad="1"/>
-</connects>
-<technologies>
-<technology name="">
-<attribute name="COMPANY-URL" value="http://www.we-online.de"/>
-<attribute name="CREATED-BY" value="Christin Otto" constant="no"/>
-<attribute name="CREATED-DATE" value="APR 2013" constant="no"/>
-<attribute name="DATASHEET-URL" value="http://katalog.we-online.de/en/led/WL-SMRW?m=t&amp;sq=smrw&amp;sp=&amp;sp=http%3A%2F%2Fwww.we-online.de%2Fweb%2Fen%2Felectronic_components%2Fsearchpage_PBS.php%3Fsearch%3Dsmrw#vs_ct:1;" constant="no"/>
-<attribute name="MANUFACTURER" value="Würth Elektronik eiSos GmbH"/>
-</technology>
-</technologies>
-</device>
-<device name="156120RS75300-R_RVS-MOUNT" package="WL-SMRW-1206-CYLDR-REVERSE-MOUNT">
-<connects>
-<connect gate="G$1" pin="A" pad="2"/>
-<connect gate="G$1" pin="K" pad="1"/>
-</connects>
-<technologies>
-<technology name="">
-<attribute name="COMPANY-URL" value="http://www.we-online.de"/>
-<attribute name="CREATED-BY" value="Christin Otto" constant="no"/>
-<attribute name="CREATED-DATE" value="APR 2013" constant="no"/>
-<attribute name="DATASHEET-URL" value="http://katalog.we-online.de/en/led/WL-SMRW?m=t&amp;sq=smrw&amp;sp=&amp;sp=http%3A%2F%2Fwww.we-online.de%2Fweb%2Fen%2Felectronic_components%2Fsearchpage_PBS.php%3Fsearch%3Dsmrw#vs_ct:1;" constant="no"/>
-<attribute name="MANUFACTURER" value="Würth Elektronik eiSos GmbH"/>
-</technology>
-</technologies>
-</device>
-<device name="156120YS75300-Y_RVS-MOUNT" package="WL-SMRW-1206-CYLDR-REVERSE-MOUNT">
-<connects>
-<connect gate="G$1" pin="A" pad="2"/>
-<connect gate="G$1" pin="K" pad="1"/>
-</connects>
-<technologies>
-<technology name="">
-<attribute name="COMPANY-URL" value="http://www.we-online.de"/>
-<attribute name="CREATED-BY" value="Christin Otto" constant="no"/>
-<attribute name="CREATED-DATE" value="APR 2013" constant="no"/>
-<attribute name="DATASHEET-URL" value="http://katalog.we-online.de/en/led/WL-SMRW?m=t&amp;sq=smrw&amp;sp=&amp;sp=http%3A%2F%2Fwww.we-online.de%2Fweb%2Fen%2Felectronic_components%2Fsearchpage_PBS.php%3Fsearch%3Dsmrw#vs_ct:1;" constant="no"/>
-<attribute name="MANUFACTURER" value="Würth Elektronik eiSos GmbH"/>
-</technology>
-</technologies>
-</device>
-<device name="156120VS75300-B-G_RVS-MOUNT" package="WL-SMRW-1206-CYLDR-REVERSE-MOUNT">
-<connects>
-<connect gate="G$1" pin="A" pad="2"/>
-<connect gate="G$1" pin="K" pad="1"/>
-</connects>
-<technologies>
-<technology name="">
-<attribute name="COMPANY-URL" value="http://www.we-online.de"/>
-<attribute name="CREATED-BY" value="Christin Otto" constant="no"/>
-<attribute name="CREATED-DATE" value="APR 2013" constant="no"/>
-<attribute name="DATASHEET-URL" value="http://katalog.we-online.de/en/led/WL-SMRW?m=t&amp;sq=smrw&amp;sp=&amp;sp=http%3A%2F%2Fwww.we-online.de%2Fweb%2Fen%2Felectronic_components%2Fsearchpage_PBS.php%3Fsearch%3Dsmrw#vs_ct:1;" constant="no"/>
-<attribute name="MANUFACTURER" value="Würth Elektronik eiSos GmbH"/>
-</technology>
-</technologies>
-</device>
-<device name="156120GS75300-G_RVS-MOUNT" package="WL-SMRW-1206-CYLDR-REVERSE-MOUNT">
-<connects>
-<connect gate="G$1" pin="A" pad="2"/>
-<connect gate="G$1" pin="K" pad="1"/>
-</connects>
-<technologies>
-<technology name="">
-<attribute name="COMPANY-URL" value="http://www.we-online.de"/>
-<attribute name="CREATED-BY" value="Christin Otto" constant="no"/>
-<attribute name="CREATED-DATE" value="APR 2013" constant="no"/>
-<attribute name="DATASHEET-URL" value="http://katalog.we-online.de/en/led/WL-SMRW?m=t&amp;sq=smrw&amp;sp=&amp;sp=http%3A%2F%2Fwww.we-online.de%2Fweb%2Fen%2Felectronic_components%2Fsearchpage_PBS.php%3Fsearch%3Dsmrw#vs_ct:1;" constant="no"/>
-<attribute name="MANUFACTURER" value="Würth Elektronik eiSos GmbH"/>
-</technology>
-</technologies>
-</device>
-<device name="156120BS75000-B" package="WL-SMRW-1206-RECT">
-<connects>
-<connect gate="G$1" pin="A" pad="2"/>
-<connect gate="G$1" pin="K" pad="1"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="156120BS75000-B_RVS-MOUNT" package="WL-SMRW-1206-RECT-REVERSE-MOUNT">
-<connects>
-<connect gate="G$1" pin="A" pad="2"/>
-<connect gate="G$1" pin="K" pad="1"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="156120BS75300-B" package="WL-SMRW-1206-CYLDR">
-<connects>
-<connect gate="G$1" pin="A" pad="2"/>
-<connect gate="G$1" pin="K" pad="1"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="156120BS75300-B_RVS-MOUNT" package="WL-SMRW-1206-CYLDR-REVERSE-MOUNT">
-<connects>
-<connect gate="G$1" pin="A" pad="2"/>
-<connect gate="G$1" pin="K" pad="1"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 <library name="HTS221TR">
 <description>&lt;Humidity and Temperature Sensor HLGA6 STMicroelectronics HTS221TR Temperature &amp; Humidity Sensor, -40  +120 C, 6-Pin HLGA&lt;/b&gt;&lt;p&gt;
 &lt;author&gt;Created by SamacSys&lt;/author&gt;</description>
@@ -9945,6 +9432,218 @@ Source: &lt;a href="http://www.st.com/content/ccc/resource/technical/document/da
 </deviceset>
 </devicesets>
 </library>
+<library name="led" urn="urn:adsk.eagle:library:259">
+<description>&lt;b&gt;LEDs&lt;/b&gt;&lt;p&gt;
+&lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;&lt;br&gt;
+Extended by Federico Battaglin &lt;author&gt;&amp;lt;federico.rd@fdpinternational.com&amp;gt;&lt;/author&gt; with DUOLED</description>
+<packages>
+<package name="P47F-BOTTOM" urn="urn:adsk.eagle:footprint:15761/1" library_version="2">
+<description>&lt;b&gt;PointLED® Enhanced Thinfilm LED&lt;/b&gt; BOTTOM mount&lt;p&gt;
+Source: http://catalog.osram-os.com .. LA_LR_LS_LY_P47F_Pb_free.pdf</description>
+<wire x1="-0.8" y1="-0.6095" x2="-1.7524" y2="-0.6095" width="0.1" layer="51"/>
+<wire x1="-1.7524" y1="-0.6095" x2="-1.7524" y2="-0.1714" width="0.1" layer="51"/>
+<wire x1="-1.7524" y1="-0.1714" x2="-1.4953" y2="-0.1714" width="0.1" layer="51"/>
+<wire x1="-1.4953" y1="-0.1714" x2="-1.4286" y2="-0.2286" width="0.1" layer="51"/>
+<wire x1="-1.4286" y1="-0.2286" x2="-1.2667" y2="-0.2571" width="0.1" layer="51" curve="61.173957"/>
+<wire x1="-1.2667" y1="-0.2571" x2="-1.2095" y2="-0.2" width="0.1" layer="51" curve="48.594558"/>
+<wire x1="-1.2095" y1="-0.2" x2="-1.2381" y2="-0.0095" width="0.1" layer="51" curve="58.580846"/>
+<wire x1="-1.2381" y1="-0.0095" x2="-1.2857" y2="0.0952" width="0.1" layer="51" curve="-26.758013"/>
+<wire x1="-1.2857" y1="0.0952" x2="-1.2857" y2="0.2571" width="0.1" layer="51" curve="-22.142725"/>
+<wire x1="-1.2857" y1="0.2571" x2="-1.1524" y2="0.6095" width="0.1" layer="51" curve="-19.309263"/>
+<wire x1="-1.1524" y1="0.6095" x2="-0.9714" y2="0.6095" width="0.1" layer="51"/>
+<wire x1="-0.9714" y1="0.6095" x2="-0.7524" y2="0.6095" width="0.1" layer="51"/>
+<wire x1="-0.981" y1="-0.6" x2="-1.1143" y2="-0.3619" width="0.1" layer="51"/>
+<wire x1="-1.1143" y1="-0.3619" x2="-0.9714" y2="-0.2952" width="0.1" layer="51"/>
+<wire x1="-0.9334" y1="0.2667" x2="-1.1143" y2="0.3525" width="0.1" layer="51"/>
+<wire x1="-1.1143" y1="0.3525" x2="-0.9714" y2="0.6095" width="0.1" layer="51"/>
+<wire x1="-0.3048" y1="-0.0476" x2="-0.0857" y2="-0.2667" width="0.1" layer="52" curve="90"/>
+<wire x1="-0.0857" y1="-0.2667" x2="0.2286" y2="-0.2667" width="0.1" layer="52"/>
+<wire x1="0.2286" y1="-0.2667" x2="0.5429" y2="-0.2952" width="0.1" layer="52"/>
+<wire x1="0.5429" y1="-0.2952" x2="0.6953" y2="-0.2381" width="0.1" layer="52" curve="51.565061"/>
+<wire x1="0.6953" y1="-0.2381" x2="0.8" y2="0" width="0.1" layer="52" curve="39.925503"/>
+<wire x1="-0.3048" y1="0.0476" x2="-0.3048" y2="-0.0476" width="0.1" layer="52"/>
+<wire x1="-0.0857" y1="0.2667" x2="-0.3048" y2="0.0476" width="0.1" layer="52" curve="90"/>
+<wire x1="-0.0857" y1="0.2666" x2="0.2286" y2="0.2666" width="0.1" layer="52"/>
+<wire x1="0.5429" y1="0.2952" x2="0.2286" y2="0.2667" width="0.1" layer="52"/>
+<wire x1="0.5429" y1="0.2952" x2="0.6953" y2="0.2381" width="0.1" layer="52" curve="-51.565061"/>
+<wire x1="0.6953" y1="0.2381" x2="0.8" y2="0" width="0.1" layer="52" curve="-39.925503"/>
+<wire x1="0.8" y1="0.6095" x2="1.7524" y2="0.6095" width="0.1" layer="51"/>
+<wire x1="1.7524" y1="0.6095" x2="1.7524" y2="0.1714" width="0.1" layer="51"/>
+<wire x1="1.7524" y1="0.1714" x2="1.4953" y2="0.1714" width="0.1" layer="51"/>
+<wire x1="1.4953" y1="0.1714" x2="1.4286" y2="0.2286" width="0.1" layer="51"/>
+<wire x1="1.4286" y1="0.2286" x2="1.2667" y2="0.2571" width="0.1" layer="51" curve="61.173957"/>
+<wire x1="1.2667" y1="0.2571" x2="1.2095" y2="0.2" width="0.1" layer="51" curve="48.594558"/>
+<wire x1="1.2095" y1="0.2" x2="1.2381" y2="0.0095" width="0.1" layer="51" curve="58.580846"/>
+<wire x1="1.2381" y1="0.0095" x2="1.2857" y2="-0.0952" width="0.1" layer="51" curve="-26.758013"/>
+<wire x1="1.2857" y1="-0.0952" x2="1.2857" y2="-0.2571" width="0.1" layer="51" curve="-22.142725"/>
+<wire x1="1.2857" y1="-0.2571" x2="1.1524" y2="-0.6095" width="0.1" layer="51" curve="-19.309263"/>
+<wire x1="1.1524" y1="-0.6095" x2="0.9714" y2="-0.6095" width="0.1" layer="51"/>
+<wire x1="0.9714" y1="-0.6095" x2="0.7524" y2="-0.6095" width="0.1" layer="51"/>
+<wire x1="0.981" y1="0.6" x2="1.1143" y2="0.3619" width="0.1" layer="51"/>
+<wire x1="1.1143" y1="0.3619" x2="0.9714" y2="0.2952" width="0.1" layer="51"/>
+<wire x1="0.9334" y1="-0.2667" x2="1.1143" y2="-0.3525" width="0.1" layer="51"/>
+<wire x1="1.1143" y1="-0.3525" x2="0.9714" y2="-0.6095" width="0.1" layer="51"/>
+<circle x="0" y="0" radius="0.9524" width="0.1" layer="22"/>
+<smd name="A" x="-2.45" y="0" dx="2.6" dy="2.6" layer="1" stop="no" cream="no"/>
+<smd name="C" x="2.45" y="0" dx="2.6" dy="2.6" layer="1" rot="R180" stop="no" cream="no"/>
+<text x="-3.81" y="1.905" size="1.27" layer="25">&gt;NAME</text>
+<text x="-3.81" y="-3.175" size="1.27" layer="27">&gt;VALUE</text>
+<rectangle x1="-3.0066" y1="-0.1852" x2="-2.9972" y2="-0.1758" layer="16"/>
+<rectangle x1="-1.825" y1="-0.9" x2="-1.15" y2="0.2" layer="29"/>
+<rectangle x1="1.15" y1="-0.2" x2="1.825" y2="0.9" layer="29" rot="R180"/>
+<rectangle x1="2.4937" y1="-0.0141" x2="2.5031" y2="-0.0047" layer="16" rot="R180"/>
+<rectangle x1="-1.8" y1="-0.725" x2="-1.175" y2="0.05" layer="31"/>
+<rectangle x1="1.175" y1="-0.05" x2="1.8" y2="0.725" layer="31" rot="R180"/>
+<rectangle x1="-0.1" y1="-0.1" x2="0.1" y2="0.1" layer="52"/>
+<hole x="0" y="0" drill="2.3"/>
+</package>
+<package name="P47F-TOP" urn="urn:adsk.eagle:footprint:15762/1" library_version="2">
+<description>&lt;b&gt;PointLED® Enhanced Thinfilm LED&lt;/b&gt; TOP mount&lt;p&gt;
+Source: http://catalog.osram-os.com .. LA_LR_LS_LY_P47F_Pb_free.pdf</description>
+<wire x1="-0.8" y1="0.6095" x2="-1.7524" y2="0.6095" width="0.1" layer="51"/>
+<wire x1="-1.7524" y1="0.6095" x2="-1.7524" y2="0.1714" width="0.1" layer="51"/>
+<wire x1="-1.7524" y1="0.1714" x2="-1.4953" y2="0.1714" width="0.1" layer="51"/>
+<wire x1="-1.4953" y1="0.1714" x2="-1.4286" y2="0.2286" width="0.1" layer="51"/>
+<wire x1="-1.4286" y1="0.2286" x2="-1.2667" y2="0.2571" width="0.1" layer="51" curve="-61.21063"/>
+<wire x1="-1.2667" y1="0.2571" x2="-1.2095" y2="0.2" width="0.1" layer="51" curve="-48.594558"/>
+<wire x1="-1.2095" y1="0.2" x2="-1.2381" y2="0.0095" width="0.1" layer="51" curve="-58.580846"/>
+<wire x1="-1.2381" y1="0.0095" x2="-1.2857" y2="-0.0952" width="0.1" layer="51" curve="26.758013"/>
+<wire x1="-1.2857" y1="-0.0952" x2="-1.2857" y2="-0.2571" width="0.1" layer="51" curve="22.142725"/>
+<wire x1="-1.2857" y1="-0.2571" x2="-1.1524" y2="-0.6095" width="0.1" layer="51" curve="19.307434"/>
+<wire x1="-1.1524" y1="-0.6095" x2="-0.9714" y2="-0.6095" width="0.1" layer="51"/>
+<wire x1="-0.9714" y1="-0.6095" x2="-0.7524" y2="-0.6095" width="0.1" layer="51"/>
+<wire x1="-0.981" y1="0.6" x2="-1.1143" y2="0.3619" width="0.1" layer="51"/>
+<wire x1="-1.1143" y1="0.3619" x2="-0.9714" y2="0.2952" width="0.1" layer="51"/>
+<wire x1="-0.9334" y1="-0.2667" x2="-1.1143" y2="-0.3525" width="0.1" layer="51"/>
+<wire x1="-1.1143" y1="-0.3525" x2="-0.9714" y2="-0.6095" width="0.1" layer="51"/>
+<wire x1="-0.3048" y1="0.0476" x2="-0.0857" y2="0.2667" width="0.1" layer="21" curve="-90"/>
+<wire x1="-0.0857" y1="0.2667" x2="0.2286" y2="0.2667" width="0.1" layer="21"/>
+<wire x1="0.2286" y1="0.2667" x2="0.5429" y2="0.2952" width="0.1" layer="21"/>
+<wire x1="0.5429" y1="0.2952" x2="0.6953" y2="0.2381" width="0.1" layer="21" curve="-51.536625"/>
+<wire x1="0.6953" y1="0.2381" x2="0.8" y2="0" width="0.1" layer="21" curve="-39.925503"/>
+<wire x1="-0.3048" y1="-0.0476" x2="-0.3048" y2="0.0476" width="0.1" layer="21"/>
+<wire x1="-0.0857" y1="-0.2667" x2="-0.3048" y2="-0.0476" width="0.1" layer="21" curve="-90"/>
+<wire x1="-0.0857" y1="-0.2666" x2="0.2286" y2="-0.2666" width="0.1" layer="21"/>
+<wire x1="0.5429" y1="-0.2952" x2="0.2286" y2="-0.2667" width="0.1" layer="21"/>
+<wire x1="0.5429" y1="-0.2952" x2="0.6953" y2="-0.2381" width="0.1" layer="21" curve="51.536625"/>
+<wire x1="0.6953" y1="-0.2381" x2="0.8" y2="0" width="0.1" layer="21" curve="39.925503"/>
+<wire x1="0.8" y1="-0.6095" x2="1.7524" y2="-0.6095" width="0.1" layer="51"/>
+<wire x1="1.7524" y1="-0.6095" x2="1.7524" y2="-0.1714" width="0.1" layer="51"/>
+<wire x1="1.7524" y1="-0.1714" x2="1.4953" y2="-0.1714" width="0.1" layer="51"/>
+<wire x1="1.4953" y1="-0.1714" x2="1.4286" y2="-0.2286" width="0.1" layer="51"/>
+<wire x1="1.4286" y1="-0.2286" x2="1.2667" y2="-0.2571" width="0.1" layer="51" curve="-61.21063"/>
+<wire x1="1.2667" y1="-0.2571" x2="1.2095" y2="-0.2" width="0.1" layer="51" curve="-48.594558"/>
+<wire x1="1.2095" y1="-0.2" x2="1.2381" y2="-0.0095" width="0.1" layer="51" curve="-58.580846"/>
+<wire x1="1.2381" y1="-0.0095" x2="1.2857" y2="0.0952" width="0.1" layer="51" curve="26.758013"/>
+<wire x1="1.2857" y1="0.0952" x2="1.2857" y2="0.2571" width="0.1" layer="51" curve="22.142725"/>
+<wire x1="1.2857" y1="0.2571" x2="1.1524" y2="0.6095" width="0.1" layer="51" curve="19.307434"/>
+<wire x1="1.1524" y1="0.6095" x2="0.9714" y2="0.6095" width="0.1" layer="51"/>
+<wire x1="0.9714" y1="0.6095" x2="0.7524" y2="0.6095" width="0.1" layer="51"/>
+<wire x1="0.981" y1="-0.6" x2="1.1143" y2="-0.3619" width="0.1" layer="51"/>
+<wire x1="1.1143" y1="-0.3619" x2="0.9714" y2="-0.2952" width="0.1" layer="51"/>
+<wire x1="0.9334" y1="0.2667" x2="1.1143" y2="0.3525" width="0.1" layer="51"/>
+<wire x1="1.1143" y1="0.3525" x2="0.9714" y2="0.6095" width="0.1" layer="51"/>
+<circle x="0" y="0" radius="0.9524" width="0.1" layer="21"/>
+<smd name="A" x="-2.45" y="0" dx="2.6" dy="2.6" layer="1" stop="no" cream="no"/>
+<smd name="C" x="2.45" y="0" dx="2.6" dy="2.6" layer="1" rot="R180" stop="no" cream="no"/>
+<text x="-3.81" y="1.905" size="1.27" layer="25">&gt;NAME</text>
+<text x="-3.81" y="-3.175" size="1.27" layer="27">&gt;VALUE</text>
+<rectangle x1="-3.0067" y1="0.1758" x2="-2.9972" y2="0.1853" layer="1"/>
+<rectangle x1="-1.825" y1="-0.2" x2="-1.15" y2="0.9" layer="29"/>
+<rectangle x1="1.15" y1="-0.9" x2="1.825" y2="0.2" layer="29" rot="R180"/>
+<rectangle x1="2.4937" y1="0.0047" x2="2.5031" y2="0.0141" layer="1" rot="R180"/>
+<rectangle x1="-1.8" y1="-0.05" x2="-1.175" y2="0.725" layer="31"/>
+<rectangle x1="1.175" y1="-0.725" x2="1.8" y2="0.05" layer="31" rot="R180"/>
+<rectangle x1="-0.1" y1="-0.1" x2="0.1" y2="0.1" layer="21"/>
+<hole x="0" y="0" drill="2.3"/>
+</package>
+</packages>
+<packages3d>
+<package3d name="P47F-BOTTOM" urn="urn:adsk.eagle:package:15878/1" type="box" library_version="2">
+<description>PointLED® Enhanced Thinfilm LED BOTTOM mount
+Source: http://catalog.osram-os.com .. LA_LR_LS_LY_P47F_Pb_free.pdf</description>
+</package3d>
+<package3d name="P47F-TOP" urn="urn:adsk.eagle:package:15879/1" type="box" library_version="2">
+<description>PointLED® Enhanced Thinfilm LED TOP mount
+Source: http://catalog.osram-os.com .. LA_LR_LS_LY_P47F_Pb_free.pdf</description>
+</package3d>
+</packages3d>
+<symbols>
+<symbol name="LED" urn="urn:adsk.eagle:symbol:15639/1" library_version="2">
+<wire x1="1.27" y1="0" x2="0" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="0" y1="-2.54" x2="-1.27" y2="0" width="0.254" layer="94"/>
+<wire x1="1.27" y1="-2.54" x2="0" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="0" y1="-2.54" x2="-1.27" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="1.27" y1="0" x2="0" y2="0" width="0.254" layer="94"/>
+<wire x1="0" y1="0" x2="-1.27" y2="0" width="0.254" layer="94"/>
+<wire x1="0" y1="0" x2="0" y2="-2.54" width="0.1524" layer="94"/>
+<wire x1="-2.032" y1="-0.762" x2="-3.429" y2="-2.159" width="0.1524" layer="94"/>
+<wire x1="-1.905" y1="-1.905" x2="-3.302" y2="-3.302" width="0.1524" layer="94"/>
+<text x="3.556" y="-4.572" size="1.778" layer="95" rot="R90">&gt;NAME</text>
+<text x="5.715" y="-4.572" size="1.778" layer="96" rot="R90">&gt;VALUE</text>
+<pin name="C" x="0" y="-5.08" visible="off" length="short" direction="pas" rot="R90"/>
+<pin name="A" x="0" y="2.54" visible="off" length="short" direction="pas" rot="R270"/>
+<polygon width="0.1524" layer="94">
+<vertex x="-3.429" y="-2.159"/>
+<vertex x="-3.048" y="-1.27"/>
+<vertex x="-2.54" y="-1.778"/>
+</polygon>
+<polygon width="0.1524" layer="94">
+<vertex x="-3.302" y="-3.302"/>
+<vertex x="-2.921" y="-2.413"/>
+<vertex x="-2.413" y="-2.921"/>
+</polygon>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="*P4" urn="urn:adsk.eagle:component:15960/1" prefix="LED" library_version="2">
+<description>&lt;b&gt;PointLED® Enhanced Thinfilm LED&lt;/b&gt; TOP &amp; BOTTOM mount&lt;p&gt;
+LS P47F, LR P47F, LA P47F, LY P47F, LT P4SG, LB P4SG, LW P4SG&lt;br&gt;
+Source: http://catalog.osram-os.com .. LA_LR_LS_LY_P47F_Pb_free.pdf</description>
+<gates>
+<gate name="G$1" symbol="LED" x="0" y="0"/>
+</gates>
+<devices>
+<device name="-BOTTOM" package="P47F-BOTTOM">
+<connects>
+<connect gate="G$1" pin="A" pad="A"/>
+<connect gate="G$1" pin="C" pad="C"/>
+</connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:15878/1"/>
+</package3dinstances>
+<technologies>
+<technology name="LA"/>
+<technology name="LB"/>
+<technology name="LR"/>
+<technology name="LS"/>
+<technology name="LT"/>
+<technology name="LW"/>
+<technology name="LY"/>
+</technologies>
+</device>
+<device name="-TOP" package="P47F-TOP">
+<connects>
+<connect gate="G$1" pin="A" pad="A"/>
+<connect gate="G$1" pin="C" pad="C"/>
+</connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:15879/1"/>
+</package3dinstances>
+<technologies>
+<technology name="LA"/>
+<technology name="LB"/>
+<technology name="LR"/>
+<technology name="LS"/>
+<technology name="LT"/>
+<technology name="LW"/>
+<technology name="LY"/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -9971,10 +9670,6 @@ Source: &lt;a href="http://www.st.com/content/ccc/resource/technical/document/da
 <part name="RL1" library="resistor" library_urn="urn:adsk.eagle:library:348" deviceset="R-EU_" device="R0402" package3d_urn="urn:adsk.eagle:package:26058/1" value="330E"/>
 <part name="RL4" library="resistor" library_urn="urn:adsk.eagle:library:348" deviceset="R-EU_" device="R0402" package3d_urn="urn:adsk.eagle:package:26058/1" value="330E"/>
 <part name="RL3" library="resistor" library_urn="urn:adsk.eagle:library:348" deviceset="R-EU_" device="R0402" package3d_urn="urn:adsk.eagle:package:26058/1" value="330E"/>
-<part name="LED1" library="Wurth_Elektronik_Optoelectronics_rev15b (1)" deviceset="WL-SMRW" device="156120BS75300-B_RVS-MOUNT"/>
-<part name="LED2" library="Wurth_Elektronik_Optoelectronics_rev15b (1)" deviceset="WL-SMRW" device="156120BS75300-B_RVS-MOUNT"/>
-<part name="LED3" library="Wurth_Elektronik_Optoelectronics_rev15b (1)" deviceset="WL-SMRW" device="156120BS75300-B_RVS-MOUNT"/>
-<part name="LED4" library="Wurth_Elektronik_Optoelectronics_rev15b (1)" deviceset="WL-SMRW" device="156120BS75300-B_RVS-MOUNT" value="WL-SMRW156120BS75300-B_RVS-MOUNT"/>
 <part name="RS3" library="resistor" library_urn="urn:adsk.eagle:library:348" deviceset="R-EU_" device="R0402" package3d_urn="urn:adsk.eagle:package:26058/1" value="560E"/>
 <part name="RS2" library="resistor" library_urn="urn:adsk.eagle:library:348" deviceset="R-EU_" device="R0402" package3d_urn="urn:adsk.eagle:package:26058/1" value="560E"/>
 <part name="RS1" library="resistor" library_urn="urn:adsk.eagle:library:348" deviceset="R-EU_" device="R0402" package3d_urn="urn:adsk.eagle:package:26058/1" value="560E"/>
@@ -10000,6 +9695,10 @@ Source: &lt;a href="http://www.st.com/content/ccc/resource/technical/document/da
 <part name="C12" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0402" package3d_urn="urn:adsk.eagle:package:23626/1" value="100nf"/>
 <part name="C13" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0402" package3d_urn="urn:adsk.eagle:package:23626/1" value="100nf"/>
 <part name="C14" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0402" package3d_urn="urn:adsk.eagle:package:23626/1" value="100nf"/>
+<part name="LED1" library="led" library_urn="urn:adsk.eagle:library:259" deviceset="*P4" device="-BOTTOM" package3d_urn="urn:adsk.eagle:package:15878/1" technology="LW"/>
+<part name="LED2" library="led" library_urn="urn:adsk.eagle:library:259" deviceset="*P4" device="-BOTTOM" package3d_urn="urn:adsk.eagle:package:15878/1" technology="LW"/>
+<part name="LED3" library="led" library_urn="urn:adsk.eagle:library:259" deviceset="*P4" device="-BOTTOM" package3d_urn="urn:adsk.eagle:package:15878/1" technology="LW"/>
+<part name="LED4" library="led" library_urn="urn:adsk.eagle:library:259" deviceset="*P4" device="-BOTTOM" package3d_urn="urn:adsk.eagle:package:15878/1" technology="LW"/>
 </parts>
 <sheets>
 <sheet>
@@ -10013,6 +9712,8 @@ I2C WRITE: 0xBE</text>
 <text x="162.56" y="-22.86" size="1.778" layer="91">TODO:
 * I2C Pins auf VIAS
 </text>
+<text x="149.86" y="66.04" size="1.27" layer="91">LEDS
+OSRAM LW P473</text>
 </plain>
 <instances>
 <instance part="SIEMENS-BCU" gate="A" x="53.34" y="55.88" rot="R90"/>
@@ -10031,10 +9732,6 @@ I2C WRITE: 0xBE</text>
 <instance part="RL1" gate="G$1" x="177.8" y="55.88" rot="R180"/>
 <instance part="RL4" gate="G$1" x="177.8" y="17.78" rot="R180"/>
 <instance part="RL3" gate="G$1" x="177.8" y="30.48" rot="R180"/>
-<instance part="LED1" gate="G$1" x="154.94" y="55.88"/>
-<instance part="LED2" gate="G$1" x="154.94" y="43.18"/>
-<instance part="LED3" gate="G$1" x="154.94" y="30.48"/>
-<instance part="LED4" gate="G$1" x="154.94" y="17.78"/>
 <instance part="RS3" gate="G$1" x="375.92" y="17.78" rot="R90"/>
 <instance part="RS2" gate="G$1" x="368.3" y="17.78" rot="R90"/>
 <instance part="RS1" gate="G$1" x="360.68" y="17.78" rot="R90"/>
@@ -10060,6 +9757,10 @@ I2C WRITE: 0xBE</text>
 <instance part="C12" gate="G$1" x="152.4" y="-48.26" rot="R90"/>
 <instance part="C13" gate="G$1" x="154.94" y="-139.7" rot="R90"/>
 <instance part="C14" gate="G$1" x="119.38" y="-101.6" rot="R180"/>
+<instance part="LED1" gate="G$1" x="154.94" y="55.88" rot="R270"/>
+<instance part="LED2" gate="G$1" x="154.94" y="43.18" rot="R270"/>
+<instance part="LED3" gate="G$1" x="154.94" y="30.48" rot="R270"/>
+<instance part="LED4" gate="G$1" x="154.94" y="17.78" rot="R270"/>
 </instances>
 <busses>
 </busses>
@@ -10129,18 +9830,18 @@ I2C WRITE: 0xBE</text>
 <wire x1="40.64" y1="-35.56" x2="48.26" y2="-35.56" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="LED1" gate="G$1" pin="K"/>
-<pinref part="LED2" gate="G$1" pin="K"/>
-<wire x1="149.86" y1="55.88" x2="149.86" y2="43.18" width="0.1524" layer="91"/>
-<pinref part="LED3" gate="G$1" pin="K"/>
-<wire x1="149.86" y1="30.48" x2="149.86" y2="43.18" width="0.1524" layer="91"/>
-<junction x="149.86" y="43.18"/>
-<pinref part="LED4" gate="G$1" pin="K"/>
-<wire x1="149.86" y1="17.78" x2="149.86" y2="30.48" width="0.1524" layer="91"/>
-<junction x="149.86" y="30.48"/>
-<wire x1="149.86" y1="17.78" x2="149.86" y2="10.16" width="0.1524" layer="91"/>
-<junction x="149.86" y="17.78"/>
+<wire x1="149.86" y1="10.16" x2="149.86" y2="17.78" width="0.1524" layer="91"/>
 <label x="149.86" y="10.16" size="1.016" layer="95" rot="R270" xref="yes"/>
+<pinref part="LED1" gate="G$1" pin="C"/>
+<pinref part="LED2" gate="G$1" pin="C"/>
+<wire x1="149.86" y1="17.78" x2="149.86" y2="30.48" width="0.1524" layer="91"/>
+<wire x1="149.86" y1="30.48" x2="149.86" y2="43.18" width="0.1524" layer="91"/>
+<wire x1="149.86" y1="43.18" x2="149.86" y2="55.88" width="0.1524" layer="91"/>
+<junction x="149.86" y="43.18"/>
+<pinref part="LED3" gate="G$1" pin="C"/>
+<junction x="149.86" y="30.48"/>
+<pinref part="LED4" gate="G$1" pin="C"/>
+<junction x="149.86" y="17.78"/>
 </segment>
 <segment>
 <pinref part="GND_PRG" gate="1" pin="P"/>
@@ -10190,17 +9891,9 @@ I2C WRITE: 0xBE</text>
 <segment>
 <pinref part="SENSORMCU" gate="G$1" pin="CS11/GPO3"/>
 <wire x1="297.18" y1="12.7" x2="302.26" y2="12.7" width="0.1524" layer="91"/>
-<pinref part="SENSORMCU" gate="G$1" pin="CS8/GPO0"/>
 <wire x1="302.26" y1="12.7" x2="302.26" y2="15.24" width="0.1524" layer="91"/>
-<wire x1="302.26" y1="15.24" x2="302.26" y2="17.78" width="0.1524" layer="91"/>
-<wire x1="302.26" y1="17.78" x2="302.26" y2="20.32" width="0.1524" layer="91"/>
-<wire x1="302.26" y1="20.32" x2="297.18" y2="20.32" width="0.1524" layer="91"/>
-<pinref part="SENSORMCU" gate="G$1" pin="CS9/GPO1"/>
-<wire x1="297.18" y1="17.78" x2="302.26" y2="17.78" width="0.1524" layer="91"/>
-<junction x="302.26" y="17.78"/>
 <pinref part="SENSORMCU" gate="G$1" pin="CS10/GPO2"/>
 <wire x1="297.18" y1="15.24" x2="302.26" y2="15.24" width="0.1524" layer="91"/>
-<junction x="302.26" y="15.24"/>
 <wire x1="302.26" y1="12.7" x2="302.26" y2="10.16" width="0.1524" layer="91"/>
 <junction x="302.26" y="12.7"/>
 <label x="302.26" y="10.16" size="1.016" layer="95" xref="yes"/>
@@ -10282,6 +9975,16 @@ I2C WRITE: 0xBE</text>
 <pinref part="SENSORMCU" gate="G$1" pin="EP_GND"/>
 <wire x1="269.24" y1="50.8" x2="269.24" y2="55.88" width="0.1524" layer="91"/>
 <label x="269.24" y="55.88" size="1.27" layer="95" rot="R90" xref="yes"/>
+</segment>
+<segment>
+<pinref part="SENSORMCU" gate="G$1" pin="CS8/GPO0"/>
+<wire x1="302.26" y1="20.32" x2="297.18" y2="20.32" width="0.1524" layer="91"/>
+<pinref part="SENSORMCU" gate="G$1" pin="CS7"/>
+<wire x1="297.18" y1="22.86" x2="302.26" y2="22.86" width="0.1524" layer="91"/>
+<wire x1="302.26" y1="22.86" x2="302.26" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="302.26" y1="20.32" x2="304.8" y2="20.32" width="0.1524" layer="91"/>
+<junction x="302.26" y="20.32"/>
+<label x="304.8" y="20.32" size="1.27" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="+3V3" class="0">
@@ -10441,9 +10144,9 @@ I2C WRITE: 0xBE</text>
 <label x="375.92" y="27.94" size="1.016" layer="95" rot="R90" xref="yes"/>
 </segment>
 <segment>
-<pinref part="SENSORMCU" gate="G$1" pin="CS7"/>
-<wire x1="297.18" y1="22.86" x2="307.34" y2="22.86" width="0.1524" layer="91"/>
-<label x="307.34" y="22.86" size="1.016" layer="95" xref="yes"/>
+<pinref part="SENSORMCU" gate="G$1" pin="CS6"/>
+<wire x1="297.18" y1="25.4" x2="304.8" y2="25.4" width="0.1524" layer="91"/>
+<label x="304.8" y="25.4" size="1.27" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="IC_SENS_1" class="0">
@@ -10453,9 +10156,9 @@ I2C WRITE: 0xBE</text>
 <label x="360.68" y="27.94" size="1.016" layer="95" rot="R90" xref="yes"/>
 </segment>
 <segment>
-<pinref part="SENSORMCU" gate="G$1" pin="CS6"/>
-<wire x1="297.18" y1="25.4" x2="307.34" y2="25.4" width="0.1524" layer="91"/>
-<label x="307.34" y="25.4" size="1.016" layer="95" xref="yes"/>
+<pinref part="SENSORMCU" gate="G$1" pin="CS2/GUARD"/>
+<wire x1="256.54" y1="20.32" x2="246.38" y2="20.32" width="0.1524" layer="91"/>
+<label x="246.38" y="20.32" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="PRG" class="0">
@@ -10481,9 +10184,9 @@ I2C WRITE: 0xBE</text>
 <label x="345.44" y="27.94" size="1.016" layer="95" rot="R90" xref="yes"/>
 </segment>
 <segment>
-<pinref part="SENSORMCU" gate="G$1" pin="CS0/PS0"/>
-<wire x1="256.54" y1="25.4" x2="246.38" y2="25.4" width="0.1524" layer="91"/>
-<label x="246.38" y="25.4" size="1.016" layer="95" rot="R180" xref="yes"/>
+<pinref part="SENSORMCU" gate="G$1" pin="CS1/PS1"/>
+<wire x1="256.54" y1="22.86" x2="246.38" y2="22.86" width="0.1524" layer="91"/>
+<label x="246.38" y="22.86" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="IC_SENS_PROX_2" class="0">
@@ -10493,9 +10196,9 @@ I2C WRITE: 0xBE</text>
 <label x="337.82" y="27.94" size="1.016" layer="95" rot="R90" xref="yes"/>
 </segment>
 <segment>
-<pinref part="SENSORMCU" gate="G$1" pin="CS1/PS1"/>
-<wire x1="256.54" y1="22.86" x2="246.38" y2="22.86" width="0.1524" layer="91"/>
-<label x="246.38" y="22.86" size="1.016" layer="95" rot="R180" xref="yes"/>
+<pinref part="SENSORMCU" gate="G$1" pin="CS0/PS0"/>
+<wire x1="256.54" y1="25.4" x2="246.38" y2="25.4" width="0.1524" layer="91"/>
+<label x="246.38" y="25.4" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="LED1" class="0">
@@ -10537,29 +10240,29 @@ I2C WRITE: 0xBE</text>
 <net name="N$19" class="0">
 <segment>
 <pinref part="RL1" gate="G$1" pin="2"/>
+<wire x1="172.72" y1="55.88" x2="157.48" y2="55.88" width="0.1524" layer="91"/>
 <pinref part="LED1" gate="G$1" pin="A"/>
-<wire x1="172.72" y1="55.88" x2="160.02" y2="55.88" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$20" class="0">
 <segment>
 <pinref part="RL2" gate="G$1" pin="2"/>
+<wire x1="172.72" y1="43.18" x2="157.48" y2="43.18" width="0.1524" layer="91"/>
 <pinref part="LED2" gate="G$1" pin="A"/>
-<wire x1="172.72" y1="43.18" x2="160.02" y2="43.18" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$21" class="0">
 <segment>
 <pinref part="RL3" gate="G$1" pin="2"/>
+<wire x1="172.72" y1="30.48" x2="157.48" y2="30.48" width="0.1524" layer="91"/>
 <pinref part="LED3" gate="G$1" pin="A"/>
-<wire x1="172.72" y1="30.48" x2="160.02" y2="30.48" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$22" class="0">
 <segment>
 <pinref part="RL4" gate="G$1" pin="2"/>
+<wire x1="172.72" y1="17.78" x2="157.48" y2="17.78" width="0.1524" layer="91"/>
 <pinref part="LED4" gate="G$1" pin="A"/>
-<wire x1="172.72" y1="17.78" x2="160.02" y2="17.78" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="LED3" class="0">
@@ -10581,9 +10284,9 @@ I2C WRITE: 0xBE</text>
 <label x="368.3" y="27.94" size="1.016" layer="95" rot="R90" xref="yes"/>
 </segment>
 <segment>
-<pinref part="SENSORMCU" gate="G$1" pin="CS2/GUARD"/>
-<wire x1="256.54" y1="20.32" x2="246.38" y2="20.32" width="0.1524" layer="91"/>
-<label x="246.38" y="20.32" size="1.016" layer="95" rot="R180" xref="yes"/>
+<pinref part="SENSORMCU" gate="G$1" pin="CS3"/>
+<wire x1="256.54" y1="17.78" x2="246.38" y2="17.78" width="0.1524" layer="91"/>
+<label x="246.38" y="17.78" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="IC_SENS_4" class="0">
@@ -10593,9 +10296,9 @@ I2C WRITE: 0xBE</text>
 <label x="353.06" y="27.94" size="1.016" layer="95" rot="R90" xref="yes"/>
 </segment>
 <segment>
-<pinref part="SENSORMCU" gate="G$1" pin="CS3"/>
-<wire x1="256.54" y1="17.78" x2="246.38" y2="17.78" width="0.1524" layer="91"/>
-<label x="246.38" y="17.78" size="1.016" layer="95" rot="R180" xref="yes"/>
+<pinref part="SENSORMCU" gate="G$1" pin="CS9/GPO1"/>
+<wire x1="297.18" y1="17.78" x2="304.8" y2="17.78" width="0.1524" layer="91"/>
+<label x="304.8" y="17.78" size="1.27" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="SENS_PROX_2" class="0">
