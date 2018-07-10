@@ -10151,22 +10151,12 @@ OSRAM LW P473</text>
 <wire x1="375.92" y1="22.86" x2="375.92" y2="27.94" width="0.1524" layer="91"/>
 <label x="375.92" y="27.94" size="1.016" layer="95" rot="R90" xref="yes"/>
 </segment>
-<segment>
-<pinref part="SENSORMCU" gate="G$1" pin="CS6"/>
-<wire x1="297.18" y1="25.4" x2="304.8" y2="25.4" width="0.1524" layer="91"/>
-<label x="304.8" y="25.4" size="1.27" layer="95" xref="yes"/>
-</segment>
 </net>
 <net name="IC_SENS_1" class="0">
 <segment>
 <pinref part="RS1" gate="G$1" pin="2"/>
 <wire x1="360.68" y1="22.86" x2="360.68" y2="27.94" width="0.1524" layer="91"/>
 <label x="360.68" y="27.94" size="1.016" layer="95" rot="R90" xref="yes"/>
-</segment>
-<segment>
-<pinref part="SENSORMCU" gate="G$1" pin="CS2/GUARD"/>
-<wire x1="256.54" y1="20.32" x2="246.38" y2="20.32" width="0.1524" layer="91"/>
-<label x="246.38" y="20.32" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="PRG" class="0">
@@ -10290,6 +10280,11 @@ OSRAM LW P473</text>
 <pinref part="RS2" gate="G$1" pin="2"/>
 <wire x1="368.3" y1="22.86" x2="368.3" y2="27.94" width="0.1524" layer="91"/>
 <label x="368.3" y="27.94" size="1.016" layer="95" rot="R90" xref="yes"/>
+</segment>
+<segment>
+<pinref part="SENSORMCU" gate="G$1" pin="CS2/GUARD"/>
+<wire x1="256.54" y1="20.32" x2="246.38" y2="20.32" width="0.1524" layer="91"/>
+<label x="246.38" y="20.32" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="IC_SENS_4" class="0">
@@ -10527,6 +10522,14 @@ OSRAM LW P473</text>
 <segment>
 <pinref part="SENSORMCU" gate="G$1" pin="CS9/GPO1"/>
 <wire x1="297.18" y1="17.78" x2="302.26" y2="17.78" width="0.1524" layer="91"/>
+<label x="302.26" y="17.78" size="1.27" layer="95" xref="yes"/>
+</segment>
+</net>
+<net name="N$1" class="0">
+<segment>
+<pinref part="SENSORMCU" gate="G$1" pin="CS6"/>
+<wire x1="297.18" y1="25.4" x2="302.26" y2="25.4" width="0.1524" layer="91"/>
+<label x="302.26" y="25.4" size="1.27" layer="95" xref="yes"/>
 </segment>
 </net>
 </nets>

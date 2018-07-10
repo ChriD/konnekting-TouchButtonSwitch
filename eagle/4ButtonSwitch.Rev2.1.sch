@@ -9886,32 +9886,39 @@ OSRAM LW P473</text>
 <segment>
 <pinref part="SENSORMCU" gate="G$1" pin="CS4"/>
 <wire x1="281.94" y1="50.8" x2="281.94" y2="63.5" width="0.1524" layer="91"/>
-<wire x1="281.94" y1="63.5" x2="289.56" y2="63.5" width="0.1524" layer="91"/>
-<label x="289.56" y="63.5" size="1.016" layer="95" xref="yes"/>
+<label x="281.94" y="63.5" size="1.016" layer="95" rot="R90" xref="yes"/>
 </segment>
 <segment>
-<pinref part="SENSORMCU" gate="G$1" pin="CS11/GPO3"/>
-<wire x1="297.18" y1="12.7" x2="302.26" y2="12.7" width="0.1524" layer="91"/>
-<wire x1="302.26" y1="12.7" x2="302.26" y2="15.24" width="0.1524" layer="91"/>
+<pinref part="SENSORMCU" gate="G$1" pin="CS9/GPO1"/>
+<wire x1="297.18" y1="17.78" x2="302.26" y2="17.78" width="0.1524" layer="91"/>
+<pinref part="SENSORMCU" gate="G$1" pin="CS8/GPO0"/>
+<wire x1="302.26" y1="20.32" x2="297.18" y2="20.32" width="0.1524" layer="91"/>
+<pinref part="SENSORMCU" gate="G$1" pin="CS7"/>
+<wire x1="297.18" y1="22.86" x2="302.26" y2="22.86" width="0.1524" layer="91"/>
+<wire x1="302.26" y1="22.86" x2="302.26" y2="20.32" width="0.1524" layer="91"/>
+<junction x="302.26" y="20.32"/>
+<wire x1="302.26" y1="17.78" x2="302.26" y2="20.32" width="0.1524" layer="91"/>
 <pinref part="SENSORMCU" gate="G$1" pin="CS10/GPO2"/>
 <wire x1="297.18" y1="15.24" x2="302.26" y2="15.24" width="0.1524" layer="91"/>
+<wire x1="302.26" y1="12.7" x2="302.26" y2="15.24" width="0.1524" layer="91"/>
 <wire x1="302.26" y1="12.7" x2="302.26" y2="10.16" width="0.1524" layer="91"/>
 <junction x="302.26" y="12.7"/>
+<pinref part="SENSORMCU" gate="G$1" pin="CS11/GPO3"/>
+<wire x1="297.18" y1="12.7" x2="302.26" y2="12.7" width="0.1524" layer="91"/>
 <label x="302.26" y="10.16" size="1.016" layer="95" xref="yes"/>
+<wire x1="302.26" y1="17.78" x2="302.26" y2="15.24" width="0.1524" layer="91"/>
+<junction x="302.26" y="17.78"/>
+<junction x="302.26" y="15.24"/>
 </segment>
 <segment>
-<pinref part="SENSORMCU" gate="G$1" pin="CS12/GP14"/>
 <wire x1="276.86" y1="-17.78" x2="279.4" y2="-17.78" width="0.1524" layer="91"/>
-<wire x1="279.4" y1="-17.78" x2="281.94" y2="-17.78" width="0.1524" layer="91"/>
-<wire x1="281.94" y1="-17.78" x2="281.94" y2="-12.7" width="0.1524" layer="91"/>
 <pinref part="SENSORMCU" gate="G$1" pin="CS13/GPO5"/>
 <wire x1="279.4" y1="-12.7" x2="279.4" y2="-17.78" width="0.1524" layer="91"/>
-<junction x="279.4" y="-17.78"/>
 <pinref part="SENSORMCU" gate="G$1" pin="CS14/GPO6"/>
 <wire x1="276.86" y1="-12.7" x2="276.86" y2="-17.78" width="0.1524" layer="91"/>
-<wire x1="281.94" y1="-17.78" x2="287.02" y2="-17.78" width="0.1524" layer="91"/>
-<junction x="281.94" y="-17.78"/>
-<label x="287.02" y="-17.78" size="1.016" layer="95" xref="yes"/>
+<wire x1="276.86" y1="-17.78" x2="276.86" y2="-22.86" width="0.1524" layer="91"/>
+<junction x="276.86" y="-17.78"/>
+<label x="276.86" y="-22.86" size="1.27" layer="95" rot="R270" xref="yes"/>
 </segment>
 <segment>
 <label x="81.28" y="-101.6" size="1.016" layer="95" rot="R180" xref="yes"/>
@@ -9976,16 +9983,6 @@ OSRAM LW P473</text>
 <pinref part="SENSORMCU" gate="G$1" pin="EP_GND"/>
 <wire x1="269.24" y1="50.8" x2="269.24" y2="55.88" width="0.1524" layer="91"/>
 <label x="269.24" y="55.88" size="1.27" layer="95" rot="R90" xref="yes"/>
-</segment>
-<segment>
-<pinref part="SENSORMCU" gate="G$1" pin="CS8/GPO0"/>
-<wire x1="302.26" y1="20.32" x2="297.18" y2="20.32" width="0.1524" layer="91"/>
-<pinref part="SENSORMCU" gate="G$1" pin="CS7"/>
-<wire x1="297.18" y1="22.86" x2="302.26" y2="22.86" width="0.1524" layer="91"/>
-<wire x1="302.26" y1="22.86" x2="302.26" y2="20.32" width="0.1524" layer="91"/>
-<wire x1="302.26" y1="20.32" x2="304.8" y2="20.32" width="0.1524" layer="91"/>
-<junction x="302.26" y="20.32"/>
-<label x="304.8" y="20.32" size="1.27" layer="95" xref="yes"/>
 </segment>
 <segment>
 <pinref part="SENSORMCU" gate="G$1" pin="CS2/GUARD"/>
@@ -10153,9 +10150,9 @@ OSRAM LW P473</text>
 <label x="375.92" y="27.94" size="1.016" layer="95" rot="R90" xref="yes"/>
 </segment>
 <segment>
-<pinref part="SENSORMCU" gate="G$1" pin="CS9/GPO1"/>
-<wire x1="297.18" y1="17.78" x2="302.26" y2="17.78" width="0.1524" layer="91"/>
-<label x="302.26" y="17.78" size="1.27" layer="95" xref="yes"/>
+<pinref part="SENSORMCU" gate="G$1" pin="CS12/GP14"/>
+<wire x1="281.94" y1="-12.7" x2="281.94" y2="-22.86" width="0.1524" layer="91"/>
+<label x="281.94" y="-22.86" size="1.27" layer="95" rot="R270" xref="yes"/>
 </segment>
 </net>
 <net name="IC_SENS_1" class="0">
