@@ -6,10 +6,10 @@
 <setting alwaysvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="50" unitdist="mil" unit="mil" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="mil"/>
+<grid distance="50" unitdist="mil" unit="inch" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="inch"/>
 <layers>
-<layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
-<layer number="2" name="Route2" color="1" fill="3" visible="yes" active="yes"/>
+<layer number="1" name="Top" color="4" fill="1" visible="no" active="yes"/>
+<layer number="2" name="Route2" color="1" fill="3" visible="no" active="yes"/>
 <layer number="3" name="Route3" color="4" fill="3" visible="no" active="no"/>
 <layer number="4" name="Route4" color="1" fill="4" visible="no" active="no"/>
 <layer number="5" name="Route5" color="4" fill="4" visible="no" active="no"/>
@@ -22,7 +22,7 @@
 <layer number="12" name="Route12" color="1" fill="5" visible="no" active="no"/>
 <layer number="13" name="Route13" color="4" fill="5" visible="no" active="no"/>
 <layer number="14" name="Route14" color="1" fill="6" visible="no" active="no"/>
-<layer number="15" name="Route15" color="4" fill="6" visible="yes" active="yes"/>
+<layer number="15" name="Route15" color="4" fill="6" visible="no" active="yes"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
 <layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
@@ -182,20 +182,32 @@
 <wire x1="73.025" y1="17.145" x2="73.66" y2="17.78" width="0.1524" layer="51"/>
 <hole x="62.865" y="34.925" drill="4.999990625"/>
 <hole x="6.985" y="34.925" drill="4.999990625"/>
-<text x="53.848" y="42.418" size="1.016" layer="25" rot="R90">SWCLK</text>
-<text x="56.388" y="42.418" size="1.016" layer="25" rot="R90">SWDIO</text>
-<text x="56.388" y="27.305" size="1.016" layer="25" rot="R90">NRST</text>
-<text x="58.928" y="27.94" size="1.016" layer="25" rot="R90">GND</text>
+<text x="56.388" y="41.91" size="1.016" layer="25" rot="R90">SWCLK</text>
+<text x="58.928" y="41.91" size="1.016" layer="25" rot="R90">SWDIO</text>
 <text x="48.514" y="7.62" size="1.778" layer="26" rot="MR0">4xTouch Button Rev 2.1</text>
 <text x="47.498" y="5.207" size="1.016" layer="26" rot="MR0">Konnekting | 0XCDDC | 2018 by ChriD</text>
 <text x="30.353" y="8.763" size="1.016" layer="25" rot="R90">+5V</text>
 <text x="40.513" y="8.382" size="1.016" layer="25" rot="R90">GND</text>
 <text x="37.973" y="8.636" size="1.016" layer="25" rot="R90">TXD</text>
 <text x="32.893" y="8.509" size="1.016" layer="25" rot="R90">RXD</text>
-<text x="26.289" y="42.545" size="0.762" layer="25">GND</text>
-<text x="28.448" y="28.321" size="0.6096" layer="25">TXD</text>
-<text x="30.861" y="28.321" size="0.6096" layer="25">RXD</text>
-<text x="25.4" y="28.575" size="0.6096" layer="25">GND</text>
+<text x="28.448" y="41.91" size="1.016" layer="25" rot="R90">GND</text>
+<text x="29.591" y="27.305" size="0.762" layer="25">TXD</text>
+<text x="32.131" y="27.305" size="0.762" layer="25">RXD</text>
+<text x="26.924" y="27.305" size="0.762" layer="25">GND</text>
+<text x="53.848" y="41.91" size="1.016" layer="25" rot="R90">GND</text>
+<text x="6.477" y="26.67" size="1.016" layer="25" rot="R270">GND</text>
+<text x="63.373" y="43.18" size="1.016" layer="25" rot="R90">GND</text>
+<text x="33.528" y="41.91" size="1.016" layer="25" rot="R90">SDA</text>
+<text x="30.988" y="41.91" size="1.016" layer="25" rot="R90">SCL</text>
+<text x="57.912" y="41.91" size="1.016" layer="26" rot="MR90">SWDIO</text>
+<text x="55.372" y="41.91" size="1.016" layer="26" rot="MR90">SWCLK</text>
+<text x="52.832" y="41.91" size="1.016" layer="26" rot="MR90">GND</text>
+<text x="32.512" y="41.91" size="1.016" layer="26" rot="MR90">SDA</text>
+<text x="29.972" y="41.91" size="1.016" layer="26" rot="MR90">SCL</text>
+<text x="27.432" y="41.91" size="1.016" layer="26" rot="MR90">GND</text>
+<text x="28.829" y="27.305" size="0.762" layer="26" rot="MR0">GND</text>
+<text x="31.369" y="27.305" size="0.762" layer="26" rot="MR0">TXD</text>
+<text x="33.909" y="27.305" size="0.762" layer="26" rot="MR0">RXD</text>
 </plain>
 <libraries>
 <library name="pinhead">
@@ -3001,7 +3013,7 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 </autorouter>
 <elements>
 <element name="SIEMENS-BCU" library="pinhead" package="2X05SMD" value="SIEMENS BCU" x="31.115" y="17.526" smashed="yes">
-<attribute name="NAME" x="30.0228" y="20.3708" size="1.016" layer="25" ratio="10"/>
+<attribute name="NAME" x="30.0228" y="6.4008" size="1.016" layer="25" ratio="10"/>
 <attribute name="VALUE" x="28.575" y="11.811" size="1.27" layer="27"/>
 </element>
 <element name="3V3_REGULATOR" library="MCP1703T-3302E_MB" package="SOT-89(MB)" value="MCP1703T-3302E_MB" x="34.925" y="24.13" smashed="yes" rot="R180">
@@ -3024,7 +3036,7 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <attribute name="VALUE" x="36.83" y="24.13" size="1.27" layer="27" rot="R270"/>
 </element>
 <element name="C2" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C0402" package3d_urn="urn:adsk.eagle:package:23626/1" value="1uF" x="29.845" y="23.495" smashed="yes" rot="R270">
-<attribute name="NAME" x="29.21" y="26.289" size="1.016" layer="25" rot="R270"/>
+<attribute name="NAME" x="28.067" y="24.257" size="1.016" layer="25" rot="R270"/>
 <attribute name="SPICEPREFIX" value="C" x="29.845" y="23.495" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="VALUE" x="27.94" y="24.13" size="1.27" layer="27" rot="R270"/>
 </element>
@@ -3037,27 +3049,27 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <attribute name="HEIGHT" value="mm" x="31.115" y="34.925" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MANUFACTURER_NAME" value="ABRACON" x="31.115" y="34.925" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MANUFACTURER_PART_NUMBER" value="ABS07-32.768KHZ-7-T" x="31.115" y="34.925" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="NAME" x="31.058" y="40.101" size="1.016" layer="25" rot="R270" align="center"/>
+<attribute name="NAME" x="31.146" y="37.154" size="0.508" layer="25" align="center"/>
 <attribute name="RS_PART_NUMBER" value="1712773P" x="31.115" y="34.925" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="RS_PRICE/STOCK" value="http://uk.rs-online.com/web/p/products/1712773P" x="31.115" y="34.925" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="VALUE" x="31.058" y="35.275" size="1.27" layer="27" rot="R270" align="center"/>
 </element>
 <element name="CLO1" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C0402" package3d_urn="urn:adsk.eagle:package:23626/1" value="7pF" x="27.94" y="35.56" smashed="yes">
-<attribute name="NAME" x="26.162" y="36.322" size="1.016" layer="25"/>
+<attribute name="NAME" x="26.035" y="36.195" size="1.016" layer="25"/>
 <attribute name="SPICEPREFIX" value="C" x="27.94" y="35.56" size="1.778" layer="27" display="off"/>
 <attribute name="VALUE" x="27.305" y="33.655" size="1.27" layer="27"/>
 </element>
 <element name="CLO2" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C0402" package3d_urn="urn:adsk.eagle:package:23626/1" value="7pf" x="27.94" y="34.29" smashed="yes">
-<attribute name="NAME" x="26.162" y="35.052" size="1.016" layer="25"/>
+<attribute name="NAME" x="26.035" y="32.639" size="1.016" layer="25"/>
 <attribute name="SPICEPREFIX" value="C" x="27.94" y="34.29" size="1.778" layer="27" display="off"/>
 <attribute name="VALUE" x="27.305" y="32.385" size="1.27" layer="27"/>
 </element>
-<element name="NRST1" library="wirepad" library_urn="urn:adsk.eagle:library:412" package="SMD2,54-5,08" package3d_urn="urn:adsk.eagle:package:30841/1" value="0" x="6.985" y="40.005" smashed="yes">
-<attribute name="NAME" x="5.485" y="37.505" size="1.016" layer="25" rot="R90"/>
+<element name="NRST" library="wirepad" library_urn="urn:adsk.eagle:library:412" package="SMD2,54-5,08" package3d_urn="urn:adsk.eagle:package:30841/1" value="0" x="6.985" y="40.005" smashed="yes">
+<attribute name="NAME" x="7.517" y="43.093" size="1.016" layer="25" rot="R90"/>
 <attribute name="VALUE" x="6.985" y="40.005" size="0.0254" layer="27"/>
 </element>
-<element name="GND_NRST" library="wirepad" library_urn="urn:adsk.eagle:library:412" package="SMD2,54-5,08" package3d_urn="urn:adsk.eagle:package:30841/1" value="0" x="62.865" y="40.005" smashed="yes">
-<attribute name="NAME" x="61.365" y="37.505" size="1.016" layer="25" rot="R90"/>
+<element name="GND_PRG" library="wirepad" library_urn="urn:adsk.eagle:library:412" package="SMD2,54-5,08" package3d_urn="urn:adsk.eagle:package:30841/1" value="0" x="62.865" y="40.005" smashed="yes">
+<attribute name="NAME" x="63.397" y="43.093" size="1.016" layer="25" rot="R90" display="off"/>
 <attribute name="VALUE" x="62.865" y="40.005" size="0.0254" layer="27"/>
 </element>
 <element name="RL2" library="resistor" library_urn="urn:adsk.eagle:library:348" package="R0402" package3d_urn="urn:adsk.eagle:package:26058/1" value="330E" x="17.78" y="46.99" smashed="yes" rot="R90">
@@ -3077,7 +3089,7 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <attribute name="VALUE" x="50.165" y="23.495" size="1.27" layer="27" rot="R270"/>
 </element>
 <element name="RS3" library="resistor" library_urn="urn:adsk.eagle:library:348" package="R0402" package3d_urn="urn:adsk.eagle:package:26058/1" value="560E" x="24.765" y="29.845" smashed="yes" rot="R90">
-<attribute name="NAME" x="25.146" y="25.527" size="1.016" layer="25" rot="R90"/>
+<attribute name="NAME" x="25.273" y="25.273" size="1.016" layer="25" rot="R90"/>
 <attribute name="VALUE" x="26.67" y="29.21" size="1.27" layer="27" rot="R90"/>
 </element>
 <element name="RS2" library="resistor" library_urn="urn:adsk.eagle:library:348" package="R0402" package3d_urn="urn:adsk.eagle:package:26058/1" value="560E" x="23.495" y="40.005" smashed="yes" rot="R270">
@@ -3085,27 +3097,27 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <attribute name="VALUE" x="21.59" y="40.64" size="1.27" layer="27" rot="R270"/>
 </element>
 <element name="RS1" library="resistor" library_urn="urn:adsk.eagle:library:348" package="R0402" package3d_urn="urn:adsk.eagle:package:26058/1" value="560E" x="24.765" y="40.005" smashed="yes" rot="R270">
-<attribute name="NAME" x="22.606" y="41.783" size="1.016" layer="25" rot="R270"/>
+<attribute name="NAME" x="24.257" y="44.577" size="1.016" layer="25" rot="R270"/>
 <attribute name="VALUE" x="22.86" y="40.64" size="1.27" layer="27" rot="R270"/>
 </element>
 <element name="RS4" library="resistor" library_urn="urn:adsk.eagle:library:348" package="R0402" package3d_urn="urn:adsk.eagle:package:26058/1" value="560E" x="19.05" y="29.845" smashed="yes" rot="R90">
-<attribute name="NAME" x="19.177" y="25.273" size="1.016" layer="25" rot="R90"/>
+<attribute name="NAME" x="19.558" y="25.273" size="1.016" layer="25" rot="R90"/>
 <attribute name="VALUE" x="20.955" y="29.21" size="1.27" layer="27" rot="R90"/>
 </element>
 <element name="RP1" library="resistor" library_urn="urn:adsk.eagle:library:348" package="R0402" package3d_urn="urn:adsk.eagle:package:26058/1" value="560E" x="19.05" y="36.83" smashed="yes" rot="R270">
-<attribute name="NAME" x="16.891" y="38.227" size="1.016" layer="25" rot="R270"/>
+<attribute name="NAME" x="17.272" y="38.227" size="1.016" layer="25" rot="R270"/>
 <attribute name="VALUE" x="17.145" y="37.465" size="1.27" layer="27" rot="R270"/>
 </element>
 <element name="RP2" library="resistor" library_urn="urn:adsk.eagle:library:348" package="R0402" package3d_urn="urn:adsk.eagle:package:26058/1" value="560E" x="19.05" y="33.655" smashed="yes" rot="R90">
-<attribute name="NAME" x="17.78" y="32.258" size="1.016" layer="25" rot="R90"/>
+<attribute name="NAME" x="18.288" y="32.258" size="1.016" layer="25" rot="R90"/>
 <attribute name="VALUE" x="20.955" y="33.02" size="1.27" layer="27" rot="R90"/>
 </element>
-<element name="PRG1" library="wirepad" library_urn="urn:adsk.eagle:library:412" package="SMD2,54-5,08" package3d_urn="urn:adsk.eagle:package:30841/1" value="0" x="62.865" y="29.845" smashed="yes">
-<attribute name="NAME" x="61.365" y="27.345" size="1.016" layer="25" rot="R90"/>
+<element name="PRG" library="wirepad" library_urn="urn:adsk.eagle:library:412" package="SMD2,54-5,08" package3d_urn="urn:adsk.eagle:package:30841/1" value="0" x="62.865" y="29.845" smashed="yes">
+<attribute name="NAME" x="63.397" y="23.662" size="1.016" layer="25" rot="R90"/>
 <attribute name="VALUE" x="62.865" y="29.845" size="0.0254" layer="27"/>
 </element>
-<element name="GND_PRG" library="wirepad" library_urn="urn:adsk.eagle:library:412" package="SMD2,54-5,08" package3d_urn="urn:adsk.eagle:package:30841/1" value="0" x="6.985" y="29.845" smashed="yes">
-<attribute name="NAME" x="5.485" y="27.345" size="1.016" layer="25" rot="R90"/>
+<element name="GND_NRST" library="wirepad" library_urn="urn:adsk.eagle:library:412" package="SMD2,54-5,08" package3d_urn="urn:adsk.eagle:package:30841/1" value="0" x="6.985" y="29.845" smashed="yes">
+<attribute name="NAME" x="5.485" y="27.345" size="1.016" layer="25" rot="R90" display="off"/>
 <attribute name="VALUE" x="6.985" y="29.845" size="0.0254" layer="27"/>
 </element>
 <element name="RT1" library="resistor" library_urn="urn:adsk.eagle:library:348" package="R0402" package3d_urn="urn:adsk.eagle:package:26058/1" value="100K" x="50.165" y="28.575" smashed="yes" rot="R270">
@@ -3119,7 +3131,7 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <attribute name="HEIGHT" value="mm" x="56.134" y="28.448" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="MANUFACTURER_NAME" value="STMicroelectronics" x="56.134" y="28.448" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="MANUFACTURER_PART_NUMBER" value="HTS221TR" x="56.134" y="28.448" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="NAME" x="60.34233125" y="28.277" size="1.016" layer="25" rot="R180" align="center"/>
+<attribute name="NAME" x="56.178" y="26.56033125" size="1.016" layer="25" align="center"/>
 <attribute name="RS_PART_NUMBER" value="1660935" x="56.134" y="28.448" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="RS_PRICE/STOCK" value="http://uk.rs-online.com/web/p/products/1660935" x="56.134" y="28.448" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="VALUE" x="56.40533125" y="28.277" size="1.27" layer="27" rot="R180" align="center"/>
@@ -3136,13 +3148,13 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <attribute name="HEIGHT" value="0.6mm" x="22.86" y="35.052" size="1.778" layer="27" display="off"/>
 <attribute name="MANUFACTURER_NAME" value="Cypress Semiconductor" x="22.86" y="35.052" size="1.778" layer="27" display="off"/>
 <attribute name="MANUFACTURER_PART_NUMBER" value="CY8CMBR3116-LQXI" x="22.86" y="35.052" size="1.778" layer="27" display="off"/>
-<attribute name="NAME" x="22.86" y="32.004" size="0.762" layer="25" align="center"/>
+<attribute name="NAME" x="20.701" y="35.052" size="0.762" layer="25" rot="R90" align="center"/>
 <attribute name="RS_PART_NUMBER" value="1242976P" x="22.86" y="35.052" size="1.778" layer="27" display="off"/>
 <attribute name="RS_PRICE/STOCK" value="http://uk.rs-online.com/web/p/products/1242976P" x="22.86" y="35.052" size="1.778" layer="27" display="off"/>
 <attribute name="VALUE" x="22.86" y="35.052" size="1.27" layer="27" align="center"/>
 </element>
 <element name="C9" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C0402" package3d_urn="urn:adsk.eagle:package:23626/1" value="100nf" x="48.26" y="41.275" smashed="yes" rot="R90">
-<attribute name="NAME" x="47.498" y="40.513" size="1.016" layer="25" rot="R90"/>
+<attribute name="NAME" x="48.768" y="43.053" size="1.016" layer="25" rot="R90"/>
 <attribute name="SPICEPREFIX" value="C" x="48.26" y="41.275" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="VALUE" x="50.165" y="40.64" size="1.27" layer="27" rot="R90"/>
 </element>
@@ -3152,7 +3164,7 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <attribute name="VALUE" x="50.165" y="27.94" size="1.27" layer="27" rot="R90"/>
 </element>
 <element name="C5" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C0402" package3d_urn="urn:adsk.eagle:package:23626/1" value="100nf" x="22.86" y="29.845" smashed="yes" rot="R90">
-<attribute name="NAME" x="23.368" y="26.416" size="1.016" layer="25" rot="R90"/>
+<attribute name="NAME" x="23.368" y="26.289" size="1.016" layer="25" rot="R90"/>
 <attribute name="SPICEPREFIX" value="C" x="22.86" y="29.845" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="VALUE" x="24.765" y="29.21" size="1.27" layer="27" rot="R90"/>
 </element>
@@ -3175,7 +3187,7 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <attribute name="VALUE" x="49.53" y="32.385" size="1.27" layer="27" rot="R270"/>
 </element>
 <element name="C6" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C0402" package3d_urn="urn:adsk.eagle:package:23626/1" value="100nf" x="31.115" y="23.495" smashed="yes" rot="R270">
-<attribute name="NAME" x="31.877" y="25.019" size="1.016" layer="25" rot="R270"/>
+<attribute name="NAME" x="31.877" y="24.257" size="1.016" layer="25" rot="R270"/>
 <attribute name="SPICEPREFIX" value="C" x="31.115" y="23.495" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="VALUE" x="29.21" y="24.13" size="1.27" layer="27" rot="R270"/>
 </element>
@@ -3189,24 +3201,46 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <attribute name="RS_PART_NUMBER" value="1458887" x="42.545" y="34.925" size="1.778" layer="27" display="off"/>
 <attribute name="RS_PRICE/STOCK" value="http://uk.rs-online.com/web/p/products/1458887" x="42.545" y="34.925" size="1.778" layer="27" display="off"/>
 </element>
-<element name="C7" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C0402" package3d_urn="urn:adsk.eagle:package:23626/1" value="100nF" x="34.29" y="35.56" rot="R180">
+<element name="C7" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C0402" package3d_urn="urn:adsk.eagle:package:23626/1" value="100nF" x="34.29" y="35.56" smashed="yes" rot="R180">
+<attribute name="NAME" x="35.052" y="34.925" size="1.016" layer="25" rot="R180"/>
 <attribute name="SPICEPREFIX" value="C" x="34.29" y="17.78" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="VALUE" x="34.925" y="37.465" size="1.27" layer="27" rot="R180"/>
 </element>
-<element name="C12" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C0402" package3d_urn="urn:adsk.eagle:package:23626/1" value="100nf" x="36.83" y="41.275" rot="R90">
+<element name="C12" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C0402" package3d_urn="urn:adsk.eagle:package:23626/1" value="100nf" x="36.83" y="41.275" smashed="yes" rot="R90">
+<attribute name="NAME" x="37.338" y="43.053" size="1.016" layer="25" rot="R90"/>
 <attribute name="SPICEPREFIX" value="C" x="36.83" y="41.275" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="VALUE" x="38.735" y="40.64" size="1.27" layer="27" rot="R90"/>
 </element>
-<element name="C13" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C0402" package3d_urn="urn:adsk.eagle:package:23626/1" value="100nf" x="40.005" y="27.305">
-<attribute name="SPICEPREFIX" value="C" x="40.005" y="27.305" size="1.778" layer="27" display="off"/>
+<element name="C13" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C0402" package3d_urn="urn:adsk.eagle:package:23626/1" value="100nf" x="39.37" y="27.305" smashed="yes">
+<attribute name="NAME" x="38.1" y="25.654" size="1.016" layer="25"/>
+<attribute name="SPICEPREFIX" value="C" x="39.37" y="27.305" size="1.778" layer="27" display="off"/>
+<attribute name="VALUE" x="38.735" y="25.4" size="1.27" layer="27"/>
 </element>
-<element name="C14" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C0402" package3d_urn="urn:adsk.eagle:package:23626/1" value="10nf" x="34.29" y="32.385" rot="R180">
+<element name="C14" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C0402" package3d_urn="urn:adsk.eagle:package:23626/1" value="10nf" x="34.29" y="32.385" smashed="yes" rot="R180">
+<attribute name="NAME" x="35.56" y="31.75" size="1.016" layer="25" rot="R180"/>
 <attribute name="SPICEPREFIX" value="C" x="34.29" y="32.385" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="VALUE" x="34.925" y="34.29" size="1.27" layer="27" rot="R180"/>
 </element>
-<element name="LED1" library="led" library_urn="urn:adsk.eagle:library:259" package="P47F-BOTTOM" package3d_urn="urn:adsk.eagle:package:15878/1" value="LWP4-BOTTOM" x="52.07" y="52.705" rot="R90"/>
-<element name="LED2" library="led" library_urn="urn:adsk.eagle:library:259" package="P47F-BOTTOM" package3d_urn="urn:adsk.eagle:package:15878/1" value="LWP4-BOTTOM" x="17.78" y="52.705" rot="R90"/>
-<element name="LED3" library="led" library_urn="urn:adsk.eagle:library:259" package="P47F-BOTTOM" package3d_urn="urn:adsk.eagle:package:15878/1" value="LWP4-BOTTOM" x="52.07" y="17.145" rot="R270"/>
-<element name="LED4" library="led" library_urn="urn:adsk.eagle:library:259" package="P47F-BOTTOM" package3d_urn="urn:adsk.eagle:package:15878/1" value="LWP4-BOTTOM" x="17.78" y="17.145" rot="R270"/>
-<element name="C11" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C0402" package3d_urn="urn:adsk.eagle:package:23626/1" value="4.7uf" x="36.83" y="28.575" rot="R270">
+<element name="LED1" library="led" library_urn="urn:adsk.eagle:library:259" package="P47F-BOTTOM" package3d_urn="urn:adsk.eagle:package:15878/1" value="LWP4-BOTTOM" x="52.07" y="52.705" smashed="yes" rot="R90">
+<attribute name="NAME" x="54.356" y="58.166" size="1.27" layer="25" rot="R180"/>
+<attribute name="VALUE" x="55.245" y="48.895" size="1.27" layer="27" rot="R90"/>
+</element>
+<element name="LED2" library="led" library_urn="urn:adsk.eagle:library:259" package="P47F-BOTTOM" package3d_urn="urn:adsk.eagle:package:15878/1" value="LWP4-BOTTOM" x="17.78" y="52.705" smashed="yes" rot="R90">
+<attribute name="NAME" x="20.066" y="58.166" size="1.27" layer="25" rot="R180"/>
+<attribute name="VALUE" x="20.955" y="48.895" size="1.27" layer="27" rot="R90"/>
+</element>
+<element name="LED3" library="led" library_urn="urn:adsk.eagle:library:259" package="P47F-BOTTOM" package3d_urn="urn:adsk.eagle:package:15878/1" value="LWP4-BOTTOM" x="52.07" y="17.145" smashed="yes" rot="R270">
+<attribute name="NAME" x="49.911" y="11.811" size="1.27" layer="25"/>
+<attribute name="VALUE" x="48.895" y="20.955" size="1.27" layer="27" rot="R270"/>
+</element>
+<element name="LED4" library="led" library_urn="urn:adsk.eagle:library:259" package="P47F-BOTTOM" package3d_urn="urn:adsk.eagle:package:15878/1" value="LWP4-BOTTOM" x="17.78" y="17.145" smashed="yes" rot="R270">
+<attribute name="NAME" x="15.621" y="11.811" size="1.27" layer="25"/>
+<attribute name="VALUE" x="14.605" y="20.955" size="1.27" layer="27" rot="R270"/>
+</element>
+<element name="C11" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C0402" package3d_urn="urn:adsk.eagle:package:23626/1" value="4.7uf" x="36.83" y="28.575" smashed="yes" rot="R270">
+<attribute name="NAME" x="35.179" y="29.718" size="1.016" layer="25" rot="R270"/>
 <attribute name="SPICEPREFIX" value="C" x="36.83" y="28.575" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="VALUE" x="34.925" y="29.21" size="1.27" layer="27" rot="R270"/>
 </element>
 <element name="S1" library="PCM12SMTR" package="PCM12SMTR_1" value="PCM12SMTR" x="34.925" y="51.435" rot="R180">
 <attribute name="ALLIED_NUMBER" value="70417448" x="34.925" y="51.435" size="1.778" layer="27" rot="R180" display="off"/>
@@ -3247,7 +3281,7 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <contactref element="3V3_REGULATOR" pad="1"/>
 <contactref element="CLO1" pad="1"/>
 <contactref element="CLO2" pad="1"/>
-<contactref element="GND_PRG" pad="1"/>
+<contactref element="GND_NRST" pad="1"/>
 <contactref element="TEMP" pad="5"/>
 <contactref element="C8" pad="1"/>
 <contactref element="C5" pad="1"/>
@@ -3271,7 +3305,7 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <wire x1="40.005" y1="13.716" x2="40.005" y2="13.335" width="0.3048" layer="1"/>
 <via x="53.34" y="40.64" extent="1-16" drill="1"/>
 <contactref element="C7" pad="2"/>
-<contactref element="GND_NRST" pad="1"/>
+<contactref element="GND_PRG" pad="1"/>
 <contactref element="MCU" pad="60"/>
 <contactref element="MCU" pad="63"/>
 <contactref element="MCU" pad="47"/>
@@ -3297,9 +3331,6 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <wire x1="62.865" y1="40.005" x2="62.865" y2="40.894" width="0.3048" layer="1"/>
 <via x="27.94" y="29.21" extent="1-16" drill="1"/>
 <via x="27.94" y="40.64" extent="1-16" drill="1"/>
-<wire x1="39.295" y1="40.663" x2="39.295" y2="41.604" width="0.3048" layer="1"/>
-<wire x1="38.974" y1="41.925" x2="36.83" y2="41.925" width="0.3048" layer="1"/>
-<wire x1="39.295" y1="41.604" x2="38.974" y2="41.925" width="0.3048" layer="1"/>
 <wire x1="48.283" y1="38.175" x2="49.224" y2="38.175" width="0.3048" layer="1"/>
 <wire x1="49.53" y1="38.481" x2="49.224" y2="38.175" width="0.3048" layer="1"/>
 <wire x1="48.26" y1="41.925" x2="49.007" y2="41.925" width="0.3048" layer="1"/>
@@ -3309,9 +3340,6 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <wire x1="40.795" y1="40.663" x2="40.795" y2="42.644" width="0.3048" layer="1"/>
 <wire x1="40.795" y1="42.644" x2="40.767" y2="42.672" width="0.3048" layer="1"/>
 <via x="40.767" y="42.672" extent="1-16" drill="0.2"/>
-<wire x1="45.795" y1="29.187" x2="45.795" y2="28.246" width="0.3048" layer="1"/>
-<wire x1="46.116" y1="27.925" x2="48.26" y2="27.925" width="0.3048" layer="1"/>
-<wire x1="45.795" y1="28.246" x2="46.116" y2="27.925" width="0.3048" layer="1"/>
 <wire x1="36.807" y1="33.175" x2="34.43" y2="33.175" width="0.3048" layer="1"/>
 <wire x1="34.43" y1="33.175" x2="33.64" y2="32.385" width="0.3048" layer="1"/>
 <contactref element="C11" pad="2"/>
@@ -3326,20 +3354,14 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <via x="17.78" y="65.786" extent="1-16" drill="0.35"/>
 <wire x1="52.07" y1="55.155" x2="52.07" y2="65.786" width="0.3048" layer="1"/>
 <via x="52.07" y="65.786" extent="1-16" drill="0.35"/>
-<wire x1="39.295" y1="29.187" x2="39.295" y2="27.365" width="0.3048" layer="1"/>
-<wire x1="39.295" y1="27.365" x2="39.355" y2="27.305" width="0.3048" layer="1"/>
 <wire x1="36.425" y1="25.555" x2="36.425" y2="27.52" width="0.3048" layer="1"/>
 <wire x1="36.425" y1="27.52" x2="36.83" y2="27.925" width="0.3048" layer="1"/>
-<wire x1="39.355" y1="27.305" x2="38.735" y2="27.305" width="0.3048" layer="1"/>
-<wire x1="38.735" y1="27.305" x2="38.1" y2="27.94" width="0.3048" layer="1"/>
-<wire x1="38.1" y1="27.94" x2="36.845" y2="27.94" width="0.3048" layer="1"/>
-<wire x1="36.845" y1="27.94" x2="36.83" y2="27.925" width="0.3048" layer="1"/>
 <wire x1="36.425" y1="25.555" x2="37.945" y2="25.555" width="0.3048" layer="1"/>
 <wire x1="38.735" y1="24.765" x2="38.735" y2="24.145" width="0.3048" layer="1"/>
 <wire x1="37.945" y1="25.555" x2="38.608" y2="24.892" width="0.3048" layer="1"/>
 <via x="49.53" y="40.894" extent="1-16" drill="0.2"/>
 <via x="46.228" y="27.94" extent="1-16" drill="0.2"/>
-<via x="39.116" y="41.91" extent="1-16" drill="0.2"/>
+<via x="39.116" y="41.783" extent="1-16" drill="0.2"/>
 <wire x1="38.608" y1="24.892" x2="38.735" y2="24.765" width="0.3048" layer="1"/>
 <wire x1="40.005" y1="13.716" x2="40.005" y2="11.557" width="0.3048" layer="1"/>
 <wire x1="40.005" y1="11.557" x2="37.338" y2="8.89" width="0.3048" layer="1"/>
@@ -3389,9 +3411,23 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <wire x1="55.384" y1="27.948" x2="55.11" y2="27.948" width="0.3048" layer="1"/>
 <wire x1="55.11" y1="27.948" x2="54.61" y2="28.448" width="0.3048" layer="1"/>
 <via x="54.61" y="28.448" extent="1-16" drill="0.2"/>
-<wire x1="48.26" y1="27.925" x2="51.435" y2="27.925" width="0" layer="19" extent="1-1"/>
-<wire x1="46.228" y1="27.94" x2="46.116" y2="27.925" width="0" layer="19" extent="1-1"/>
-<wire x1="38.974" y1="41.925" x2="39.116" y2="41.91" width="0" layer="19" extent="1-1"/>
+<wire x1="51.435" y1="27.925" x2="52.309" y2="27.925" width="0.3048" layer="1"/>
+<wire x1="52.309" y1="27.925" x2="52.324" y2="27.94" width="0.3048" layer="1"/>
+<via x="52.324" y="27.94" extent="1-16" drill="0.2"/>
+<wire x1="52.324" y1="27.94" x2="52.832" y2="28.448" width="0.3048" layer="2"/>
+<wire x1="52.832" y1="28.448" x2="54.61" y2="28.448" width="0.3048" layer="2"/>
+<wire x1="36.83" y1="41.925" x2="36.972" y2="41.783" width="0.3048" layer="1"/>
+<wire x1="36.972" y1="41.783" x2="39.116" y2="41.783" width="0.3048" layer="1"/>
+<wire x1="39.295" y1="40.663" x2="39.295" y2="41.604" width="0.3048" layer="1"/>
+<wire x1="39.295" y1="41.604" x2="39.116" y2="41.783" width="0.3048" layer="1"/>
+<wire x1="45.795" y1="29.187" x2="45.795" y2="28.373" width="0.3048" layer="1"/>
+<wire x1="45.795" y1="28.373" x2="46.228" y2="27.94" width="0.3048" layer="1"/>
+<wire x1="48.26" y1="27.925" x2="46.243" y2="27.925" width="0.3048" layer="1"/>
+<wire x1="46.243" y1="27.925" x2="46.228" y2="27.94" width="0.3048" layer="1"/>
+<wire x1="36.83" y1="27.925" x2="38.1" y2="27.925" width="0.3048" layer="1"/>
+<wire x1="38.1" y1="27.925" x2="38.72" y2="27.305" width="0.3048" layer="1"/>
+<wire x1="39.295" y1="29.187" x2="39.295" y2="27.88" width="0.3048" layer="1"/>
+<wire x1="39.295" y1="27.88" x2="38.72" y2="27.305" width="0.3048" layer="1"/>
 </signal>
 <signal name="+3V3">
 <contactref element="3V3_REGULATOR" pad="3"/>
@@ -3439,10 +3475,8 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <wire x1="36.83" y1="40.005" x2="37.465" y2="39.37" width="0.3048" layer="1"/>
 <wire x1="37.465" y1="39.37" x2="38.1" y2="39.37" width="0.3048" layer="1"/>
 <wire x1="50.165" y1="29.225" x2="48.26" y2="29.225" width="0.3048" layer="1"/>
-<wire x1="39.795" y1="29.187" x2="39.795" y2="28.165" width="0.3048" layer="1"/>
-<wire x1="39.795" y1="28.165" x2="40.655" y2="27.305" width="0.3048" layer="1"/>
 <wire x1="39.795" y1="29.187" x2="39.795" y2="30.397" width="0.3048" layer="1"/>
-<wire x1="39.795" y1="30.397" x2="39.878" y2="30.48" width="0.3048" layer="1"/>
+<wire x1="39.878" y1="30.48" x2="39.795" y2="30.397" width="0.3048" layer="1"/>
 <wire x1="34.94" y1="32.385" x2="35.23" y2="32.675" width="0.3048" layer="1"/>
 <wire x1="35.23" y1="32.675" x2="36.807" y2="32.675" width="0.3048" layer="1"/>
 <wire x1="36.807" y1="32.675" x2="38.263" y2="32.675" width="0.3048" layer="1"/>
@@ -3477,6 +3511,9 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <wire x1="54.102" y1="27.178" x2="55.614" y2="27.178" width="0.3048" layer="1"/>
 <wire x1="56.134" y1="27.698" x2="56.634" y2="27.698" width="0.3048" layer="1"/>
 <wire x1="56.634" y1="27.698" x2="56.884" y2="27.948" width="0.3048" layer="1"/>
+<wire x1="39.795" y1="29.187" x2="39.795" y2="28.15" width="0.3048" layer="1"/>
+<wire x1="40.02" y1="27.925" x2="40.02" y2="27.305" width="0.3048" layer="1"/>
+<wire x1="39.795" y1="28.15" x2="40.02" y2="27.925" width="0.3048" layer="1"/>
 </signal>
 <signal name="OSC32_IN">
 <contactref element="CLO1" pad="2"/>
@@ -3505,13 +3542,14 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <wire x1="33.365" y1="37.175" x2="32.385" y2="36.195" width="0.1524" layer="1"/>
 <wire x1="28.59" y1="34.29" x2="29.21" y2="34.29" width="0.1524" layer="1"/>
 <wire x1="29.21" y1="34.29" x2="29.845" y2="33.655" width="0.1524" layer="1"/>
-<wire x1="29.845" y1="33.655" x2="31.094409375" y2="33.655" width="0.1524" layer="1"/>
+<wire x1="29.845" y1="33.655" x2="30.46" y2="33.655" width="0.1524" layer="1"/>
+<wire x1="30.46" y1="33.655" x2="31.094409375" y2="33.655" width="0.1524" layer="1"/>
 <wire x1="31.094409375" y1="33.655" x2="31.114390625" y2="33.67498125" width="0.1524" layer="1"/>
 </signal>
 <signal name="NRST">
 <contactref element="C7" pad="1"/>
 <contactref element="MCU" pad="7"/>
-<contactref element="NRST1" pad="1"/>
+<contactref element="NRST" pad="1"/>
 <wire x1="36.807" y1="35.675" x2="35.055" y2="35.675" width="0.1524" layer="1"/>
 <wire x1="35.055" y1="35.675" x2="34.94" y2="35.56" width="0.1524" layer="1"/>
 <wire x1="6.985" y1="40.005" x2="21.336" y2="40.005" width="0.1524" layer="1"/>
@@ -3526,11 +3564,11 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 </signal>
 <signal name="SENS_PROX_1">
 <contactref element="RP1" pad="1"/>
-<wire x1="5.715" y1="67.945" x2="64.135" y2="67.945" width="1.27" layer="16"/>
-<wire x1="1.905" y1="64.135" x2="1.905" y2="40.005" width="1.27" layer="16"/>
-<wire x1="5.715" y1="67.945" x2="1.905" y2="64.135" width="1.27" layer="16"/>
-<wire x1="64.135" y1="67.945" x2="67.945" y2="64.135" width="1.27" layer="16"/>
-<wire x1="67.945" y1="40.005" x2="67.945" y2="64.135" width="1.27" layer="16"/>
+<wire x1="8.255" y1="67.945" x2="61.595" y2="67.945" width="1.27" layer="16"/>
+<wire x1="1.905" y1="61.595" x2="1.905" y2="40.005" width="1.27" layer="16"/>
+<wire x1="8.255" y1="67.945" x2="1.905" y2="61.595" width="1.27" layer="16" curve="90"/>
+<wire x1="61.595" y1="67.945" x2="67.945" y2="61.595" width="1.27" layer="16" curve="-90"/>
+<wire x1="67.945" y1="40.005" x2="67.945" y2="61.595" width="1.27" layer="16"/>
 <via x="1.905" y="40.005" extent="1-16" drill="1"/>
 <via x="67.945" y="40.005" extent="1-16" drill="1"/>
 <wire x1="19.05" y1="37.48" x2="19.05" y2="38.227" width="0.1524" layer="1"/>
@@ -3560,10 +3598,6 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <contactref element="RL4" pad="1"/>
 <contactref element="MCU" pad="20"/>
 <via x="40.259" y="31.242" extent="1-16" drill="0.2"/>
-<wire x1="40.295" y1="29.187" x2="40.295" y2="30.2863375" width="0.3048" layer="1"/>
-<wire x1="40.295" y1="30.2863375" x2="40.3098" y2="30.3011375" width="0.3048" layer="1"/>
-<wire x1="40.3098" y1="30.3011375" x2="40.3098" y2="31.1912" width="0.3048" layer="1"/>
-<wire x1="40.3098" y1="31.1912" x2="40.259" y2="31.242" width="0.3048" layer="1"/>
 <wire x1="40.259" y1="31.242" x2="35.179" y2="31.242" width="0.3048" layer="16"/>
 <wire x1="35.179" y1="31.242" x2="34.29" y2="30.353" width="0.3048" layer="16"/>
 <wire x1="34.29" y1="30.353" x2="17.78931875" y2="30.353" width="0.3048" layer="16"/>
@@ -3571,6 +3605,10 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <via x="17.721159375" y="30.284840625" extent="1-16" drill="0.2"/>
 <wire x1="17.721159375" y1="30.284840625" x2="17.721159375" y2="23.568840625" width="0.3048" layer="1"/>
 <wire x1="17.721159375" y1="23.568840625" x2="17.78" y2="23.51" width="0.3048" layer="1"/>
+<wire x1="40.295" y1="29.187" x2="40.295" y2="30.2863375" width="0.3048" layer="1"/>
+<wire x1="40.295" y1="30.2863375" x2="40.3098" y2="30.3011375" width="0.3048" layer="1"/>
+<wire x1="40.3098" y1="30.3011375" x2="40.3098" y2="31.1912" width="0.3048" layer="1"/>
+<wire x1="40.3098" y1="31.1912" x2="40.259" y2="31.242" width="0.3048" layer="1"/>
 </signal>
 <signal name="N$19">
 <contactref element="RL1" pad="2"/>
@@ -3594,27 +3632,33 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 </signal>
 <signal name="SENS_1">
 <polygon width="0.1524" layer="16">
-<vertex x="39.37" y="43.815"/>
-<vertex x="64.135" y="43.815"/>
-<vertex x="64.135" y="62.23"/>
-<vertex x="62.23" y="64.135"/>
-<vertex x="39.37" y="64.135"/>
+<vertex x="39.37" y="59.69"/>
+<vertex x="39.37" y="46.99" curve="90"/>
+<vertex x="42.545" y="43.815"/>
+<vertex x="59.055" y="43.815" curve="90"/>
+<vertex x="62.23" y="46.99"/>
+<vertex x="62.23" y="59.69" curve="90"/>
+<vertex x="59.055" y="62.865"/>
+<vertex x="42.545" y="62.865" curve="90"/>
 </polygon>
 <contactref element="RS1" pad="1"/>
-<via x="40.005" y="44.45" extent="1-16" drill="0.35"/>
+<via x="41.275" y="45.085" extent="1-16" drill="0.35"/>
 <wire x1="24.765" y1="40.655" x2="24.765" y2="41.402" width="0.1524" layer="1"/>
 <via x="24.765" y="41.402" extent="1-16" drill="0.2"/>
-<wire x1="24.765" y1="41.402" x2="25.781" y2="42.418" width="0.1524" layer="15"/>
-<wire x1="37.973" y1="42.418" x2="40.005" y2="44.45" width="0.1524" layer="15"/>
-<wire x1="25.781" y1="42.418" x2="37.973" y2="42.418" width="0.1524" layer="15"/>
+<wire x1="25.781" y1="42.418" x2="24.765" y2="41.402" width="0.1524" layer="15"/>
+<wire x1="41.275" y1="45.085" x2="38.608" y2="42.418" width="0.1524" layer="15"/>
+<wire x1="38.608" y1="42.418" x2="25.781" y2="42.418" width="0.1524" layer="15"/>
 </signal>
 <signal name="SENS_2">
 <polygon width="0.1524" layer="16">
-<vertex x="5.715" y="62.23"/>
-<vertex x="5.715" y="43.815"/>
-<vertex x="30.48" y="43.815"/>
-<vertex x="30.48" y="64.135"/>
-<vertex x="7.62" y="64.135"/>
+<vertex x="10.795" y="43.815"/>
+<vertex x="27.305" y="43.815" curve="90"/>
+<vertex x="30.48" y="46.99"/>
+<vertex x="30.48" y="59.69" curve="90"/>
+<vertex x="27.305" y="62.865"/>
+<vertex x="10.795" y="62.865" curve="90"/>
+<vertex x="7.62" y="59.69"/>
+<vertex x="7.62" y="46.99" curve="90"/>
 </polygon>
 <contactref element="RS2" pad="1"/>
 <via x="23.495" y="44.45" extent="1-16" drill="0.35"/>
@@ -3624,11 +3668,14 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 </signal>
 <signal name="SENS_4">
 <polygon width="0.1524" layer="16">
-<vertex x="5.715" y="26.035"/>
-<vertex x="30.48" y="26.035"/>
-<vertex x="30.48" y="5.715"/>
-<vertex x="7.62" y="5.715"/>
-<vertex x="5.715" y="7.62"/>
+<vertex x="7.62" y="10.16"/>
+<vertex x="7.62" y="22.86" curve="-90"/>
+<vertex x="10.795" y="26.035"/>
+<vertex x="27.305" y="26.035" curve="-90"/>
+<vertex x="30.48" y="22.86"/>
+<vertex x="30.48" y="10.16" curve="-90"/>
+<vertex x="27.305" y="6.985"/>
+<vertex x="10.795" y="6.985" curve="-90"/>
 </polygon>
 <contactref element="RS4" pad="1"/>
 <via x="19.05" y="25.4" extent="1-16" drill="0.35"/>
@@ -3651,11 +3698,19 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <wire x1="24.765" y1="36.397" x2="24.765" y2="39.355" width="0.1524" layer="1"/>
 </signal>
 <signal name="PRG">
-<contactref element="PRG1" pad="1"/>
+<contactref element="PRG" pad="1"/>
 <contactref element="RT1" pad="2"/>
-<contactref element="MCU" pad="21"/>
-<wire x1="50.165" y1="27.925" x2="62.865" y2="29.845" width="0" layer="19" extent="1-1"/>
-<wire x1="40.795" y1="29.187" x2="50.165" y2="27.925" width="0" layer="19" extent="1-1"/>
+<contactref element="MCU" pad="28"/>
+<wire x1="44.295" y1="29.187" x2="44.295" y2="27.587" width="0.3048" layer="1"/>
+<wire x1="44.295" y1="27.587" x2="45.212" y2="26.67" width="0.3048" layer="1"/>
+<wire x1="45.212" y1="26.67" x2="48.91" y2="26.67" width="0.3048" layer="1"/>
+<wire x1="48.91" y1="26.67" x2="50.165" y2="27.925" width="0.3048" layer="1"/>
+<wire x1="51.2556" y1="26.98571875" x2="51.2556" y2="26.9764" width="0.1524" layer="1"/>
+<wire x1="50.165" y1="27.925" x2="50.31631875" y2="27.925" width="0.1524" layer="1"/>
+<wire x1="50.31631875" y1="27.925" x2="51.2556" y2="26.98571875" width="0.1524" layer="1"/>
+<wire x1="59.69" y1="26.67" x2="62.865" y2="29.845" width="0.1524" layer="1"/>
+<wire x1="51.2556" y1="26.9764" x2="51.562" y2="26.67" width="0.1524" layer="1"/>
+<wire x1="51.562" y1="26.67" x2="59.69" y2="26.67" width="0.1524" layer="1"/>
 </signal>
 <signal name="IC_SENS_PROX_1">
 <contactref element="RP1" pad="2"/>
@@ -3701,11 +3756,11 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 </signal>
 <signal name="SENS_PROX_2">
 <contactref element="RP2" pad="1"/>
-<wire x1="64.135" y1="1.905" x2="5.715" y2="1.905" width="1.27" layer="16"/>
-<wire x1="5.715" y1="1.905" x2="1.905" y2="5.715" width="1.27" layer="16"/>
-<wire x1="1.905" y1="5.715" x2="1.905" y2="29.845" width="1.27" layer="16"/>
-<wire x1="67.945" y1="29.845" x2="67.945" y2="5.715" width="1.27" layer="16"/>
-<wire x1="67.945" y1="5.715" x2="64.135" y2="1.905" width="1.27" layer="16"/>
+<wire x1="61.595" y1="1.905" x2="8.255" y2="1.905" width="1.27" layer="16"/>
+<wire x1="8.255" y1="1.905" x2="1.905" y2="8.255" width="1.27" layer="16" curve="-90"/>
+<wire x1="1.905" y1="8.255" x2="1.905" y2="29.845" width="1.27" layer="16"/>
+<wire x1="67.945" y1="29.845" x2="67.945" y2="8.255" width="1.27" layer="16"/>
+<wire x1="67.945" y1="8.255" x2="61.595" y2="1.905" width="1.27" layer="16" curve="-90"/>
 <via x="1.905" y="29.845" extent="1-16" drill="1"/>
 <via x="67.945" y="29.845" extent="1-16" drill="1"/>
 <wire x1="19.05" y1="33.005" x2="19.05" y2="32.258" width="0.1524" layer="1"/>
@@ -3716,20 +3771,21 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <signal name="SENS_3">
 <contactref element="RS3" pad="1"/>
 <polygon width="0.1524" layer="16">
-<vertex x="39.37" y="5.715"/>
-<vertex x="62.865" y="5.715"/>
-<vertex x="64.135" y="6.985"/>
-<vertex x="64.135" y="26.035"/>
-<vertex x="39.37" y="26.035"/>
+<vertex x="59.055" y="26.035"/>
+<vertex x="42.545" y="26.035" curve="90"/>
+<vertex x="39.37" y="22.86"/>
+<vertex x="39.37" y="10.16" curve="90"/>
+<vertex x="42.545" y="6.985"/>
+<vertex x="59.055" y="6.985" curve="90"/>
+<vertex x="62.23" y="10.16"/>
+<vertex x="62.23" y="22.86" curve="90"/>
 </polygon>
-<via x="40.005" y="25.4" extent="1-16" drill="0.35"/>
+<via x="41.275" y="24.765" extent="1-16" drill="0.35"/>
 <wire x1="24.765" y1="29.195" x2="24.765" y2="28.448" width="0.1524" layer="1"/>
 <via x="24.765" y="28.448" extent="1-16" drill="0.2"/>
-<wire x1="24.765" y1="28.448" x2="25.3365" y2="27.8765" width="0.1524" layer="15"/>
-<wire x1="25.3365" y1="27.8765" x2="25.4" y2="27.813" width="0.1524" layer="15"/>
-<wire x1="25.4" y1="27.813" x2="25.781" y2="27.432" width="0.1524" layer="15"/>
-<wire x1="37.973" y1="27.432" x2="40.005" y2="25.4" width="0.1524" layer="15"/>
-<wire x1="25.781" y1="27.432" x2="37.973" y2="27.432" width="0.1524" layer="15"/>
+<wire x1="25.781" y1="27.432" x2="24.765" y2="28.448" width="0.1524" layer="15"/>
+<wire x1="41.275" y1="24.765" x2="38.608" y2="27.432" width="0.1524" layer="15"/>
+<wire x1="38.608" y1="27.432" x2="25.781" y2="27.432" width="0.1524" layer="15"/>
 </signal>
 <signal name="VCC">
 <contactref element="SENSORMCU" pad="6"/>
@@ -3918,25 +3974,24 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <signal name="SHIELD_OR_GND">
 <contactref element="S1" pad="2"/>
 <polygon width="0.1778" layer="1" spacing="1.778" pour="hatch" isolate="0.889" thermals="no" rank="6">
-<vertex x="0.635" y="5.08"/>
-<vertex x="5.08" y="0.635"/>
-<vertex x="64.77" y="0.635"/>
-<vertex x="69.215" y="5.08"/>
-<vertex x="69.215" y="64.77"/>
-<vertex x="64.77" y="69.215"/>
-<vertex x="5.08" y="69.215"/>
-<vertex x="0.635" y="64.77"/>
+<vertex x="0.635" y="5.715"/>
+<vertex x="5.715" y="0.635"/>
+<vertex x="64.135" y="0.635"/>
+<vertex x="69.215" y="5.715"/>
+<vertex x="69.215" y="64.135"/>
+<vertex x="64.135" y="69.215"/>
+<vertex x="5.715" y="69.215"/>
+<vertex x="0.635" y="64.135"/>
 </polygon>
 <polygon width="0.1778" layer="16" spacing="1.143" pour="hatch" isolate="0.889" thermals="no" rank="6">
-<vertex x="2.54" y="6.35"/>
-<vertex x="6.35" y="2.54"/>
-<vertex x="63.5" y="2.54"/>
-<vertex x="67.31" y="6.35"/>
-<vertex x="67.31" y="63.5"/>
-<vertex x="64.77" y="66.04"/>
-<vertex x="64.77" y="67.31"/>
-<vertex x="6.35" y="67.31"/>
-<vertex x="2.54" y="63.5"/>
+<vertex x="3.81" y="6.985"/>
+<vertex x="6.985" y="3.81"/>
+<vertex x="62.865" y="3.81"/>
+<vertex x="66.04" y="6.985"/>
+<vertex x="66.04" y="62.865"/>
+<vertex x="62.865" y="66.04"/>
+<vertex x="6.985" y="66.04"/>
+<vertex x="3.81" y="62.865"/>
 </polygon>
 </signal>
 </signals>
