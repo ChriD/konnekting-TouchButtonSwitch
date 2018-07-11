@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="50" unitdist="mil" unit="inch" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="inch"/>
+<grid distance="50" unitdist="mil" unit="mil" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="mil"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="yes" active="yes"/>
@@ -2789,6 +2789,38 @@ Source: http://catalog.osram-os.com .. LA_LR_LS_LY_P47F_Pb_free.pdf</description
 </package3d>
 </packages3d>
 </library>
+<library name="PCM12SMTR">
+<description>&lt;C &amp; K COMPONENTS - PCM12SMTR - SWITCH, SPDT, 0.3A, 6VDC, SMD&lt;/b&gt;&lt;p&gt;
+&lt;author&gt;Created by SamacSys&lt;/author&gt;</description>
+<packages>
+<package name="PCM12SMTR_1">
+<description>&lt;b&gt;PCM12SMTR_1&lt;/b&gt;&lt;br&gt;
+</description>
+<smd name="1" x="-2.25" y="1.75" dx="1.5" dy="0.7" layer="1" rot="R90"/>
+<smd name="2" x="0.75" y="1.75" dx="1.5" dy="0.7" layer="1" rot="R90"/>
+<smd name="3" x="2.25" y="1.75" dx="1.5" dy="0.7" layer="1" rot="R90"/>
+<smd name="4" x="-3.65" y="1.1" dx="1" dy="0.8" layer="1"/>
+<smd name="5" x="-3.65" y="-1.1" dx="1" dy="0.8" layer="1"/>
+<smd name="6" x="3.65" y="1.1" dx="1" dy="0.8" layer="1"/>
+<smd name="7" x="3.65" y="-1.1" dx="1" dy="0.8" layer="1"/>
+<pad name="8" x="-1.5" y="0" drill="0.9" diameter="1.4"/>
+<pad name="9" x="1.5" y="0" drill="0.9" diameter="1.4"/>
+<text x="-0.30333125" y="-0.09366875" size="1.27" layer="27" align="center">&gt;VALUE</text>
+<text x="-0.30333125" y="-0.09366875" size="1.27" layer="25" align="center">&gt;NAME</text>
+<wire x1="-3.35" y1="1.3" x2="3.35" y2="1.3" width="0.254" layer="51"/>
+<wire x1="3.35" y1="1.3" x2="3.35" y2="-2.8" width="0.254" layer="51"/>
+<wire x1="3.35" y1="-2.8" x2="-3.35" y2="-2.8" width="0.254" layer="51"/>
+<wire x1="-3.35" y1="-2.8" x2="-3.35" y2="1.3" width="0.254" layer="51"/>
+<wire x1="-3.35" y1="-2.8" x2="3.35" y2="-2.8" width="0.254" layer="21"/>
+<wire x1="3.35" y1="-2.8" x2="3.35" y2="-1.86433125" width="0.254" layer="21"/>
+<wire x1="-3.35" y1="-2.8" x2="-3.35" y2="-1.83466875" width="0.254" layer="21"/>
+<circle x="-2.221" y="3.21566875" radius="0.10333125" width="0.254" layer="25"/>
+<wire x1="-1.6" y1="1.3" x2="0.1" y2="1.3" width="0.254" layer="21"/>
+<wire x1="-3.35" y1="0.4" x2="-3.35" y2="-0.4" width="0.254" layer="21"/>
+<wire x1="3.35" y1="0.4" x2="3.35" y2="-0.4" width="0.254" layer="21"/>
+</package>
+</packages>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -3176,6 +3208,18 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <element name="C11" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C0402" package3d_urn="urn:adsk.eagle:package:23626/1" value="4.7uf" x="36.83" y="28.575" rot="R270">
 <attribute name="SPICEPREFIX" value="C" x="36.83" y="28.575" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
+<element name="S1" library="PCM12SMTR" package="PCM12SMTR_1" value="PCM12SMTR" x="34.925" y="51.435" rot="R180">
+<attribute name="ALLIED_NUMBER" value="70417448" x="34.925" y="51.435" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="ALLIED_PRICE/STOCK" value="https://www.alliedelec.com/c-k-pcm12smtr/70417448/" x="34.925" y="51.435" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="ARROW_PART_NUMBER" value="PCM12SMTR" x="34.925" y="51.435" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="ARROW_PRICE/STOCK" value="https://www.arrow.com/en/products/pcm12smtr/ck" x="34.925" y="51.435" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="DESCRIPTION" value="C &amp; K COMPONENTS - PCM12SMTR - SWITCH, SPDT, 0.3A, 6VDC, SMD" x="34.925" y="51.435" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="HEIGHT" value="mm" x="34.925" y="51.435" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MANUFACTURER_NAME" value="C &amp; K COMPONENTS" x="34.925" y="51.435" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MANUFACTURER_PART_NUMBER" value="PCM12SMTR" x="34.925" y="51.435" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="RS_PART_NUMBER" value="7931721P" x="34.925" y="51.435" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="RS_PRICE/STOCK" value="http://uk.rs-online.com/web/p/products/7931721P" x="34.925" y="51.435" size="1.778" layer="27" rot="R180" display="off"/>
+</element>
 </elements>
 <signals>
 <signal name="+5V">
@@ -3253,9 +3297,6 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <wire x1="62.865" y1="40.005" x2="62.865" y2="40.894" width="0.3048" layer="1"/>
 <via x="27.94" y="29.21" extent="1-16" drill="1"/>
 <via x="27.94" y="40.64" extent="1-16" drill="1"/>
-<wire x1="39.295" y1="40.663" x2="39.295" y2="41.604" width="0.3048" layer="1"/>
-<wire x1="38.974" y1="41.925" x2="36.83" y2="41.925" width="0.3048" layer="1"/>
-<wire x1="39.295" y1="41.604" x2="38.974" y2="41.925" width="0.3048" layer="1"/>
 <wire x1="48.283" y1="38.175" x2="49.224" y2="38.175" width="0.3048" layer="1"/>
 <wire x1="49.53" y1="38.481" x2="49.224" y2="38.175" width="0.3048" layer="1"/>
 <wire x1="48.26" y1="41.925" x2="49.007" y2="41.925" width="0.3048" layer="1"/>
@@ -3265,9 +3306,6 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <wire x1="40.795" y1="40.663" x2="40.795" y2="42.644" width="0.3048" layer="1"/>
 <wire x1="40.795" y1="42.644" x2="40.767" y2="42.672" width="0.3048" layer="1"/>
 <via x="40.767" y="42.672" extent="1-16" drill="0.2"/>
-<wire x1="45.795" y1="29.187" x2="45.795" y2="28.246" width="0.3048" layer="1"/>
-<wire x1="46.116" y1="27.925" x2="48.26" y2="27.925" width="0.3048" layer="1"/>
-<wire x1="45.795" y1="28.246" x2="46.116" y2="27.925" width="0.3048" layer="1"/>
 <wire x1="36.807" y1="33.175" x2="34.43" y2="33.175" width="0.3048" layer="1"/>
 <wire x1="34.43" y1="33.175" x2="33.64" y2="32.385" width="0.3048" layer="1"/>
 <contactref element="C11" pad="2"/>
@@ -3292,10 +3330,11 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <wire x1="36.845" y1="27.94" x2="36.83" y2="27.925" width="0.3048" layer="1"/>
 <wire x1="36.425" y1="25.555" x2="37.945" y2="25.555" width="0.3048" layer="1"/>
 <wire x1="38.735" y1="24.765" x2="38.735" y2="24.145" width="0.3048" layer="1"/>
-<wire x1="37.945" y1="25.555" x2="38.735" y2="24.765" width="0.3048" layer="1"/>
+<wire x1="37.945" y1="25.555" x2="38.608" y2="24.892" width="0.3048" layer="1"/>
 <via x="49.53" y="40.894" extent="1-16" drill="0.2"/>
 <via x="46.228" y="27.94" extent="1-16" drill="0.2"/>
-<via x="39.116" y="41.91" extent="1-16" drill="0.2"/>
+<via x="39.116" y="41.783" extent="1-16" drill="0.2"/>
+<wire x1="38.608" y1="24.892" x2="38.735" y2="24.765" width="0.3048" layer="1"/>
 <wire x1="40.005" y1="13.716" x2="40.005" y2="11.557" width="0.3048" layer="1"/>
 <wire x1="40.005" y1="11.557" x2="37.338" y2="8.89" width="0.3048" layer="1"/>
 <via x="37.338" y="8.89" extent="1-16" drill="0.2"/>
@@ -3333,12 +3372,30 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <wire x1="33.64" y1="32.385" x2="33.782" y2="32.243" width="0.3048" layer="1"/>
 <wire x1="33.782" y1="32.243" x2="33.782" y2="31.496" width="0.3048" layer="1"/>
 <via x="33.782" y="31.496" extent="1-16" drill="0.2"/>
-<wire x1="51.435" y1="27.925" x2="55.384" y2="27.948" width="0" layer="19" extent="1-1"/>
-<wire x1="48.26" y1="27.925" x2="51.435" y2="27.925" width="0" layer="19" extent="1-1"/>
-<wire x1="46.228" y1="27.94" x2="46.116" y2="27.925" width="0" layer="19" extent="1-1"/>
-<wire x1="38.974" y1="41.925" x2="39.116" y2="41.91" width="0" layer="19" extent="1-1"/>
-<wire x1="39.295" y1="29.187" x2="36.807" y2="33.175" width="0" layer="19" extent="1-1"/>
-<wire x1="31.115" y1="22.845" x2="36.425" y2="25.555" width="0" layer="19" extent="1-1"/>
+<wire x1="31.115" y1="22.845" x2="31.735" y2="22.845" width="0.3048" layer="1"/>
+<wire x1="31.735" y1="22.845" x2="32.004" y2="23.114" width="0.3048" layer="1"/>
+<via x="32.004" y="23.114" extent="1-16" drill="0.2"/>
+<via x="38.608" y="24.892" extent="1-16" drill="0.2"/>
+<contactref element="S1" pad="1"/>
+<wire x1="37.175" y1="49.685" x2="36.421" y2="49.685" width="0.3048" layer="1"/>
+<wire x1="36.421" y1="49.685" x2="36.322" y2="49.784" width="0.3048" layer="1"/>
+<via x="36.322" y="49.784" extent="1-16" drill="0.2"/>
+<wire x1="55.384" y1="27.948" x2="55.11" y2="27.948" width="0.3048" layer="1"/>
+<wire x1="55.11" y1="27.948" x2="54.61" y2="28.448" width="0.3048" layer="1"/>
+<via x="54.61" y="28.448" extent="1-16" drill="0.2"/>
+<wire x1="51.435" y1="27.925" x2="52.309" y2="27.925" width="0.3048" layer="1"/>
+<wire x1="52.309" y1="27.925" x2="52.324" y2="27.94" width="0.3048" layer="1"/>
+<via x="52.324" y="27.94" extent="1-16" drill="0.2"/>
+<wire x1="52.324" y1="27.94" x2="52.832" y2="28.448" width="0.3048" layer="2"/>
+<wire x1="52.832" y1="28.448" x2="54.61" y2="28.448" width="0.3048" layer="2"/>
+<wire x1="36.83" y1="41.925" x2="36.972" y2="41.783" width="0.3048" layer="1"/>
+<wire x1="36.972" y1="41.783" x2="39.116" y2="41.783" width="0.3048" layer="1"/>
+<wire x1="39.295" y1="40.663" x2="39.295" y2="41.604" width="0.3048" layer="1"/>
+<wire x1="39.295" y1="41.604" x2="39.116" y2="41.783" width="0.3048" layer="1"/>
+<wire x1="45.795" y1="29.187" x2="45.795" y2="28.373" width="0.3048" layer="1"/>
+<wire x1="45.795" y1="28.373" x2="46.228" y2="27.94" width="0.3048" layer="1"/>
+<wire x1="48.26" y1="27.925" x2="46.243" y2="27.925" width="0.3048" layer="1"/>
+<wire x1="46.243" y1="27.925" x2="46.228" y2="27.94" width="0.3048" layer="1"/>
 </signal>
 <signal name="+3V3">
 <contactref element="3V3_REGULATOR" pad="3"/>
@@ -3417,8 +3474,13 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <wire x1="23.749" y1="28.321" x2="27.925" y2="24.145" width="0.3048" layer="1"/>
 <wire x1="27.925" y1="24.145" x2="29.845" y2="24.145" width="0.3048" layer="1"/>
 <wire x1="23.353" y1="30.495" x2="23.749" y2="30.099" width="0.3048" layer="1"/>
-<wire x1="56.134" y1="27.698" x2="56.884" y2="27.948" width="0" layer="19" extent="1-1"/>
-<wire x1="51.435" y1="29.225" x2="56.134" y2="27.698" width="0" layer="19" extent="1-1"/>
+<wire x1="51.435" y1="29.225" x2="51.45" y2="29.21" width="0.3048" layer="1"/>
+<wire x1="51.45" y1="29.21" x2="52.07" y2="29.21" width="0.3048" layer="1"/>
+<wire x1="52.07" y1="29.21" x2="54.102" y2="27.178" width="0.3048" layer="1"/>
+<wire x1="55.614" y1="27.178" x2="56.134" y2="27.698" width="0.3048" layer="1"/>
+<wire x1="54.102" y1="27.178" x2="55.614" y2="27.178" width="0.3048" layer="1"/>
+<wire x1="56.134" y1="27.698" x2="56.634" y2="27.698" width="0.3048" layer="1"/>
+<wire x1="56.634" y1="27.698" x2="56.884" y2="27.948" width="0.3048" layer="1"/>
 </signal>
 <signal name="OSC32_IN">
 <contactref element="CLO1" pad="2"/>
@@ -3429,20 +3491,26 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <wire x1="31.623" y1="36.449" x2="31.349" y2="36.175" width="0.1524" layer="1"/>
 <wire x1="31.349" y1="36.175" x2="31.115" y2="36.175" width="0.1524" layer="1"/>
 <wire x1="36.807" y1="37.675" x2="31.96" y2="37.675" width="0.1524" layer="1"/>
-<wire x1="28.59" y1="35.56" x2="31.115" y2="36.175" width="0" layer="19" extent="1-1"/>
+<wire x1="28.59" y1="35.56" x2="29.21" y2="35.56" width="0.1524" layer="1"/>
+<wire x1="29.21" y1="35.56" x2="29.825" y2="36.175" width="0.1524" layer="1"/>
+<wire x1="29.825" y1="36.175" x2="31.115" y2="36.175" width="0.1524" layer="1"/>
 </signal>
 <signal name="OSC32_OUT">
 <contactref element="CLO2" pad="2"/>
 <contactref element="OSC32" pad="2"/>
 <contactref element="MCU" pad="4"/>
-<wire x1="31.115" y1="33.675" x2="30.46" y2="33.655" width="0.1524" layer="1"/>
+<wire x1="31.115" y1="33.675" x2="31.114390625" y2="33.67498125" width="0.1524" layer="1"/>
+<wire x1="31.114390625" y1="33.67498125" x2="30.46" y2="33.655" width="0.1524" layer="1"/>
 <wire x1="36.807" y1="37.175" x2="33.365" y2="37.175" width="0.1524" layer="1"/>
 <wire x1="32.385" y1="36.195" x2="32.385" y2="35.306" width="0.1524" layer="1"/>
 <wire x1="32.385" y1="35.306" x2="31.623" y2="34.544" width="0.1524" layer="1"/>
 <wire x1="31.623" y1="34.544" x2="31.623" y2="34.183" width="0.1524" layer="1"/>
 <wire x1="31.623" y1="34.183" x2="31.115" y2="33.675" width="0.1524" layer="1"/>
 <wire x1="33.365" y1="37.175" x2="32.385" y2="36.195" width="0.1524" layer="1"/>
-<wire x1="30.46" y1="33.655" x2="28.59" y2="34.29" width="0" layer="19" extent="1-1"/>
+<wire x1="28.59" y1="34.29" x2="29.21" y2="34.29" width="0.1524" layer="1"/>
+<wire x1="29.21" y1="34.29" x2="29.845" y2="33.655" width="0.1524" layer="1"/>
+<wire x1="29.845" y1="33.655" x2="31.094409375" y2="33.655" width="0.1524" layer="1"/>
+<wire x1="31.094409375" y1="33.655" x2="31.114390625" y2="33.67498125" width="0.1524" layer="1"/>
 </signal>
 <signal name="NRST">
 <contactref element="C7" pad="1"/>
@@ -3450,7 +3518,15 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <contactref element="NRST1" pad="1"/>
 <wire x1="36.807" y1="35.675" x2="35.055" y2="35.675" width="0.1524" layer="1"/>
 <wire x1="35.055" y1="35.675" x2="34.94" y2="35.56" width="0.1524" layer="1"/>
-<wire x1="6.985" y1="40.005" x2="34.94" y2="35.56" width="0" layer="19" extent="1-1"/>
+<wire x1="6.985" y1="40.005" x2="21.336" y2="40.005" width="0.1524" layer="1"/>
+<via x="21.336" y="40.005" extent="1-16" drill="0.2"/>
+<wire x1="34.925" y1="35.545" x2="34.94" y2="35.56" width="0.1524" layer="1"/>
+<wire x1="34.94" y1="35.56" x2="34.94" y2="36.434" width="0.1524" layer="1"/>
+<wire x1="34.94" y1="36.434" x2="34.925" y2="36.449" width="0.1524" layer="1"/>
+<via x="34.925" y="36.449" extent="1-16" drill="0.2"/>
+<wire x1="34.925" y1="36.449" x2="32.893" y2="38.481" width="0.1524" layer="15"/>
+<wire x1="22.86" y1="38.481" x2="21.336" y2="40.005" width="0.1524" layer="15"/>
+<wire x1="32.893" y1="38.481" x2="22.86" y2="38.481" width="0.1524" layer="15"/>
 </signal>
 <signal name="SENS_PROX_1">
 <contactref element="RP1" pad="1"/>
@@ -3469,17 +3545,36 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <signal name="LED1">
 <contactref element="RL1" pad="1"/>
 <contactref element="MCU" pad="44"/>
-<wire x1="48.283" y1="36.675" x2="52.07" y2="46.34" width="0" layer="19" extent="1-1"/>
+<wire x1="48.283" y1="36.675" x2="51.407" y2="36.675" width="0.3048" layer="1"/>
+<wire x1="51.407" y1="36.675" x2="51.435" y2="36.703" width="0.3048" layer="1"/>
+<via x="51.435" y="36.703" extent="1-16" drill="0.2"/>
+<wire x1="51.435" y1="36.703" x2="51.435" y2="42.418" width="0.3048" layer="15"/>
+<via x="51.435" y="42.418" extent="1-16" drill="0.2"/>
+<wire x1="51.435" y1="42.418" x2="52.07" y2="43.053" width="0.3048" layer="1"/>
+<wire x1="52.07" y1="43.053" x2="52.07" y2="46.34" width="0.3048" layer="1"/>
 </signal>
 <signal name="LED2">
 <contactref element="RL2" pad="1"/>
 <contactref element="MCU" pad="62"/>
-<wire x1="17.78" y1="46.34" x2="39.795" y2="40.663" width="0" layer="19" extent="1-1"/>
+<wire x1="39.795" y1="40.663" x2="39.795" y2="42.628" width="0.3048" layer="1"/>
+<wire x1="36.083" y1="46.34" x2="17.78" y2="46.34" width="0.3048" layer="1"/>
+<wire x1="39.795" y1="42.628" x2="36.083" y2="46.34" width="0.3048" layer="1"/>
 </signal>
 <signal name="LED4">
 <contactref element="RL4" pad="1"/>
 <contactref element="MCU" pad="20"/>
-<wire x1="17.78" y1="23.51" x2="40.295" y2="29.187" width="0" layer="19" extent="1-1"/>
+<via x="40.259" y="31.242" extent="1-16" drill="0.2"/>
+<wire x1="40.295" y1="29.187" x2="40.295" y2="30.2863375" width="0.3048" layer="1"/>
+<wire x1="40.295" y1="30.2863375" x2="40.3098" y2="30.3011375" width="0.3048" layer="1"/>
+<wire x1="40.3098" y1="30.3011375" x2="40.3098" y2="31.1912" width="0.3048" layer="1"/>
+<wire x1="40.3098" y1="31.1912" x2="40.259" y2="31.242" width="0.3048" layer="1"/>
+<wire x1="40.259" y1="31.242" x2="35.179" y2="31.242" width="0.3048" layer="16"/>
+<wire x1="35.179" y1="31.242" x2="34.29" y2="30.353" width="0.3048" layer="16"/>
+<wire x1="34.29" y1="30.353" x2="17.78931875" y2="30.353" width="0.3048" layer="16"/>
+<wire x1="17.78931875" y1="30.353" x2="17.721159375" y2="30.284840625" width="0.3048" layer="16"/>
+<via x="17.721159375" y="30.284840625" extent="1-16" drill="0.2"/>
+<wire x1="17.721159375" y1="30.284840625" x2="17.721159375" y2="23.568840625" width="0.3048" layer="1"/>
+<wire x1="17.721159375" y1="23.568840625" x2="17.78" y2="23.51" width="0.3048" layer="1"/>
 </signal>
 <signal name="N$19">
 <contactref element="RL1" pad="2"/>
@@ -3562,9 +3657,9 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <signal name="PRG">
 <contactref element="PRG1" pad="1"/>
 <contactref element="RT1" pad="2"/>
-<contactref element="MCU" pad="21"/>
+<contactref element="MCU" pad="28"/>
 <wire x1="50.165" y1="27.925" x2="62.865" y2="29.845" width="0" layer="19" extent="1-1"/>
-<wire x1="40.795" y1="29.187" x2="50.165" y2="27.925" width="0" layer="19" extent="1-1"/>
+<wire x1="44.295" y1="29.187" x2="50.165" y2="27.925" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="IC_SENS_PROX_1">
 <contactref element="RP1" pad="2"/>
@@ -3582,7 +3677,14 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <signal name="LED3">
 <contactref element="RL3" pad="1"/>
 <contactref element="MCU" pad="43"/>
-<wire x1="52.07" y1="23.51" x2="48.283" y2="36.175" width="0" layer="19" extent="1-1"/>
+<wire x1="48.283" y1="36.175" x2="50.185" y2="36.175" width="0.3048" layer="1"/>
+<wire x1="50.185" y1="36.175" x2="50.546" y2="35.814" width="0.3048" layer="1"/>
+<via x="50.546" y="35.814" extent="1-16" drill="0.2"/>
+<wire x1="50.546" y1="35.814" x2="50.8" y2="35.56" width="0.3048" layer="15"/>
+<wire x1="50.8" y1="35.56" x2="50.8" y2="26.797" width="0.3048" layer="15"/>
+<via x="50.8" y="26.797" extent="1-16" drill="0.2"/>
+<wire x1="50.8" y1="26.797" x2="52.07" y2="25.527" width="0.3048" layer="1"/>
+<wire x1="52.07" y1="25.527" x2="52.07" y2="23.51" width="0.3048" layer="1"/>
 </signal>
 <signal name="IC_SENS_2">
 <contactref element="RS2" pad="2"/>
@@ -3647,12 +3749,28 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <contactref element="RI2C2" pad="1"/>
 <via x="30.48" y="40.64" extent="1-16" drill="1"/>
 <contactref element="MCU" pad="41"/>
-<wire x1="48.283" y1="35.175" x2="49.28" y2="35.175" width="0.1524" layer="1"/>
-<wire x1="49.28" y1="35.175" x2="51.435" y2="33.02" width="0.1524" layer="1"/>
-<wire x1="51.435" y1="33.02" x2="51.435" y2="32.4" width="0.1524" layer="1"/>
-<wire x1="51.435" y1="32.4" x2="56.884" y2="28.948" width="0" layer="19" extent="1-1"/>
-<wire x1="30.48" y1="40.64" x2="48.283" y2="35.175" width="0" layer="19" extent="1-1"/>
-<wire x1="22.61" y1="37.052" x2="30.48" y2="40.64" width="0" layer="19" extent="1-1"/>
+<wire x1="22.61" y1="37.052" x2="22.61" y2="37.72431875" width="0.1524" layer="1"/>
+<wire x1="22.61" y1="37.72431875" x2="22.356659375" y2="37.977659375" width="0.1524" layer="1"/>
+<via x="22.356659375" y="37.977659375" extent="1-16" drill="0.2"/>
+<wire x1="30.48" y1="40.64" x2="29.21" y2="39.37" width="0.1524" layer="1"/>
+<wire x1="26.162" y1="40.005" x2="22.987" y2="40.005" width="0.1524" layer="1"/>
+<wire x1="22.987" y1="40.005" x2="22.356659375" y2="39.374659375" width="0.1524" layer="1"/>
+<wire x1="22.356659375" y1="39.374659375" x2="22.356659375" y2="37.977659375" width="0.1524" layer="1"/>
+<wire x1="29.21" y1="39.37" x2="26.797" y2="39.37" width="0.1524" layer="1"/>
+<wire x1="26.797" y1="39.37" x2="26.162" y2="40.005" width="0.1524" layer="1"/>
+<via x="51.435" y="35.179" extent="1-16" drill="0.2"/>
+<wire x1="51.435" y1="35.179" x2="51.435" y2="32.4" width="0.1524" layer="1"/>
+<wire x1="51.435" y1="35.179" x2="48.287" y2="35.179" width="0.1524" layer="1"/>
+<wire x1="48.287" y1="35.179" x2="48.283" y2="35.175" width="0.1524" layer="1"/>
+<wire x1="30.48" y1="40.64" x2="33.147" y2="37.973" width="0.1524" layer="16"/>
+<wire x1="51.435" y1="35.687" x2="51.435" y2="35.179" width="0.1524" layer="16"/>
+<wire x1="33.147" y1="37.973" x2="49.149" y2="37.973" width="0.1524" layer="16"/>
+<wire x1="49.149" y1="37.973" x2="51.435" y2="35.687" width="0.1524" layer="16"/>
+<wire x1="51.435" y1="32.4" x2="52.182" y2="32.4" width="0.1524" layer="1"/>
+<wire x1="56.884" y1="29.476" x2="56.884" y2="28.948" width="0.1524" layer="1"/>
+<wire x1="52.182" y1="32.4" x2="54.737" y2="29.845" width="0.1524" layer="1"/>
+<wire x1="54.737" y1="29.845" x2="56.515" y2="29.845" width="0.1524" layer="1"/>
+<wire x1="56.515" y1="29.845" x2="56.884" y2="29.476" width="0.1524" layer="1"/>
 </signal>
 <signal name="I2C_SDA">
 <contactref element="SENSORMCU" pad="21"/>
@@ -3660,17 +3778,45 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <contactref element="RI2C1" pad="1"/>
 <via x="33.02" y="40.64" extent="1-16" drill="1"/>
 <contactref element="MCU" pad="40"/>
-<wire x1="48.283" y1="34.675" x2="49.272" y2="34.675" width="0.1524" layer="1"/>
-<wire x1="50.165" y1="33.782" x2="50.165" y2="32.4" width="0.1524" layer="1"/>
-<wire x1="49.272" y1="34.675" x2="50.165" y2="33.782" width="0.1524" layer="1"/>
-<wire x1="50.165" y1="32.4" x2="55.384" y2="28.948" width="0" layer="19" extent="1-1"/>
-<wire x1="33.02" y1="40.64" x2="48.283" y2="34.675" width="0" layer="19" extent="1-1"/>
-<wire x1="23.11" y1="37.052" x2="33.02" y2="40.64" width="0" layer="19" extent="1-1"/>
+<wire x1="23.11" y1="37.052" x2="23.11" y2="37.959675" width="0.1524" layer="1"/>
+<wire x1="23.11" y1="37.959675" x2="23.1186625" y2="37.9683375" width="0.1524" layer="1"/>
+<via x="23.1186625" y="37.9683375" extent="1-16" drill="0.2"/>
+<wire x1="33.02" y1="40.64" x2="38.989" y2="34.671" width="0.1524" layer="15"/>
+<wire x1="38.989" y1="34.671" x2="50.165" y2="34.671" width="0.1524" layer="15"/>
+<via x="50.165" y="34.671" extent="1-16" drill="0.2"/>
+<wire x1="23.1186625" y1="37.9683375" x2="25.5223375" y2="37.9683375" width="0.1524" layer="15"/>
+<wire x1="25.5223375" y1="37.9683375" x2="25.527" y2="37.973" width="0.1524" layer="15"/>
+<via x="25.527" y="37.973" extent="1-16" drill="0.2"/>
+<wire x1="25.527" y1="37.973" x2="30.226" y2="37.973" width="0.1524" layer="1"/>
+<wire x1="30.226" y1="37.973" x2="32.893" y2="40.64" width="0.1524" layer="1"/>
+<wire x1="32.893" y1="40.64" x2="33.02" y2="40.64" width="0.1524" layer="1"/>
+<wire x1="50.165" y1="32.4" x2="50.165" y2="34.671" width="0.1524" layer="1"/>
+<wire x1="50.165" y1="34.671" x2="48.287" y2="34.671" width="0.1524" layer="1"/>
+<wire x1="48.287" y1="34.671" x2="48.283" y2="34.675" width="0.1524" layer="1"/>
+<wire x1="50.165" y1="32.4" x2="50.165" y2="31.877" width="0.1524" layer="1"/>
+<wire x1="50.165" y1="31.877" x2="50.292" y2="31.75" width="0.1524" layer="1"/>
+<wire x1="52.07" y1="31.75" x2="54.872" y2="28.948" width="0.1524" layer="1"/>
+<wire x1="54.872" y1="28.948" x2="55.384" y2="28.948" width="0.1524" layer="1"/>
+<wire x1="50.292" y1="31.75" x2="52.07" y2="31.75" width="0.1524" layer="1"/>
 </signal>
 <signal name="HOST_INT">
 <contactref element="SENSORMCU" pad="23"/>
 <contactref element="MCU" pad="11"/>
-<wire x1="22.11" y1="37.052" x2="36.807" y2="33.675" width="0" layer="19" extent="1-1"/>
+<wire x1="36.807" y1="33.675" x2="33.548" y2="33.675" width="0.1524" layer="1"/>
+<wire x1="25.4" y1="32.512" x2="24.892" y2="33.02" width="0.1524" layer="1"/>
+<via x="24.892" y="33.02" extent="1-16" drill="0.2"/>
+<wire x1="33.548" y1="33.675" x2="32.385" y2="32.512" width="0.1524" layer="1"/>
+<wire x1="32.385" y1="32.512" x2="25.4" y2="32.512" width="0.1524" layer="1"/>
+<wire x1="22.11" y1="37.052" x2="22.098" y2="37.064" width="0.1524" layer="1"/>
+<wire x1="22.098" y1="37.064" x2="22.098" y2="37.592" width="0.1524" layer="1"/>
+<wire x1="22.098" y1="37.592" x2="21.717" y2="37.973" width="0.1524" layer="1"/>
+<wire x1="21.717" y1="37.973" x2="21.59" y2="37.973" width="0.1524" layer="1"/>
+<via x="21.59" y="37.973" extent="1-16" drill="0.2"/>
+<wire x1="21.59" y1="37.973" x2="21.463" y2="37.973" width="0.1524" layer="15"/>
+<wire x1="21.463" y1="37.973" x2="21.209" y2="37.719" width="0.1524" layer="15"/>
+<wire x1="21.209" y1="37.719" x2="21.209" y2="37.338" width="0.1524" layer="15"/>
+<wire x1="21.209" y1="37.338" x2="24.892" y2="33.655" width="0.1524" layer="15"/>
+<wire x1="24.892" y1="33.655" x2="24.892" y2="33.02" width="0.1524" layer="15"/>
 </signal>
 <signal name="CMOD">
 <contactref element="SENSORMCU" pad="5"/>
@@ -3684,46 +3830,46 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <signal name="SWDIO">
 <via x="58.42" y="40.64" extent="1-16" drill="1"/>
 <contactref element="MCU" pad="46"/>
-<wire x1="48.283" y1="37.675" x2="58.42" y2="40.64" width="0" layer="19" extent="1-1"/>
+<wire x1="48.283" y1="37.675" x2="52.534" y2="37.675" width="0.1524" layer="1"/>
+<wire x1="52.534" y1="37.675" x2="53.975" y2="39.116" width="0.1524" layer="1"/>
+<wire x1="53.975" y1="39.116" x2="56.896" y2="39.116" width="0.1524" layer="1"/>
+<wire x1="56.896" y1="39.116" x2="58.42" y2="40.64" width="0.1524" layer="1"/>
 </signal>
 <signal name="SWCLK">
 <contactref element="MCU" pad="49"/>
 <via x="55.88" y="40.64" extent="1-16" drill="1"/>
-<wire x1="46.295" y1="40.663" x2="55.88" y2="40.64" width="0" layer="19" extent="1-1"/>
+<wire x1="46.295" y1="40.663" x2="46.295" y2="41.723" width="0.1524" layer="1"/>
+<wire x1="46.295" y1="41.723" x2="47.371" y2="42.799" width="0.1524" layer="1"/>
+<wire x1="47.371" y1="42.799" x2="49.276" y2="42.799" width="0.1524" layer="1"/>
+<wire x1="49.276" y1="42.799" x2="50.292" y2="41.783" width="0.1524" layer="1"/>
+<wire x1="50.292" y1="41.783" x2="54.737" y2="41.783" width="0.1524" layer="1"/>
+<wire x1="54.737" y1="41.783" x2="55.88" y2="40.64" width="0.1524" layer="1"/>
 </signal>
 <signal name="SHIELD">
-<polygon width="0.1778" layer="16" spacing="1.143" pour="hatch" isolate="0.889" thermals="no" rank="6">
-<vertex x="2.54" y="6.35"/>
-<vertex x="6.35" y="2.54"/>
-<vertex x="63.5" y="2.54"/>
-<vertex x="67.31" y="6.35"/>
-<vertex x="67.31" y="63.5"/>
-<vertex x="64.77" y="66.04"/>
-<vertex x="64.77" y="67.31"/>
-<vertex x="6.35" y="67.31"/>
-<vertex x="2.54" y="63.5"/>
-</polygon>
 <contactref element="SENSORMCU" pad="9"/>
-<polygon width="0.1778" layer="1" spacing="1.778" pour="hatch" isolate="0.889" thermals="no" rank="6">
-<vertex x="0.635" y="5.08"/>
-<vertex x="5.08" y="0.635"/>
-<vertex x="64.77" y="0.635"/>
-<vertex x="69.215" y="5.08"/>
-<vertex x="69.215" y="64.77"/>
-<vertex x="64.77" y="69.215"/>
-<vertex x="5.08" y="69.215"/>
-<vertex x="0.635" y="64.77"/>
-</polygon>
+<contactref element="S1" pad="3"/>
+<wire x1="22.61" y1="33.052" x2="32.675" y2="49.685" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="USART2_TX">
 <contactref element="MCU" pad="16"/>
 <via x="30.48" y="29.21" extent="1-16" drill="1"/>
-<wire x1="30.48" y1="29.21" x2="36.807" y2="31.175" width="0" layer="19" extent="1-1"/>
+<wire x1="36.807" y1="31.175" x2="34.985" y2="31.175" width="0.1524" layer="1"/>
+<wire x1="34.29" y1="30.48" x2="31.369" y2="30.48" width="0.1524" layer="1"/>
+<wire x1="31.369" y1="30.48" x2="30.48" y2="29.591" width="0.1524" layer="1"/>
+<wire x1="30.48" y1="29.591" x2="30.48" y2="29.21" width="0.1524" layer="1"/>
+<wire x1="34.985" y1="31.175" x2="34.29" y2="30.48" width="0.1524" layer="1"/>
 </signal>
 <signal name="USART2_RX">
 <via x="33.02" y="29.21" extent="1-16" drill="1"/>
 <contactref element="MCU" pad="17"/>
-<wire x1="33.02" y1="29.21" x2="38.795" y2="29.187" width="0" layer="19" extent="1-1"/>
+<wire x1="38.795" y1="29.187" x2="38.123" y2="29.187" width="0.1524" layer="1"/>
+<wire x1="38.123" y1="29.187" x2="38.1" y2="29.21" width="0.1524" layer="1"/>
+<via x="38.1" y="29.21" extent="1-16" drill="0.2"/>
+<wire x1="38.1" y1="29.21" x2="36.83" y2="30.48" width="0.1524" layer="15"/>
+<via x="36.83" y="30.48" extent="1-16" drill="0.2"/>
+<wire x1="36.83" y1="30.48" x2="35.306" y2="30.48" width="0.1524" layer="1"/>
+<wire x1="35.306" y1="30.48" x2="34.036" y2="29.21" width="0.1524" layer="1"/>
+<wire x1="34.036" y1="29.21" x2="33.02" y2="29.21" width="0.1524" layer="1"/>
 </signal>
 <signal name="USART1_RX">
 <contactref element="SIEMENS-BCU" pad="3"/>
@@ -3772,6 +3918,30 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 </signal>
 <signal name="I2C1_SCL">
 <contactref element="MCU" pad="58"/>
+</signal>
+<signal name="SHIELD_OR_GND">
+<contactref element="S1" pad="2"/>
+<polygon width="0.1778" layer="1" spacing="1.778" pour="hatch" isolate="0.889" thermals="no" rank="6">
+<vertex x="0.635" y="5.08"/>
+<vertex x="5.08" y="0.635"/>
+<vertex x="64.77" y="0.635"/>
+<vertex x="69.215" y="5.08"/>
+<vertex x="69.215" y="64.77"/>
+<vertex x="64.77" y="69.215"/>
+<vertex x="5.08" y="69.215"/>
+<vertex x="0.635" y="64.77"/>
+</polygon>
+<polygon width="0.1778" layer="16" spacing="1.143" pour="hatch" isolate="0.889" thermals="no" rank="6">
+<vertex x="2.54" y="6.35"/>
+<vertex x="6.35" y="2.54"/>
+<vertex x="63.5" y="2.54"/>
+<vertex x="67.31" y="6.35"/>
+<vertex x="67.31" y="63.5"/>
+<vertex x="64.77" y="66.04"/>
+<vertex x="64.77" y="67.31"/>
+<vertex x="6.35" y="67.31"/>
+<vertex x="2.54" y="63.5"/>
+</polygon>
 </signal>
 </signals>
 <errors>
