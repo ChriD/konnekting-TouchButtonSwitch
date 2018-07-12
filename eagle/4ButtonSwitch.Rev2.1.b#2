@@ -9,7 +9,7 @@
 <grid distance="50" unitdist="mil" unit="mil" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="mil"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="yes"/>
-<layer number="2" name="Route2" color="1" fill="3" visible="no" active="yes"/>
+<layer number="2" name="Route2" color="1" fill="3" visible="yes" active="yes"/>
 <layer number="3" name="Route3" color="4" fill="3" visible="no" active="no"/>
 <layer number="4" name="Route4" color="1" fill="4" visible="no" active="no"/>
 <layer number="5" name="Route5" color="4" fill="4" visible="no" active="no"/>
@@ -23,7 +23,7 @@
 <layer number="13" name="Route13" color="4" fill="5" visible="no" active="no"/>
 <layer number="14" name="Route14" color="1" fill="6" visible="no" active="no"/>
 <layer number="15" name="Route15" color="4" fill="6" visible="no" active="yes"/>
-<layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
+<layer number="16" name="Bottom" color="1" fill="1" visible="no" active="yes"/>
 <layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="yes"/>
@@ -3293,14 +3293,14 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <contactref element="SENSORMCU" pad="10"/>
 <contactref element="C6" pad="2"/>
 <polygon width="0.1778" layer="2" spacing="1.778" pour="hatch" isolate="0.254" thermals="no" rank="6">
-<vertex x="1.27" y="63.5"/>
-<vertex x="6.35" y="68.58"/>
-<vertex x="63.5" y="68.58"/>
-<vertex x="68.58" y="63.5"/>
-<vertex x="68.58" y="6.35"/>
-<vertex x="63.5" y="1.27"/>
-<vertex x="6.35" y="1.27"/>
-<vertex x="1.27" y="6.35"/>
+<vertex x="1.27" y="60.96" curve="-90"/>
+<vertex x="8.89" y="68.58"/>
+<vertex x="60.96" y="68.58" curve="-90"/>
+<vertex x="68.58" y="60.96"/>
+<vertex x="68.58" y="8.89" curve="-90"/>
+<vertex x="60.96" y="1.27"/>
+<vertex x="8.89" y="1.27" curve="-90"/>
+<vertex x="1.27" y="8.89"/>
 </polygon>
 <wire x1="40.005" y1="13.716" x2="40.005" y2="13.335" width="0.3048" layer="1"/>
 <via x="53.34" y="40.64" extent="1-16" drill="1"/>

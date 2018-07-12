@@ -6,9 +6,9 @@
 <setting alwaysvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="50" unitdist="mil" unit="inch" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="inch"/>
+<grid distance="50" unitdist="mil" unit="mil" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="mil"/>
 <layers>
-<layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
+<layer number="1" name="Top" color="4" fill="1" visible="no" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="yes"/>
 <layer number="3" name="Route3" color="4" fill="3" visible="no" active="no"/>
 <layer number="4" name="Route4" color="1" fill="4" visible="no" active="no"/>
@@ -3984,13 +3984,13 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <vertex x="0.635" y="64.135"/>
 </polygon>
 <polygon width="0.1778" layer="16" spacing="1.143" pour="hatch" isolate="0.889" thermals="no" rank="6">
-<vertex x="3.81" y="6.985"/>
+<vertex x="3.81" y="6.985" curve="90"/>
 <vertex x="6.985" y="3.81"/>
-<vertex x="62.865" y="3.81"/>
+<vertex x="62.865" y="3.81" curve="90"/>
 <vertex x="66.04" y="6.985"/>
-<vertex x="66.04" y="62.865"/>
+<vertex x="66.04" y="62.865" curve="90"/>
 <vertex x="62.865" y="66.04"/>
-<vertex x="6.985" y="66.04"/>
+<vertex x="6.985" y="66.04" curve="90"/>
 <vertex x="3.81" y="62.865"/>
 </polygon>
 <wire x1="34.175" y1="49.685" x2="34.175" y2="48.272" width="0.3048" layer="1"/>

@@ -8,7 +8,7 @@
 </settings>
 <grid distance="50" unitdist="mil" unit="inch" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="inch"/>
 <layers>
-<layer number="1" name="Top" color="4" fill="1" visible="no" active="yes"/>
+<layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="yes"/>
 <layer number="3" name="Route3" color="4" fill="3" visible="no" active="no"/>
 <layer number="4" name="Route4" color="1" fill="4" visible="no" active="no"/>
@@ -3993,6 +3993,9 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <vertex x="6.985" y="66.04"/>
 <vertex x="3.81" y="62.865"/>
 </polygon>
+<wire x1="34.175" y1="49.685" x2="34.175" y2="48.272" width="0.3048" layer="1"/>
+<wire x1="34.175" y1="48.272" x2="34.163" y2="48.26" width="0.3048" layer="1"/>
+<via x="34.163" y="48.26" extent="1-16" drill="0.35"/>
 </signal>
 </signals>
 <errors>

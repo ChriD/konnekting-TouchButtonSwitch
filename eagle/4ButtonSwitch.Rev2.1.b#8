@@ -3564,11 +3564,11 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 </signal>
 <signal name="SENS_PROX_1">
 <contactref element="RP1" pad="1"/>
-<wire x1="8.255" y1="67.945" x2="64.135" y2="67.945" width="1.27" layer="16"/>
+<wire x1="8.255" y1="67.945" x2="61.595" y2="67.945" width="1.27" layer="16"/>
 <wire x1="1.905" y1="61.595" x2="1.905" y2="40.005" width="1.27" layer="16"/>
 <wire x1="8.255" y1="67.945" x2="1.905" y2="61.595" width="1.27" layer="16" curve="90"/>
-<wire x1="64.135" y1="67.945" x2="67.945" y2="64.135" width="1.27" layer="16"/>
-<wire x1="67.945" y1="40.005" x2="67.945" y2="64.135" width="1.27" layer="16"/>
+<wire x1="61.595" y1="67.945" x2="67.945" y2="61.595" width="1.27" layer="16" curve="-90"/>
+<wire x1="67.945" y1="40.005" x2="67.945" y2="61.595" width="1.27" layer="16"/>
 <via x="1.905" y="40.005" extent="1-16" drill="1"/>
 <via x="67.945" y="40.005" extent="1-16" drill="1"/>
 <wire x1="19.05" y1="37.48" x2="19.05" y2="38.227" width="0.1524" layer="1"/>
@@ -3756,11 +3756,11 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 </signal>
 <signal name="SENS_PROX_2">
 <contactref element="RP2" pad="1"/>
-<wire x1="64.135" y1="1.905" x2="5.715" y2="1.905" width="1.27" layer="16"/>
-<wire x1="5.715" y1="1.905" x2="1.905" y2="5.715" width="1.27" layer="16"/>
-<wire x1="1.905" y1="5.715" x2="1.905" y2="29.845" width="1.27" layer="16"/>
-<wire x1="67.945" y1="29.845" x2="67.945" y2="5.715" width="1.27" layer="16"/>
-<wire x1="67.945" y1="5.715" x2="64.135" y2="1.905" width="1.27" layer="16"/>
+<wire x1="61.595" y1="1.905" x2="8.255" y2="1.905" width="1.27" layer="16"/>
+<wire x1="8.255" y1="1.905" x2="1.905" y2="8.255" width="1.27" layer="16" curve="-90"/>
+<wire x1="1.905" y1="8.255" x2="1.905" y2="29.845" width="1.27" layer="16"/>
+<wire x1="67.945" y1="29.845" x2="67.945" y2="8.255" width="1.27" layer="16"/>
+<wire x1="67.945" y1="8.255" x2="61.595" y2="1.905" width="1.27" layer="16" curve="-90"/>
 <via x="1.905" y="29.845" extent="1-16" drill="1"/>
 <via x="67.945" y="29.845" extent="1-16" drill="1"/>
 <wire x1="19.05" y1="33.005" x2="19.05" y2="32.258" width="0.1524" layer="1"/>
