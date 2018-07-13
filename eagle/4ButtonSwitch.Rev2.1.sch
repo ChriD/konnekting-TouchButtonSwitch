@@ -9778,6 +9778,7 @@ Source: &lt;a href="http://www.farnell.com/datasheets/1789487.pdf"&gt; Datasheet
 <part name="LED4" library="led" library_urn="urn:adsk.eagle:library:259" deviceset="*P4" device="-BOTTOM" package3d_urn="urn:adsk.eagle:package:15878/1" technology="LW"/>
 <part name="C11" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0402" package3d_urn="urn:adsk.eagle:package:23626/1" value="4.7uf"/>
 <part name="S1" library="PCM12SMTR" deviceset="PCM12SMTR" device=""/>
+<part name="RS" library="resistor" library_urn="urn:adsk.eagle:library:348" deviceset="R-EU_" device="R0402" package3d_urn="urn:adsk.eagle:package:26058/1" value="560E"/>
 </parts>
 <sheets>
 <sheet>
@@ -9842,6 +9843,7 @@ OSRAM LW P473</text>
 <instance part="LED4" gate="G$1" x="154.94" y="17.78" rot="R270"/>
 <instance part="C11" gate="G$1" x="109.22" y="17.78"/>
 <instance part="S1" gate="G$1" x="345.44" y="-35.56"/>
+<instance part="RS" gate="G$1" x="274.32" y="-30.48" rot="R90"/>
 </instances>
 <busses>
 </busses>
@@ -10521,14 +10523,14 @@ OSRAM LW P473</text>
 </net>
 <net name="SHIELD" class="0">
 <segment>
-<pinref part="SENSORMCU" gate="G$1" pin="CS15/SH/!HI"/>
-<wire x1="274.32" y1="-12.7" x2="274.32" y2="-22.86" width="0.1524" layer="91"/>
-<label x="274.32" y="-22.86" size="1.016" layer="95" rot="R270" xref="yes"/>
-</segment>
-<segment>
 <pinref part="S1" gate="G$1" pin="3"/>
 <wire x1="365.76" y1="-35.56" x2="375.92" y2="-35.56" width="0.1524" layer="91"/>
 <label x="375.92" y="-35.56" size="1.27" layer="95" xref="yes"/>
+</segment>
+<segment>
+<pinref part="RS" gate="G$1" pin="1"/>
+<wire x1="274.32" y1="-35.56" x2="274.32" y2="-38.1" width="0.1524" layer="91"/>
+<label x="274.32" y="-38.1" size="1.27" layer="95" rot="R270" xref="yes"/>
 </segment>
 </net>
 <net name="USART2_TX" class="0">
@@ -10616,6 +10618,13 @@ OSRAM LW P473</text>
 <pinref part="S1" gate="G$1" pin="2"/>
 <wire x1="345.44" y1="-38.1" x2="335.28" y2="-38.1" width="0.1524" layer="91"/>
 <label x="335.28" y="-38.1" size="1.27" layer="95" rot="R180" xref="yes"/>
+</segment>
+</net>
+<net name="N$1" class="0">
+<segment>
+<pinref part="SENSORMCU" gate="G$1" pin="CS15/SH/!HI"/>
+<wire x1="274.32" y1="-12.7" x2="274.32" y2="-25.4" width="0.1524" layer="91"/>
+<pinref part="RS" gate="G$1" pin="2"/>
 </segment>
 </net>
 </nets>
