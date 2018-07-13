@@ -3,10 +3,10 @@
 <eagle version="8.6.0">
 <drawing>
 <settings>
-<setting alwaysvectorfont="no"/>
+<setting alwaysvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="50" unitdist="mil" unit="mil" style="lines" multiple="1" display="yes" altdistance="25" altunitdist="mil" altunit="mil"/>
+<grid distance="50" unitdist="mil" unit="inch" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="yes" active="yes"/>
@@ -208,6 +208,8 @@
 <text x="28.829" y="27.305" size="0.762" layer="26" rot="MR0">GND</text>
 <text x="31.369" y="27.305" size="0.762" layer="26" rot="MR0">TXD</text>
 <text x="33.909" y="27.305" size="0.762" layer="26" rot="MR0">RXD</text>
+<text x="33.274" y="55.245" size="1.016" layer="25" rot="R90">SHIELD</text>
+<text x="37.592" y="55.245" size="1.016" layer="25" rot="R90">GND</text>
 </plain>
 <libraries>
 <library name="pinhead">
@@ -3593,7 +3595,7 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <wire x1="32.893" y1="38.481" x2="22.86" y2="38.481" width="0.1524" layer="15"/>
 <wire x1="22.86" y1="38.481" x2="21.336" y2="40.005" width="0.1524" layer="15"/>
 <wire x1="21.336" y1="40.005" x2="19.685" y2="40.005" width="0.1524" layer="15"/>
-<via x="19.685" y="40.005" extent="1-16" drill="0.35"/>
+<via x="19.685" y="40.005" extent="1-16" drill="0.2"/>
 <wire x1="19.685" y1="40.005" x2="6.985" y2="40.005" width="0.1524" layer="1"/>
 </signal>
 <signal name="SENS_PROX_1">
@@ -3934,7 +3936,14 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <signal name="SHIELD">
 <contactref element="S1" pad="3"/>
 <contactref element="RS" pad="1"/>
-<wire x1="21.082" y1="40.655" x2="32.675" y2="49.685" width="0" layer="19" extent="1-1"/>
+<wire x1="21.082" y1="40.655" x2="23.607" y2="43.18" width="0.1524" layer="1"/>
+<wire x1="30.734" y1="43.18" x2="32.766" y2="45.212" width="0.1524" layer="1"/>
+<via x="32.766" y="45.212" extent="1-16" drill="0.2"/>
+<wire x1="32.766" y1="45.212" x2="32.766" y2="48.514" width="0.1524" layer="16"/>
+<via x="32.766" y="48.514" extent="1-16" drill="0.2"/>
+<wire x1="32.766" y1="48.514" x2="32.766" y2="49.594" width="0.1524" layer="1"/>
+<wire x1="32.766" y1="49.594" x2="32.675" y2="49.685" width="0.1524" layer="1"/>
+<wire x1="23.607" y1="43.18" x2="30.734" y2="43.18" width="0.1524" layer="1"/>
 </signal>
 <signal name="USART2_TX">
 <contactref element="MCU" pad="16"/>
@@ -4030,12 +4039,22 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <wire x1="34.175" y1="49.685" x2="34.175" y2="48.756" width="0.3048" layer="1"/>
 <wire x1="34.175" y1="49.685" x2="34.175" y2="48.399" width="0.3048" layer="1"/>
 <wire x1="34.175" y1="48.399" x2="33.782" y2="48.006" width="0.3048" layer="1"/>
-<via x="33.782" y="48.006" extent="1-16" drill="0.35"/>
+<via x="33.782" y="48.006" extent="1-16" drill="0.2"/>
 </signal>
 <signal name="N$1">
 <contactref element="SENSORMCU" pad="9"/>
 <contactref element="RS" pad="2"/>
-<wire x1="22.61" y1="33.052" x2="21.082" y2="39.355" width="0" layer="19" extent="1-1"/>
+<wire x1="22.61" y1="33.052" x2="22.61" y2="32.381" width="0.1524" layer="1"/>
+<wire x1="22.61" y1="32.381" x2="22.86" y2="32.131" width="0.1524" layer="1"/>
+<via x="22.86" y="32.131" extent="1-16" drill="0.2"/>
+<wire x1="22.86" y1="32.131" x2="23.241" y2="32.131" width="0.1524" layer="16"/>
+<wire x1="23.241" y1="32.131" x2="23.368" y2="32.258" width="0.1524" layer="16"/>
+<via x="21.082" y="38.608" extent="1-16" drill="0.2"/>
+<wire x1="21.1344" y1="38.5556" x2="21.082" y2="38.608" width="0.1524" layer="16"/>
+<wire x1="23.368" y1="35.29668125" x2="21.1344" y2="37.53028125" width="0.1524" layer="16"/>
+<wire x1="21.1344" y1="37.53028125" x2="21.1344" y2="38.5556" width="0.1524" layer="16"/>
+<wire x1="23.368" y1="32.258" x2="23.368" y2="35.29668125" width="0.1524" layer="16"/>
+<wire x1="21.082" y1="38.608" x2="21.082" y2="39.355" width="0.1524" layer="1"/>
 </signal>
 </signals>
 <errors>

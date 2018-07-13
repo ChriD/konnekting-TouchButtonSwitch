@@ -8,7 +8,7 @@
 </settings>
 <grid distance="50" unitdist="mil" unit="mil" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="mil"/>
 <layers>
-<layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
+<layer number="1" name="Top" color="4" fill="1" visible="no" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="yes" active="yes"/>
 <layer number="3" name="Route3" color="4" fill="3" visible="no" active="no"/>
 <layer number="4" name="Route4" color="1" fill="4" visible="no" active="no"/>
@@ -23,7 +23,7 @@
 <layer number="13" name="Route13" color="4" fill="5" visible="no" active="no"/>
 <layer number="14" name="Route14" color="1" fill="6" visible="no" active="no"/>
 <layer number="15" name="Route15" color="4" fill="6" visible="no" active="yes"/>
-<layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
+<layer number="16" name="Bottom" color="1" fill="1" visible="no" active="yes"/>
 <layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="yes"/>
@@ -3436,7 +3436,8 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <wire x1="22.86" y1="27.178" x2="27.94" y2="27.178" width="0.3048" layer="2"/>
 <wire x1="23.749" y1="35.56" x2="25.6302" y2="37.4412" width="0.3048" layer="2"/>
 <wire x1="25.6302" y1="37.4412" x2="25.74728125" y2="37.4412" width="0.3048" layer="2"/>
-<wire x1="25.74728125" y1="37.4412" x2="27.94" y2="39.63391875" width="0.3048" layer="2"/>
+<wire x1="25.74728125" y1="37.4412" x2="27.808040625" y2="39.501959375" width="0.3048" layer="2"/>
+<wire x1="27.93008125" y1="39.624" x2="27.94" y2="39.63391875" width="0.3048" layer="2"/>
 <wire x1="27.94" y1="39.63391875" x2="27.94" y2="40.64" width="0.3048" layer="2"/>
 <wire x1="46.228" y1="27.94" x2="45.974" y2="27.94" width="0.3048" layer="2"/>
 <wire x1="45.974" y1="27.94" x2="44.958" y2="28.956" width="0.3048" layer="2"/>
@@ -3454,10 +3455,11 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <wire x1="59.69" y1="42.037" x2="54.737" y2="42.037" width="0.3048" layer="2"/>
 <wire x1="54.737" y1="42.037" x2="53.34" y2="40.64" width="0.3048" layer="2"/>
 <wire x1="33.782" y1="31.496" x2="33.782" y2="36.449" width="0.3048" layer="2"/>
-<wire x1="33.782" y1="36.449" x2="30.6204" y2="39.6106" width="0.3048" layer="2"/>
-<wire x1="30.6204" y1="39.6106" x2="30.05360625" y2="39.6106" width="0.3048" layer="2"/>
-<wire x1="30.05360625" y1="39.6106" x2="30.0302875" y2="39.63391875" width="0.3048" layer="2"/>
-<wire x1="30.0302875" y1="39.63391875" x2="27.94" y2="39.63391875" width="0.3048" layer="2"/>
+<wire x1="27.808040625" y1="39.501959375" x2="27.93008125" y2="39.624" width="0.3048" layer="2"/>
+<wire x1="30.48" y1="38.227" x2="32.004" y2="38.227" width="0.3048" layer="2"/>
+<wire x1="32.004" y1="38.227" x2="33.782" y2="36.449" width="0.3048" layer="2"/>
+<wire x1="27.93008125" y1="39.624" x2="29.083" y2="39.624" width="0.3048" layer="2"/>
+<wire x1="29.083" y1="39.624" x2="30.48" y2="38.227" width="0.3048" layer="2"/>
 </signal>
 <signal name="+3V3">
 <contactref element="3V3_REGULATOR" pad="3"/>
