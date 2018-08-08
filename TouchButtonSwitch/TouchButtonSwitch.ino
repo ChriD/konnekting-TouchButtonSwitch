@@ -20,56 +20,21 @@
 #include "TouchButtonSwitch.h"
 #include "src/CY8TouchSwitch.h"
 
-//#include "src/swo.h"
-
-// TODO: define in CY8 Switch class
-//#include "src/STM32SoftPWM.h"
-
-
-//#include <SoftPWM.h>
-//#include <SoftPWM_timer.h>
-
-
-// if TESTBOARD set then testboard settings are used
-//#define TESTBOARD
-
 // we do use the same firmware for 4x or 6x touch switches
 // so we have to define which type of sitch is being compiled
 #define SWITCHTYPE        4
 
 // define the sensorids for the given buttons (There are 16 sensors 0 - 15)
-#ifdef TESTBOARD
-  #define SENSORID_1        3
-  #define SENSORID_2        4
-  #define SENSORID_3        5
-  #define SENSORID_4        6
-  #define SENSORID_5        0
-  #define SENSORID_6        0
-#else
-  #define SENSORID_1        6
-  #define SENSORID_2        2
-  #define SENSORID_3        7
-  #define SENSORID_4        3
-  #define SENSORID_5        0
-  #define SENSORID_6        0
-#endif
+#define SENSORID_1        6
+#define SENSORID_2        5
+#define SENSORID_3        12
+#define SENSORID_4        4
 
 // define the led pins for the given buttons
-#ifdef TESTBOARD
-  #define SENSORLED_1_PIN        D3
-  #define SENSORLED_2_PIN        D4
-  #define SENSORLED_3_PIN        D11
-  #define SENSORLED_4_PIN        D9
-  #define SENSORLED_5_PIN        0
-  #define SENSORLED_6_PIN        0
-#else
-  #define SENSORLED_1_PIN        PB5
-  #define SENSORLED_2_PIN        PA4
-  #define SENSORLED_3_PIN        PB4
-  #define SENSORLED_4_PIN        PA6
-  #define SENSORLED_5_PIN        0
-  #define SENSORLED_6_PIN        0
-#endif
+#define SENSORLED_1_PIN        PA11
+#define SENSORLED_2_PIN        PB9
+#define SENSORLED_3_PIN        PA10
+#define SENSORLED_4_PIN        PA4
 
 // This is the time in miliseconds how long the button should wait after setup to allow touch_threshold
 // There has to be a enough time for the user to put the frontplate on the switch before recalibration of
@@ -78,33 +43,24 @@
 
 // used for debugging
 // should not be activated on productive environment
-//#define KDEBUG
+#define KDEBUG
 
 // for testing purposes without having a bcu attached we have to skip
 // the knx code to test the device. For this we define the NOBCU
-//#define NOBCU
+#define NOBCU
 
 
-#ifdef TESTBOARD
-  HardwareSerial SerialBCU(D2, D8);
-  #define DEBUGSERIAL       Serial
-  #define KNX_SERIAL        SerialBCU
-  #define PROG_LED_PIN      6
-  #define PROG_BUTTON_PIN   PC13
-  #define TC_INTERRUPTPIN   PA8
-#else
-  HardwareSerial SerialBCU(PB7, PB6);
-  HardwareSerial SerialDBG(PA3, PA2);
-  #define DEBUGSERIAL       SerialDBG
-  #define KNX_SERIAL        SerialBCU
-  #define PROG_LED_PIN      0
-  #define PROG_BUTTON_PIN   PA5
-  #define TC_INTERRUPTPIN   PA8
-#endif
+HardwareSerial SerialDBG(PA3, PA2);
+HardwareSerial SerialBCU(PC5, PC4);
+#define DEBUGSERIAL       SerialDBG
+#define KNX_SERIAL        SerialBCU
+#define PROG_LED_PIN      0
+#define PROG_BUTTON_PIN   PB1
+#define TC_INTERRUPTPIN   PC0
 
 // the differnt type of switches we do have
+// currently we do have only a 4x switch type
 #define SWITCHTYPE_4X     4
-#define SWITCHTYPE_6X     6
 
 // we do have some global vars
 CY8TouchSwitch  *touchSwitch;
@@ -116,25 +72,20 @@ uint64_t        mainLoopEndTime;
 bool touchSetupOk = false;
 
 
+
 void setup()
 {
-
   #ifdef KDEBUG
-    DEBUGSERIAL.begin(115200);
-    while (!DEBUGSERIAL)
-    {
-    }
+    DEBUGSERIAL.begin(115200);   
+    while (!DEBUGSERIAL) { }
     Debug.setPrintStream(&DEBUGSERIAL);
     Debug.println(F("KONNEKTING TouchButtonSwitch"));
   #endif
 
-  printf("hello from stm32\n");
-
   touchSwitch = new CY8TouchSwitch();
   touchSwitch->setup();
 
-  // add buttons for the given type of switch (4x or 6x)
-  // TODO: use correct sensor ID!
+  // add buttons for the given type of switch (4x or 6x)  
   touchSwitch->addButton(SENSORID_1, SENSORLED_1_PIN, true, false);
   touchSwitch->addButton(SENSORID_2, SENSORLED_2_PIN, true, false);
   touchSwitch->addButton(SENSORID_3, SENSORLED_3_PIN, true, false);
@@ -143,23 +94,17 @@ void setup()
   touchSwitch->changeMode(TS_MODE_STARTUP1, true);
   delay(150);
 
-
   // startup I2C
-  Wire.setSCL(PA9);
-  Wire.setSDA(PA10);
+  Wire.setSCL(PA8);
+  Wire.setSDA(PC9);
   Wire.begin();
-
 
   touchSwitch->changeMode(TS_MODE_STARTUP2, true);
   delay(150);
 
   // after I2C is setup we may setup the touch controller
   // I'm not sure if its the best to update the config every time on start (due it should be persistent)
-  #ifdef TESTBOARD
-    touchSwitch->setupTouchController(99);
-  #else
-    touchSetupOk = touchSwitch->setupTouchController();
-  #endif
+  touchSetupOk = touchSwitch->setupTouchController();
 
   touchSwitch->changeMode(TS_MODE_STARTUP3, true);
   delay(150);
@@ -173,18 +118,16 @@ void setup()
   touchSwitch->changeMode(TS_MODE_STARTUP4, true);
   delay(150);
 
+
   // setup the interrupt method for the touch controller
   pinMode(TC_INTERRUPTPIN, INPUT_PULLUP);
   attachInterrupt(TC_INTERRUPTPIN, touchControllerInterrupt, FALLING);
 
   // setup the prog button interrupt for rising edge
-  #ifdef TESTBOARD
-    pinMode(PROG_BUTTON_PIN, INPUT_PULLUP);
-    attachInterrupt(digitalPinToInterrupt(PROG_BUTTON_PIN), progButtonPressed, RISING);
-  #else
-    pinMode(PROG_BUTTON_PIN, INPUT);
-    attachInterrupt(digitalPinToInterrupt(PROG_BUTTON_PIN), progButtonPressed, FALLING);
-  #endif
+  pinMode(PROG_BUTTON_PIN, INPUT);
+  attachInterrupt(digitalPinToInterrupt(PROG_BUTTON_PIN), progButtonPressed, FALLING);
+
+
 
   // set the callbacks we do like to send to the KNX-Bus
   touchSwitch->setSensorStateChangedEventCallback(sensorStateChangedEvent);
@@ -192,9 +135,12 @@ void setup()
   touchSwitch->setGestureEventCallback(gestureEvent);
   touchSwitch->setProximityEventCallback(proximityEvent);
 
+
   // after rebooting setup we have to wait a little bit for the user to put the frontboard
   // to the button, in this state we do stay "Setup" mode
   touchSwitch->changeMode(TS_MODE_SETUP, true);
+  
+
 }
 
 
@@ -236,16 +182,16 @@ void knxDeviceSetup()
   if (!Konnekting.isFactorySetting())
   {
 
-    /*
-    temperature send
-    temperature alarm resend
-    temperature min alarm
-    temperature max alarm
-    humidity send
-    humidity alarm resend
-    humidity min alarm
-    humidity max alarm
-    */
+    //
+    //temperature send
+    //temperature alarm resend
+    //temperature min alarm
+    //temperature max alarm
+    //humidity send
+    //humidity alarm resend
+    //humidity min alarm
+    //humidity max alarm
+    
    //assert(1==2);
 
 
@@ -295,25 +241,6 @@ void knxDeviceSetup()
     Debug.println(F("Sensor %u: MultiTouch=%u, Mode=%u"), SENSORID_4, enableMultiTouch, mode);
 
 
-    /*
-    if(SWITCHTYPE == 6)
-    {
-       // setup settings for sensor 5
-      enableMultiTouch  = (bool) Konnekting.getUINT8Param(PARAM_button5_enableMultiTouch);
-      mode              = (uint8_t) Konnekting.getUINT8Param(PARAM_button5_mode);
-      touchSwitch->setButtonParameters(SENSORID_5, enableMultiTouch, mode);
-      Debug.println(F("Sensor %u settings: MultiTouch=%u, Mode=%u"), SENSORID_5, enableMultiTouch, mode);
-
-      // setup settings for sensor 6
-      enableMultiTouch  = (bool) Konnekting.getUINT8Param(PARAM_button6_enableMultiTouch);
-      mode              = (uint8_t) Konnekting.getUINT8Param(PARAM_button6_mode);
-      touchSwitch->setButtonParameters(SENSORID_6, enableMultiTouch, mode);
-      Debug.println(F("Sensor %u settings: MultiTouch=%u, Mode=%u"), SENSORID_6, enableMultiTouch, mode);
-    }
-    */
-
-
-
     //typeTemp = (int) Konnekting.getUINT8Param(PARAM_tempSendUpdate);
     //temperature polling interval (ms)
     //intervalTempUser = (long) Konnekting.getUINT32Param(PARAM_tempPollingTime)*1000;
@@ -335,7 +262,7 @@ void knxDeviceSetup()
 // we have to reroute the interrupt to the touchSwitch class for further processing
 void touchControllerInterrupt()
 {
-  Debug.println(F("Touch controller fired interrupt"));
+  //Debug.println(F("Touch controller fired interrupt"));
   touchSwitch->interrupt();
 }
 
@@ -344,12 +271,14 @@ void touchControllerInterrupt()
 void sensorStateChangedEvent(uint8_t sensorType, uint8_t _sensorId, bool _value)
 {
   // TEST
-  if(_sensorId > 1)
-  {
-    //Knx.write(COMOBJ_button1, _sensorId);
-    //Knx.write(COMOBJ_button1_multi, _sensorId);
-    //Knx.write(COMOBJ_button1_double, _value);
-  }
+  #ifndef NOBCU
+    if(_sensorId > 1)
+    {
+      Knx.write(COMOBJ_button1, _sensorId);
+      Knx.write(COMOBJ_button1_multi, _sensorId);
+      Knx.write(COMOBJ_button1_double, _value);
+    }
+  #endif
 }
 
 
@@ -361,31 +290,33 @@ void touchEvent(uint8_t _sensorId, uint8_t _event, uint8_t _count)
   //uint8_t idOffset = (_sensorId - 1) * 4;
 
   // send the touch event to the knx bus
-  // we can use the base index for the object and add the ID-1 for correct index????
+  // we can use the base index for the object and add the ID-1 for correct index????   
 
+  #ifndef NOBCU
+  
+    if(_event == 1)
+    {
+      if(_count == 1)
+        Knx.write(COMOBJ_button1 + idOffset, DPT1_001_on);
+      else if(_count == 2)
+        Knx.write(COMOBJ_button1_double + idOffset, DPT1_001_on);
+      else
+        Knx.write(COMOBJ_button1_multi + idOffset, _count);
+    }
+    else if (_event == 2)
+    {
+      Knx.write(COMOBJ_button1_long + idOffset, DPT1_001_on);
+    }
+    else if (_event == 20)
+    {
+      Knx.write(COMOBJ_button1_position_touchstart + idOffset, DPT1_001_on);
+    }
+    else if (_event == 21)
+    {
+      Knx.write(COMOBJ_button1_position_touchend + idOffset, DPT1_001_on);
+    }
 
-  if(_event == 1)
-  {
-    if(_count == 1)
-      Knx.write(COMOBJ_button1 + idOffset, DPT1_001_on);
-    else if(_count == 2)
-      Knx.write(COMOBJ_button1_double + idOffset, DPT1_001_on);
-    else
-      Knx.write(COMOBJ_button1_multi + idOffset, _count);
-  }
-  else if (_event == 2)
-  {
-    Knx.write(COMOBJ_button1_long + idOffset, DPT1_001_on);
-  }
-  else if (_event == 20)
-  {
-    Knx.write(COMOBJ_button1_position_touchstart + idOffset, DPT1_001_on);
-  }
-  else if (_event == 21)
-  {
-    Knx.write(COMOBJ_button1_position_touchend + idOffset, DPT1_001_on);
-  }
-
+  #endif
 
 }
 
@@ -408,39 +339,39 @@ void knxEvents(byte _index)
 {
   // TODO: Temp/humidity asking
 
-  /*
-  switch (index)
+  
+  switch (_index)
   {
-      case COMOBJ_btnShortInput:
-            boolShortClick = Knx.read(COMOBJ_btnShortInput);
-            Debug.println(F("KNX event: boolShortClick: %d"),boolShortClick);
-            break;
-        case COMOBJ_btnLongInput:
-            boolLongClick = Knx.read(COMOBJ_btnLongInput);
-            Debug.println(F("KNX event: boolLongClick: %d"),boolLongClick);
-            break;
-        case COMOBJ_binD0ValueInput:
-            inputStateD0 = Knx.read(COMOBJ_binD0ValueInput);
-            Debug.println(F("KNX event: inputStateD0: %d"),inputStateD0);
-            break;
-        case COMOBJ_binD1ValueInput:
-            inputStateD1 = Knx.read(COMOBJ_binD1ValueInput);
-            Debug.println(F("KNX event: inputStateD1: %d"),inputStateD1);
-            break;
-        case COMOBJ_nightMode:
-            nightMode = (bool) Knx.read(COMOBJ_nightMode);
-            Debug.println(F("KNX event: nightMode: %d"),nightMode);
-            break;
+     // case COMOBJ_btnShortInput:
+     //       boolShortClick = Knx.read(COMOBJ_btnShortInput);
+     //       Debug.println(F("KNX event: boolShortClick: %d"),boolShortClick);
+     //       break;
+     //   case COMOBJ_btnLongInput:
+     //       boolLongClick = Knx.read(COMOBJ_btnLongInput);
+     //       Debug.println(F("KNX event: boolLongClick: %d"),boolLongClick);
+     //       break;
+     //   case COMOBJ_binD0ValueInput:
+     //       inputStateD0 = Knx.read(COMOBJ_binD0ValueInput);
+     //       Debug.println(F("KNX event: inputStateD0: %d"),inputStateD0);
+     //       break;
+     //   case COMOBJ_binD1ValueInput:
+     //       inputStateD1 = Knx.read(COMOBJ_binD1ValueInput);
+     //       Debug.println(F("KNX event: inputStateD1: %d"),inputStateD1);
+     //       break;
+     //   case COMOBJ_nightMode:
+     //       nightMode = (bool) Knx.read(COMOBJ_nightMode);
+     //       Debug.println(F("KNX event: nightMode: %d"),nightMode);
+     //       break;
         default:
           break;
   }
-  */
+  
 }
 
 
 
 void loop()
-{
+{  
   // we have to call the knx.task form the konnekting library faster then ~ 400us to not miss any telegram
   // in next versions this should be obsolete but for now we have to stay with itself
   // ATTENTION: Currently we do have some loops which will go above 400us due I2C handling, we have to ceck in
@@ -454,6 +385,7 @@ void loop()
     if(mainLoopEndTime && now > mainLoopEndTime && now - mainLoopEndTime > 400)
       Debug.println(F("ATTENTION: Main Loop exceeds KNX timing requirement! %uus"), (now - mainLoopEndTime));
   #endif
+
 
   // the switch itself must loop eyerytime, no matter of KNX is active or not
   // while KNX connector is not active, the switch is in a special mode and will not raise any touch events
@@ -481,5 +413,8 @@ void loop()
 
 
   mainLoopEndTime = micros();
+
+  
 }
+
 

@@ -9731,7 +9731,7 @@ Source: &lt;a href="http://www.farnell.com/datasheets/1789487.pdf"&gt; Datasheet
 </class>
 </classes>
 <parts>
-<part name="SIEMENS-BCU" library="pinhead" deviceset="PINHD-2X5" device="_2.54-SMD" value="SIEMENS BCU"/>
+<part name="SAM12235-ND" library="pinhead" deviceset="PINHD-2X5" device="_2.54-SMD" value="SIEMENS BCU"/>
 <part name="3V3_REGULATOR" library="MCP1703T-3302E_MB" deviceset="MCP1703T-3302E_MB" device=""/>
 <part name="+3V1" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
 <part name="P+1" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+5V" device=""/>
@@ -9787,8 +9787,7 @@ Source: &lt;a href="http://www.farnell.com/datasheets/1789487.pdf"&gt; Datasheet
 I2C WRITE: 0xBE</text>
 <text x="243.84" y="43.18" size="1.778" layer="91">I2C Adr.: 0x37</text>
 <text x="243.84" y="43.18" size="1.778" layer="91">I2C Adr.: 0x37</text>
-<text x="45.72" y="63.5" size="1.778" layer="91">WM17451-ND
-</text>
+<text x="44.704" y="67.564" size="1.778" layer="91">SAM12235-ND</text>
 <text x="162.56" y="-22.86" size="1.778" layer="91">TODO:
 * I2C Pins auf VIAS
 </text>
@@ -9796,7 +9795,7 @@ I2C WRITE: 0xBE</text>
 OSRAM LW P473</text>
 </plain>
 <instances>
-<instance part="SIEMENS-BCU" gate="A" x="53.34" y="55.88" rot="R90"/>
+<instance part="SAM12235-ND" gate="A" x="53.34" y="55.88" rot="R90"/>
 <instance part="3V3_REGULATOR" gate="G$1" x="40.64" y="20.32"/>
 <instance part="+3V1" gate="G$1" x="22.86" y="63.5"/>
 <instance part="P+1" gate="1" x="30.48" y="63.5"/>
@@ -9850,7 +9849,7 @@ OSRAM LW P473</text>
 <nets>
 <net name="+5V" class="0">
 <segment>
-<pinref part="SIEMENS-BCU" gate="A" pin="1"/>
+<pinref part="SAM12235-ND" gate="A" pin="1"/>
 <wire x1="48.26" y1="53.34" x2="48.26" y2="43.18" width="0.1524" layer="91"/>
 <label x="48.26" y="43.18" size="1.016" layer="95" rot="R270" xref="yes"/>
 </segment>
@@ -9875,7 +9874,7 @@ OSRAM LW P473</text>
 </net>
 <net name="GND" class="0">
 <segment>
-<pinref part="SIEMENS-BCU" gate="A" pin="9"/>
+<pinref part="SAM12235-ND" gate="A" pin="9"/>
 <wire x1="58.42" y1="53.34" x2="58.42" y2="43.18" width="0.1524" layer="91"/>
 <label x="58.42" y="43.18" size="1.016" layer="95" rot="R270" xref="yes"/>
 </segment>
@@ -10264,9 +10263,9 @@ OSRAM LW P473</text>
 <junction x="254" y="-101.6"/>
 </segment>
 <segment>
-<pinref part="MCU" gate="G$1" pin="PB2"/>
-<wire x1="182.88" y1="-129.54" x2="182.88" y2="-137.16" width="0.1524" layer="91"/>
-<label x="182.88" y="-137.16" size="1.27" layer="95" rot="R270" xref="yes"/>
+<pinref part="MCU" gate="G$1" pin="PB1"/>
+<wire x1="180.34" y1="-129.54" x2="180.34" y2="-137.16" width="0.1524" layer="91"/>
+<label x="180.34" y="-137.16" size="1.27" layer="95" rot="R270" xref="yes"/>
 </segment>
 </net>
 <net name="IC_SENS_PROX_1" class="0">
@@ -10494,9 +10493,9 @@ OSRAM LW P473</text>
 <label x="274.32" y="55.88" size="1.016" layer="95" rot="R90" xref="yes"/>
 </segment>
 <segment>
-<pinref part="MCU" gate="G$1" pin="PC3"/>
-<label x="137.16" y="-99.06" size="1.27" layer="95" rot="R180" xref="yes"/>
-<wire x1="147.32" y1="-99.06" x2="137.16" y2="-99.06" width="0.1524" layer="91"/>
+<pinref part="MCU" gate="G$1" pin="PC0"/>
+<wire x1="147.32" y1="-91.44" x2="137.16" y2="-91.44" width="0.1524" layer="91"/>
+<label x="137.16" y="-91.44" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="CMOD" class="0">
@@ -10549,7 +10548,7 @@ OSRAM LW P473</text>
 </net>
 <net name="USART1_RX" class="0">
 <segment>
-<pinref part="SIEMENS-BCU" gate="A" pin="3"/>
+<pinref part="SAM12235-ND" gate="A" pin="3"/>
 <wire x1="50.8" y1="53.34" x2="50.8" y2="43.18" width="0.1524" layer="91"/>
 <label x="50.8" y="43.18" size="1.016" layer="95" rot="R270" xref="yes"/>
 </segment>
@@ -10561,7 +10560,7 @@ OSRAM LW P473</text>
 </net>
 <net name="USART1_TX" class="0">
 <segment>
-<pinref part="SIEMENS-BCU" gate="A" pin="7"/>
+<pinref part="SAM12235-ND" gate="A" pin="7"/>
 <wire x1="55.88" y1="53.34" x2="55.88" y2="43.18" width="0.1524" layer="91"/>
 <label x="55.88" y="43.18" size="1.016" layer="95" rot="R270" xref="yes"/>
 </segment>

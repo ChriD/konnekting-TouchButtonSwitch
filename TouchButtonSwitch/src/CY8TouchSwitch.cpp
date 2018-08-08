@@ -163,7 +163,7 @@ void CY8TouchSwitch::proximityEvent(uint8_t _sensorId, uint8_t _event)
   // if there is a proximity detected, we do light up all leds with a fade in
   if(_event == 1)
   {
-    Debug.println(F("Proximity alert on %u"), _sensorId);
+    //Debug.println(F("Proximity alert on %u"), _sensorId);
     for(uint8_t i=0; i < this->nextButtonIdx; i++)
     {
       this->ledWorkers[i]->fade(500, this->getBacklightProximityValue());
@@ -172,7 +172,7 @@ void CY8TouchSwitch::proximityEvent(uint8_t _sensorId, uint8_t _event)
   // if the proximity is disappeared we wait a little bit and fade out all leds
   else
   {
-    Debug.println(F("Proximity lost on %u"), _sensorId);
+    //Debug.println(F("Proximity lost on %u"), _sensorId);
     for(uint8_t i=0; i < this->nextButtonIdx; i++)
     {
       this->ledWorkers[i]->fade(500, this->getBacklightStandbyValue());

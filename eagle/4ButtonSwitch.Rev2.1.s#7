@@ -9741,8 +9741,8 @@ Source: &lt;a href="http://www.farnell.com/datasheets/1789487.pdf"&gt; Datasheet
 <part name="OSC32" library="ABS07-32.768KHZ-7-T" deviceset="ABS07-32.768KHZ-7-T" device=""/>
 <part name="CLO1" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0402" package3d_urn="urn:adsk.eagle:package:23626/1" value="7pF"/>
 <part name="CLO2" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0402" package3d_urn="urn:adsk.eagle:package:23626/1" value="7pf"/>
-<part name="NRST1" library="wirepad" library_urn="urn:adsk.eagle:library:412" deviceset="SMD5" device="" package3d_urn="urn:adsk.eagle:package:30841/1" value="0"/>
-<part name="GND_NRST" library="wirepad" library_urn="urn:adsk.eagle:library:412" deviceset="SMD5" device="" package3d_urn="urn:adsk.eagle:package:30841/1" value="0"/>
+<part name="NRST" library="wirepad" library_urn="urn:adsk.eagle:library:412" deviceset="SMD5" device="" package3d_urn="urn:adsk.eagle:package:30841/1" value="0"/>
+<part name="GND_PRG" library="wirepad" library_urn="urn:adsk.eagle:library:412" deviceset="SMD5" device="" package3d_urn="urn:adsk.eagle:package:30841/1" value="0"/>
 <part name="RL2" library="resistor" library_urn="urn:adsk.eagle:library:348" deviceset="R-EU_" device="R0402" package3d_urn="urn:adsk.eagle:package:26058/1" value="330E"/>
 <part name="RL1" library="resistor" library_urn="urn:adsk.eagle:library:348" deviceset="R-EU_" device="R0402" package3d_urn="urn:adsk.eagle:package:26058/1" value="330E"/>
 <part name="RL4" library="resistor" library_urn="urn:adsk.eagle:library:348" deviceset="R-EU_" device="R0402" package3d_urn="urn:adsk.eagle:package:26058/1" value="330E"/>
@@ -9753,8 +9753,8 @@ Source: &lt;a href="http://www.farnell.com/datasheets/1789487.pdf"&gt; Datasheet
 <part name="RS4" library="resistor" library_urn="urn:adsk.eagle:library:348" deviceset="R-EU_" device="R0402" package3d_urn="urn:adsk.eagle:package:26058/1" value="560E"/>
 <part name="RP1" library="resistor" library_urn="urn:adsk.eagle:library:348" deviceset="R-EU_" device="R0402" package3d_urn="urn:adsk.eagle:package:26058/1" value="560E"/>
 <part name="RP2" library="resistor" library_urn="urn:adsk.eagle:library:348" deviceset="R-EU_" device="R0402" package3d_urn="urn:adsk.eagle:package:26058/1" value="560E"/>
-<part name="PRG1" library="wirepad" library_urn="urn:adsk.eagle:library:412" deviceset="SMD5" device="" package3d_urn="urn:adsk.eagle:package:30841/1" value="0"/>
-<part name="GND_PRG" library="wirepad" library_urn="urn:adsk.eagle:library:412" deviceset="SMD5" device="" package3d_urn="urn:adsk.eagle:package:30841/1" value="0"/>
+<part name="PRG" library="wirepad" library_urn="urn:adsk.eagle:library:412" deviceset="SMD5" device="" package3d_urn="urn:adsk.eagle:package:30841/1" value="0"/>
+<part name="GND_NRST" library="wirepad" library_urn="urn:adsk.eagle:library:412" deviceset="SMD5" device="" package3d_urn="urn:adsk.eagle:package:30841/1" value="0"/>
 <part name="RT1" library="resistor" library_urn="urn:adsk.eagle:library:348" deviceset="R-EU_" device="R0402" package3d_urn="urn:adsk.eagle:package:26058/1" value="100K"/>
 <part name="TEMP" library="HTS221TR" deviceset="HTS221TR" device=""/>
 <part name="C8" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0402" package3d_urn="urn:adsk.eagle:package:23626/1" value="100nf"/>
@@ -9778,6 +9778,7 @@ Source: &lt;a href="http://www.farnell.com/datasheets/1789487.pdf"&gt; Datasheet
 <part name="LED4" library="led" library_urn="urn:adsk.eagle:library:259" deviceset="*P4" device="-BOTTOM" package3d_urn="urn:adsk.eagle:package:15878/1" technology="LW"/>
 <part name="C11" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0402" package3d_urn="urn:adsk.eagle:package:23626/1" value="4.7uf"/>
 <part name="S1" library="PCM12SMTR" deviceset="PCM12SMTR" device=""/>
+<part name="RS" library="resistor" library_urn="urn:adsk.eagle:library:348" deviceset="R-EU_" device="R0402" package3d_urn="urn:adsk.eagle:package:26058/1" value="560E"/>
 </parts>
 <sheets>
 <sheet>
@@ -9805,8 +9806,8 @@ OSRAM LW P473</text>
 <instance part="OSC32" gate="G$1" x="66.04" y="-15.24" rot="R270"/>
 <instance part="CLO1" gate="G$1" x="50.8" y="-15.24" rot="R90"/>
 <instance part="CLO2" gate="G$1" x="50.8" y="-35.56" rot="R90"/>
-<instance part="NRST1" gate="1" x="86.36" y="-92.964" rot="MR90"/>
-<instance part="GND_NRST" gate="1" x="86.36" y="-97.536" rot="MR270"/>
+<instance part="NRST" gate="1" x="86.36" y="-92.964" rot="MR90"/>
+<instance part="GND_PRG" gate="1" x="86.36" y="-97.536" rot="MR270"/>
 <instance part="RL2" gate="G$1" x="177.8" y="43.18" rot="R180"/>
 <instance part="RL1" gate="G$1" x="177.8" y="55.88" rot="R180"/>
 <instance part="RL4" gate="G$1" x="177.8" y="17.78" rot="R180"/>
@@ -9817,8 +9818,8 @@ OSRAM LW P473</text>
 <instance part="RS4" gate="G$1" x="353.06" y="17.78" rot="R90"/>
 <instance part="RP1" gate="G$1" x="345.44" y="17.78" rot="R90"/>
 <instance part="RP2" gate="G$1" x="337.82" y="17.78" rot="R90"/>
-<instance part="PRG1" gate="1" x="254" y="-106.68" rot="MR90"/>
-<instance part="GND_PRG" gate="1" x="254" y="-111.76" rot="MR270"/>
+<instance part="PRG" gate="1" x="254" y="-106.68" rot="MR90"/>
+<instance part="GND_NRST" gate="1" x="254" y="-111.76" rot="MR270"/>
 <instance part="RT1" gate="G$1" x="269.24" y="-101.6" rot="R180"/>
 <instance part="TEMP" gate="G$1" x="261.62" y="-66.04"/>
 <instance part="C8" gate="G$1" x="259.08" y="-58.42"/>
@@ -9842,6 +9843,7 @@ OSRAM LW P473</text>
 <instance part="LED4" gate="G$1" x="154.94" y="17.78" rot="R270"/>
 <instance part="C11" gate="G$1" x="109.22" y="17.78"/>
 <instance part="S1" gate="G$1" x="345.44" y="-35.56"/>
+<instance part="RS" gate="G$1" x="274.32" y="-30.48" rot="R90"/>
 </instances>
 <busses>
 </busses>
@@ -9928,7 +9930,7 @@ OSRAM LW P473</text>
 <junction x="149.86" y="17.78"/>
 </segment>
 <segment>
-<pinref part="GND_PRG" gate="1" pin="P"/>
+<pinref part="GND_NRST" gate="1" pin="P"/>
 <wire x1="254" y1="-114.3" x2="254" y2="-119.38" width="0.1524" layer="91"/>
 <label x="254" y="-119.38" size="1.016" layer="95" rot="R270" xref="yes"/>
 </segment>
@@ -10005,7 +10007,7 @@ OSRAM LW P473</text>
 <wire x1="93.98" y1="-101.6" x2="86.36" y2="-101.6" width="0.1524" layer="91"/>
 <wire x1="86.36" y1="-101.6" x2="81.28" y2="-101.6" width="0.1524" layer="91"/>
 <wire x1="93.98" y1="-99.06" x2="93.98" y2="-101.6" width="0.1524" layer="91"/>
-<pinref part="GND_NRST" gate="1" pin="P"/>
+<pinref part="GND_PRG" gate="1" pin="P"/>
 <wire x1="86.36" y1="-100.076" x2="86.36" y2="-101.6" width="0.1524" layer="91"/>
 <junction x="86.36" y="-101.6"/>
 </segment>
@@ -10067,6 +10069,11 @@ OSRAM LW P473</text>
 <pinref part="SENSORMCU" gate="G$1" pin="CS2/GUARD"/>
 <wire x1="256.54" y1="20.32" x2="246.38" y2="20.32" width="0.1524" layer="91"/>
 <label x="246.38" y="20.32" size="1.27" layer="95" rot="R180" xref="yes"/>
+</segment>
+<segment>
+<pinref part="S1" gate="G$1" pin="1"/>
+<wire x1="345.44" y1="-35.56" x2="335.28" y2="-35.56" width="0.1524" layer="91"/>
+<label x="335.28" y="-35.56" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="+3V3" class="0">
@@ -10217,7 +10224,7 @@ OSRAM LW P473</text>
 <wire x1="93.98" y1="-91.44" x2="93.98" y2="-88.9" width="0.1524" layer="91"/>
 <junction x="93.98" y="-88.9"/>
 <pinref part="MCU" gate="G$1" pin="NRST"/>
-<pinref part="NRST1" gate="1" pin="P"/>
+<pinref part="NRST" gate="1" pin="P"/>
 <wire x1="86.36" y1="-90.424" x2="86.36" y2="-88.9" width="0.1524" layer="91"/>
 <junction x="86.36" y="-88.9"/>
 </segment>
@@ -10248,7 +10255,7 @@ OSRAM LW P473</text>
 </net>
 <net name="PRG" class="0">
 <segment>
-<pinref part="PRG1" gate="1" pin="P"/>
+<pinref part="PRG" gate="1" pin="P"/>
 <wire x1="254" y1="-104.14" x2="254" y2="-101.6" width="0.1524" layer="91"/>
 <label x="254" y="-96.52" size="1.016" layer="95" rot="R90" xref="yes"/>
 <pinref part="RT1" gate="G$1" pin="2"/>
@@ -10257,9 +10264,9 @@ OSRAM LW P473</text>
 <junction x="254" y="-101.6"/>
 </segment>
 <segment>
-<pinref part="MCU" gate="G$1" pin="PA5"/>
-<wire x1="165.1" y1="-129.54" x2="165.1" y2="-137.16" width="0.1524" layer="91"/>
-<label x="165.1" y="-137.16" size="1.27" layer="95" rot="R270" xref="yes"/>
+<pinref part="MCU" gate="G$1" pin="PB2"/>
+<wire x1="182.88" y1="-129.54" x2="182.88" y2="-137.16" width="0.1524" layer="91"/>
+<label x="182.88" y="-137.16" size="1.27" layer="95" rot="R270" xref="yes"/>
 </segment>
 </net>
 <net name="IC_SENS_PROX_1" class="0">
@@ -10516,9 +10523,14 @@ OSRAM LW P473</text>
 </net>
 <net name="SHIELD" class="0">
 <segment>
-<pinref part="SENSORMCU" gate="G$1" pin="CS15/SH/!HI"/>
-<wire x1="274.32" y1="-12.7" x2="274.32" y2="-22.86" width="0.1524" layer="91"/>
-<label x="274.32" y="-22.86" size="1.016" layer="95" rot="R270" xref="yes"/>
+<pinref part="S1" gate="G$1" pin="3"/>
+<wire x1="365.76" y1="-35.56" x2="375.92" y2="-35.56" width="0.1524" layer="91"/>
+<label x="375.92" y="-35.56" size="1.27" layer="95" xref="yes"/>
+</segment>
+<segment>
+<pinref part="RS" gate="G$1" pin="1"/>
+<wire x1="274.32" y1="-35.56" x2="274.32" y2="-38.1" width="0.1524" layer="91"/>
+<label x="274.32" y="-38.1" size="1.27" layer="95" rot="R270" xref="yes"/>
 </segment>
 </net>
 <net name="USART2_TX" class="0">
@@ -10599,6 +10611,20 @@ OSRAM LW P473</text>
 <pinref part="MCU" gate="G$1" pin="PB6"/>
 <wire x1="170.18" y1="-55.88" x2="170.18" y2="-48.26" width="0.1524" layer="91"/>
 <label x="170.18" y="-48.26" size="1.27" layer="95" rot="R90" xref="yes"/>
+</segment>
+</net>
+<net name="SHIELD_OR_GND" class="0">
+<segment>
+<pinref part="S1" gate="G$1" pin="2"/>
+<wire x1="345.44" y1="-38.1" x2="335.28" y2="-38.1" width="0.1524" layer="91"/>
+<label x="335.28" y="-38.1" size="1.27" layer="95" rot="R180" xref="yes"/>
+</segment>
+</net>
+<net name="N$1" class="0">
+<segment>
+<pinref part="SENSORMCU" gate="G$1" pin="CS15/SH/!HI"/>
+<wire x1="274.32" y1="-12.7" x2="274.32" y2="-25.4" width="0.1524" layer="91"/>
+<pinref part="RS" gate="G$1" pin="2"/>
 </segment>
 </net>
 </nets>
