@@ -3015,7 +3015,6 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 </autorouter>
 <elements>
 <element name="TSM-105-03-L-DV-TR-ND" library="pinhead" package="2X05SMD" value="SIEMENS BCU" x="31.115" y="17.526" smashed="yes">
-<attribute name="NAME" x="30.0228" y="6.4008" size="1.016" layer="25" ratio="10"/>
 <attribute name="VALUE" x="28.575" y="11.811" size="1.27" layer="27"/>
 </element>
 <element name="3V3_REGULATOR" library="MCP1703T-3302E_MB" package="SOT-89(MB)" value="MCP1703T-3302E_MB" x="34.925" y="24.13" smashed="yes" rot="R180">

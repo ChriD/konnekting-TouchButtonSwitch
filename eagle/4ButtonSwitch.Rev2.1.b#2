@@ -3744,6 +3744,8 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <wire x1="59.69" y1="26.67" x2="62.865" y2="29.845" width="0.1524" layer="1"/>
 <wire x1="51.2556" y1="26.9764" x2="51.562" y2="26.67" width="0.1524" layer="1"/>
 <wire x1="51.562" y1="26.67" x2="59.69" y2="26.67" width="0.1524" layer="1"/>
+<contactref element="MCU" pad="27"/>
+<wire x1="44.295" y1="27.587" x2="43.795" y2="29.187" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="IC_SENS_PROX_1">
 <contactref element="RP1" pad="2"/>
@@ -3899,6 +3901,8 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <wire x1="21.209" y1="37.719" x2="21.209" y2="37.338" width="0.1524" layer="15"/>
 <wire x1="21.209" y1="37.338" x2="24.892" y2="33.655" width="0.1524" layer="15"/>
 <wire x1="24.892" y1="33.655" x2="24.892" y2="33.02" width="0.1524" layer="15"/>
+<contactref element="MCU" pad="8"/>
+<wire x1="33.548" y1="33.675" x2="36.807" y2="35.175" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="CMOD">
 <contactref element="SENSORMCU" pad="5"/>
@@ -4049,12 +4053,6 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <wire x1="21.1344" y1="37.53028125" x2="21.1344" y2="38.5556" width="0.1524" layer="16"/>
 <wire x1="23.368" y1="32.258" x2="23.368" y2="35.29668125" width="0.1524" layer="16"/>
 <wire x1="21.082" y1="38.608" x2="21.082" y2="39.355" width="0.1524" layer="1"/>
-</signal>
-<signal name="N$2">
-<contactref element="MCU" pad="8"/>
-</signal>
-<signal name="N$3">
-<contactref element="MCU" pad="27"/>
 </signal>
 </signals>
 <errors>

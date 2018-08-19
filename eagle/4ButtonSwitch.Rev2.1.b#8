@@ -3014,7 +3014,7 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 </pass>
 </autorouter>
 <elements>
-<element name="TSM-105-03-L-DV-TR-ND" library="pinhead" package="2X05SMD" value="SIEMENS BCU" x="31.115" y="17.526" smashed="yes">
+<element name="TSM-105-03-L-DV" library="pinhead" package="2X05SMD" value="SIEMENS BCU" x="31.115" y="17.526" smashed="yes">
 <attribute name="VALUE" x="28.575" y="11.811" size="1.27" layer="27"/>
 </element>
 <element name="3V3_REGULATOR" library="MCP1703T-3302E_MB" package="SOT-89(MB)" value="MCP1703T-3302E_MB" x="34.925" y="24.13" smashed="yes" rot="R180">
@@ -3259,7 +3259,7 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 </elements>
 <signals>
 <signal name="+5V">
-<contactref element="TSM-105-03-L-DV-TR-ND" pad="1"/>
+<contactref element="TSM-105-03-L-DV" pad="1"/>
 <contactref element="3V3_REGULATOR" pad="2"/>
 <contactref element="C1" pad="2"/>
 <contactref element="3V3_REGULATOR" pad="4"/>
@@ -3277,7 +3277,7 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <wire x1="34.415" y1="22.86" x2="34.925" y2="23.37" width="0.3048" layer="1"/>
 </signal>
 <signal name="GND">
-<contactref element="TSM-105-03-L-DV-TR-ND" pad="9"/>
+<contactref element="TSM-105-03-L-DV" pad="9"/>
 <contactref element="C1" pad="1"/>
 <contactref element="C2" pad="2"/>
 <contactref element="3V3_REGULATOR" pad="1"/>
@@ -3965,7 +3965,7 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <wire x1="34.036" y1="29.21" x2="33.02" y2="29.21" width="0.1524" layer="1"/>
 </signal>
 <signal name="USART1_RX">
-<contactref element="TSM-105-03-L-DV-TR-ND" pad="3"/>
+<contactref element="TSM-105-03-L-DV" pad="3"/>
 <contactref element="MCU" pad="25"/>
 <wire x1="32.385" y1="13.716" x2="32.639" y2="13.97" width="0.1524" layer="1"/>
 <wire x1="42.795" y1="29.187" x2="42.795" y2="17.776" width="0.1524" layer="1"/>
@@ -3978,7 +3978,7 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <wire x1="33.909" y1="15.494" x2="33.909" y2="14.351" width="0.1524" layer="1"/>
 </signal>
 <signal name="USART1_TX">
-<contactref element="TSM-105-03-L-DV-TR-ND" pad="7"/>
+<contactref element="TSM-105-03-L-DV" pad="7"/>
 <contactref element="MCU" pad="24"/>
 <wire x1="42.295" y1="29.187" x2="42.295" y2="28.071" width="0.1524" layer="1"/>
 <wire x1="42.295" y1="28.071" x2="42.291" y2="28.067" width="0.1524" layer="1"/>

@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="50" unitdist="mil" unit="inch" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="inch"/>
+<grid distance="50" unitdist="mil" unit="mm" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="mm"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="yes" active="yes"/>
@@ -3887,8 +3887,6 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 </signal>
 <signal name="HOST_INT">
 <contactref element="SENSORMCU" pad="23"/>
-<contactref element="MCU" pad="11"/>
-<wire x1="36.807" y1="33.675" x2="33.548" y2="33.675" width="0.1524" layer="1"/>
 <wire x1="25.4" y1="32.512" x2="24.892" y2="33.02" width="0.1524" layer="1"/>
 <via x="24.892" y="33.02" extent="1-16" drill="0.2"/>
 <wire x1="33.548" y1="33.675" x2="32.385" y2="32.512" width="0.1524" layer="1"/>
@@ -4053,6 +4051,9 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <wire x1="21.1344" y1="37.53028125" x2="21.1344" y2="38.5556" width="0.1524" layer="16"/>
 <wire x1="23.368" y1="32.258" x2="23.368" y2="35.29668125" width="0.1524" layer="16"/>
 <wire x1="21.082" y1="38.608" x2="21.082" y2="39.355" width="0.1524" layer="1"/>
+</signal>
+<signal name="N$2">
+<contactref element="MCU" pad="8"/>
 </signal>
 </signals>
 <errors>

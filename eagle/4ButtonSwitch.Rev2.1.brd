@@ -3,7 +3,7 @@
 <eagle version="8.6.0">
 <drawing>
 <settings>
-<setting alwaysvectorfont="no"/>
+<setting alwaysvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
 <grid distance="50" unitdist="mil" unit="inch" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="inch"/>
@@ -210,6 +210,10 @@
 <text x="33.909" y="27.305" size="0.762" layer="26" rot="MR0">RXD</text>
 <text x="33.274" y="55.245" size="1.016" layer="25" rot="R90">SHIELD</text>
 <text x="37.592" y="55.245" size="1.016" layer="25" rot="R90">GND</text>
+<text x="19.558" y="49.276" size="1.778" layer="25">+</text>
+<text x="48.768" y="49.276" size="1.778" layer="25">+</text>
+<text x="19.558" y="18.796" size="1.778" layer="25">+</text>
+<text x="48.768" y="18.796" size="1.778" layer="25">+</text>
 </plain>
 <libraries>
 <library name="pinhead">

@@ -3,7 +3,7 @@
 <eagle version="8.6.0">
 <drawing>
 <settings>
-<setting alwaysvectorfont="yes"/>
+<setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
 <grid distance="50" unitdist="mil" unit="mm" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="mm"/>
@@ -3736,7 +3736,8 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <contactref element="PRG" pad="1"/>
 <contactref element="RT1" pad="2"/>
 <contactref element="MCU" pad="28"/>
-<wire x1="44.295" y1="29.187" x2="44.295" y2="27.587" width="0.3048" layer="1"/>
+<wire x1="44.295" y1="29.187" x2="44.295" y2="27.94" width="0" layer="19" extent="1-16"/>
+<wire x1="44.295" y1="27.94" x2="44.295" y2="27.587" width="0" layer="19" extent="1-16"/>
 <wire x1="44.295" y1="27.587" x2="45.212" y2="26.67" width="0.3048" layer="1"/>
 <wire x1="45.212" y1="26.67" x2="48.91" y2="26.67" width="0.3048" layer="1"/>
 <wire x1="48.91" y1="26.67" x2="50.165" y2="27.925" width="0.3048" layer="1"/>
@@ -4054,6 +4055,9 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 </signal>
 <signal name="N$2">
 <contactref element="MCU" pad="8"/>
+</signal>
+<signal name="N$3">
+<contactref element="MCU" pad="27"/>
 </signal>
 </signals>
 <errors>
