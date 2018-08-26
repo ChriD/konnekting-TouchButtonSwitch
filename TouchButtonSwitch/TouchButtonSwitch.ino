@@ -47,7 +47,7 @@
 
 // for testing purposes without having a bcu attached we have to skip
 // the knx code to test the device. For this we define the NOBCU
-#define NOBCU
+//#define NOBCU
 
 
 HardwareSerial SerialDBG(PA3, PA2);

@@ -110,32 +110,12 @@
                     <Value Type="uint8" Default="00" Options="00=No|01=Yes" Min="00" Max="01"/>
                 </Parameter>
             </ParameterGroup>
-            <ParameterGroup Name="Button 5" Id="7">
-                <Parameter Id="23" IdName="button5_mode">
-                    <Description>Mode</Description>
-                    <Value Type="uint8" Default="00" Options="00=Long Touch|01=Positioning" Min="00" Max="01"/>
-                </Parameter>
-                <Parameter Id="24" IdName="button5_enableMultiTouch">
-                    <Description>Enable Multitouch</Description>
-                    <Value Type="uint8" Default="00" Options="00=No|01=Yes" Min="00" Max="01"/>
-                </Parameter>
-            </ParameterGroup>
-            <ParameterGroup Name="Button 6" Id="8">
-                <Parameter Id="25" IdName="button6_mode">
-                    <Description>Mode</Description>
-                    <Value Type="uint8" Default="00" Options="00=Long Touch|01=Positioning" Min="00" Max="01"/>
-                </Parameter>
-                <Parameter Id="26" IdName="button6_enableMultiTouch">
-                    <Description>Enable Multitouch</Description>
-                    <Value Type="uint8" Default="00" Options="00=No|01=Yes" Min="00" Max="01"/>
-                </Parameter>
-            </ParameterGroup>
-            <ParameterGroup Name="Touch sensor IC" Id="9">
-                <Parameter Id="27" IdName="tsic_sensitivity">
+            <ParameterGroup Name="Touch sensor IC" Id="7">
+                <Parameter Id="23" IdName="tsic_sensitivity">
                     <Description>Button Sensitivity</Description>
-                    <Value Type="uint8" Default="00" Options="00=100|01=200|02=300|03=400" Min="00" Max="03"/>
+                    <Value Type="uint8" Default="02" Options="00=100|01=200|02=300|03=400" Min="00" Max="03"/>
                 </Parameter>
-                <Parameter Id="28" IdName="tsic_fingerThreshold">
+                <Parameter Id="24" IdName="tsic_fingerThreshold">
                     <Description>Button Finger Threshold</Description>
                     <Value Type="uint8" Default="96" Options="" Min="3C" Max="FA"/>
                 </Parameter>
@@ -256,10 +236,82 @@
                 <DataPointType>1.001</DataPointType>
                 <Flags>52</Flags>
             </CommObject>
+            <CommObject Id="19" IdName="button3">
+                <Name>Button 3</Name>
+                <Function>Touch</Function>
+                <DataPointType>1.001</DataPointType>
+                <Flags>52</Flags>
+            </CommObject>
+            <CommObject Id="20" IdName="button3_double">
+                <Name>Button 3</Name>
+                <Function>Double Touch</Function>
+                <DataPointType>1.001</DataPointType>
+                <Flags>52</Flags>
+            </CommObject>
+            <CommObject Id="21" IdName="button3_multi">
+                <Name>Button 3</Name>
+                <Function>Multi Touch</Function>
+                <DataPointType>5.004</DataPointType>
+                <Flags>52</Flags>
+            </CommObject>
+            <CommObject Id="22" IdName="button3_long">
+                <Name>Button 3</Name>
+                <Function>Long Hold</Function>
+                <DataPointType>1.001</DataPointType>
+                <Flags>52</Flags>
+            </CommObject>
+            <CommObject Id="23" IdName="button3_position_touchstart">
+                <Name>Button 3</Name>
+                <Function>Position - Touch start</Function>
+                <DataPointType>1.001</DataPointType>
+                <Flags>52</Flags>
+            </CommObject>
+            <CommObject Id="24" IdName="button3_position_touchend">
+                <Name>Button 3</Name>
+                <Function>Position - Touch end</Function>
+                <DataPointType>1.001</DataPointType>
+                <Flags>52</Flags>
+            </CommObject>
+            <CommObject Id="25" IdName="button4">
+                <Name>Button 4</Name>
+                <Function>Touch</Function>
+                <DataPointType>1.001</DataPointType>
+                <Flags>52</Flags>
+            </CommObject>
+            <CommObject Id="26" IdName="button4_double">
+                <Name>Button 4</Name>
+                <Function>Double Touch</Function>
+                <DataPointType>1.001</DataPointType>
+                <Flags>52</Flags>
+            </CommObject>
+            <CommObject Id="27" IdName="button4_multi">
+                <Name>Button 4</Name>
+                <Function>Multi Touch</Function>
+                <DataPointType>5.004</DataPointType>
+                <Flags>52</Flags>
+            </CommObject>
+            <CommObject Id="28" IdName="button4_long">
+                <Name>Button 4</Name>
+                <Function>Long Hold</Function>
+                <DataPointType>1.001</DataPointType>
+                <Flags>52</Flags>
+            </CommObject>
+            <CommObject Id="29" IdName="button4_position_touchstart">
+                <Name>Button 4</Name>
+                <Function>Position - Touch start</Function>
+                <DataPointType>1.001</DataPointType>
+                <Flags>52</Flags>
+            </CommObject>
+            <CommObject Id="30" IdName="button4_position_touchend">
+                <Name>Button 4</Name>
+                <Function>Position - Touch end</Function>
+                <DataPointType>1.001</DataPointType>
+                <Flags>52</Flags>
+            </CommObject>
         </CommObjects>
     </Device>
     <Configuration ManufacturerId="21212" DeviceId="1" Revision="0">
-        <IndividualAddress Address="1.1.1" Description="ChriD TouchButtonSwitch"/>
+        <IndividualAddress Address="1.1.15" Description="ChriD TouchButtonSwitch"/>
         <CommObjectConfigurations>
             <CommObjectConfiguration Id="0" active="true"/>
             <CommObjectConfiguration Id="1" active="true"/>
@@ -268,12 +320,10 @@
             <CommObjectConfiguration Id="4" active="true"/>
             <CommObjectConfiguration Id="5" active="true"/>
             <CommObjectConfiguration Id="6" active="true"/>
-            <CommObjectConfiguration Id="7" GroupAddress="1/1/10" Description="1/1/100" active="true"/>
-            <CommObjectConfiguration Id="8" GroupAddress="1/1/20" Description="1/1/200" active="true"/>
-            <CommObjectConfiguration Id="9" GroupAddress="1/1/30" Description="1/1/300" active="true"/>
-            <CommObjectConfiguration Id="10" GroupAddress="1/1/40" Description="1/1/400" active="true"/>
-            <CommObjectConfiguration Id="11" GroupAddress="1/1/60" Description="1/2/60" active="true"/>
-            <CommObjectConfiguration Id="12" GroupAddress="1/1/61" active="true"/>
+            <CommObjectConfiguration Id="7" active="true"/>
+            <CommObjectConfiguration Id="8" active="true"/>
+            <CommObjectConfiguration Id="9" active="true"/>
+            <CommObjectConfiguration Id="10" active="true"/>
         </CommObjectConfigurations>
         <ParameterConfigurations>
             <ParameterConfiguration Id="0" Value="00FA"/>
@@ -291,20 +341,16 @@
             <ParameterConfiguration Id="12" Value="00000000"/>
             <ParameterConfiguration Id="13" Value="00"/>
             <ParameterConfiguration Id="14" Value="FF"/>
-            <ParameterConfiguration Id="27" Value="00"/>
-            <ParameterConfiguration Id="28" Value="3C"/>
-            <ParameterConfiguration Id="25" Value="00"/>
-            <ParameterConfiguration Id="26" Value="00"/>
-            <ParameterConfiguration Id="23" Value="00"/>
-            <ParameterConfiguration Id="24" Value="00"/>
+            <ParameterConfiguration Id="15" Value="00"/>
+            <ParameterConfiguration Id="16" Value="00"/>
             <ParameterConfiguration Id="17" Value="00"/>
-            <ParameterConfiguration Id="18" Value="01"/>
-            <ParameterConfiguration Id="19" Value="01"/>
+            <ParameterConfiguration Id="18" Value="00"/>
+            <ParameterConfiguration Id="19" Value="00"/>
             <ParameterConfiguration Id="20" Value="00"/>
             <ParameterConfiguration Id="21" Value="00"/>
             <ParameterConfiguration Id="22" Value="00"/>
-            <ParameterConfiguration Id="15" Value="00"/>
-            <ParameterConfiguration Id="16" Value="01"/>
+            <ParameterConfiguration Id="23" Value="02"/>
+            <ParameterConfiguration Id="24" Value="96"/>
         </ParameterConfigurations>
     </Configuration>
 </KonnektingDevice>

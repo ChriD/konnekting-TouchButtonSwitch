@@ -118,34 +118,12 @@
                 </Parameter>
             </ParameterGroup>
 
-            <ParameterGroup Name="Button 5" Id="7">
-                <Parameter Id="23" IdName="button5_mode">
-                    <Description>Mode</Description>
-                    <Value Type="uint8" Default="00" Options="00=Long Touch|01=Positioning" Min="00" Max="01"/>
-                </Parameter>
-                <Parameter Id="24" IdName="button5_enableMultiTouch">
-                    <Description>Enable Multitouch</Description>
-                    <Value Type="uint8" Default="00" Options="00=No|01=Yes" Min="00" Max="01"/>
-                </Parameter>
-            </ParameterGroup>
-
-            <ParameterGroup Name="Button 6" Id="8">
-                <Parameter Id="25" IdName="button6_mode">
-                    <Description>Mode</Description>
-                    <Value Type="uint8" Default="00" Options="00=Long Touch|01=Positioning" Min="00" Max="01"/>
-                </Parameter>
-                <Parameter Id="26" IdName="button6_enableMultiTouch">
-                    <Description>Enable Multitouch</Description>
-                    <Value Type="uint8" Default="00" Options="00=No|01=Yes" Min="00" Max="01"/>
-                </Parameter>
-            </ParameterGroup>
-
-            <ParameterGroup Name="Touch sensor IC" Id="9">
-                <Parameter Id="27" IdName="tsic_sensitivity">
+            <ParameterGroup Name="Touch sensor IC" Id="7">
+                <Parameter Id="23" IdName="tsic_sensitivity">
                     <Description>Button Sensitivity</Description>
                     <Value Type="uint8" Default="02" Options="00=100|01=200|02=300|03=400" Min="00" Max="03"/>
                 </Parameter>
-                <Parameter Id="28" IdName="tsic_fingerThreshold">
+                <Parameter Id="24" IdName="tsic_fingerThreshold">
                     <Description>Button Finger Threshold</Description>
                     <Value Type="uint8" Default="96" Options="" Min="3C" Max="FA"/>
                 </Parameter>
@@ -278,57 +256,81 @@
                 <Flags>52</Flags>
             </CommObject>
 
-            <!--
-            <CommObject Id="15" IdName="button3">
+
+            <CommObject Id="19" IdName="button3">
                 <Name>Button 3</Name>
                 <Function>Touch</Function>
                 <DataPointType>1.001</DataPointType>
                 <Flags>52</Flags>
             </CommObject>
-            <CommObject Id="16" IdName="button3_double">
+            <CommObject Id="20" IdName="button3_double">
                 <Name>Button 3</Name>
                 <Function>Double Touch</Function>
                 <DataPointType>1.001</DataPointType>
                 <Flags>52</Flags>
             </CommObject>
-            <CommObject Id="17" IdName="button3_multi">
+            <CommObject Id="21" IdName="button3_multi">
                 <Name>Button 3</Name>
                 <Function>Multi Touch</Function>
                 <DataPointType>5.004</DataPointType>
                 <Flags>52</Flags>
             </CommObject>
-            <CommObject Id="18" IdName="button3_long">
+            <CommObject Id="22" IdName="button3_long">
                 <Name>Button 3</Name>
                 <Function>Long Hold</Function>
+                <DataPointType>1.001</DataPointType>
+                <Flags>52</Flags>
+            </CommObject>
+            <CommObject Id="23" IdName="button3_position_touchstart">
+                <Name>Button 3</Name>
+                <Function>Position - Touch start</Function>
+                <DataPointType>1.001</DataPointType>
+                <Flags>52</Flags>
+            </CommObject>
+            <CommObject Id="24" IdName="button3_position_touchend">
+                <Name>Button 3</Name>
+                <Function>Position - Touch end</Function>
                 <DataPointType>1.001</DataPointType>
                 <Flags>52</Flags>
             </CommObject>
 
-            <CommObject Id="19" IdName="button4">
+            <CommObject Id="25" IdName="button4">
                 <Name>Button 4</Name>
                 <Function>Touch</Function>
                 <DataPointType>1.001</DataPointType>
                 <Flags>52</Flags>
             </CommObject>
-            <CommObject Id="20" IdName="button4_double">
+            <CommObject Id="26" IdName="button4_double">
                 <Name>Button 4</Name>
                 <Function>Double Touch</Function>
                 <DataPointType>1.001</DataPointType>
                 <Flags>52</Flags>
             </CommObject>
-            <CommObject Id="21" IdName="button4_multi">
+            <CommObject Id="27" IdName="button4_multi">
                 <Name>Button 4</Name>
                 <Function>Multi Touch</Function>
                 <DataPointType>5.004</DataPointType>
                 <Flags>52</Flags>
             </CommObject>
-            <CommObject Id="22" IdName="button4_long">
+            <CommObject Id="28" IdName="button4_long">
                 <Name>Button 4</Name>
                 <Function>Long Hold</Function>
                 <DataPointType>1.001</DataPointType>
                 <Flags>52</Flags>
             </CommObject>
-            -->
+            <CommObject Id="29" IdName="button4_position_touchstart">
+                <Name>Button 4</Name>
+                <Function>Position - Touch start</Function>
+                <DataPointType>1.001</DataPointType>
+                <Flags>52</Flags>
+            </CommObject>
+            <CommObject Id="30" IdName="button4_position_touchend">
+                <Name>Button 4</Name>
+                <Function>Position - Touch end</Function>
+                <DataPointType>1.001</DataPointType>
+                <Flags>52</Flags>
+            </CommObject>
+
 
         </CommObjects>
     </Device>
