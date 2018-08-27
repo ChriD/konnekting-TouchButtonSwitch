@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="50" unitdist="mil" unit="mil" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="mil"/>
+<grid distance="50" unitdist="mil" unit="mil" style="lines" multiple="1" display="yes" altdistance="25" altunitdist="mil" altunit="mil"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="yes" active="yes"/>
@@ -184,8 +184,8 @@
 <hole x="6.985" y="34.925" drill="4.999990625"/>
 <text x="56.388" y="41.91" size="1.016" layer="25" rot="R90">SWCLK</text>
 <text x="58.928" y="41.91" size="1.016" layer="25" rot="R90">SWDIO</text>
-<text x="48.514" y="7.62" size="1.778" layer="26" rot="MR0">4xTouch Button Rev 2.2</text>
-<text x="47.498" y="5.207" size="1.016" layer="26" rot="MR0">Konnekting | 0XCDDC | 2018 by ChriD</text>
+<text x="48.514" y="63.5" size="1.778" layer="26" rot="MR0">4xTouch Button Rev 2.2</text>
+<text x="47.498" y="61.087" size="1.016" layer="26" rot="MR0">Konnekting | 0XCDDC | 2018 by ChriD</text>
 <text x="30.353" y="8.89" size="1.016" layer="25" rot="R90">+5V</text>
 <text x="40.513" y="8.382" size="1.016" layer="25" rot="R90">GND</text>
 <text x="37.973" y="8.636" size="1.016" layer="25" rot="R90">TXD</text>

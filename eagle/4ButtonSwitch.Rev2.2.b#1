@@ -184,8 +184,8 @@
 <hole x="6.985" y="34.925" drill="4.999990625"/>
 <text x="56.388" y="41.91" size="1.016" layer="25" rot="R90">SWCLK</text>
 <text x="58.928" y="41.91" size="1.016" layer="25" rot="R90">SWDIO</text>
-<text x="48.514" y="7.62" size="1.778" layer="26" rot="MR0">4xTouch Button Rev 2.2</text>
-<text x="47.498" y="5.207" size="1.016" layer="26" rot="MR0">Konnekting | 0XCDDC | 2018 by ChriD</text>
+<text x="48.514" y="35.56" size="1.778" layer="26" rot="MR0">4xTouch Button Rev 2.2</text>
+<text x="47.498" y="33.147" size="1.016" layer="26" rot="MR0">Konnekting | 0XCDDC | 2018 by ChriD</text>
 <text x="30.353" y="8.89" size="1.016" layer="25" rot="R90">+5V</text>
 <text x="40.513" y="8.382" size="1.016" layer="25" rot="R90">GND</text>
 <text x="37.973" y="8.636" size="1.016" layer="25" rot="R90">TXD</text>
@@ -214,7 +214,7 @@
 <text x="48.768" y="18.796" size="1.778" layer="25">+</text>
 <text x="8.382" y="30.099" size="1.016" layer="26" rot="MR0">RST</text>
 <text x="61.468" y="31.115" size="1.016" layer="26" rot="MR180">PRG</text>
-<text x="33.147" y="7.493" size="1.016" layer="25" rot="R90" align="top-right">+5-30V</text>
+<text x="33.147" y="7.493" size="1.016" layer="25" rot="R90" align="top-right">5V-30V</text>
 <text x="35.687" y="7.493" size="1.016" layer="25" rot="R90" align="top-right">GND</text>
 </plain>
 <libraries>

@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="50" unitdist="mil" unit="mil" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="mil"/>
+<grid distance="50" unitdist="mil" unit="mil" style="lines" multiple="1" display="yes" altdistance="25" altunitdist="mil" altunit="mil"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="yes" active="yes"/>
@@ -3236,6 +3236,10 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <wire x1="33.147" y1="16.256" x2="30.099" y2="16.256" width="0.3048" layer="1"/>
 <wire x1="38.735" y1="22.845" x2="37.165" y2="21.275" width="0.3048" layer="1"/>
 <wire x1="37.165" y1="21.275" x2="33.975" y2="21.275" width="0.3048" layer="1"/>
+<via x="33.655" y="8.89" extent="1-16" drill="1"/>
+<wire x1="29.845" y1="13.716" x2="29.845" y2="11.43" width="0.3048" layer="1"/>
+<wire x1="29.845" y1="11.43" x2="32.385" y2="8.89" width="0.3048" layer="1"/>
+<wire x1="32.385" y1="8.89" x2="33.655" y2="8.89" width="0.3048" layer="1"/>
 </signal>
 <signal name="GND">
 <contactref element="SAM12235-ND" pad="9"/>
@@ -3421,6 +3425,14 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <wire x1="34.925" y1="26.02" x2="36.83" y2="27.925" width="0.3048" layer="1"/>
 <wire x1="38.735" y1="24.145" x2="38.72" y2="24.13" width="0.3048" layer="1"/>
 <wire x1="38.72" y1="24.13" x2="34.925" y2="24.13" width="0.3048" layer="1"/>
+<wire x1="32.004" y1="23.114" x2="32.385" y2="23.495" width="0.3048" layer="1"/>
+<wire x1="32.385" y1="23.495" x2="33.147" y2="23.495" width="0.3048" layer="1"/>
+<wire x1="33.782" y1="24.13" x2="34.925" y2="24.13" width="0.3048" layer="1"/>
+<wire x1="33.147" y1="23.495" x2="33.782" y2="24.13" width="0.3048" layer="1"/>
+<via x="36.195" y="8.89" extent="1-16" drill="1"/>
+<wire x1="40.005" y1="13.716" x2="40.005" y2="11.43" width="0.3048" layer="1"/>
+<wire x1="40.005" y1="11.43" x2="37.465" y2="8.89" width="0.3048" layer="1"/>
+<wire x1="37.465" y1="8.89" x2="36.195" y2="8.89" width="0.3048" layer="1"/>
 </signal>
 <signal name="+3V3">
 <contactref element="C2" pad="1"/>

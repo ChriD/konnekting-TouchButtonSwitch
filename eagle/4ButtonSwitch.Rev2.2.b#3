@@ -3004,7 +3004,7 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <attribute name="SPICEPREFIX" value="C" x="38.735" y="23.495" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="VALUE" x="36.83" y="24.13" size="1.27" layer="27" rot="R270"/>
 </element>
-<element name="C2" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C0402" package3d_urn="urn:adsk.eagle:package:23626/1" value="1uF" x="29.845" y="23.495" smashed="yes" rot="R270">
+<element name="C2" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C0402" package3d_urn="urn:adsk.eagle:package:23626/1" value="2.2uF" x="29.845" y="23.495" smashed="yes" rot="R270">
 <attribute name="NAME" x="28.067" y="24.257" size="1.016" layer="25" rot="R270"/>
 <attribute name="SPICEPREFIX" value="C" x="29.845" y="23.495" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="VALUE" x="27.94" y="24.13" size="1.27" layer="27" rot="R270"/>
@@ -3212,15 +3212,17 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <attribute name="VALUE" x="34.925" y="29.21" size="1.27" layer="27" rot="R270"/>
 </element>
 <element name="RS" library="resistor" library_urn="urn:adsk.eagle:library:348" package="R0402" package3d_urn="urn:adsk.eagle:package:26058/1" value="560E" x="21.082" y="40.005" rot="R270"/>
-<element name="3V3_VR" library="TPS70933DBVT" package="SOT95P280X145-5N" value="TPS70933DBVT" x="34.925" y="24.13" rot="R90">
+<element name="3V3_VR" library="TPS70933DBVT" package="SOT95P280X145-5N" value="TPS70933DBVT" x="34.925" y="24.13" smashed="yes" rot="R90">
 <attribute name="ARROW_PART_NUMBER" value="TPS70933DBVT" x="34.925" y="24.13" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="ARROW_PRICE-STOCK" value="https://www.arrow.com/en/products/tps70933dbvt/texas-instruments" x="34.925" y="24.13" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="DESCRIPTION" value="150mA 30V Ultra-Low-Iq Wide-Input Low-Dropout (LDO) Regulator With Reverse Current Protection" x="34.925" y="24.13" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="HEIGHT" value="1.45mm" x="34.925" y="24.13" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MANUFACTURER_NAME" value="Texas Instruments" x="34.925" y="24.13" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MANUFACTURER_PART_NUMBER" value="TPS70933DBVT" x="34.925" y="24.13" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="NAME" x="34.925" y="21.463" size="0.889" layer="25" rot="R180" align="center"/>
 <attribute name="RS_PART_NUMBER" value="8257033P" x="34.925" y="24.13" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="RS_PRICE-STOCK" value="http://uk.rs-online.com/web/p/products/8257033P" x="34.925" y="24.13" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="VALUE" x="34.925" y="24.13" size="1.27" layer="27" rot="R90" align="center"/>
 </element>
 </elements>
 <signals>
