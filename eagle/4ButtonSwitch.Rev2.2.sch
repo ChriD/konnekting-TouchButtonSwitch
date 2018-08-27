@@ -645,76 +645,6 @@ DDEController.pdf</description>
 </deviceset>
 </devicesets>
 </library>
-<library name="MCP1703T-3302E_MB">
-<description>&lt;LDO Low Iq 250mA 16V 3.3V 2% SOT89 Microchip MCP1703T-3302E/MB, LDO Voltage Regulator, 250mA, 3.3 V 2%, 2.7  16 Vin, 3-Pin SOT-89&lt;/b&gt;&lt;p&gt;
-&lt;author&gt;Created by SamacSys&lt;/author&gt;</description>
-<packages>
-<package name="SOT-89(MB)">
-<description>&lt;b&gt;SOT-89(MB)&lt;/b&gt;&lt;br&gt;
-</description>
-<smd name="1" x="-1.5" y="-1.425" dx="1.4" dy="0.48" layer="1" rot="R90"/>
-<smd name="2" x="0" y="-1.3625" dx="1.525" dy="0.48" layer="1" rot="R90"/>
-<smd name="3" x="1.5" y="-1.425" dx="1.4" dy="0.48" layer="1" rot="R90"/>
-<smd name="4" x="0" y="0.76" dx="2.725" dy="1.2" layer="1" rot="R90"/>
-<text x="-0.284" y="0.141" size="1.27" layer="25" align="center">&gt;NAME</text>
-<text x="-0.284" y="0.141" size="1.27" layer="27" align="center">&gt;VALUE</text>
-<wire x1="-2.3" y1="1.3" x2="2.3" y2="1.3" width="0.2" layer="51"/>
-<wire x1="2.3" y1="1.3" x2="2.3" y2="-1.3" width="0.2" layer="51"/>
-<wire x1="2.3" y1="-1.3" x2="-2.3" y2="-1.3" width="0.2" layer="51"/>
-<wire x1="-2.3" y1="-1.3" x2="-2.3" y2="1.3" width="0.2" layer="51"/>
-<wire x1="-2.3" y1="-1.3" x2="-2.3" y2="1.3" width="0.2" layer="21"/>
-<wire x1="2.3" y1="1.3" x2="2.3" y2="-1.3" width="0.2" layer="21"/>
-<circle x="-1.507" y="-2.587" radius="0.041" width="0.2" layer="25"/>
-</package>
-</packages>
-<symbols>
-<symbol name="MCP1703T-3302E_MB">
-<wire x1="5.08" y1="2.54" x2="22.86" y2="2.54" width="0.254" layer="94"/>
-<wire x1="22.86" y1="-5.08" x2="22.86" y2="2.54" width="0.254" layer="94"/>
-<wire x1="22.86" y1="-5.08" x2="5.08" y2="-5.08" width="0.254" layer="94"/>
-<wire x1="5.08" y1="2.54" x2="5.08" y2="-5.08" width="0.254" layer="94"/>
-<text x="24.13" y="7.62" size="1.778" layer="95" align="center-left">&gt;NAME</text>
-<text x="24.13" y="5.08" size="1.778" layer="96" align="center-left">&gt;VALUE</text>
-<pin name="GND" x="0" y="0" length="middle"/>
-<pin name="VIN1" x="0" y="-2.54" length="middle"/>
-<pin name="VOUT" x="27.94" y="0" length="middle" rot="R180"/>
-<pin name="VIN2" x="27.94" y="-2.54" length="middle" rot="R180"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="MCP1703T-3302E_MB" prefix="IC">
-<description>&lt;b&gt;LDO Low Iq 250mA 16V 3.3V 2% SOT89 Microchip MCP1703T-3302E/MB, LDO Voltage Regulator, 250mA, 3.3 V 2%, 2.7  16 Vin, 3-Pin SOT-89&lt;/b&gt;&lt;p&gt;
-Source: &lt;a href="http://ww1.microchip.com/downloads/en/DeviceDoc/22049f.pdf"&gt; Datasheet &lt;/a&gt;</description>
-<gates>
-<gate name="G$1" symbol="MCP1703T-3302E_MB" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="SOT-89(MB)">
-<connects>
-<connect gate="G$1" pin="GND" pad="1"/>
-<connect gate="G$1" pin="VIN1" pad="2"/>
-<connect gate="G$1" pin="VIN2" pad="4"/>
-<connect gate="G$1" pin="VOUT" pad="3"/>
-</connects>
-<technologies>
-<technology name="">
-<attribute name="ALLIED_NUMBER" value="70047986" constant="no"/>
-<attribute name="ALLIED_PRICE/STOCK" value="https://www.alliedelec.com/microchip-technology-inc-mcp1703t-3302e-mb/70047986/" constant="no"/>
-<attribute name="ARROW_PART_NUMBER" value="MCP1703T-3302E/MB" constant="no"/>
-<attribute name="ARROW_PRICE/STOCK" value="https://www.arrow.com/en/products/mcp1703t-3302emb/microchip-technology" constant="no"/>
-<attribute name="DESCRIPTION" value="LDO Low Iq 250mA 16V 3.3V 2% SOT89 Microchip MCP1703T-3302E/MB, LDO Voltage Regulator, 250mA, 3.3 V 2%, 2.7  16 Vin, 3-Pin SOT-89" constant="no"/>
-<attribute name="HEIGHT" value="mm" constant="no"/>
-<attribute name="MANUFACTURER_NAME" value="Microchip" constant="no"/>
-<attribute name="MANUFACTURER_PART_NUMBER" value="MCP1703T-3302E/MB" constant="no"/>
-<attribute name="RS_PART_NUMBER" value="9122916" constant="no"/>
-<attribute name="RS_PRICE/STOCK" value="http://uk.rs-online.com/web/p/products/9122916" constant="no"/>
-</technology>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 <library name="supply1" urn="urn:adsk.eagle:library:371">
 <description>&lt;b&gt;Supply Symbols&lt;/b&gt;&lt;p&gt;
  GND, VCC, 0V, +5V, -5V, etc.&lt;p&gt;
@@ -9644,6 +9574,84 @@ Source: http://catalog.osram-os.com .. LA_LR_LS_LY_P47F_Pb_free.pdf</description
 </deviceset>
 </devicesets>
 </library>
+<library name="TPS70933DBVT">
+<description>&lt;150mA 30V Ultra-Low-Iq Wide-Input Low-Dropout (LDO) Regulator With Reverse Current Protection&lt;/b&gt;&lt;p&gt;
+&lt;author&gt;Created by SamacSys&lt;/author&gt;</description>
+<packages>
+<package name="SOT95P280X145-5N">
+<description>&lt;b&gt;DBV (R-PDSO-G5)&lt;/b&gt;&lt;br&gt;
+</description>
+<smd name="1" x="-1.25" y="0.95" dx="1.2" dy="0.6" layer="1"/>
+<smd name="2" x="-1.25" y="0" dx="1.2" dy="0.6" layer="1"/>
+<smd name="3" x="-1.25" y="-0.95" dx="1.2" dy="0.6" layer="1"/>
+<smd name="4" x="1.25" y="-0.95" dx="1.2" dy="0.6" layer="1"/>
+<smd name="5" x="1.25" y="0.95" dx="1.2" dy="0.6" layer="1"/>
+<text x="0" y="0" size="1.27" layer="25" align="center">&gt;NAME</text>
+<text x="0" y="0" size="1.27" layer="27" align="center">&gt;VALUE</text>
+<wire x1="-2.1" y1="1.775" x2="2.1" y2="1.775" width="0.05" layer="51"/>
+<wire x1="2.1" y1="1.775" x2="2.1" y2="-1.775" width="0.05" layer="51"/>
+<wire x1="2.1" y1="-1.775" x2="-2.1" y2="-1.775" width="0.05" layer="51"/>
+<wire x1="-2.1" y1="-1.775" x2="-2.1" y2="1.775" width="0.05" layer="51"/>
+<wire x1="-0.8" y1="1.45" x2="0.8" y2="1.45" width="0.1" layer="51"/>
+<wire x1="0.8" y1="1.45" x2="0.8" y2="-1.45" width="0.1" layer="51"/>
+<wire x1="0.8" y1="-1.45" x2="-0.8" y2="-1.45" width="0.1" layer="51"/>
+<wire x1="-0.8" y1="-1.45" x2="-0.8" y2="1.45" width="0.1" layer="51"/>
+<wire x1="-0.8" y1="0.5" x2="0.15" y2="1.45" width="0.1" layer="51"/>
+<wire x1="-0.3" y1="1.45" x2="0.3" y2="1.45" width="0.2" layer="21"/>
+<wire x1="0.3" y1="1.45" x2="0.3" y2="-1.45" width="0.2" layer="21"/>
+<wire x1="0.3" y1="-1.45" x2="-0.3" y2="-1.45" width="0.2" layer="21"/>
+<wire x1="-0.3" y1="-1.45" x2="-0.3" y2="1.45" width="0.2" layer="21"/>
+<wire x1="-1.85" y1="1.5" x2="-0.65" y2="1.5" width="0.2" layer="21"/>
+</package>
+</packages>
+<symbols>
+<symbol name="TPS70933DBVT">
+<wire x1="5.08" y1="2.54" x2="20.32" y2="2.54" width="0.254" layer="94"/>
+<wire x1="20.32" y1="-7.62" x2="20.32" y2="2.54" width="0.254" layer="94"/>
+<wire x1="20.32" y1="-7.62" x2="5.08" y2="-7.62" width="0.254" layer="94"/>
+<wire x1="5.08" y1="2.54" x2="5.08" y2="-7.62" width="0.254" layer="94"/>
+<text x="21.59" y="7.62" size="1.778" layer="95" align="center-left">&gt;NAME</text>
+<text x="21.59" y="5.08" size="1.778" layer="96" align="center-left">&gt;VALUE</text>
+<pin name="IN" x="0" y="0" length="middle"/>
+<pin name="GND" x="0" y="-2.54" length="middle"/>
+<pin name="EN" x="0" y="-5.08" length="middle"/>
+<pin name="NC" x="25.4" y="0" length="middle" direction="nc" rot="R180"/>
+<pin name="OUT" x="25.4" y="-2.54" length="middle" rot="R180"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="TPS70933DBVT" prefix="IC">
+<description>&lt;b&gt;150mA 30V Ultra-Low-Iq Wide-Input Low-Dropout (LDO) Regulator With Reverse Current Protection&lt;/b&gt;&lt;p&gt;
+Source: &lt;a href="http://www.ti.com/lit/gpn/tps709"&gt; Datasheet &lt;/a&gt;</description>
+<gates>
+<gate name="G$1" symbol="TPS70933DBVT" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="SOT95P280X145-5N">
+<connects>
+<connect gate="G$1" pin="EN" pad="3"/>
+<connect gate="G$1" pin="GND" pad="2"/>
+<connect gate="G$1" pin="IN" pad="1"/>
+<connect gate="G$1" pin="NC" pad="4"/>
+<connect gate="G$1" pin="OUT" pad="5"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="ARROW_PART_NUMBER" value="TPS70933DBVT" constant="no"/>
+<attribute name="ARROW_PRICE-STOCK" value="https://www.arrow.com/en/products/tps70933dbvt/texas-instruments" constant="no"/>
+<attribute name="DESCRIPTION" value="150mA 30V Ultra-Low-Iq Wide-Input Low-Dropout (LDO) Regulator With Reverse Current Protection" constant="no"/>
+<attribute name="HEIGHT" value="1.45mm" constant="no"/>
+<attribute name="MANUFACTURER_NAME" value="Texas Instruments" constant="no"/>
+<attribute name="MANUFACTURER_PART_NUMBER" value="TPS70933DBVT" constant="no"/>
+<attribute name="RS_PART_NUMBER" value="8257033P" constant="no"/>
+<attribute name="RS_PRICE-STOCK" value="http://uk.rs-online.com/web/p/products/8257033P" constant="no"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -9655,12 +9663,11 @@ Source: http://catalog.osram-os.com .. LA_LR_LS_LY_P47F_Pb_free.pdf</description
 </classes>
 <parts>
 <part name="SAM12235-ND" library="pinhead" deviceset="PINHD-2X5" device="_2.54-SMD" value="SIEMENS BCU"/>
-<part name="3V3_REGULATOR" library="MCP1703T-3302E_MB" deviceset="MCP1703T-3302E_MB" device=""/>
 <part name="+3V1" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
 <part name="P+1" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+5V" device=""/>
 <part name="GND1" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="C1" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0402" package3d_urn="urn:adsk.eagle:package:23626/1" value="1uF"/>
-<part name="C2" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0402" package3d_urn="urn:adsk.eagle:package:23626/1" value="1uF"/>
+<part name="C2" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0402" package3d_urn="urn:adsk.eagle:package:23626/1" value="2.2uF"/>
 <part name="OSC32" library="ABS07-32.768KHZ-7-T" deviceset="ABS07-32.768KHZ-7-T" device=""/>
 <part name="CLO1" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0402" package3d_urn="urn:adsk.eagle:package:23626/1" value="7pF"/>
 <part name="CLO2" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0402" package3d_urn="urn:adsk.eagle:package:23626/1" value="7pf"/>
@@ -9701,6 +9708,7 @@ Source: http://catalog.osram-os.com .. LA_LR_LS_LY_P47F_Pb_free.pdf</description
 <part name="LED4" library="led" library_urn="urn:adsk.eagle:library:259" deviceset="*P4" device="-BOTTOM" package3d_urn="urn:adsk.eagle:package:15878/1" technology="LW"/>
 <part name="C11" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0402" package3d_urn="urn:adsk.eagle:package:23626/1" value="4.7uf"/>
 <part name="RS" library="resistor" library_urn="urn:adsk.eagle:library:348" deviceset="R-EU_" device="R0402" package3d_urn="urn:adsk.eagle:package:26058/1" value="560E"/>
+<part name="3V3_VR" library="TPS70933DBVT" deviceset="TPS70933DBVT" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -9718,12 +9726,11 @@ OSRAM LW P473</text>
 </plain>
 <instances>
 <instance part="SAM12235-ND" gate="A" x="53.34" y="55.88" rot="R90"/>
-<instance part="3V3_REGULATOR" gate="G$1" x="40.64" y="20.32"/>
 <instance part="+3V1" gate="G$1" x="22.86" y="63.5"/>
 <instance part="P+1" gate="1" x="30.48" y="63.5"/>
 <instance part="GND1" gate="1" x="12.7" y="48.26"/>
-<instance part="C1" gate="G$1" x="35.56" y="25.4"/>
-<instance part="C2" gate="G$1" x="73.66" y="17.78"/>
+<instance part="C1" gate="G$1" x="35.56" y="12.7" rot="R180"/>
+<instance part="C2" gate="G$1" x="73.66" y="15.24"/>
 <instance part="OSC32" gate="G$1" x="66.04" y="-15.24" rot="R270"/>
 <instance part="CLO1" gate="G$1" x="50.8" y="-15.24" rot="R90"/>
 <instance part="CLO2" gate="G$1" x="50.8" y="-35.56" rot="R90"/>
@@ -9752,7 +9759,7 @@ OSRAM LW P473</text>
 <instance part="C4" gate="G$1" x="243.84" y="5.08"/>
 <instance part="RI2C1" gate="G$1" x="27.94" y="-96.52" rot="R90"/>
 <instance part="RI2C2" gate="G$1" x="38.1" y="-96.52" rot="R90"/>
-<instance part="C6" gate="G$1" x="81.28" y="17.78"/>
+<instance part="C6" gate="G$1" x="81.28" y="15.24"/>
 <instance part="MCU" gate="G$1" x="147.32" y="-73.66"/>
 <instance part="C7" gate="G$1" x="93.98" y="-93.98"/>
 <instance part="C12" gate="G$1" x="152.4" y="-48.26" rot="R90"/>
@@ -9762,8 +9769,9 @@ OSRAM LW P473</text>
 <instance part="LED2" gate="G$1" x="154.94" y="43.18" rot="R270"/>
 <instance part="LED3" gate="G$1" x="154.94" y="30.48" rot="R270"/>
 <instance part="LED4" gate="G$1" x="154.94" y="17.78" rot="R270"/>
-<instance part="C11" gate="G$1" x="109.22" y="17.78"/>
+<instance part="C11" gate="G$1" x="109.22" y="15.24"/>
 <instance part="RS" gate="G$1" x="274.32" y="-30.48" rot="R90"/>
+<instance part="3V3_VR" gate="G$1" x="43.18" y="20.32"/>
 </instances>
 <busses>
 </busses>
@@ -9780,17 +9788,13 @@ OSRAM LW P473</text>
 <label x="30.48" y="50.8" size="1.016" layer="95" rot="R270" xref="yes"/>
 </segment>
 <segment>
-<pinref part="3V3_REGULATOR" gate="G$1" pin="VIN1"/>
-<wire x1="40.64" y1="17.78" x2="35.56" y2="17.78" width="0.1524" layer="91"/>
-<label x="27.94" y="17.78" size="1.016" layer="95" rot="R180" xref="yes"/>
+<label x="27.94" y="20.32" size="1.016" layer="95" rot="R180" xref="yes"/>
 <pinref part="C1" gate="G$1" pin="2"/>
-<wire x1="35.56" y1="17.78" x2="27.94" y2="17.78" width="0.1524" layer="91"/>
-<wire x1="35.56" y1="20.32" x2="35.56" y2="17.78" width="0.1524" layer="91"/>
-<junction x="35.56" y="17.78"/>
-<pinref part="3V3_REGULATOR" gate="G$1" pin="VIN2"/>
-<wire x1="68.58" y1="17.78" x2="68.58" y2="12.7" width="0.1524" layer="91"/>
-<wire x1="68.58" y1="12.7" x2="35.56" y2="12.7" width="0.1524" layer="91"/>
-<wire x1="35.56" y1="12.7" x2="35.56" y2="17.78" width="0.1524" layer="91"/>
+<wire x1="35.56" y1="20.32" x2="27.94" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="35.56" y1="17.78" x2="35.56" y2="20.32" width="0.1524" layer="91"/>
+<pinref part="3V3_VR" gate="G$1" pin="IN"/>
+<wire x1="35.56" y1="20.32" x2="43.18" y2="20.32" width="0.1524" layer="91"/>
+<junction x="35.56" y="20.32"/>
 </segment>
 </net>
 <net name="GND" class="0">
@@ -9806,23 +9810,25 @@ OSRAM LW P473</text>
 </segment>
 <segment>
 <pinref part="C1" gate="G$1" pin="1"/>
-<wire x1="35.56" y1="27.94" x2="35.56" y2="30.48" width="0.1524" layer="91"/>
-<label x="35.56" y="30.48" size="1.016" layer="95" rot="R90" xref="yes"/>
-<pinref part="3V3_REGULATOR" gate="G$1" pin="GND"/>
-<wire x1="40.64" y1="20.32" x2="40.64" y2="27.94" width="0.1524" layer="91"/>
-<wire x1="40.64" y1="27.94" x2="35.56" y2="27.94" width="0.1524" layer="91"/>
-<junction x="35.56" y="27.94"/>
+<wire x1="35.56" y1="10.16" x2="35.56" y2="7.62" width="0.1524" layer="91"/>
+<label x="35.56" y="5.08" size="1.016" layer="95" rot="R270" xref="yes"/>
+<wire x1="35.56" y1="7.62" x2="35.56" y2="5.08" width="0.1524" layer="91"/>
+<wire x1="35.56" y1="7.62" x2="40.64" y2="7.62" width="0.1524" layer="91"/>
+<wire x1="40.64" y1="7.62" x2="40.64" y2="17.78" width="0.1524" layer="91"/>
+<junction x="35.56" y="7.62"/>
+<pinref part="3V3_VR" gate="G$1" pin="GND"/>
+<wire x1="40.64" y1="17.78" x2="43.18" y2="17.78" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="C2" gate="G$1" pin="2"/>
-<wire x1="73.66" y1="12.7" x2="73.66" y2="10.16" width="0.1524" layer="91"/>
-<label x="73.66" y="10.16" size="1.016" layer="95" rot="R270" xref="yes"/>
+<wire x1="73.66" y1="10.16" x2="73.66" y2="7.62" width="0.1524" layer="91"/>
+<label x="73.66" y="7.62" size="1.016" layer="95" rot="R270" xref="yes"/>
 <pinref part="C6" gate="G$1" pin="2"/>
-<wire x1="81.28" y1="12.7" x2="73.66" y2="12.7" width="0.1524" layer="91"/>
-<junction x="73.66" y="12.7"/>
+<wire x1="81.28" y1="10.16" x2="73.66" y2="10.16" width="0.1524" layer="91"/>
+<junction x="73.66" y="10.16"/>
 <pinref part="C11" gate="G$1" pin="2"/>
-<wire x1="81.28" y1="12.7" x2="109.22" y2="12.7" width="0.1524" layer="91"/>
-<junction x="81.28" y="12.7"/>
+<wire x1="81.28" y1="10.16" x2="109.22" y2="10.16" width="0.1524" layer="91"/>
+<junction x="81.28" y="10.16"/>
 </segment>
 <segment>
 <wire x1="40.64" y1="-25.4" x2="35.56" y2="-25.4" width="0.1524" layer="91"/>
@@ -9998,18 +10004,18 @@ OSRAM LW P473</text>
 <label x="22.86" y="50.8" size="1.016" layer="95" rot="R270" xref="yes"/>
 </segment>
 <segment>
-<pinref part="3V3_REGULATOR" gate="G$1" pin="VOUT"/>
-<wire x1="68.58" y1="20.32" x2="73.66" y2="20.32" width="0.1524" layer="91"/>
-<label x="114.3" y="20.32" size="1.016" layer="95" xref="yes"/>
+<label x="114.3" y="17.78" size="1.016" layer="95" xref="yes"/>
 <pinref part="C2" gate="G$1" pin="1"/>
-<junction x="73.66" y="20.32"/>
-<wire x1="73.66" y1="20.32" x2="81.28" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="73.66" y1="17.78" x2="81.28" y2="17.78" width="0.1524" layer="91"/>
 <pinref part="C6" gate="G$1" pin="1"/>
-<junction x="81.28" y="20.32"/>
-<wire x1="81.28" y1="20.32" x2="109.22" y2="20.32" width="0.1524" layer="91"/>
+<junction x="81.28" y="17.78"/>
+<wire x1="81.28" y1="17.78" x2="109.22" y2="17.78" width="0.1524" layer="91"/>
 <pinref part="C11" gate="G$1" pin="1"/>
-<wire x1="109.22" y1="20.32" x2="114.3" y2="20.32" width="0.1524" layer="91"/>
-<junction x="109.22" y="20.32"/>
+<wire x1="109.22" y1="17.78" x2="114.3" y2="17.78" width="0.1524" layer="91"/>
+<junction x="109.22" y="17.78"/>
+<pinref part="3V3_VR" gate="G$1" pin="OUT"/>
+<wire x1="68.58" y1="17.78" x2="73.66" y2="17.78" width="0.1524" layer="91"/>
+<junction x="73.66" y="17.78"/>
 </segment>
 <segment>
 <pinref part="RT1" gate="G$1" pin="1"/>

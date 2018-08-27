@@ -6,10 +6,10 @@
 <setting alwaysvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="50" unitdist="mil" unit="inch" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="inch"/>
+<grid distance="50" unitdist="mil" unit="mil" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="mil"/>
 <layers>
-<layer number="1" name="Top" color="4" fill="1" visible="no" active="yes"/>
-<layer number="2" name="Route2" color="1" fill="3" visible="no" active="yes"/>
+<layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
+<layer number="2" name="Route2" color="1" fill="3" visible="yes" active="yes"/>
 <layer number="3" name="Route3" color="4" fill="3" visible="no" active="no"/>
 <layer number="4" name="Route4" color="1" fill="4" visible="no" active="no"/>
 <layer number="5" name="Route5" color="4" fill="4" visible="no" active="no"/>
@@ -22,7 +22,7 @@
 <layer number="12" name="Route12" color="1" fill="5" visible="no" active="no"/>
 <layer number="13" name="Route13" color="4" fill="5" visible="no" active="no"/>
 <layer number="14" name="Route14" color="1" fill="6" visible="no" active="no"/>
-<layer number="15" name="Route15" color="4" fill="6" visible="no" active="yes"/>
+<layer number="15" name="Route15" color="4" fill="6" visible="yes" active="yes"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
 <layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
@@ -214,6 +214,8 @@
 <text x="48.768" y="18.796" size="1.778" layer="25">+</text>
 <text x="8.382" y="30.099" size="1.016" layer="26" rot="MR0">RST</text>
 <text x="61.468" y="31.115" size="1.016" layer="26" rot="MR180">PRG</text>
+<text x="33.147" y="7.493" size="1.016" layer="25" rot="R90" align="top-right">+5-30V</text>
+<text x="35.687" y="7.493" size="1.016" layer="25" rot="R90" align="top-right">GND</text>
 </plain>
 <libraries>
 <library name="pinhead">
@@ -311,29 +313,6 @@
 <rectangle x1="6.096" y1="-2.794" x2="6.604" y2="-2.286" layer="51"/>
 <rectangle x1="8.636" y1="-0.254" x2="9.144" y2="0.254" layer="51"/>
 <rectangle x1="8.636" y1="-2.794" x2="9.144" y2="-2.286" layer="51"/>
-</package>
-</packages>
-</library>
-<library name="MCP1703T-3302E_MB">
-<description>&lt;LDO Low Iq 250mA 16V 3.3V 2% SOT89 Microchip MCP1703T-3302E/MB, LDO Voltage Regulator, 250mA, 3.3 V 2%, 2.7  16 Vin, 3-Pin SOT-89&lt;/b&gt;&lt;p&gt;
-&lt;author&gt;Created by SamacSys&lt;/author&gt;</description>
-<packages>
-<package name="SOT-89(MB)">
-<description>&lt;b&gt;SOT-89(MB)&lt;/b&gt;&lt;br&gt;
-</description>
-<smd name="1" x="-1.5" y="-1.425" dx="1.4" dy="0.48" layer="1" rot="R90"/>
-<smd name="2" x="0" y="-1.3625" dx="1.525" dy="0.48" layer="1" rot="R90"/>
-<smd name="3" x="1.5" y="-1.425" dx="1.4" dy="0.48" layer="1" rot="R90"/>
-<smd name="4" x="0" y="0.76" dx="2.725" dy="1.2" layer="1" rot="R90"/>
-<text x="-0.284" y="0.141" size="1.27" layer="25" align="center">&gt;NAME</text>
-<text x="-0.284" y="0.141" size="1.27" layer="27" align="center">&gt;VALUE</text>
-<wire x1="-2.3" y1="1.3" x2="2.3" y2="1.3" width="0.2" layer="51"/>
-<wire x1="2.3" y1="1.3" x2="2.3" y2="-1.3" width="0.2" layer="51"/>
-<wire x1="2.3" y1="-1.3" x2="-2.3" y2="-1.3" width="0.2" layer="51"/>
-<wire x1="-2.3" y1="-1.3" x2="-2.3" y2="1.3" width="0.2" layer="51"/>
-<wire x1="-2.3" y1="-1.3" x2="-2.3" y2="1.3" width="0.2" layer="21"/>
-<wire x1="2.3" y1="1.3" x2="2.3" y2="-1.3" width="0.2" layer="21"/>
-<circle x="-1.507" y="-2.587" radius="0.041" width="0.2" layer="25"/>
 </package>
 </packages>
 </library>
@@ -2807,6 +2786,37 @@ Source: http://catalog.osram-os.com .. LA_LR_LS_LY_P47F_Pb_free.pdf</description
 </package3d>
 </packages3d>
 </library>
+<library name="TPS70933DBVT">
+<description>&lt;150mA 30V Ultra-Low-Iq Wide-Input Low-Dropout (LDO) Regulator With Reverse Current Protection&lt;/b&gt;&lt;p&gt;
+&lt;author&gt;Created by SamacSys&lt;/author&gt;</description>
+<packages>
+<package name="SOT95P280X145-5N">
+<description>&lt;b&gt;DBV (R-PDSO-G5)&lt;/b&gt;&lt;br&gt;
+</description>
+<smd name="1" x="-1.25" y="0.95" dx="1.2" dy="0.6" layer="1"/>
+<smd name="2" x="-1.25" y="0" dx="1.2" dy="0.6" layer="1"/>
+<smd name="3" x="-1.25" y="-0.95" dx="1.2" dy="0.6" layer="1"/>
+<smd name="4" x="1.25" y="-0.95" dx="1.2" dy="0.6" layer="1"/>
+<smd name="5" x="1.25" y="0.95" dx="1.2" dy="0.6" layer="1"/>
+<text x="0" y="0" size="1.27" layer="25" align="center">&gt;NAME</text>
+<text x="0" y="0" size="1.27" layer="27" align="center">&gt;VALUE</text>
+<wire x1="-2.1" y1="1.775" x2="2.1" y2="1.775" width="0.05" layer="51"/>
+<wire x1="2.1" y1="1.775" x2="2.1" y2="-1.775" width="0.05" layer="51"/>
+<wire x1="2.1" y1="-1.775" x2="-2.1" y2="-1.775" width="0.05" layer="51"/>
+<wire x1="-2.1" y1="-1.775" x2="-2.1" y2="1.775" width="0.05" layer="51"/>
+<wire x1="-0.8" y1="1.45" x2="0.8" y2="1.45" width="0.1" layer="51"/>
+<wire x1="0.8" y1="1.45" x2="0.8" y2="-1.45" width="0.1" layer="51"/>
+<wire x1="0.8" y1="-1.45" x2="-0.8" y2="-1.45" width="0.1" layer="51"/>
+<wire x1="-0.8" y1="-1.45" x2="-0.8" y2="1.45" width="0.1" layer="51"/>
+<wire x1="-0.8" y1="0.5" x2="0.15" y2="1.45" width="0.1" layer="51"/>
+<wire x1="-0.3" y1="1.45" x2="0.3" y2="1.45" width="0.2" layer="21"/>
+<wire x1="0.3" y1="1.45" x2="0.3" y2="-1.45" width="0.2" layer="21"/>
+<wire x1="0.3" y1="-1.45" x2="-0.3" y2="-1.45" width="0.2" layer="21"/>
+<wire x1="-0.3" y1="-1.45" x2="-0.3" y2="1.45" width="0.2" layer="21"/>
+<wire x1="-1.85" y1="1.5" x2="-0.65" y2="1.5" width="0.2" layer="21"/>
+</package>
+</packages>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -2989,26 +2999,12 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <element name="SAM12235-ND" library="pinhead" package="2X05SMD" value="SIEMENS BCU" x="31.115" y="17.526" smashed="yes">
 <attribute name="VALUE" x="28.575" y="11.811" size="1.27" layer="27"/>
 </element>
-<element name="3V3_REGULATOR" library="MCP1703T-3302E_MB" package="SOT-89(MB)" value="MCP1703T-3302E_MB" x="34.925" y="24.13" smashed="yes" rot="R180">
-<attribute name="ALLIED_NUMBER" value="70047986" x="34.925" y="24.13" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="ALLIED_PRICE/STOCK" value="https://www.alliedelec.com/microchip-technology-inc-mcp1703t-3302e-mb/70047986/" x="34.925" y="24.13" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="ARROW_PART_NUMBER" value="MCP1703T-3302E/MB" x="34.925" y="24.13" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="ARROW_PRICE/STOCK" value="https://www.arrow.com/en/products/mcp1703t-3302emb/microchip-technology" x="34.925" y="24.13" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="DESCRIPTION" value="LDO Low Iq 250mA 16V 3.3V 2% SOT89 Microchip MCP1703T-3302E/MB, LDO Voltage Regulator, 250mA, 3.3 V 2%, 2.7  16 Vin, 3-Pin SOT-89" x="34.925" y="24.13" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="HEIGHT" value="mm" x="34.925" y="24.13" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MANUFACTURER_NAME" value="Microchip" x="34.925" y="24.13" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MANUFACTURER_PART_NUMBER" value="MCP1703T-3302E/MB" x="34.925" y="24.13" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="NAME" x="35.209" y="21.449" size="1.016" layer="25" rot="R180" align="center"/>
-<attribute name="RS_PART_NUMBER" value="9122916" x="34.925" y="24.13" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="RS_PRICE/STOCK" value="http://uk.rs-online.com/web/p/products/9122916" x="34.925" y="24.13" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="VALUE" x="35.209" y="23.989" size="1.27" layer="27" rot="R180" align="center"/>
-</element>
 <element name="C1" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C0402" package3d_urn="urn:adsk.eagle:package:23626/1" value="1uF" x="38.735" y="23.495" smashed="yes" rot="R270">
 <attribute name="NAME" x="39.497" y="24.257" size="1.016" layer="25" rot="R270"/>
 <attribute name="SPICEPREFIX" value="C" x="38.735" y="23.495" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="VALUE" x="36.83" y="24.13" size="1.27" layer="27" rot="R270"/>
 </element>
-<element name="C2" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C0402" package3d_urn="urn:adsk.eagle:package:23626/1" value="1uF" x="29.845" y="23.495" smashed="yes" rot="R270">
+<element name="C2" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C0402" package3d_urn="urn:adsk.eagle:package:23626/1" value="2.2uF" x="29.845" y="23.495" smashed="yes" rot="R270">
 <attribute name="NAME" x="28.067" y="24.257" size="1.016" layer="25" rot="R270"/>
 <attribute name="SPICEPREFIX" value="C" x="29.845" y="23.495" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="VALUE" x="27.94" y="24.13" size="1.27" layer="27" rot="R270"/>
@@ -3216,31 +3212,43 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <attribute name="VALUE" x="34.925" y="29.21" size="1.27" layer="27" rot="R270"/>
 </element>
 <element name="RS" library="resistor" library_urn="urn:adsk.eagle:library:348" package="R0402" package3d_urn="urn:adsk.eagle:package:26058/1" value="560E" x="21.082" y="40.005" rot="R270"/>
+<element name="3V3_VR" library="TPS70933DBVT" package="SOT95P280X145-5N" value="TPS70933DBVT" x="34.925" y="24.13" smashed="yes" rot="R90">
+<attribute name="ARROW_PART_NUMBER" value="TPS70933DBVT" x="34.925" y="24.13" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="ARROW_PRICE-STOCK" value="https://www.arrow.com/en/products/tps70933dbvt/texas-instruments" x="34.925" y="24.13" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="DESCRIPTION" value="150mA 30V Ultra-Low-Iq Wide-Input Low-Dropout (LDO) Regulator With Reverse Current Protection" x="34.925" y="24.13" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="HEIGHT" value="1.45mm" x="34.925" y="24.13" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MANUFACTURER_NAME" value="Texas Instruments" x="34.925" y="24.13" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MANUFACTURER_PART_NUMBER" value="TPS70933DBVT" x="34.925" y="24.13" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="NAME" x="34.925" y="21.463" size="0.889" layer="25" rot="R180" align="center"/>
+<attribute name="RS_PART_NUMBER" value="8257033P" x="34.925" y="24.13" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="RS_PRICE-STOCK" value="http://uk.rs-online.com/web/p/products/8257033P" x="34.925" y="24.13" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="VALUE" x="34.925" y="24.13" size="1.27" layer="27" rot="R90" align="center"/>
+</element>
 </elements>
 <signals>
 <signal name="+5V">
 <contactref element="SAM12235-ND" pad="1"/>
-<contactref element="3V3_REGULATOR" pad="2"/>
 <contactref element="C1" pad="2"/>
-<contactref element="3V3_REGULATOR" pad="4"/>
 <wire x1="38.72" y1="22.86" x2="38.735" y2="22.845" width="0.3048" layer="1"/>
-<wire x1="34.925" y1="25.4925" x2="34.925" y2="23.37" width="0.3048" layer="1"/>
-<wire x1="29.845" y1="13.716" x2="29.845" y2="15.621" width="0.3048" layer="1"/>
-<wire x1="29.845" y1="15.621" x2="30.353" y2="16.129" width="0.3048" layer="1"/>
-<wire x1="30.353" y1="16.129" x2="32.766" y2="16.129" width="0.3048" layer="1"/>
-<wire x1="32.766" y1="16.129" x2="33.655" y2="17.018" width="0.3048" layer="1"/>
-<wire x1="33.655" y1="17.018" x2="33.655" y2="22.479" width="0.3048" layer="1"/>
-<wire x1="33.655" y1="22.479" x2="34.036" y2="22.86" width="0.3048" layer="1"/>
-<wire x1="34.036" y1="22.86" x2="34.29" y2="22.86" width="0.3048" layer="1"/>
-<wire x1="34.415" y1="22.86" x2="38.72" y2="22.86" width="0.3048" layer="1"/>
-<wire x1="34.29" y1="22.86" x2="34.415" y2="22.86" width="0.3048" layer="1"/>
-<wire x1="34.415" y1="22.86" x2="34.925" y2="23.37" width="0.3048" layer="1"/>
+<contactref element="3V3_VR" pad="1"/>
+<wire x1="33.975" y1="22.88" x2="33.975" y2="21.275" width="0.3048" layer="1"/>
+<wire x1="33.975" y1="21.275" x2="33.655" y2="20.955" width="0.3048" layer="1"/>
+<wire x1="33.655" y1="16.764" x2="33.147" y2="16.256" width="0.3048" layer="1"/>
+<wire x1="30.099" y1="16.256" x2="29.845" y2="16.002" width="0.3048" layer="1"/>
+<wire x1="29.845" y1="16.002" x2="29.845" y2="13.716" width="0.3048" layer="1"/>
+<wire x1="33.655" y1="20.955" x2="33.655" y2="16.764" width="0.3048" layer="1"/>
+<wire x1="33.147" y1="16.256" x2="30.099" y2="16.256" width="0.3048" layer="1"/>
+<wire x1="38.735" y1="22.845" x2="37.165" y2="21.275" width="0.3048" layer="1"/>
+<wire x1="37.165" y1="21.275" x2="33.975" y2="21.275" width="0.3048" layer="1"/>
+<via x="33.655" y="8.89" extent="1-16" drill="1"/>
+<wire x1="29.845" y1="13.716" x2="29.845" y2="11.43" width="0.3048" layer="1"/>
+<wire x1="29.845" y1="11.43" x2="32.385" y2="8.89" width="0.3048" layer="1"/>
+<wire x1="32.385" y1="8.89" x2="33.655" y2="8.89" width="0.3048" layer="1"/>
 </signal>
 <signal name="GND">
 <contactref element="SAM12235-ND" pad="9"/>
 <contactref element="C1" pad="1"/>
 <contactref element="C2" pad="2"/>
-<contactref element="3V3_REGULATOR" pad="1"/>
 <contactref element="CLO1" pad="1"/>
 <contactref element="CLO2" pad="1"/>
 <contactref element="GND_NRST" pad="1"/>
@@ -3298,11 +3306,8 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <contactref element="SENSORMCU" pad="3"/>
 <wire x1="20.32" y1="29.195" x2="21.59" y2="29.195" width="0.3048" layer="1"/>
 <wire x1="21.59" y1="29.195" x2="22.86" y2="29.195" width="0.3048" layer="1"/>
-<wire x1="36.425" y1="25.555" x2="36.425" y2="27.52" width="0.3048" layer="1"/>
 <wire x1="36.425" y1="27.52" x2="36.83" y2="27.925" width="0.3048" layer="1"/>
-<wire x1="36.425" y1="25.555" x2="37.945" y2="25.555" width="0.3048" layer="1"/>
 <wire x1="38.735" y1="24.765" x2="38.735" y2="24.145" width="0.3048" layer="1"/>
-<wire x1="37.945" y1="25.555" x2="38.608" y2="24.892" width="0.3048" layer="1"/>
 <via x="49.53" y="40.894" extent="1-16" drill="0.25"/>
 <via x="46.228" y="27.94" extent="1-16" drill="0.25"/>
 <via x="39.116" y="41.783" extent="1-16" drill="0.25"/>
@@ -3418,9 +3423,22 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <wire x1="26.035" y1="37.084" x2="27.93008125" y2="38.97908125" width="0.3048" layer="2"/>
 <wire x1="27.93008125" y1="38.97908125" x2="27.93008125" y2="39.624" width="0.3048" layer="2"/>
 <wire x1="23.749" y1="35.56" x2="25.273" y2="37.084" width="0.3048" layer="2"/>
+<contactref element="3V3_VR" pad="2"/>
+<wire x1="34.925" y1="22.88" x2="34.925" y2="24.13" width="0.3048" layer="1"/>
+<wire x1="34.925" y1="24.13" x2="34.925" y2="26.02" width="0.3048" layer="1"/>
+<wire x1="34.925" y1="26.02" x2="36.83" y2="27.925" width="0.3048" layer="1"/>
+<wire x1="38.735" y1="24.145" x2="38.72" y2="24.13" width="0.3048" layer="1"/>
+<wire x1="38.72" y1="24.13" x2="34.925" y2="24.13" width="0.3048" layer="1"/>
+<wire x1="32.004" y1="23.114" x2="32.385" y2="23.495" width="0.3048" layer="1"/>
+<wire x1="32.385" y1="23.495" x2="33.147" y2="23.495" width="0.3048" layer="1"/>
+<wire x1="33.782" y1="24.13" x2="34.925" y2="24.13" width="0.3048" layer="1"/>
+<wire x1="33.147" y1="23.495" x2="33.782" y2="24.13" width="0.3048" layer="1"/>
+<via x="36.195" y="8.89" extent="1-16" drill="1"/>
+<wire x1="40.005" y1="13.716" x2="40.005" y2="11.43" width="0.3048" layer="1"/>
+<wire x1="40.005" y1="11.43" x2="37.465" y2="8.89" width="0.3048" layer="1"/>
+<wire x1="37.465" y1="8.89" x2="36.195" y2="8.89" width="0.3048" layer="1"/>
 </signal>
 <signal name="+3V3">
-<contactref element="3V3_REGULATOR" pad="3"/>
 <contactref element="C2" pad="1"/>
 <contactref element="RT1" pad="1"/>
 <contactref element="TEMP" pad="1"/>
@@ -3476,12 +3494,6 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <wire x1="50.165" y1="29.225" x2="51.435" y2="29.225" width="0.3048" layer="1"/>
 <wire x1="51.435" y1="31.1" x2="51.435" y2="29.225" width="0.3048" layer="1"/>
 <wire x1="31.115" y1="24.145" x2="29.845" y2="24.145" width="0.3048" layer="1"/>
-<wire x1="31.115" y1="24.145" x2="31.765" y2="24.145" width="0.3048" layer="1"/>
-<wire x1="33.175" y1="25.555" x2="33.425" y2="25.555" width="0.3048" layer="1"/>
-<wire x1="31.765" y1="24.145" x2="33.175" y2="25.555" width="0.3048" layer="1"/>
-<wire x1="33.425" y1="25.555" x2="33.425" y2="26.694" width="0.3048" layer="1"/>
-<wire x1="35.956" y1="29.225" x2="36.83" y2="29.225" width="0.3048" layer="1"/>
-<wire x1="33.425" y1="26.694" x2="35.956" y2="29.225" width="0.3048" layer="1"/>
 <wire x1="36.83" y1="29.225" x2="38.339" y2="30.734" width="0.3048" layer="1"/>
 <wire x1="38.339" y1="30.734" x2="38.354" y2="30.734" width="0.3048" layer="1"/>
 <wire x1="36.807" y1="38.675" x2="36.807" y2="38.712" width="0.3048" layer="1"/>
@@ -3504,6 +3516,11 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <wire x1="39.795" y1="29.187" x2="39.795" y2="28.15" width="0.3048" layer="1"/>
 <wire x1="40.02" y1="27.925" x2="40.02" y2="27.305" width="0.3048" layer="1"/>
 <wire x1="39.795" y1="28.15" x2="40.02" y2="27.925" width="0.3048" layer="1"/>
+<contactref element="3V3_VR" pad="5"/>
+<wire x1="31.115" y1="24.145" x2="32.74" y2="24.145" width="0.3048" layer="1"/>
+<wire x1="32.74" y1="24.145" x2="33.975" y2="25.38" width="0.3048" layer="1"/>
+<wire x1="36.83" y1="29.225" x2="33.975" y2="26.37" width="0.3048" layer="1"/>
+<wire x1="33.975" y1="26.37" x2="33.975" y2="25.38" width="0.3048" layer="1"/>
 </signal>
 <signal name="OSC32_IN">
 <contactref element="CLO1" pad="2"/>
@@ -3756,8 +3773,12 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <via x="67.945" y="29.845" extent="1-16" drill="1"/>
 <wire x1="19.05" y1="33.005" x2="19.05" y2="32.258" width="0.1524" layer="1"/>
 <via x="19.05" y="32.258" extent="1-16" drill="0.25"/>
-<wire x1="19.05" y1="32.258" x2="16.637" y2="29.845" width="0.1524" layer="15"/>
-<wire x1="16.637" y1="29.845" x2="1.905" y2="29.845" width="0.1524" layer="15"/>
+<wire x1="15.367" y1="29.845" x2="15.24" y2="29.845" width="0.1524" layer="15"/>
+<wire x1="15.24" y1="29.845" x2="1.905" y2="29.845" width="0.1524" layer="15"/>
+<wire x1="15.367" y1="29.845" x2="15.875" y2="29.845" width="0.1524" layer="15"/>
+<wire x1="15.875" y1="29.845" x2="17.653" y2="31.623" width="0.1524" layer="15"/>
+<wire x1="17.653" y1="31.623" x2="18.415" y2="31.623" width="0.1524" layer="15"/>
+<wire x1="18.415" y1="31.623" x2="19.05" y2="32.258" width="0.1524" layer="15"/>
 </signal>
 <signal name="SENS_3">
 <contactref element="RS3" pad="1"/>
@@ -3846,11 +3867,8 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <via x="24.892" y="33.147" extent="1-16" drill="0.25"/>
 <wire x1="32.385" y1="32.512" x2="25.4" y2="32.512" width="0.1524" layer="1"/>
 <wire x1="22.11" y1="37.052" x2="22.098" y2="37.064" width="0.1524" layer="1"/>
-<wire x1="22.098" y1="37.064" x2="22.098" y2="37.592" width="0.1524" layer="1"/>
-<wire x1="22.098" y1="37.592" x2="21.717" y2="37.973" width="0.1524" layer="1"/>
-<wire x1="21.717" y1="37.973" x2="21.59" y2="37.973" width="0.1524" layer="1"/>
-<via x="21.59" y="37.973" extent="1-16" drill="0.25"/>
-<wire x1="21.59" y1="37.973" x2="21.463" y2="37.973" width="0.1524" layer="15"/>
+<via x="21.717" y="37.973" extent="1-16" drill="0.25"/>
+<wire x1="21.717" y1="37.973" x2="21.463" y2="37.973" width="0.1524" layer="15"/>
 <wire x1="21.463" y1="37.973" x2="21.209" y2="37.719" width="0.1524" layer="15"/>
 <wire x1="21.209" y1="37.719" x2="21.209" y2="37.338" width="0.1524" layer="15"/>
 <wire x1="21.209" y1="37.338" x2="24.892" y2="33.655" width="0.1524" layer="15"/>
@@ -3862,6 +3880,8 @@ This DRC check is for 4-Layer with 4 mil diameter drills to be manufactured thro
 <wire x1="35.306" y1="34.671" x2="35.81" y2="35.175" width="0.1524" layer="1"/>
 <wire x1="25.4" y1="32.512" x2="24.892" y2="33.02" width="0.1524" layer="1"/>
 <wire x1="24.892" y1="33.02" x2="24.892" y2="33.147" width="0.1524" layer="1"/>
+<wire x1="22.11" y1="37.052" x2="22.11" y2="37.58" width="0.1524" layer="1"/>
+<wire x1="22.11" y1="37.58" x2="21.717" y2="37.973" width="0.1524" layer="1"/>
 </signal>
 <signal name="CMOD">
 <contactref element="SENSORMCU" pad="5"/>
