@@ -1,0 +1,14 @@
+https://electronics.stackexchange.com/questions/294976/schottky-diodes-question-which-will-power-the-board-battery-or-usb
+
+
+Einfach 2 z dioden
+
+
+http://www.analog.com/en/products/ltc4415.html
+
+
+
+https://www.powerelectronictips.com/dc-power-source-switching-methods/
+
+
+ LTC4412
