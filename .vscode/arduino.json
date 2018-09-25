@@ -1,7 +1,7 @@
 {
-    "port": "COM10",
-    "board": "STM32:stm32:Nucleo_64",
-    "configuration": "pnum=NUCLEO_F303RE,upload_method=MassStorage,xserial=generic,usb=none,opt=osstd",
+    "port": "COM6",
+    "board": "esp8266:esp8266:huzzah",
     "sketch": "TouchButtonSwitch\\TouchButtonSwitch.ino",
-    "output": "./build"
+    "output": "./build",
+    "configuration": "CpuFrequency=80,VTable=flash,FlashSize=4M1M,LwIPVariant=v2mss536,Debug=Disabled,DebugLevel=None____,FlashErase=none,UploadSpeed=115200"
 }
