@@ -3,7 +3,7 @@
 <eagle version="8.6.0">
 <drawing>
 <settings>
-<setting alwaysvectorfont="no"/>
+<setting alwaysvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
 <grid distance="50" unitdist="mil" unit="inch" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="inch"/>
@@ -196,8 +196,8 @@
 <text x="19.558" y="49.276" size="1.778" layer="25">+</text>
 <text x="19.558" y="18.796" size="1.778" layer="25">+</text>
 <text x="48.768" y="18.796" size="1.778" layer="25">+</text>
-<text x="33.147" y="7.493" size="1.016" layer="25" rot="R90" align="top-right">+5V</text>
-<text x="35.687" y="7.493" size="1.016" layer="25" rot="R90" align="top-right">GND</text>
+<text x="34.29" y="6.731" size="0.762" layer="25" align="top-right">+5V</text>
+<text x="35.052" y="5.969" size="0.762" layer="25" rot="R180" align="top-right">GND</text>
 <rectangle x1="16.51" y1="53.975" x2="19.05" y2="56.515" layer="29"/>
 <rectangle x1="16.51" y1="48.895" x2="19.05" y2="51.435" layer="29"/>
 <rectangle x1="50.8" y1="53.975" x2="53.34" y2="56.515" layer="29"/>
@@ -207,6 +207,8 @@
 <rectangle x1="50.8" y1="18.415" x2="53.34" y2="20.955" layer="29" rot="R90"/>
 <rectangle x1="50.8" y1="13.335" x2="53.34" y2="15.875" layer="29" rot="R90"/>
 <text x="48.768" y="49.276" size="1.778" layer="25">+</text>
+<text x="32.893" y="3.429" size="0.762" layer="25" rot="R180" align="top-right">SH</text>
+<text x="35.179" y="3.429" size="0.762" layer="25" rot="R180" align="top-right">GND</text>
 </plain>
 <libraries>
 <library name="pinhead">
@@ -2818,11 +2820,11 @@ design rules under a new name.</description>
 <element name="U$2" library="holes" library_urn="urn:adsk.eagle:library:237" package="3,0" package3d_urn="urn:adsk.eagle:package:14277/1" value="" x="55.88" y="34.925"/>
 <element name="U$1" library="holes" library_urn="urn:adsk.eagle:library:237" package="3,0" package3d_urn="urn:adsk.eagle:package:14277/1" value="" x="13.97" y="34.925"/>
 <element name="RL2" library="resistor" library_urn="urn:adsk.eagle:library:348" package="R1206" package3d_urn="urn:adsk.eagle:package:26062/1" value="330E" x="20.32" y="46.99" smashed="yes" rot="R180">
-<attribute name="NAME" x="21.59" y="45.72" size="1.016" layer="25" rot="R180"/>
+<attribute name="NAME" x="19.05" y="44.704" size="1.016" layer="25" rot="R180" align="top-right"/>
 <attribute name="VALUE" x="20.955" y="48.895" size="1.27" layer="27" rot="R180"/>
 </element>
 <element name="RL1" library="resistor" library_urn="urn:adsk.eagle:library:348" package="R1206" package3d_urn="urn:adsk.eagle:package:26062/1" value="330E" x="49.53" y="46.99" smashed="yes">
-<attribute name="NAME" x="48.133" y="44.704" size="1.016" layer="25"/>
+<attribute name="NAME" x="50.673" y="45.72" size="1.016" layer="25" align="top-right"/>
 <attribute name="VALUE" x="48.895" y="45.085" size="1.27" layer="27"/>
 </element>
 <element name="RL4" library="resistor" library_urn="urn:adsk.eagle:library:348" package="R1206" package3d_urn="urn:adsk.eagle:package:26062/1" value="330E" x="20.32" y="22.86" smashed="yes" rot="R180">
@@ -2893,7 +2895,7 @@ design rules under a new name.</description>
 <signal name="+5V">
 <contactref element="SAM12235-ND" pad="1"/>
 <contactref element="JP1" pad="14"/>
-<wire x1="29.845" y1="13.716" x2="30.48" y2="13.716" width="0.3048" layer="1"/>
+<wire x1="29.845" y1="13.716" x2="30.734" y2="13.716" width="0.3048" layer="1"/>
 <wire x1="30.734" y1="13.716" x2="30.861" y2="13.716" width="0.3048" layer="1"/>
 <wire x1="30.861" y1="13.716" x2="31.115" y2="13.97" width="0.3048" layer="1"/>
 <wire x1="31.115" y1="13.97" x2="31.115" y2="22.225" width="0.3048" layer="1"/>
@@ -2901,11 +2903,10 @@ design rules under a new name.</description>
 <wire x1="31.75" y1="57.15" x2="28.825" y2="57.15" width="0.3048" layer="1"/>
 <wire x1="31.115" y1="22.225" x2="33.655" y2="24.765" width="0.3048" layer="1"/>
 <wire x1="33.655" y1="24.765" x2="33.655" y2="55.245" width="0.3048" layer="1"/>
-<via x="33.655" y="8.89" extent="1-16" drill="1"/>
-<wire x1="33.655" y1="8.89" x2="31.115" y2="11.43" width="0.3048" layer="1"/>
+<via x="33.655" y="7.62" extent="1-16" drill="1"/>
+<wire x1="33.655" y1="7.62" x2="31.115" y2="11.43" width="0.3048" layer="1"/>
 <wire x1="31.115" y1="11.43" x2="31.115" y2="13.335" width="0.3048" layer="1"/>
 <wire x1="31.115" y1="13.335" x2="31.115" y2="13.97" width="0.3048" layer="1"/>
-<wire x1="30.48" y1="13.716" x2="30.734" y2="13.716" width="0.3048" layer="1"/>
 <wire x1="30.734" y1="13.716" x2="31.115" y2="13.335" width="0.3048" layer="1"/>
 </signal>
 <signal name="GND">
@@ -2924,7 +2925,7 @@ design rules under a new name.</description>
 <vertex x="10.795" y="69.215" curve="90"/>
 <vertex x="0.635" y="59.055"/>
 </polygon>
-<via x="36.195" y="8.89" extent="1-16" drill="1"/>
+<via x="36.195" y="7.62" extent="1-16" drill="1"/>
 <contactref element="GND_NRST" pad="1"/>
 <contactref element="GND_PRG" pad="1"/>
 <contactref element="JP1" pad="13"/>
@@ -2938,24 +2939,18 @@ design rules under a new name.</description>
 <wire x1="51.5574" y1="54.6424" x2="52.07" y2="55.155" width="0.3048" layer="1"/>
 <wire x1="49.9651" y1="53.34" x2="51.2675" y2="54.6424" width="0.3048" layer="1"/>
 <wire x1="39.37" y1="53.34" x2="49.9651" y2="53.34" width="0.3048" layer="1"/>
-<wire x1="52.07" y1="14.695" x2="62.865" y2="29.845" width="0" layer="19" extent="1-1"/>
-<wire x1="40.005" y1="13.716" x2="52.07" y2="14.695" width="0" layer="19" extent="1-1"/>
-<wire x1="36.195" y1="8.89" x2="40.005" y2="13.716" width="0" layer="19" extent="1-1"/>
-<wire x1="17.78" y1="14.695" x2="36.195" y2="8.89" width="0" layer="19" extent="1-1"/>
-<wire x1="49.9651" y1="53.34" x2="62.865" y2="29.845" width="0" layer="19" extent="1-1"/>
-<wire x1="17.78" y1="55.155" x2="25.785" y2="54.61" width="0" layer="19" extent="1-1"/>
-<wire x1="6.985" y1="40.005" x2="17.78" y2="55.155" width="0" layer="19" extent="1-1"/>
+<via x="36.195" y="5.08" extent="1-16" drill="1"/>
 </signal>
 <signal name="+3V3">
 <contactref element="JP2" pad="13"/>
 </signal>
 <signal name="SENS_PROX_1">
 <contactref element="RP1" pad="1"/>
-<wire x1="8.255" y1="67.945" x2="61.595" y2="67.945" width="3.81" layer="16"/>
-<wire x1="1.905" y1="61.595" x2="1.905" y2="40.005" width="3.81" layer="16"/>
-<wire x1="8.255" y1="67.945" x2="1.905" y2="61.595" width="3.81" layer="16" curve="90"/>
-<wire x1="61.595" y1="67.945" x2="67.945" y2="61.595" width="3.81" layer="16" curve="-90"/>
-<wire x1="67.945" y1="40.005" x2="67.945" y2="61.595" width="3.81" layer="16"/>
+<wire x1="8.255" y1="67.945" x2="61.595" y2="67.945" width="3.302" layer="16"/>
+<wire x1="1.905" y1="61.595" x2="1.905" y2="40.005" width="3.302" layer="16"/>
+<wire x1="8.255" y1="67.945" x2="1.905" y2="61.595" width="3.302" layer="16" curve="90"/>
+<wire x1="61.595" y1="67.945" x2="67.945" y2="61.595" width="3.302" layer="16" curve="-90"/>
+<wire x1="67.945" y1="40.005" x2="67.945" y2="61.595" width="3.302" layer="16"/>
 <via x="1.905" y="40.005" extent="1-16" drill="1"/>
 <via x="67.945" y="40.005" extent="1-16" drill="1"/>
 <wire x1="67.31" y1="40.64" x2="67.945" y2="40.005" width="0.1524" layer="16"/>
@@ -3040,11 +3035,11 @@ design rules under a new name.</description>
 </signal>
 <signal name="SENS_PROX_2">
 <contactref element="RP2" pad="1"/>
-<wire x1="61.595" y1="1.905" x2="8.255" y2="1.905" width="3.81" layer="16"/>
-<wire x1="8.255" y1="1.905" x2="1.905" y2="8.255" width="3.81" layer="16" curve="-90"/>
-<wire x1="1.905" y1="8.255" x2="1.905" y2="29.845" width="3.81" layer="16"/>
-<wire x1="67.945" y1="29.845" x2="67.945" y2="8.255" width="3.81" layer="16"/>
-<wire x1="67.945" y1="8.255" x2="61.595" y2="1.905" width="3.81" layer="16" curve="-90"/>
+<wire x1="61.595" y1="1.905" x2="8.255" y2="1.905" width="3.302" layer="16"/>
+<wire x1="8.255" y1="1.905" x2="1.905" y2="8.255" width="3.302" layer="16" curve="-90"/>
+<wire x1="1.905" y1="8.255" x2="1.905" y2="29.845" width="3.302" layer="16"/>
+<wire x1="67.945" y1="29.845" x2="67.945" y2="8.255" width="3.302" layer="16"/>
+<wire x1="67.945" y1="8.255" x2="61.595" y2="1.905" width="3.302" layer="16" curve="-90"/>
 <via x="1.905" y="29.845" extent="1-16" drill="1"/>
 <via x="67.945" y="29.845" extent="1-16" drill="1"/>
 <wire x1="57.302" y1="29.21" x2="59.69" y2="29.21" width="0.1524" layer="1"/>
@@ -3102,6 +3097,7 @@ design rules under a new name.</description>
 <vertex x="9.525" y="66.04" curve="90"/>
 <vertex x="3.81" y="60.325"/>
 </polygon>
+<via x="33.655" y="5.08" extent="1-16" drill="1"/>
 </signal>
 <signal name="RESET">
 <contactref element="PAD_NRST" pad="1"/>
@@ -3248,6 +3244,45 @@ design rules under a new name.</description>
 <approved hash="4,1,f796e86fa7d6a854"/>
 <approved hash="4,1,a717aa90eb2cf6d0"/>
 <approved hash="4,1,4a5fa1b3f300089b"/>
+<approved hash="3,16,8a7c4a7c5e219e21"/>
+<approved hash="3,16,fa98ba988164c164"/>
+<approved hash="3,16,1554d554e9092909"/>
+<approved hash="3,16,280d680d7c593c59"/>
+<approved hash="3,16,bb25fb25cf718f71"/>
+<approved hash="3,16,5e201e200a944a94"/>
+<approved hash="3,16,4bb00bb0174c574c"/>
+<approved hash="3,16,ac08ec0898bcd8bc"/>
+<approved hash="4,1,99f5e081fa930bea"/>
+<approved hash="4,1,61a291cc9bd1e3b2"/>
+<approved hash="4,1,6ae07398259bb4dd"/>
+<approved hash="4,1,debb4ed908e610ba"/>
+<approved hash="4,1,a3d26dd19a0e5ec2"/>
+<approved hash="4,1,4dfd0b517c092366"/>
+<approved hash="4,1,f1f86d51981b0e7d"/>
+<approved hash="4,1,dc498c2d3d5d67f6"/>
+<approved hash="4,1,1fd70bd17e1c73d9"/>
+<approved hash="4,1,ba6d62aa405d8159"/>
+<approved hash="4,1,68e38ea13919d594"/>
+<approved hash="4,1,0ec760264419333b"/>
+<approved hash="4,16,8a7b90ba74c15bf1"/>
+<approved hash="4,16,7c94bb830095b394"/>
+<approved hash="4,16,38d0642198d6b57b"/>
+<approved hash="4,16,778b1b8e40906caf"/>
+<approved hash="4,16,c978a76b13f7df46"/>
+<approved hash="4,16,ffcf6ebf8c265033"/>
+<approved hash="4,16,fffe2ecf2e85eea8"/>
+<approved hash="4,16,012418d21333b49b"/>
+<approved hash="4,16,ae7260bc2cdd34b1"/>
+<approved hash="4,16,8c1f45accaa81eff"/>
+<approved hash="4,16,7bf7de0588db593f"/>
+<approved hash="4,16,009a6016b8ac981a"/>
+<approved hash="4,16,57a1ae332980897d"/>
+<approved hash="4,16,2179f886a727a80e"/>
+<approved hash="4,16,144ba6c4822a3697"/>
+<approved hash="4,16,421fbf1f511ce179"/>
+<approved hash="4,16,669231ed21c5f9ca"/>
+<approved hash="4,16,8b5e5d914bfef0a8"/>
+<approved hash="4,16,d50593a16d058977"/>
 </errors>
 </board>
 </drawing>
