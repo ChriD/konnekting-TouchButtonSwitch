@@ -55,7 +55,16 @@ void setup()
   //touchButton1.setEventCallback(mqtt.set_callback([this] (char* topic, byte* payload, unsigned int length) { this->callback(topic, payload, length); })
   touchButton1.setCallbackOnButtonStateChanged(onButtonStateChanged);
   touchButton1.setCallbackOnButton(onButton);
-  //touchButton2.setCallbackOnButtonStateChanged(buttonStateChanged);
+  touchButton1.parmId(10);
+  touchButton1.parmMultipleTapsEnabled(true);
+  touchButton1.parmPositioningModeEnabled(false);
+
+  touchButton2.setCallbackOnButtonStateChanged(onButtonStateChanged);
+  touchButton2.setCallbackOnButton(onButton);
+  touchButton2.parmId(20);
+  touchButton2.parmMultipleTapsEnabled(false);
+  touchButton2.parmPositioningModeEnabled(true);
+
 
   if(!touchButton1.setup())
     SerialUSB.print("Error initializing Touch Button 1");
@@ -70,15 +79,17 @@ void setup()
 
 }
 
-void onButtonStateChanged(uint8_t _state)
+void onButtonStateChanged(uint16_t _buttonId, uint8_t _state)
 {
   //SerialUSB.print(_state);
   //SerialUSB.print("\n");
 }
 
 
-void onButton(uint8_t _type, uint8_t _value)
+void onButton(uint16_t _buttonId, uint8_t _type, uint8_t _value)
 {
+  SerialUSB.print(_buttonId);
+  SerialUSB.print(" : ");
   SerialUSB.print(_type);
   SerialUSB.print(" | ");
   SerialUSB.print(_value);

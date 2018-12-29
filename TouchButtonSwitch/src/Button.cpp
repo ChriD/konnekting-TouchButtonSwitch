@@ -18,13 +18,15 @@ Button::Button()
 
   this->pressStartTime = 0;
   this->pressEndTime = 0;
-  this->confirmTapThreshold = 250;
-  this->confirmLongPressThreshold = 1250;
+  this->confirmTapThreshold = BTN_STD_CONFIRM_TAP_THRESHOLD;
+  this->confirmLongPressThreshold = BTN_STD_CONFIRM_LONGPRESS_THRESHOLD;
   this->tapCounter = 0;
   this->runConfirmButtonAction = false;
 
   this->positioningModeEnabled = false;
-  this->multipleStateEnabled = false;
+  this->multipleTapsEnabled = false;
+
+  this->debouncePeriod = BTN_STD_DEBOUNCE_PERIOD;
 }
 
 
@@ -65,6 +67,54 @@ void Button::setCallbackOnButtonStateChanged(CALLBACK_ONBUTTONSTATECHANGED)
   this->callback_onButtonStateChanged = callback_onButtonStateChanged;
 }
 
+void Button::parmId(uint16_t _id){
+  this->id = _id;
+}
+uint16_t Button::parmId(){
+  return this->id;
+}
+
+void Button::parmStatePollingEnabled(boolean _statePollingEnabled){
+  this->statePollingEnabled = _statePollingEnabled;
+}
+boolean Button::parmStatePollingEnabled(){
+  return this->statePollingEnabled;
+}
+
+void Button::parmPositioningModeEnabled(boolean _positioningModeEnabled){
+  this->positioningModeEnabled = _positioningModeEnabled;
+}
+boolean Button::parmPositioningModeEnabled(){
+  return this->positioningModeEnabled;
+}
+
+void Button::parmMultipleTapsEnabled(boolean _multipleTapsEnabled){
+  this->multipleTapsEnabled = _multipleTapsEnabled;
+}
+boolean Button::parmMultipleTapsEnabled(){
+  return this->multipleTapsEnabled;
+}
+
+void Button::parmConfirmTapThreshold(uint16_t _confirmTapThresholdMS){
+  this->confirmTapThreshold = _confirmTapThresholdMS;
+}
+uint16_t Button::parmConfirmTapThreshold(){
+  return this->confirmTapThreshold;
+}
+
+void Button::parmConfirmLongPressThreshold(uint16_t _confirmLongPressThresholdMS){
+  this->confirmLongPressThreshold = _confirmLongPressThresholdMS;
+}
+uint16_t Button::parmConfirmLongPressThreshold(){
+  return this->confirmLongPressThreshold;
+}
+
+void Button::parmDebouncePeriod(uint16_t _debouncePeriod){
+  this->debouncePeriod = _debouncePeriod;
+}
+uint16_t Button::parmDebouncePeriod(){
+  return this->debouncePeriod;
+}
 
 
 int8_t Button::calcButtonState()
@@ -85,7 +135,7 @@ void Button::buttonStateChanged(uint8_t _state)
 
   // call callback method if registered
   if(this->callback_onButtonStateChanged)
-    this->callback_onButtonStateChanged(_state);
+    this->callback_onButtonStateChanged(this->id, _state);
 
   if(_state == 1)
   {
@@ -114,7 +164,7 @@ void Button::buttonStateChanged(uint8_t _state)
     if(this->tapCounter == 255)
     {
       if(this->callback_onButton)
-        this->callback_onButton(21, 1);
+        this->callback_onButton(this->id, 21, 1);
       this->tapCounter = 0;
     }
 
@@ -144,7 +194,7 @@ void Button::confirmButtonAction()
   {
     // call callback method if registered
     if(this->callback_onButton)
-      this->callback_onButton(20, 1);
+      this->callback_onButton(this->id, 20, 1);
 
     this->pressStartTime = 0;
     this->pressEndTime = 0;
@@ -158,7 +208,7 @@ void Button::confirmButtonAction()
   {
     // call callback method if registered
     if(this->callback_onButton)
-      this->callback_onButton(2, 1);
+      this->callback_onButton(this->id, 2, 1);
 
     this->pressStartTime = 0;
     this->pressEndTime = 0;
@@ -168,11 +218,11 @@ void Button::confirmButtonAction()
 
   // if there is a touch end time for a sensor we may check if its a normal click (touchThreshold)
   // we have a special or clause that will be used if multiple clicks are disabled, so we do not ave to wait for the whole touchThreshold to be exceeded!
-  if(this->runConfirmButtonAction && this->pressEndTime > 0 && (this->getPeriod(this->pressEndTime) >= this->confirmTapThreshold || !this->multipleStateEnabled ))
+  if(this->runConfirmButtonAction && this->pressEndTime > 0 && (this->getPeriod(this->pressEndTime) >= this->confirmTapThreshold || !this->multipleTapsEnabled ))
   {
     // call callback method if registered
     if(this->callback_onButton)
-      this->callback_onButton(1, this->tapCounter);
+      this->callback_onButton(this->id, 1, this->tapCounter);
 
     this->pressStartTime = 0;
     this->pressEndTime = 0;
@@ -188,7 +238,7 @@ void Button::task()
 {
   // we do not need to check the button state every cycle of the main task loop
   // it is okay to do it every bunch of ms. (10 to 50 seem appropriate)
-  if(this->getPeriod(this->lastTaskRunTime) >= TASK_RUNPERIOD)
+  if(this->getPeriod(this->lastTaskRunTime) >= BTN_STD_TASK_RUNPERIOD)
   {
     uint8_t buttonState = this->calcButtonState();
     this->lastTaskRunTime = millis();
@@ -201,7 +251,7 @@ void Button::task()
       // if software debouncing is not neede you may use the 'buttonStateChanged' method on its own
       if(buttonState != this->lastButtonState)
         this->lastDebounceTime = millis();
-      if(this->getPeriod(this->lastDebounceTime) > DEBOUNCE_PERIOD)
+      if(this->getPeriod(this->lastDebounceTime) > this->debouncePeriod)
       {
         if (buttonState != this->curButtonState)
         {

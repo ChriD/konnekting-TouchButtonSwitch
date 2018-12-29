@@ -18,11 +18,14 @@ TODO: * methods for settings
 
   #include "Arduino.h"
 
-  #define DEBOUNCE_PERIOD 40
-  #define TASK_RUNPERIOD 10
+  #define BTN_STD_DEBOUNCE_PERIOD               40
+  #define BTN_STD_CONFIRM_TAP_THRESHOLD         250
+  #define BTN_STD_CONFIRM_LONGPRESS_THRESHOLD   1250
+  #define BTN_STD_DEBOUNCE_PERIOD               40
+  #define BTN_STD_TASK_RUNPERIOD                10
 
-  #define CALLBACK_ONBUTTON void (*callback_onButton)(uint8_t, uint8_t)
-  #define CALLBACK_ONBUTTONSTATECHANGED void (*callback_onButtonStateChanged)(uint8_t)
+  #define CALLBACK_ONBUTTON void (*callback_onButton)(uint16_t, uint8_t, uint8_t)
+  #define CALLBACK_ONBUTTONSTATECHANGED void (*callback_onButtonStateChanged)(uint16_t, uint8_t)
   // https://github.com/knolleary/pubsubclient/issues/115
 
   //
@@ -39,10 +42,27 @@ TODO: * methods for settings
       void setCallbackOnButton(CALLBACK_ONBUTTON);
       void setCallbackOnButtonStateChanged(CALLBACK_ONBUTTONSTATECHANGED);
 
-
-
-      boolean positioningModeEnabled;
-      boolean multipleStateEnabled;
+      // id parm methods
+      uint16_t parmId();
+      void parmId(uint16_t);
+      // statePollingEnabled parm methods
+      boolean parmStatePollingEnabled();
+      void parmStatePollingEnabled(boolean);
+      // positioningModeEnabled parm methods
+      boolean parmPositioningModeEnabled();
+      void parmPositioningModeEnabled(boolean);
+      // multipleTapsEnabled parm methods
+      boolean parmMultipleTapsEnabled();
+      void parmMultipleTapsEnabled(boolean);
+      // confirmTapThreshold parm methods
+      uint16_t parmConfirmTapThreshold();
+      void parmConfirmTapThreshold(uint16_t);
+      // confirmLongPressThreshold parm methods
+      uint16_t parmConfirmLongPressThreshold();
+      void parmConfirmLongPressThreshold(uint16_t);
+      // debouncePeriod parm methods
+      uint16_t parmDebouncePeriod();
+      void parmDebouncePeriod(uint16_t);
 
     protected:
       // callback event for the touch button events (tap, double-tap, multiple-tap, long-press, positioning-down, positioning-up)
@@ -50,9 +70,14 @@ TODO: * methods for settings
       // calback event which will be called whenever the internal state of the button was changed
       CALLBACK_ONBUTTONSTATECHANGED;
 
+      // a identifier for the button. Its good if we have some buttons on a switch for example
+      // this id should be provided by external code and will be present in the callbacks so we may use one
+      // callback for all buttons
+      uint16_t id;
       // time when the 'external' state of the button has changed, this time is needed for software debouncing
       // and is in interaction to the DEBOUNCE_PERIOD macro
       uint64_t lastDebounceTime;
+      uint16_t debouncePeriod;
       // the time when the task method was last executed.
       // this time marker is needed to prevent keeping the button task method to fill up cpu usage
       // its in interaction with the TASK_RUNPERIOD macro
@@ -77,8 +102,13 @@ TODO: * methods for settings
       // this is a internal marker if we have to process the 'confirmButtonAction' method which will fire our onButton events due the
       // info gathered in the 'buttenStateChanged' method
       boolean runConfirmButtonAction;
-
+      // if the lib is used with interrupts you do not need polling and therefore you can disable the internal state polling
+      // with this boolean
       boolean statePollingEnabled;
+
+      boolean positioningModeEnabled;
+      boolean multipleTapsEnabled;
+
 
       virtual void buttonStateChanged(uint8_t _state);
       virtual int8_t calcButtonState();
