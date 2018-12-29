@@ -33,6 +33,8 @@ void TouchSwitch_4X_V1::initButtons()
 
 // TODO: specify the ID's of the button so we can identify them
 // TODO: when there is proximity on any proximity button/sensor, then light up all the leds
+// TODO: check if we can override callback functions?!
+// TODO: add KNX stuff in here?!?! I think this is not a good idea?!
 
 // add gesture event on the touchSwitch class (gestureEnum) <-- will be provided by child class
 // add proximity event on the touchSwitch class/or base class? even no touch may have proximity?! (id, proximityLevel)
