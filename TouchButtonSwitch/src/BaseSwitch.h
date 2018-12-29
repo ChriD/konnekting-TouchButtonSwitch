@@ -14,10 +14,6 @@
   #define SWITCH_MAX_BUTTONCOUNT       10
 
 
-  //typedef CBFunctor3<uint16_t, uint16_t, uint16_t> CallbackFunction_ButtonAction;
-  //typedef CBFunctor2<uint16_t, uint16_t> CallbackFunction_ButtonStateChanged;
-
-
   class BaseSwitch
   {
     public:
@@ -40,7 +36,7 @@
 
       virtual void initButtons();
       virtual boolean setupButtons();
-      virtual Button* addButton(Button*);
+      virtual Button* addButton(Button*, uint16_t _buttonId = 0);
 
       void onButtonAction(uint16_t, uint16_t, uint16_t);
       void onButtonStateChanged(uint16_t, uint16_t);

@@ -1,5 +1,5 @@
 /*
-  Button.cpp
+  TouchButton.cpp
   Created by Christian Dürnberger, 2019
   Released into the public domain.
 */

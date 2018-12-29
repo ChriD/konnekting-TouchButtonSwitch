@@ -11,7 +11,6 @@
 BaseSwitch::BaseSwitch()
 {
   this->maxButtonIdx = -1;
-  this->initButtons();
 }
 
 
@@ -19,10 +18,13 @@ BaseSwitch::~BaseSwitch()
 {
 }
 
+
 boolean BaseSwitch::setup()
 {
   boolean ret;
-
+  // let the child classes init the buttons (add the buttons)
+  this->initButtons();
+  // when init is done we need to setup all the buttons for duty
   ret = this->setupButtons();
 
   return ret;
@@ -35,14 +37,15 @@ void BaseSwitch::attachCallbackOnButtonAction(const CallbackFunction_ButtonActio
 }
 
 
-Button* BaseSwitch::addButton(Button* _button)
+Button* BaseSwitch::addButton(Button* _button, uint16_t _buttonId)
 {
-  SerialUSB.print("Adding Button\n");
   this->maxButtonIdx++;
   this->buttons[this->maxButtonIdx] = _button;
   // set a button id if not specified by the user
-  if(!this->buttons[this->maxButtonIdx]->parmId());
+  if(!_buttonId)
     this->buttons[this->maxButtonIdx]->parmId(this->maxButtonIdx + 1);
+  else
+    this->buttons[this->maxButtonIdx]->parmId(_buttonId);
 }
 
 
@@ -54,7 +57,6 @@ void BaseSwitch::initButtons()
 
 boolean BaseSwitch::setupButtons()
 {
-  SerialUSB.print("Setup Buttons\n");
   boolean ret = true;
   for(uint8_t i=0; i<=this->maxButtonIdx; i++)
   {
@@ -79,6 +81,7 @@ void BaseSwitch::onButtonAction(uint16_t _id, uint16_t _type, uint16_t _data)
 void BaseSwitch::onButtonStateChanged(uint16_t _id, uint16_t _state)
 {
   // we do not expose anything here...
+  // we attached to the callback because we may use this in future
 }
 
 

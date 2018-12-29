@@ -11,6 +11,7 @@
   #include "Arduino.h"
   #include "BaseSwitch.h"
   #include "TouchButton.h"
+  #include "ProximityTouchButton.h"
 
   class TouchSwitch : public BaseSwitch
   {
