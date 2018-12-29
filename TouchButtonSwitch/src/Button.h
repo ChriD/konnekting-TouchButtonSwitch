@@ -4,19 +4,15 @@
   Released into the public domain.
 */
 
-/*
-TODO: * methods for settings
-      * add settings to constructor
-      * add and update docu
-      * add method for interrupt
-      * enable/disable polling
-*/
+// TODO: @@@ use Rich Hickey callback?
+// http://tedfelix.com/software/c++-callbacks.html
 
 
 #ifndef Button_h
 #define Button_h
 
   #include "Arduino.h"
+  #include "callback/callback.h"
 
   #define BTN_STD_DEBOUNCE_PERIOD               40
   #define BTN_STD_CONFIRM_TAP_THRESHOLD         250
@@ -24,12 +20,9 @@ TODO: * methods for settings
   #define BTN_STD_DEBOUNCE_PERIOD               40
   #define BTN_STD_TASK_RUNPERIOD                10
 
-  #define CALLBACK_ONBUTTON void (*callback_onButton)(uint16_t, uint8_t, uint8_t)
-  #define CALLBACK_ONBUTTONSTATECHANGED void (*callback_onButtonStateChanged)(uint16_t, uint8_t)
-  // https://github.com/knolleary/pubsubclient/issues/115
+  typedef CBFunctor3<uint16_t, uint16_t, uint16_t> CallbackFunction_ButtonAction;
+  typedef CBFunctor2<uint16_t, uint16_t> CallbackFunction_ButtonStateChanged;
 
-  //
-  //mqtt.set_callback([this] (char* topic, byte* payload, unsigned int length) { this->callback(topic, payload, length); }
 
   class Button
   {
@@ -37,10 +30,14 @@ TODO: * methods for settings
       Button();
       ~Button();
       virtual boolean setup();
+      // task method has to be called in the application loop (no matter if interrupt task is used or not!)
       virtual void task();
+      // the interruptTask method can be called when statePollingEnabled is set to false to provide the state
+      // from an external source like a touch controller or similar
+      virtual void interruptTask(uint8_t);
 
-      void setCallbackOnButton(CALLBACK_ONBUTTON);
-      void setCallbackOnButtonStateChanged(CALLBACK_ONBUTTONSTATECHANGED);
+      void attachCallbackOnButtonAction(CallbackFunction_ButtonAction);
+      void attachCallbackOnButtonStateChanged(CallbackFunction_ButtonStateChanged);
 
       // id parm methods
       uint16_t parmId();
@@ -65,11 +62,11 @@ TODO: * methods for settings
       void parmDebouncePeriod(uint16_t);
 
     protected:
-      // callback event for the touch button events (tap, double-tap, multiple-tap, long-press, positioning-down, positioning-up)
-      CALLBACK_ONBUTTON;
-      // calback event which will be called whenever the internal state of the button was changed
-      CALLBACK_ONBUTTONSTATECHANGED;
 
+      // callback event for the touch button events (tap, double-tap, multiple-tap, long-press, positioning-down, positioning-up)
+      CallbackFunction_ButtonAction callback_onButtonAction;
+      // calback event which will be called whenever the internal state of the button was changed
+      CallbackFunction_ButtonStateChanged  callback_onButtonStateChanged;
       // a identifier for the button. Its good if we have some buttons on a switch for example
       // this id should be provided by external code and will be present in the callbacks so we may use one
       // callback for all buttons
@@ -82,10 +79,10 @@ TODO: * methods for settings
       // this time marker is needed to prevent keeping the button task method to fill up cpu usage
       // its in interaction with the TASK_RUNPERIOD macro
       uint64_t lastTaskRunTime;
-
+      // the last button state represents the last external state of the button which was polled
       uint8_t lastButtonState;
+      // the current button state represents the current internal state of the button (down or up)
       uint8_t curButtonState;
-
       // time markers when the button went last down and up
       uint64_t pressEndTime;
       uint64_t pressStartTime;
@@ -105,15 +102,17 @@ TODO: * methods for settings
       // if the lib is used with interrupts you do not need polling and therefore you can disable the internal state polling
       // with this boolean
       boolean statePollingEnabled;
-
+      // the 'positioning mode' is a mode where the press and release events are fired in the 'onButton' event.
+      // it can not co-exist with the long press event. Therfore the long press is deactivated when the position mode is enabled
       boolean positioningModeEnabled;
+      // the button can handle multi taps (doubletap, ...) and here you can enable or disable this
+      // the advantage of diabled multi tap is that the tap event itself can be recognized immediatelly without having to wait for
+      // the confirm threshold
       boolean multipleTapsEnabled;
 
-
-      virtual void buttonStateChanged(uint8_t _state);
-      virtual int8_t calcButtonState();
       virtual uint16_t getPeriod(uint64_t _lastCallTime, bool _useMicros = false);
-
+      virtual int8_t calcButtonState();
+      virtual void buttonStateChanged(uint8_t _state);
       virtual void confirmButtonAction();
 
     };

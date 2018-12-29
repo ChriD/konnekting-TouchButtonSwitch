@@ -27,6 +27,9 @@ Button::Button()
   this->multipleTapsEnabled = false;
 
   this->debouncePeriod = BTN_STD_DEBOUNCE_PERIOD;
+
+  this->callback_onButtonAction = NULL;
+  this->callback_onButtonStateChanged = NULL;
 }
 
 
@@ -57,14 +60,14 @@ uint16_t Button::getPeriod(uint64_t _lastCallTime, bool _useMicros)
 
 
 // uint8_t _sensorId, uint8_t _event, uint8_t _count
-void Button::setCallbackOnButton(CALLBACK_ONBUTTON)
+void Button::attachCallbackOnButtonAction(CallbackFunction_ButtonAction _callback)
 {
-  this->callback_onButton = callback_onButton;
+  this->callback_onButtonAction = _callback;
 }
 
-void Button::setCallbackOnButtonStateChanged(CALLBACK_ONBUTTONSTATECHANGED)
+void Button::attachCallbackOnButtonStateChanged(CallbackFunction_ButtonStateChanged _callback)
 {
-  this->callback_onButtonStateChanged = callback_onButtonStateChanged;
+  this->callback_onButtonStateChanged = _callback;
 }
 
 void Button::parmId(uint16_t _id){
@@ -163,8 +166,8 @@ void Button::buttonStateChanged(uint8_t _state)
     // a positioning state is identified by having the touchCounter set to 255 in the loop
     if(this->tapCounter == 255)
     {
-      if(this->callback_onButton)
-        this->callback_onButton(this->id, 21, 1);
+      if(this->callback_onButtonAction)
+        this->callback_onButtonAction(this->id, 21, 1);
       this->tapCounter = 0;
     }
 
@@ -193,8 +196,8 @@ void Button::confirmButtonAction()
   if(this->positioningModeEnabled && this->getPeriod(this->pressStartTime) >= this->confirmLongPressThreshold)
   {
     // call callback method if registered
-    if(this->callback_onButton)
-      this->callback_onButton(this->id, 20, 1);
+    if(this->callback_onButtonAction)
+      this->callback_onButtonAction(this->id, 20, 1);
 
     this->pressStartTime = 0;
     this->pressEndTime = 0;
@@ -207,8 +210,8 @@ void Button::confirmButtonAction()
   if(this->runConfirmButtonAction && !this->positioningModeEnabled && this->getPeriod(this->pressStartTime) >= this->confirmLongPressThreshold)
   {
     // call callback method if registered
-    if(this->callback_onButton)
-      this->callback_onButton(this->id, 2, 1);
+    if(this->callback_onButtonAction)
+      this->callback_onButtonAction(this->id, 2, 1);
 
     this->pressStartTime = 0;
     this->pressEndTime = 0;
@@ -221,8 +224,8 @@ void Button::confirmButtonAction()
   if(this->runConfirmButtonAction && this->pressEndTime > 0 && (this->getPeriod(this->pressEndTime) >= this->confirmTapThreshold || !this->multipleTapsEnabled ))
   {
     // call callback method if registered
-    if(this->callback_onButton)
-      this->callback_onButton(this->id, 1, this->tapCounter);
+    if(this->callback_onButtonAction)
+      this->callback_onButtonAction(this->id, 1, this->tapCounter);
 
     this->pressStartTime = 0;
     this->pressEndTime = 0;
@@ -230,6 +233,13 @@ void Button::confirmButtonAction()
     this->runConfirmButtonAction  = false;
   }
 
+}
+
+
+void Button::interruptTask(uint8_t _buttonState)
+{
+  this->buttonStateChanged(_buttonState);
+  this->lastButtonState = _buttonState;
 }
 
 
@@ -256,7 +266,7 @@ void Button::task()
         if (buttonState != this->curButtonState)
         {
           // if we do use this library with an interrupt we do not need to have the 'task' method callback_onButtonStateChanged
-          // instead we onlyhave to call the 'buttonStateChanged' method within the interrupt
+          // instead we onlyhave to call the 'interruptTask' method within the interrupt
           this->buttonStateChanged(buttonState);
         }
       }
