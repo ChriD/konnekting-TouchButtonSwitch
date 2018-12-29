@@ -37,6 +37,7 @@ void BaseSwitch::attachCallbackOnButtonAction(const CallbackFunction_ButtonActio
 
 Button* BaseSwitch::addButton(Button* _button)
 {
+  SerialUSB.print("Adding Button\n");
   this->maxButtonIdx++;
   this->buttons[this->maxButtonIdx] = _button;
   // set a button id if not specified by the user
@@ -53,6 +54,7 @@ void BaseSwitch::initButtons()
 
 boolean BaseSwitch::setupButtons()
 {
+  SerialUSB.print("Setup Buttons\n");
   boolean ret = true;
   for(uint8_t i=0; i<=this->maxButtonIdx; i++)
   {

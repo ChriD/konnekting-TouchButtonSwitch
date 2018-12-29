@@ -103,7 +103,7 @@ void setup()
   */
 
 
-  //touchSwitch->attachCallbackOnButtonAction(makeFunctor((CallbackFunction_ButtonAction*)0,&onButtonAction));
+  touchSwitch->attachCallbackOnButtonAction(makeFunctor((CallbackFunction_ButtonAction*)0,&onButtonAction));
   //makeFunctor((CallbackFunction_ButtonAction*)0, *this, &BaseSwitch::onButtonAction)
 
   if(!touchSwitch->setup())

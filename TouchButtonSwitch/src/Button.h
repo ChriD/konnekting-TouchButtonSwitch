@@ -12,7 +12,7 @@
 #define Button_h
 
   #include "Arduino.h"
-  #include "callback/callback.h"
+  #include "functor/functor.h"
 
   #define BTN_STD_DEBOUNCE_PERIOD               40
   #define BTN_STD_CONFIRM_TAP_THRESHOLD         250
@@ -20,8 +20,8 @@
   #define BTN_STD_DEBOUNCE_PERIOD               40
   #define BTN_STD_TASK_RUNPERIOD                10
 
-  typedef CBFunctor3<uint16_t, uint16_t, uint16_t> CallbackFunction_ButtonAction;
-  typedef CBFunctor2<uint16_t, uint16_t> CallbackFunction_ButtonStateChanged;
+  typedef Functor3<uint16_t, uint16_t, uint16_t> CallbackFunction_ButtonAction;
+  typedef Functor2<uint16_t, uint16_t> CallbackFunction_ButtonStateChanged;
 
 
   class Button
