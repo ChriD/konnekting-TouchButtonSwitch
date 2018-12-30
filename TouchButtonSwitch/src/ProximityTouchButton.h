@@ -31,6 +31,11 @@ TODO: *
       boolean   isProximity;
       uint16_t  proximityLevel;
 
+      boolean   isProximityCur;
+      boolean   isProximityLast;
+      boolean   isStableProximity;
+      uint8_t   isStableProximityCount;
+
     };
 
 #endif

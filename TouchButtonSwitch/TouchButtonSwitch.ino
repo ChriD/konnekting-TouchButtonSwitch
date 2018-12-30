@@ -37,14 +37,12 @@
 
 #define SerialUSB SERIAL_PORT_USBVIRTUAL
 
-//
-TouchSwitch   *touchSwitch = new TouchSwitch_4X_V1();
+// so our touch swutch device is the TouchSwitch_CODENAME_4X_V1 switch wich has 4 touch buttons and 2 proximity
+// sensors on top and on the button of the device. So we use the approiate class for that switch
+BaseSwitch   *baseSwitch = new TouchSwitch_4X_V1();
 
-//TouchButton   *touchButton1 = new TouchButton(A0);
-//TouchButton   *touchButton2 = new TouchButton(A3);
 
-//TouchButton   touchButton1(A0);
-//TouchButton   touchButton2(A1);
+
 
 void onButtonStateChanged(uint16_t _buttonId, uint16_t _state)
 {
@@ -86,6 +84,8 @@ void setup()
   while (!SerialUSB) {
     ; // wait for serial port to connect. Needed for native USB
   }
+
+
   // TODO: create the switch object and define the proximity sensors and the touch buttons
   //touchButton1.setEventCallback(mqtt.set_callback([this] (char* topic, byte* payload, unsigned int length) { this->callback(topic, payload, length); })
 
@@ -116,12 +116,12 @@ void setup()
   */
 
 
-  touchSwitch->attachCallbackOnButtonAction(makeFunctor((CallbackFunction_ButtonAction*)0,&onButtonAction));
-  touchSwitch->attachCallbackOnProximityAlert(makeFunctor((CallbackFunction_ProximityAlert*)0,&onProximityAlert));
+  baseSwitch->attachCallbackOnButtonAction(makeFunctor((CallbackFunction_ButtonAction*)0,&onButtonAction));
+  baseSwitch->attachCallbackOnProximityAlert(makeFunctor((CallbackFunction_ProximityAlert*)0,&onProximityAlert));
 
-  if(!touchSwitch->setup())
+  if(!baseSwitch->setup())
     SerialUSB.print("Error initializing Touch Switch");
-  touchSwitch->startCalibration();
+  baseSwitch->startCalibration();
 }
 
 
@@ -134,24 +134,6 @@ void loop()
   // in next versions this should be obsolete but for now we have to stay with this pitfall
   // ATTENTION: Currently we do have some loops which will go above 400us due I2C handling, we have to ceck in
   // production mode if this will create any problems
-  //touchButton1->task();
-  //touchButton2->task();
-  touchSwitch->task();
-
-  /*
-  SerialUSB.print(touchButton1->getLastSampleValue());
-  SerialUSB.print(" | ");
-  SerialUSB.print(touchButton1->getTriggerLevel());
-  SerialUSB.print("             ");
-  SerialUSB.print(touchButton2->getLastSampleValue());
-  SerialUSB.print(" | ");
-  SerialUSB.print(touchButton2->getTriggerLevel());
-  SerialUSB.print("\n");
-  */
-
-
-
-  delay(2);
-
+  baseSwitch->task();
 
 }
