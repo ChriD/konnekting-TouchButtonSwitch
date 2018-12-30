@@ -16,13 +16,20 @@ TODO: *
   #include "Arduino.h"
   #include "TouchButton.h"
 
+
+
   class ProximityTouchButton : public TouchButton
   {
     public:
       ProximityTouchButton(uint8_t _pin);
       ~ProximityTouchButton();
 
+      void task();
+
     protected:
+
+      boolean   isProximity;
+      uint16_t  proximityLevel;
 
     };
 

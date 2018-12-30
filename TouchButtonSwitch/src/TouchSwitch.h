@@ -19,10 +19,6 @@
       TouchSwitch();
       ~TouchSwitch();
 
-      virtual boolean setup();
-      virtual void task();
-      virtual void startCalibration();
-
     protected:
 
     private:

@@ -4,6 +4,10 @@
   Released into the public domain.
 */
 
+/*
+  TODO: giva a name for the switch?!
+*/
+
 #include "Arduino.h"
 #include "TouchSwitch_4X_V1.h"
 

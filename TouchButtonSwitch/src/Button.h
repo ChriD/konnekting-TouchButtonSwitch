@@ -4,9 +4,6 @@
   Released into the public domain.
 */
 
-// TODO: @@@ use Rich Hickey callback?
-// http://tedfelix.com/software/c++-callbacks.html
-
 
 #ifndef Button_h
 #define Button_h
@@ -22,7 +19,9 @@
 
   typedef Functor3<uint16_t, uint16_t, uint16_t> CallbackFunction_ButtonAction;
   typedef Functor2<uint16_t, uint16_t> CallbackFunction_ButtonStateChanged;
+  typedef Functor4<uint16_t, boolean, uint16_t, uint16_t> CallbackFunction_ProximityAlert;
 
+  //enum class BUTTON_TYPE { MECHANIC = 0, TOUCH = 10};
 
   class Button
   {
@@ -35,9 +34,12 @@
       // the interruptTask method can be called when statePollingEnabled is set to false to provide the state
       // from an external source like a touch controller or similar
       virtual void interruptTask(uint8_t);
+      // a button, no matter of which type, may have the ability to calibrate
+      virtual void startCalibration();
 
-      void attachCallbackOnButtonAction(CallbackFunction_ButtonAction);
-      void attachCallbackOnButtonStateChanged(CallbackFunction_ButtonStateChanged);
+      void attachCallbackOnButtonAction(const CallbackFunction_ButtonAction &);
+      void attachCallbackOnButtonStateChanged(const CallbackFunction_ButtonStateChanged &);
+      void attachCallbackOnProximityAlert(const CallbackFunction_ProximityAlert &);
 
       // id parm methods
       uint16_t parmId();
@@ -60,6 +62,9 @@
       // debouncePeriod parm methods
       uint16_t parmDebouncePeriod();
       void parmDebouncePeriod(uint16_t);
+      // allowProximityLevels parm methods
+      boolean parmAllowProximityLevels();
+      void parmAllowProximityLevels(boolean);
 
     protected:
 
@@ -67,6 +72,8 @@
       CallbackFunction_ButtonAction callback_onButtonAction;
       // calback event which will be called whenever the internal state of the button was changed
       CallbackFunction_ButtonStateChanged  callback_onButtonStateChanged;
+      // callback event which will be called when there is proximity
+      CallbackFunction_ProximityAlert callback_onProximityAlert;
       // a identifier for the button. Its good if we have some buttons on a switch for example
       // this id should be provided by external code and will be present in the callbacks so we may use one
       // callback for all buttons
@@ -109,6 +116,8 @@
       // the advantage of diabled multi tap is that the tap event itself can be recognized immediatelly without having to wait for
       // the confirm threshold
       boolean multipleTapsEnabled;
+      // indicates if proximity recognize can output levels of proximity (distance)
+      boolean allowProximityLevels;
 
       virtual uint16_t getPeriod(uint64_t _lastCallTime, bool _useMicros = false);
       virtual int8_t calcButtonState();

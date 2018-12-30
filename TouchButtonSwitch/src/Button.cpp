@@ -30,6 +30,9 @@ Button::Button()
 
   this->callback_onButtonAction = NULL;
   this->callback_onButtonStateChanged = NULL;
+  this->callback_onProximityAlert = NULL;
+
+  this->allowProximityLevels = true;
 }
 
 
@@ -60,14 +63,19 @@ uint16_t Button::getPeriod(uint64_t _lastCallTime, bool _useMicros)
 
 
 // uint8_t _sensorId, uint8_t _event, uint8_t _count
-void Button::attachCallbackOnButtonAction(CallbackFunction_ButtonAction _callback)
+void Button::attachCallbackOnButtonAction(const CallbackFunction_ButtonAction &_callback)
 {
   this->callback_onButtonAction = _callback;
 }
 
-void Button::attachCallbackOnButtonStateChanged(CallbackFunction_ButtonStateChanged _callback)
+void Button::attachCallbackOnButtonStateChanged(const CallbackFunction_ButtonStateChanged &_callback)
 {
   this->callback_onButtonStateChanged = _callback;
+}
+
+void Button::attachCallbackOnProximityAlert(const CallbackFunction_ProximityAlert &_callback)
+{
+  this->callback_onProximityAlert = _callback;
 }
 
 void Button::parmId(uint16_t _id){
@@ -117,6 +125,18 @@ void Button::parmDebouncePeriod(uint16_t _debouncePeriod){
 }
 uint16_t Button::parmDebouncePeriod(){
   return this->debouncePeriod;
+}
+
+void Button::parmAllowProximityLevels(boolean _allowProximityLevels){
+  this->allowProximityLevels = _allowProximityLevels;
+}
+boolean Button::parmAllowProximityLevels(){
+  return this->allowProximityLevels;
+}
+
+
+void Button::startCalibration()
+{
 }
 
 

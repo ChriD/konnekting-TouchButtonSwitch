@@ -65,6 +65,19 @@ void onButtonAction(uint16_t _buttonId, uint16_t _type, uint16_t _value)
 }
 
 
+void onProximityAlert(uint16_t _buttonId, boolean _isProximity, uint16_t _proximityValue, uint16_t _proximityLevel)
+{
+  SerialUSB.print(_buttonId);
+  SerialUSB.print(" : ");
+  SerialUSB.print(_isProximity);
+  SerialUSB.print(" | ");
+  SerialUSB.print(_proximityValue);
+  SerialUSB.print(" | ");
+  SerialUSB.print(_proximityLevel);
+  SerialUSB.print("\n");
+}
+
+
 
 void setup()
 {
@@ -104,14 +117,11 @@ void setup()
 
 
   touchSwitch->attachCallbackOnButtonAction(makeFunctor((CallbackFunction_ButtonAction*)0,&onButtonAction));
-  //makeFunctor((CallbackFunction_ButtonAction*)0, *this, &BaseSwitch::onButtonAction)
+  touchSwitch->attachCallbackOnProximityAlert(makeFunctor((CallbackFunction_ProximityAlert*)0,&onProximityAlert));
 
   if(!touchSwitch->setup())
     SerialUSB.print("Error initializing Touch Switch");
   touchSwitch->startCalibration();
-
-
-
 }
 
 
