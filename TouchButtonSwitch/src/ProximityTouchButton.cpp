@@ -7,6 +7,11 @@
 #include "Arduino.h"
 #include "ProximityTouchButton.h"
 
+/*
+  TODO: * check out proximity banging issue (3/0/3/0/3/0....)
+        * redesign proximity level
+*/
+
 
 ProximityTouchButton::ProximityTouchButton(uint8_t _pin) : TouchButton(_pin)
 {
@@ -79,64 +84,6 @@ void ProximityTouchButton::task()
 
     this->isProximityLast = this->isProximityCur;
 
-    /*
-    // TODO: @@@
-      // if proximity value goes down to 0 or raises above 0, be sure we have it 'stable' (at least some ticks)
-      // one tick duration is defined in BTN_STD_TASK_RUNPERIOD
-
-      // proximity value has to be 'stable' for  3 ticks (or only simple debounce?)
-      if(this->isStableProximityCount < 3)
-      {
-        this->isStableProximity = this->isProximityCur == this->isProximityLast;
-        if(!this->isStableProximity)
-        {
-          this->isStableProximityCount = 0;
-          this->isStableProximity = false;
-        }
-        else
-        {
-          this->isStableProximityCount++;
-        }
-      }
-      else
-      {
-          this->isStableProximityCount = 0;
-          this->isStableProximity = false;
-        //if(this->isStableProximity)
-        //{
-        //  this->isStableProximityCount = 0;
-        //  this->isStableProximity = false;
-
-          // TODO: do a better one :-)
-          if(proximityValue > 50)
-            proximityLevel = 10;
-          else if(proximityValue > 40)
-            proximityLevel = 8;
-          else if(proximityValue > 20)
-            proximityLevel = 6;
-          else if(proximityValue > 10)
-            proximityLevel = 4;
-          else if(proximityValue > 5)
-            proximityLevel = 2;
-          else if(proximityValue > 0)
-            proximityLevel = 1;
-          else
-            proximityLevel = 0;
-
-          // if no levels are allowed, the level can only be 0 or 1
-          if(!this->allowProximityLevels && proximityLevel > 0)
-            proximityLevel  = 1;
-        //}
-      }
-
-    this->isProximityLast = this->isProximityCur;
-    */
-
-    // TODO: proximity value has to keep clear at least some ms?!
-    // TODO: at least when going to 0 or up to 1 we should consider that tis value hast to stay some ms?!
-
-    // when the proximity or proximity level has changed, we do a callback
-    // TODO: deboubce proximity?!
     if(this->proximityLevel != proximityLevel)
     {
       this->isProximity     = proximityLevel > 0 ? true : false;
