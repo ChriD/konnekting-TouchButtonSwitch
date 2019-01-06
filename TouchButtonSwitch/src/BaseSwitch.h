@@ -13,6 +13,10 @@
 
   #define SWITCH_MAX_BUTTONCOUNT       10
 
+  // a switch does have some standrd modes
+  // TODO: @@@
+  enum class SWITCH_MODE { NORMAL = 0, PROG = 10, SETUP = 20 };
+
 
   class BaseSwitch
   {
@@ -25,6 +29,8 @@
       virtual void startCalibration();
       virtual Button* getButtonById(uint16_t);
       virtual Button* getButtonByIndex(uint16_t);
+      virtual void setMode(SWITCH_MODE, uint16_t _modeLevel = 0);
+      virtual void initParameters();
 
       void attachCallbackOnButtonAction(const CallbackFunction_ButtonAction &);
       void attachCallbackOnProximityAlert(const CallbackFunction_ProximityAlert &);
@@ -32,6 +38,10 @@
 
     protected:
       Button      *buttons[SWITCH_MAX_BUTTONCOUNT];
+
+      // this one indicates the current mode of the switch
+      // a switch may be in normal, programming, setup mode aso...
+      SWITCH_MODE  mode;
 
       CallbackFunction_ButtonAction   callback_onButtonAction;
       CallbackFunction_ProximityAlert callback_onProximityAlert;

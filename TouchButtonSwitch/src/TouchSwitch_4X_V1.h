@@ -11,12 +11,20 @@
   #include "Arduino.h"
   #include "TouchSwitch.h"
 
-  #define TS_PIN_SENSOR_BUTTON_1      A1
-  #define TS_PIN_SENSOR_BUTTON_2      A0
-  #define TS_PIN_SENSOR_BUTTON_3      A5
-  #define TS_PIN_SENSOR_BUTTON_4      A3
-  #define TS_PIN_SENSOR_PROXIMITY_1   A2
-  #define TS_PIN_SENSOR_PROXIMITY_2   A4
+  #define TS_4X_V1_BTN1_ID    1
+  #define TS_4X_V1_BTN2_ID    2
+  #define TS_4X_V1_BTN3_ID    3
+  #define TS_4X_V1_BTN4_ID    4
+  #define TS_4X_V1_PROX1_ID   10
+  #define TS_4X_V1_PROX2_ID   11
+
+  #define TS_4X_V1_BTN1_PIN   A1
+  #define TS_4X_V1_BTN2_PIN   A0
+  #define TS_4X_V1_BTN3_PIN   A5
+  #define TS_4X_V1_BTN4_PIN   A3
+  #define TS_4X_V1_PROX1_PIN  A2
+  #define TS_4X_V1_PROX2_PIN  A4
+
 
   class TouchSwitch_4X_V1 : public TouchSwitch
   {
@@ -25,6 +33,8 @@
       ~TouchSwitch_4X_V1();
 
       virtual void initButtons();
+      virtual void setMode(SWITCH_MODE, uint16_t _modeLevel = 0);
+      virtual void initParameters();
 
     protected:
 

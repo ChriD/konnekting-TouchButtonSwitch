@@ -13,7 +13,7 @@
 */
 
 
-ProximityTouchButton::ProximityTouchButton(uint8_t _pin) : TouchButton(_pin)
+ProximityTouchButton::ProximityTouchButton(uint8_t _pin, uint16_t _id) : TouchButton(_pin, _id)
 {
   this->isProximity = false;
   this->isProximityCur = false;

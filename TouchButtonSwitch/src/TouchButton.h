@@ -25,7 +25,7 @@ TODO: * add a noiso to tap ratio?! calculated by the  base noise value?
   class TouchButton : public Button
   {
     public:
-      TouchButton(uint8_t _pin);
+      TouchButton(uint8_t _pin, uint16_t _id = 0);
       ~TouchButton();
 
       virtual boolean setup();

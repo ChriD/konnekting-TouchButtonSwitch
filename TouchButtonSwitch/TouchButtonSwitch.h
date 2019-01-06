@@ -98,7 +98,7 @@ byte KonnektingDevice::_paramSizeList[] = {
     /* Index 0 - touch_threshold */ PARAM_UINT16,
     /* Index 1 - mode_longtouch_threshold */ PARAM_UINT16,
     /* Index 2 - mode_position_threshold */ PARAM_UINT16,
-    /* Index 3 - light_intensity_standy */ PARAM_UINT8,
+    /* Index 3 - light_intensity_standby */ PARAM_UINT8,
     /* Index 4 - light_intensity_proximity */ PARAM_UINT8,
     /* Index 5 - temp_sendPeriod */ PARAM_UINT32,
     /* Index 6 - temp_alarmCheckPeriod */ PARAM_UINT32,

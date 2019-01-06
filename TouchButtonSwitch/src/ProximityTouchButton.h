@@ -21,7 +21,7 @@ TODO: *
   class ProximityTouchButton : public TouchButton
   {
     public:
-      ProximityTouchButton(uint8_t _pin);
+      ProximityTouchButton(uint8_t _pin, uint16_t _id =0);
       ~ProximityTouchButton();
 
       void task();

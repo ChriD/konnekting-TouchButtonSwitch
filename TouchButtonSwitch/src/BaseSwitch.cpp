@@ -130,6 +130,16 @@ void BaseSwitch::onProximityAlert(uint16_t _id, boolean _isProximity, uint16_t _
 }
 
 
+void BaseSwitch::setMode(SWITCH_MODE _mode, uint16_t _modeLevel)
+{
+  this->mode = _mode;
+}
+
+void BaseSwitch::initParameters()
+{
+}
+
+
 void BaseSwitch::task()
 {
   for(uint8_t i=0; i<=this->maxButtonIdx; i++)

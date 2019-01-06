@@ -13,6 +13,7 @@
   #include "TouchButton.h"
   #include "ProximityTouchButton.h"
 
+
   class TouchSwitch : public BaseSwitch
   {
     public:

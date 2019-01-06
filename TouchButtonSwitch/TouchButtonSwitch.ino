@@ -18,6 +18,10 @@
 // if this define is uncommented, debugging via serial is activated. This should not be active on productive environment!
 #define KDEBUG
 
+// for testing purposes without having an active bcu attached we have to skip
+// the knx connection and task codes to test the device. This can be done by setting this define
+#define BCUDISABLED
+
 // This is the time in miliseconds how long the button should wait after startup/setup to allow touches
 // There has to be a enough time for the user to put the frontplate on the switch before recalibration of
 // the touch sensor has been done
@@ -76,6 +80,11 @@ void onProximityAlert(uint16_t _buttonId, boolean _isProximity, uint16_t _proxim
 
 void setup()
 {
+  // when starting we set the SETUP MODE on the switch with the first _proximityLevel
+  // so in most cases some led will be set to a specific color or one of four led is illuminating
+  // this is a nice to have to go into troublehooting without having a serial debugger online
+  // SETUP MODE 1 is at the very beginning and indicates as power on LED
+  baseSwitch->setMode(SWITCH_MODE::SETUP, 1);
 
   // start the debugging serial and wait for it to be present before doing anything
   // of course we do only activate the serial if we have enabled debugging
@@ -89,9 +98,34 @@ void setup()
   baseSwitch->attachCallbackOnButtonAction(makeFunctor((CallbackFunction_ButtonAction*)0,&onButtonAction));
   baseSwitch->attachCallbackOnProximityAlert(makeFunctor((CallbackFunction_ProximityAlert*)0,&onProximityAlert));
 
+  // setup the connection to the KNX-BUS
+  #ifndef BCUDISABLED
+    initKNX()
+    // if we have already an application programm (!isFactorySetting), get the values from the EEPROM
+    // and apply them to the switch
+    if (!Konnekting.isFactorySetting())
+      baseSwitch->initParameters(); // TODO: @@@ How to use Konnekting var? Parm via address?
+  #endif
+
+  // SETUP MODE 2 is after connection with the BCU is established
+  baseSwitch->setMode(SWITCH_MODE::SETUP, 2);
+
+  // after we have a connection to the bus, we do setup the touch switch and start the calibration
+  // of all the touch areas and proximity sensors
   if(!baseSwitch->setup())
-    SerialUSB.print("Error initializing Touch Switch");
+  {
+    // TODO: add some error code?!
+    Debug.println(F("Error initializing Touch Switch"));
+  }
+
+  // SETUP MODE 3 is after the setup of the switch has been done
+  baseSwitch->setMode(SWITCH_MODE::SETUP, 3);
+
   baseSwitch->startCalibration();
+
+  // SETUP MODE 4 is after setup is done and calibration is STARTUP_IDLETIME
+  // this mode will stay till the STARTUP_IDLETIME is reached
+  baseSwitch->setMode(SWITCH_MODE::SETUP, 4);
 }
 
 
@@ -101,58 +135,6 @@ void initKNX()
 {
   Konnekting.init(SERIAL_BCU, &progLed, MANUFACTURER_ID, DEVICE_ID, REVISION);
 }
-
-
-void initKNXDeviceParameters()
-{
-  // thresholds
-    int16_t touch_threshold           = Konnekting.getUINT16Param(PARAM_touch_threshold);
-    uint16_t mode_longtouch_threshold = Konnekting.getUINT16Param(PARAM_mode_longtouch_threshold);
-    //uint16_t mode_position_threshold  = Konnekting.getUINT16Param(PARAM_mode_position_threshold);
-    //touchSwitch->setThresholds(touch_threshold, mode_longtouch_threshold, mode_position_threshold);
-    //Debug.println(F("Thresholds: Touch=%u, Longtouch=%u, Position=%u"), touch_threshold, mode_longtouch_threshold, mode_position_threshold);
-
-    // backlights
-    uint8_t valueStandby      = Konnekting.getUINT8Param(PARAM_light_intensity_standy);
-    uint8_t valueProximity    = Konnekting.getUINT8Param(PARAM_light_intensity_proximity);
-    //touchSwitch->setBacklightParameters(valueStandby, valueProximity);
-    //Debug.println(F("Backlight: Standby=%u, Proximity=%u"), valueStandby, valueProximity);
-
-    // touch ic settings
-    uint8_t tsic_sensitivity = Konnekting.getUINT8Param(PARAM_tsic_sensitivity);
-    //touchSwitch->getTouchControllerObject()->setSensorSensitivity(tsic_sensitivity);
-    uint8_t tsic_fingerThreshold = Konnekting.getUINT8Param(PARAM_tsic_fingerThreshold);
-    //touchSwitch->getTouchControllerObject()->setSensorFingerThreshold(tsic_fingerThreshold);
-    //Debug.println(F("TouchIC ButtonSensitivity: %u, ButtonFingerThreshold=%u"), tsic_sensitivity, tsic_fingerThreshold);
-
-    // setup settings for sensor 1
-    bool    enableMultiTouch  = (bool) Konnekting.getUINT8Param(PARAM_button1_enableMultiTouch);
-    uint8_t mode              = (uint8_t) Konnekting.getUINT8Param(PARAM_button1_mode);
-    //touchSwitch->setButtonParameters(SENSORID_1, enableMultiTouch, mode);
-    //Debug.println(F("Sensor %u: MultiTouch=%u, Mode=%u"), SENSORID_1, enableMultiTouch, mode);
-
-     // setup settings for sensor 2
-    enableMultiTouch  = (bool) Konnekting.getUINT8Param(PARAM_button2_enableMultiTouch);
-    mode              = (uint8_t) Konnekting.getUINT8Param(PARAM_button2_mode);
-    //touchSwitch->setButtonParameters(SENSORID_2, enableMultiTouch, mode);
-    //Debug.println(F("Sensor %u: MultiTouch=%u, Mode=%u"), SENSORID_2, enableMultiTouch, mode);
-
-     // setup settings for sensor 3
-    enableMultiTouch  = (bool) Konnekting.getUINT8Param(PARAM_button3_enableMultiTouch);
-    mode              = (uint8_t) Konnekting.getUINT8Param(PARAM_button3_mode);
-    //touchSwitch->setButtonParameters(SENSORID_3, enableMultiTouch, mode);
-    //Debug.println(F("Sensor %u: MultiTouch=%u, Mode=%u"), SENSORID_3, enableMultiTouch, mode);
-
-    // setup settings for sensor 4
-    enableMultiTouch  = (bool) Konnekting.getUINT8Param(PARAM_button4_enableMultiTouch);
-    mode              = (uint8_t) Konnekting.getUINT8Param(PARAM_button4_mode);
-    //touchSwitch->setButtonParameters(SENSORID_4, enableMultiTouch, mode);
-    //Debug.println(F("Sensor %u: MultiTouch=%u, Mode=%u"), SENSORID_4, enableMultiTouch, mode);
-}
-
-
-
-
 
 
 // if the prog button is pressed we have to switch the device into the prog mode
@@ -182,14 +164,38 @@ void progLed (bool _isPrg){
 }
 
 
+uint64_t loopSum    = 0;
+uint64_t loopCount  = 0;
 
 
 void loop()
 {
+  #ifdef KDEBUG
+    uint64_t startLoop  = micros();
+    uint64_t endLoop    = 0;
+  #endif
+
   // we have to call the knx.task form the konnekting library faster then ~ 400us to not miss any telegram
   // in next versions this should be obsolete but for now we have to stay with this pitfall
-  // ATTENTION: Currently we do have some loops which will go above 400us due I2C handling, we have to ceck in
-  // production mode if this will create any problems
+  #ifndef BCUDISABLED
+    Knx.task();
+  #endif
+
+  // let the button do its apllication loop tasks
   baseSwitch->task();
 
+  // give some info about the average duration of the loop
+  #ifdef KDEBUG
+    endLoop = micros();
+    loopCount++;
+    loopSum += endLoop - startLoop;
+    if(loopSum > 1000*1000)
+    {
+      Debug.println(F("Main Loop timing: %uus"), (loopSum/loopCount));
+      loopCount = 0;
+      loopSum   = 0;
+    }
+    if(endLoop - startLoop > 400)
+      Debug.println(F("ATTENTION: Main Loop exceeds KNX timing requirement! %uus"), (endLoop - startLoop));
+  #endif
 }
