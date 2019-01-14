@@ -63,6 +63,7 @@ void onButtonAction(uint16_t _buttonId, uint16_t _type, uint16_t _value)
 
 void onProximityAlert(uint16_t _buttonId, boolean _isProximity, uint16_t _proximityValue, uint16_t _proximityLevel)
 {
+  /*
   counter++;
   SERIAL_DBG.print(counter);
   SERIAL_DBG.print(" # ");
@@ -74,6 +75,7 @@ void onProximityAlert(uint16_t _buttonId, boolean _isProximity, uint16_t _proxim
   SERIAL_DBG.print(" | ");
   SERIAL_DBG.print(_proximityLevel);
   SERIAL_DBG.print("\n");
+  */
 }
 
 
@@ -184,6 +186,7 @@ void loop()
   // let the button do its apllication loop tasks
   baseSwitch->task();
 
+
   // give some info about the average duration of the loop
   #ifdef KDEBUG
     endLoop = micros();
@@ -191,11 +194,17 @@ void loop()
     loopSum += endLoop - startLoop;
     if(loopSum > 1000*1000)
     {
-      Debug.println(F("Main Loop timing: %uus"), (loopSum/loopCount));
+      //Debug.println(F("Main Loop timing: %uus"), (loopSum/loopCount));
       loopCount = 0;
       loopSum   = 0;
     }
-    if(endLoop - startLoop > 400)
-      Debug.println(F("ATTENTION: Main Loop exceeds KNX timing requirement! %uus"), (endLoop - startLoop));
+
+  // @@@ proximity debugginh:
+    //TouchButton *t1 = (TouchButton*)baseSwitch->getButtonByIndex(4);
+    //TouchButton *t2 = (TouchButton*)baseSwitch->getButtonByIndex(5);
+    //Debug.println(F("PROXA: %uus         PROXB: %uss"), t1->getLastSampleValue(), t2->getLastSampleValue());
+
+    //if(endLoop - startLoop > 400)
+    //  Debug.println(F("ATTENTION: Main Loop exceeds KNX timing requirement! %uus"), (endLoop - startLoop));
   #endif
 }
