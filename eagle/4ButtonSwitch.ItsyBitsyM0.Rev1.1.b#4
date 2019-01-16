@@ -3118,7 +3118,10 @@ design rules under a new name.</description>
 <signal name="A0">
 <contactref element="JP2" pad="10"/>
 <contactref element="RS2" pad="2"/>
-<wire x1="21.742" y1="40.64" x2="44.065" y2="46.99" width="0" layer="19" extent="1-1"/>
+<wire x1="21.742" y1="40.64" x2="24.282" y2="43.18" width="0.1524" layer="1"/>
+<wire x1="24.282" y1="43.18" x2="35.56" y2="43.18" width="0.1524" layer="1"/>
+<wire x1="35.56" y1="43.18" x2="39.37" y2="46.99" width="0.1524" layer="1"/>
+<wire x1="39.37" y1="46.99" x2="44.065" y2="46.99" width="0.1524" layer="1"/>
 </signal>
 <signal name="A1">
 <contactref element="JP2" pad="9"/>
@@ -3147,7 +3150,11 @@ design rules under a new name.</description>
 <signal name="A3">
 <contactref element="JP2" pad="7"/>
 <contactref element="RS4" pad="2"/>
-<wire x1="21.742" y1="29.21" x2="41.025" y2="39.37" width="0" layer="19" extent="1-1"/>
+<wire x1="21.742" y1="29.21" x2="21.742" y2="30.632" width="0.1524" layer="1"/>
+<wire x1="41.025" y1="38.485" x2="41.025" y2="39.37" width="0.1524" layer="1"/>
+<wire x1="21.742" y1="30.632" x2="24.13" y2="33.02" width="0.1524" layer="1"/>
+<wire x1="24.13" y1="33.02" x2="35.56" y2="33.02" width="0.1524" layer="1"/>
+<wire x1="35.56" y1="33.02" x2="41.025" y2="38.485" width="0.1524" layer="1"/>
 </signal>
 <signal name="A4">
 <contactref element="JP2" pad="6"/>

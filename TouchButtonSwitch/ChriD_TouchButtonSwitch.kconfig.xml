@@ -320,7 +320,7 @@
             <CommObjectConfiguration Id="4" active="true"/>
             <CommObjectConfiguration Id="5" active="true"/>
             <CommObjectConfiguration Id="6" active="true"/>
-            <CommObjectConfiguration Id="7" active="true"/>
+            <CommObjectConfiguration Id="7" GroupAddress="6/1/1" active="true"/>
             <CommObjectConfiguration Id="8" active="true"/>
             <CommObjectConfiguration Id="9" active="true"/>
             <CommObjectConfiguration Id="10" active="true"/>

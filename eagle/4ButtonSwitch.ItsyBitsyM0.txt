@@ -4,3 +4,4 @@ Rev1.1
 *) Sensor Trace 4 was on the bottom layer and could cause some "mistouch" on button 4 when touching specific area
    So trace was routet in the bottom layer (Fix for Rev1.0 would be to glue some alu sticker on the specific place)
 *) Increasesd touch pads in vertical size a little bit to avoid 'void' hits
+*) Added labels for RST and PRG Button

@@ -2994,10 +2994,10 @@ design rules under a new name.</description>
 <signal name="SENS_1">
 <polygon width="0.1524" layer="16">
 <vertex x="39.37" y="59.69"/>
-<vertex x="39.37" y="46.99" curve="90"/>
-<vertex x="42.545" y="43.815"/>
-<vertex x="59.055" y="43.815" curve="90"/>
-<vertex x="62.23" y="46.99"/>
+<vertex x="39.37" y="44.45" curve="90"/>
+<vertex x="42.545" y="41.275"/>
+<vertex x="59.055" y="41.275" curve="90"/>
+<vertex x="62.23" y="44.45"/>
 <vertex x="62.23" y="59.69" curve="90"/>
 <vertex x="59.055" y="62.865"/>
 <vertex x="42.545" y="62.865" curve="90"/>
@@ -3010,14 +3010,14 @@ design rules under a new name.</description>
 </signal>
 <signal name="SENS_2">
 <polygon width="0.1524" layer="16">
-<vertex x="10.795" y="43.815"/>
-<vertex x="27.305" y="43.815" curve="90"/>
-<vertex x="30.48" y="46.99"/>
+<vertex x="10.795" y="41.275"/>
+<vertex x="27.305" y="41.275" curve="90"/>
+<vertex x="30.48" y="44.45"/>
 <vertex x="30.48" y="59.69" curve="90"/>
 <vertex x="27.305" y="62.865"/>
 <vertex x="10.795" y="62.865" curve="90"/>
 <vertex x="7.62" y="59.69"/>
-<vertex x="7.62" y="46.99" curve="90"/>
+<vertex x="7.62" y="44.45" curve="90"/>
 </polygon>
 <contactref element="RS2" pad="1"/>
 <via x="18.415" y="44.45" extent="1-16" drill="0.35"/>
@@ -3028,10 +3028,10 @@ design rules under a new name.</description>
 <signal name="SENS_4">
 <polygon width="0.1524" layer="16">
 <vertex x="7.62" y="10.16"/>
-<vertex x="7.62" y="22.86" curve="-90"/>
-<vertex x="10.795" y="26.035"/>
-<vertex x="27.305" y="26.035" curve="-90"/>
-<vertex x="30.48" y="22.86"/>
+<vertex x="7.62" y="25.4" curve="-90"/>
+<vertex x="10.795" y="28.575"/>
+<vertex x="27.305" y="28.575" curve="-90"/>
+<vertex x="30.48" y="25.4"/>
 <vertex x="30.48" y="10.16" curve="-90"/>
 <vertex x="27.305" y="6.985"/>
 <vertex x="10.795" y="6.985" curve="-90"/>
@@ -3059,14 +3059,14 @@ design rules under a new name.</description>
 <signal name="SENS_3">
 <contactref element="RS3" pad="1"/>
 <polygon width="0.1524" layer="16">
-<vertex x="59.055" y="26.035"/>
-<vertex x="42.545" y="26.035" curve="90"/>
-<vertex x="39.37" y="22.86"/>
+<vertex x="59.055" y="28.575"/>
+<vertex x="42.545" y="28.575" curve="90"/>
+<vertex x="39.37" y="25.4"/>
 <vertex x="39.37" y="10.16" curve="90"/>
 <vertex x="42.545" y="6.985"/>
 <vertex x="59.055" y="6.985" curve="90"/>
 <vertex x="62.23" y="10.16"/>
-<vertex x="62.23" y="22.86" curve="90"/>
+<vertex x="62.23" y="25.4" curve="90"/>
 </polygon>
 <via x="51.435" y="25.273" extent="1-16" drill="0.35"/>
 <via x="60.325" y="23.495" extent="1-16" drill="1"/>

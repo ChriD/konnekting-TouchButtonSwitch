@@ -76,7 +76,7 @@ bool touchSetupOk = false;
 void setup()
 {
   #ifdef KDEBUG
-    DEBUGSERIAL.begin(115200);   
+    DEBUGSERIAL.begin(115200);
     while (!DEBUGSERIAL) { }
     Debug.setPrintStream(&DEBUGSERIAL);
     Debug.println(F("KONNEKTING TouchButtonSwitch"));
@@ -85,7 +85,7 @@ void setup()
   touchSwitch = new CY8TouchSwitch();
   touchSwitch->setup();
 
-  // add buttons for the given type of switch (4x or 6x)  
+  // add buttons for the given type of switch (4x or 6x)
   touchSwitch->addButton(SENSORID_1, SENSORLED_1_PIN, true, false);
   touchSwitch->addButton(SENSORID_2, SENSORLED_2_PIN, true, false);
   touchSwitch->addButton(SENSORID_3, SENSORLED_3_PIN, true, false);
@@ -139,7 +139,7 @@ void setup()
   // after rebooting setup we have to wait a little bit for the user to put the frontboard
   // to the button, in this state we do stay "Setup" mode
   touchSwitch->changeMode(TS_MODE_SETUP, true);
-  
+
 
 }
 
@@ -191,7 +191,7 @@ void knxDeviceSetup()
     //humidity alarm resend
     //humidity min alarm
     //humidity max alarm
-    
+
    //assert(1==2);
 
 
@@ -290,10 +290,10 @@ void touchEvent(uint8_t _sensorId, uint8_t _event, uint8_t _count)
   //uint8_t idOffset = (_sensorId - 1) * 4;
 
   // send the touch event to the knx bus
-  // we can use the base index for the object and add the ID-1 for correct index????   
+  // we can use the base index for the object and add the ID-1 for correct index????
 
   #ifndef NOBCU
-  
+
     if(_event == 1)
     {
       if(_count == 1)
@@ -337,9 +337,6 @@ void gestureEvent(uint8_t _event)
 // this method will be called when a com object is updated
 void knxEvents(byte _index)
 {
-  // TODO: Temp/humidity asking
-
-  
   switch (_index)
   {
      // case COMOBJ_btnShortInput:
@@ -365,13 +362,13 @@ void knxEvents(byte _index)
         default:
           break;
   }
-  
+
 }
 
 
 
 void loop()
-{  
+{
   // we have to call the knx.task form the konnekting library faster then ~ 400us to not miss any telegram
   // in next versions this should be obsolete but for now we have to stay with itself
   // ATTENTION: Currently we do have some loops which will go above 400us due I2C handling, we have to ceck in
@@ -414,7 +411,7 @@ void loop()
 
   mainLoopEndTime = micros();
 
-  
+
 }
 
 

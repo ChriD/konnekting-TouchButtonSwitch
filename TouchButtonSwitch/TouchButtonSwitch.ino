@@ -7,6 +7,7 @@
 
 
 #include "Arduino.h"
+#include <FlashAsEEPROM.h>
 #include "KonnektingDevice.h"
 #include "TouchButtonSwitch.h"
 #include "src/TouchSwitch_4X_V1.h"
@@ -20,7 +21,7 @@
 
 // for testing purposes without having an active bcu attached we have to skip
 // the knx connection and task codes to test the device. This can be done by setting this define
-#define BCUDISABLED
+//#define BCUDISABLED
 
 // This is the time in miliseconds how long the button should wait after startup/setup to allow touches
 // There has to be a enough time for the user to put the frontplate on the switch before recalibration of
@@ -36,9 +37,36 @@
 // sensors on top and on the button of the device. So we use the approiate class for that switch
 BaseSwitch   *baseSwitch = new TouchSwitch_4X_V1();
 
+// TODO: do this one into the TouchSwitch lib!
+#define PROG_BUTTON_PIN   10
+
 
 uint16_t counter = 0;
 
+
+// TODO: IFDEF NOTEEPROM
+//FlashStorage
+byte readMemory(int index) {
+    Debug.println(F("FLASH read on index %d"),index);
+    return EEPROM.read(index);
+}
+
+void writeMemory(int index, byte val) {
+    Debug.println(F("FLASH write value %d on index %d"),val, index);
+    EEPROM.write(index, val);
+}
+
+void updateMemory(int index, byte val) {
+    Debug.println(F("FLASH update"));
+    if (EEPROM.read(index) != val) {
+        EEPROM.write(index, val);
+    }
+}
+
+void commitMemory() {
+    Debug.println(F("FLASH commit"));
+    EEPROM.commit();
+}
 
 
 
@@ -58,6 +86,29 @@ void onButtonAction(uint16_t _buttonId, uint16_t _type, uint16_t _value)
   SERIAL_DBG.print(" | ");
   SERIAL_DBG.print(_value);
   SERIAL_DBG.print("\n");
+
+  #ifdef BCUDISABLED
+    return;
+  #endif
+
+  // TEST1
+  SERIAL_DBG.print("\nOutput");
+  Knx.write(COMOBJ_button1, DPT1_001_on);
+
+  uint16_t idOffset = 0;
+  if(_buttonId == 1)
+  {
+    if(_type == 1 && _value <= 1)
+      Knx.write(COMOBJ_button1 + idOffset, DPT1_001_on);
+    else if(_type == 1)
+       Knx.write(COMOBJ_button1_multi + idOffset, _value);
+    else if(_type == 2)
+      Knx.write(COMOBJ_button1_long + idOffset, DPT1_001_on);
+    else if(_type == 20)
+      Knx.write(COMOBJ_button1_position_touchstart + idOffset, DPT1_001_on);
+    else if(_type == 21)
+      Knx.write(COMOBJ_button1_position_touchend + idOffset, DPT1_001_on);
+  }
 }
 
 
@@ -102,7 +153,7 @@ void setup()
 
   // setup the connection to the KNX-BUS
   #ifndef BCUDISABLED
-    initKNX()
+    initKNX();
     // if we have already an application programm (!isFactorySetting), get the values from the EEPROM
     // and apply them to the switch
     if (!Konnekting.isFactorySetting())
@@ -123,11 +174,16 @@ void setup()
   // SETUP MODE 3 is after the setup of the switch has been done
   baseSwitch->setMode(SWITCH_MODE::SETUP, 3);
 
+  // TODO: @@@ calibration should be done after about 10 secods!!!!
   baseSwitch->startCalibration();
 
   // SETUP MODE 4 is after setup is done and calibration is STARTUP_IDLETIME
   // this mode will stay till the STARTUP_IDLETIME is reached
   baseSwitch->setMode(SWITCH_MODE::SETUP, 4);
+
+  // setup the prog button interrupt for rising edge
+  pinMode(PROG_BUTTON_PIN, INPUT);
+  attachInterrupt(digitalPinToInterrupt(PROG_BUTTON_PIN), progButtonPressed, FALLING);
 }
 
 
@@ -135,6 +191,12 @@ void setup()
 // if there is a problem connecting to the bus, the method will not return!
 void initKNX()
 {
+
+  Konnekting.setMemoryReadFunc(&readMemory);
+  Konnekting.setMemoryWriteFunc(&writeMemory);
+  Konnekting.setMemoryUpdateFunc(&updateMemory);
+  Konnekting.setMemoryCommitFunc(&commitMemory);
+
   Konnekting.init(SERIAL_BCU, &progLed, MANUFACTURER_ID, DEVICE_ID, REVISION);
 }
 
@@ -151,6 +213,7 @@ void progButtonPressed()
       return;
   }
   progButtonDebounceTime = tempTime;
+  Debug.println(F("PROG BTN"));
   Konnekting.toggleProgState();
 }
 
@@ -165,9 +228,15 @@ void progLed (bool _isPrg){
   }
 }
 
+// this method will be called when a com object is updated
+void knxEvents(byte _index)
+{
+}
+
 
 uint64_t loopSum    = 0;
 uint64_t loopCount  = 0;
+boolean isAppReady = false;
 
 
 void loop()
@@ -183,8 +252,18 @@ void loop()
     Knx.task();
   #endif
 
-  // let the button do its apllication loop tasks
+  // let the button do its application loop tasks
   baseSwitch->task();
+
+  // TODO: after about  10 seconds start re-calibration
+  // TODO: after about  12 seconds start Normal mode
+
+  //  TODO: @@@
+  if(isAppReady != Konnekting.isReadyForApplication())
+  {
+    isAppReady = Konnekting.isReadyForApplication();
+    Debug.println(F("APP READY: %u"), isAppReady);
+  }
 
 
   // give some info about the average duration of the loop
@@ -199,7 +278,7 @@ void loop()
       loopSum   = 0;
     }
 
-  // @@@ proximity debugginh:
+  // @@@ proximity debugging:
     //TouchButton *t1 = (TouchButton*)baseSwitch->getButtonByIndex(4);
     //TouchButton *t2 = (TouchButton*)baseSwitch->getButtonByIndex(5);
     //Debug.println(F("PROXA: %uus         PROXB: %uss"), t1->getLastSampleValue(), t2->getLastSampleValue());
