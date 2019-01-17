@@ -7,7 +7,11 @@
 
 
 #include "Arduino.h"
+
 #include <FlashAsEEPROM.h>
+//#include <SPIFlash.h>    //get it here: https://github.com/LowPowerLab/SPIFlash
+//#include <SPI.h>
+
 #include "KonnektingDevice.h"
 #include "TouchButtonSwitch.h"
 #include "src/TouchSwitch_4X_V1.h"
@@ -43,9 +47,45 @@ BaseSwitch   *baseSwitch = new TouchSwitch_4X_V1();
 
 uint16_t counter = 0;
 
+/*
+SPIFlash flash(SS1 , 0xEF30);
+
+byte readMemory(int index) {
+    Debug.println(F("FLASH read on index %d"),index);
+    return flash.readByte(index);
+}
+
+void writeMemory(int index, byte val) {
+    Debug.println(F("FLASH write value %d on index %d"),val, index);
+    flash.writeByte(index, val);
+}
+
+void updateMemory(int index, byte val) {
+    Debug.println(F("FLASH update"));
+    if (flash.readByte(index) != val) {
+        flash.writeByte(index, val);
+    }
+}
+
+void commitMemory() {
+    Debug.println(F("FLASH commit"));
+    //EEPROM.commit();
+}
+
+*/
+void initFlashMemory()
+{
+  //if (flash.initialize())
+  //  Debug.println(F("FLASH OK"));
+  //else
+  // Debug.println(F("FLASH ERROR"));
+
+}
+
 
 // TODO: IFDEF NOTEEPROM
 //FlashStorage
+
 byte readMemory(int index) {
     Debug.println(F("FLASH read on index %d"),index);
     return EEPROM.read(index);
@@ -70,6 +110,7 @@ void commitMemory() {
 
 
 
+
 void onButtonStateChanged(uint16_t _buttonId, uint16_t _state)
 {
   SERIAL_DBG.print(_buttonId);
@@ -80,35 +121,38 @@ void onButtonStateChanged(uint16_t _buttonId, uint16_t _state)
 
 void onButtonAction(uint16_t _buttonId, uint16_t _type, uint16_t _value)
 {
-  SERIAL_DBG.print(_buttonId);
-  SERIAL_DBG.print(" : ");
-  SERIAL_DBG.print(_type);
-  SERIAL_DBG.print(" | ");
-  SERIAL_DBG.print(_value);
-  SERIAL_DBG.print("\n");
+  uint16_t  idOffset = 6 * (_buttonId-1);
+  uint16_t  idComObject = 0;
+
+  Knx.write(COMOBJ_button2, DPT1_001_on);
+
+  // TODO: @@@ ID and DPT has to be gathered from the button class?!
+  // due we know that the id gap between the com objects of the different button is 6 we can do a
+  // nice generic generation of the comObject id
+  if(_type == 1 && _value <= 1)
+    idComObject = COMOBJ_button1;
+  else if(_type == 1)
+    idComObject = COMOBJ_button1_multi;
+  else if(_type == 2)
+    idComObject = COMOBJ_button1_long;
+  else if(_type == 20)
+    idComObject = COMOBJ_button1_position_touchstart;
+  else if(_type == 21)
+    idComObject = COMOBJ_button1_position_touchend;
+  else
+    Debug.println(F("Unknown button event type %d"), _type);
+
+  if(idComObject)
+    idComObject += idOffset;
+
+  Debug.println(F("Button: %d | Event: %d | Value: %d | ComObjId: %d"), _buttonId, _type, _value, idComObject);
 
   #ifdef BCUDISABLED
     return;
   #endif
 
-  // TEST1
-  SERIAL_DBG.print("\nOutput");
-  Knx.write(COMOBJ_button1, DPT1_001_on);
-
-  uint16_t idOffset = 0;
-  if(_buttonId == 1)
-  {
-    if(_type == 1 && _value <= 1)
-      Knx.write(COMOBJ_button1 + idOffset, DPT1_001_on);
-    else if(_type == 1)
-       Knx.write(COMOBJ_button1_multi + idOffset, _value);
-    else if(_type == 2)
-      Knx.write(COMOBJ_button1_long + idOffset, DPT1_001_on);
-    else if(_type == 20)
-      Knx.write(COMOBJ_button1_position_touchstart + idOffset, DPT1_001_on);
-    else if(_type == 21)
-      Knx.write(COMOBJ_button1_position_touchend + idOffset, DPT1_001_on);
-  }
+  // TODO: DPT !!!!
+  Knx.write(idComObject, DPT1_001_on);
 }
 
 
@@ -148,6 +192,11 @@ void setup()
     Debug.println(F("KONNEKTING TouchButtonSwitch Library %u"), LIB_VERSION);
   #endif
 
+  // initialize the flash/eeprom memory
+  // this method should be (is) outsourced in an own header file for better modularity
+  baseSwitch->setMode(SWITCH_MODE::SETUP, 2);
+  initFlashMemory();
+
   baseSwitch->attachCallbackOnButtonAction(makeFunctor((CallbackFunction_ButtonAction*)0,&onButtonAction));
   baseSwitch->attachCallbackOnProximityAlert(makeFunctor((CallbackFunction_ProximityAlert*)0,&onProximityAlert));
 
@@ -161,7 +210,7 @@ void setup()
   #endif
 
   // SETUP MODE 2 is after connection with the BCU is established
-  baseSwitch->setMode(SWITCH_MODE::SETUP, 2);
+  baseSwitch->setMode(SWITCH_MODE::SETUP, 3);
 
   // after we have a connection to the bus, we do setup the touch switch and start the calibration
   // of all the touch areas and proximity sensors
@@ -172,17 +221,17 @@ void setup()
   }
 
   // SETUP MODE 3 is after the setup of the switch has been done
-  baseSwitch->setMode(SWITCH_MODE::SETUP, 3);
+  baseSwitch->setMode(SWITCH_MODE::SETUP, 4);
 
   // TODO: @@@ calibration should be done after about 10 secods!!!!
   baseSwitch->startCalibration();
 
   // SETUP MODE 4 is after setup is done and calibration is STARTUP_IDLETIME
   // this mode will stay till the STARTUP_IDLETIME is reached
-  baseSwitch->setMode(SWITCH_MODE::SETUP, 4);
+  baseSwitch->setMode(SWITCH_MODE::SETUP, 5);
 
   // setup the prog button interrupt for rising edge
-  pinMode(PROG_BUTTON_PIN, INPUT);
+  pinMode(PROG_BUTTON_PIN, INPUT_PULLUP);
   attachInterrupt(digitalPinToInterrupt(PROG_BUTTON_PIN), progButtonPressed, FALLING);
 }
 
@@ -191,7 +240,6 @@ void setup()
 // if there is a problem connecting to the bus, the method will not return!
 void initKNX()
 {
-
   Konnekting.setMemoryReadFunc(&readMemory);
   Konnekting.setMemoryWriteFunc(&writeMemory);
   Konnekting.setMemoryUpdateFunc(&updateMemory);

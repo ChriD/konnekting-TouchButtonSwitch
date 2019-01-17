@@ -134,6 +134,18 @@
         <!--
         * start Dimming / Stop Diming 4 bit object (dimming or long hold can be used, not both)
         * posizioning?!
+        
+        
+        * Keine Funktion
+        * Schalten
+        * Dimmen
+        * Jalousie  Auf/Ab
+        * Wertgeber 1 Byte
+        * Wertgeber 2 Byte
+        * Szene
+        * Alternativmodus (Touch, Doubletouc, MultiTouch, Long Touch, StateChange/Positioning)
+        
+        ACTUNG! STATUS GAS!!!!!
         -->
 
 
@@ -143,42 +155,6 @@
                 <Function>Firmwareupdate</Function>
                 <DataPointType>60000.60000</DataPointType>
                 <Flags>42</Flags>
-            </CommObject>
-            <CommObject Id="1" IdName="temperatureValue">
-                <Name>Temperature</Name>
-                <Function>Value</Function>
-                <DataPointType>9.001</DataPointType>
-                <Flags>52</Flags>
-            </CommObject>
-            <CommObject Id="2" IdName="temperatureAlarmLow">
-                <Name>Temperature</Name>
-                <Function>Lower alarm value reached</Function>
-                <DataPointType>1.001</DataPointType>
-                <Flags>52</Flags>
-            </CommObject>
-            <CommObject Id="3" IdName="temperatureAlarmHigh">
-                <Name>Temperature</Name>
-                <Function>Upper alarm value reached</Function>
-                <DataPointType>1.001</DataPointType>
-                <Flags>52</Flags>
-            </CommObject>
-            <CommObject Id="4" IdName="humidityValue">
-                <Name>Humidity</Name>
-                <Function>Value</Function>
-                <DataPointType>9.007</DataPointType>
-                <Flags>52</Flags>
-            </CommObject>
-            <CommObject Id="5" IdName="humidityAlarmLow">
-                <Name>Humidity</Name>
-                <Function>Lower alarm value reached</Function>
-                <DataPointType>1.001</DataPointType>
-                <Flags>52</Flags>
-            </CommObject>
-            <CommObject Id="6" IdName="humidityAlarmHigh">
-                <Name>Humidity</Name>
-                <Function>Upper alarm value reached</Function>
-                <DataPointType>1.001</DataPointType>
-                <Flags>52</Flags>
             </CommObject>
 
             <CommObject Id="7" IdName="button1">
