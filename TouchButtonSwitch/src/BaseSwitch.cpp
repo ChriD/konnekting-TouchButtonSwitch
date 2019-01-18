@@ -98,6 +98,15 @@ boolean BaseSwitch::setupButtons()
   return ret;
 }
 
+void BaseSwitch::setButtonParameters(uint16_t _buttonId, BaseSwitchButtonParms _parameters)
+{
+  Button* button = this->getButtonById(_buttonId);
+  if(!button)
+    return;
+  button->parmMultipleTapsEnabled(_parameters.allowMultiTouch);
+  //button->parmPositioningModeEnabled(longTouchMode == 2 ? true : false);
+}
+
 
 void BaseSwitch::startCalibration()
 {
@@ -133,10 +142,6 @@ void BaseSwitch::onProximityAlert(uint16_t _id, boolean _isProximity, uint16_t _
 void BaseSwitch::setMode(SWITCH_MODE _mode, uint16_t _modeLevel)
 {
   this->mode = _mode;
-}
-
-void BaseSwitch::initParameters()
-{
 }
 
 

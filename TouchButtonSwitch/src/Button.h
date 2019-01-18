@@ -1,6 +1,6 @@
 /*
   Button.h
-  Created by Christian Dürnberger, 2019
+  Created by Christian Dürnberger (ChriD), 2019
   Released into the public domain.
 */
 

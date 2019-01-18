@@ -13,9 +13,17 @@
 
   #define SWITCH_MAX_BUTTONCOUNT       10
 
-  // a switch does have some standrd modes
+  // a switch does have some standrt modes
   // TODO: @@@
   enum class SWITCH_MODE { NORMAL = 0, PROG = 10, SETUP = 20 };
+
+
+  struct BaseSwitchButtonParmsStruct
+  {
+    boolean allowMultiTouch;
+  };
+  typedef struct BaseSwitchButtonParmsStruct BaseSwitchButtonParms;
+
 
 
   class BaseSwitch
@@ -30,7 +38,7 @@
       virtual Button* getButtonById(uint16_t);
       virtual Button* getButtonByIndex(uint16_t);
       virtual void setMode(SWITCH_MODE, uint16_t _modeLevel = 0);
-      virtual void initParameters();
+      virtual void setButtonParameters(uint16_t, BaseSwitchButtonParms _parameters);
 
       void attachCallbackOnButtonAction(const CallbackFunction_ButtonAction &);
       void attachCallbackOnProximityAlert(const CallbackFunction_ProximityAlert &);

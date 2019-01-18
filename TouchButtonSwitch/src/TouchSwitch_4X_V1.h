@@ -34,7 +34,6 @@
 
       virtual void initButtons();
       virtual void setMode(SWITCH_MODE, uint16_t _modeLevel = 0);
-      virtual void initParameters();
 
     protected:
 

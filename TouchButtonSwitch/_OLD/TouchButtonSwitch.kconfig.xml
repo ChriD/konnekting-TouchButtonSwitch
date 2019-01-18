@@ -18,6 +18,7 @@
                     <Value Type="uint16" Default="02EE" Options="" Min="01F4" Max="2710"/>
                 </Parameter>
             </ParameterGroup>
+
             <ParameterGroup Name="Lightning" Id="1">
                 <Parameter Id="3" IdName="light_intensity_standy">
                     <Description>Background intensity standby</Description>
@@ -28,6 +29,7 @@
                     <Value Type="uint8" Default="FF" Options="" Min="00" Max="FF"/>
                 </Parameter>
             </ParameterGroup>
+
             <ParameterGroup Name="Temperatur/Humidity" Id="2">
                 <Parameter Id="5" IdName="temp_sendPeriod">
                     <Description>@@@</Description>
@@ -49,6 +51,7 @@
                     <Description>@@@</Description>
                     <Value Type="int8" Default="FF" Options="" Min="00" Max="FF"/>
                 </Parameter>
+
                 <Parameter Id="10" IdName="humidity_sendPeriod">
                     <Description>@@@</Description>
                     <Value Type="uint32" Default="00000000" Options="" Min="00000000" Max="000000FF"/>
@@ -70,6 +73,7 @@
                     <Value Type="int8" Default="FF" Options="" Min="00" Max="FF"/>
                 </Parameter>
             </ParameterGroup>
+
             <ParameterGroup Name="Button 1" Id="3">
                 <Parameter Id="15" IdName="button1_mode">
                     <Description>Mode</Description>
@@ -80,6 +84,7 @@
                     <Value Type="uint8" Default="00" Options="00=No|01=Yes" Min="00" Max="01"/>
                 </Parameter>
             </ParameterGroup>
+
             <ParameterGroup Name="Button 2" Id="4">
                 <Parameter Id="17" IdName="button2_mode">
                     <Description>Mode</Description>
@@ -90,6 +95,7 @@
                     <Value Type="uint8" Default="00" Options="00=No|01=Yes" Min="00" Max="01"/>
                 </Parameter>
             </ParameterGroup>
+
             <ParameterGroup Name="Button 3" Id="5">
                 <Parameter Id="19" IdName="button3_mode">
                     <Description>Mode</Description>
@@ -100,6 +106,7 @@
                     <Value Type="uint8" Default="00" Options="00=No|01=Yes" Min="00" Max="01"/>
                 </Parameter>
             </ParameterGroup>
+
             <ParameterGroup Name="Button 4" Id="6">
                 <Parameter Id="21" IdName="button4_mode">
                     <Description>Mode</Description>
@@ -110,6 +117,7 @@
                     <Value Type="uint8" Default="00" Options="00=No|01=Yes" Min="00" Max="01"/>
                 </Parameter>
             </ParameterGroup>
+
             <ParameterGroup Name="Touch sensor IC" Id="7">
                 <Parameter Id="23" IdName="tsic_sensitivity">
                     <Description>Button Sensitivity</Description>
@@ -121,6 +129,26 @@
                 </Parameter>
             </ParameterGroup>
         </Parameters>
+
+
+        <!--
+        * start Dimming / Stop Diming 4 bit object (dimming or long hold can be used, not both)
+        * posizioning?!
+        
+        
+        * Keine Funktion
+        * Schalten
+        * Dimmen
+        * Jalousie  Auf/Ab
+        * Wertgeber 1 Byte
+        * Wertgeber 2 Byte
+        * Szene
+        * Alternativmodus (Touch, Doubletouc, MultiTouch, Long Touch, StateChange/Positioning)
+        
+        ACTUNG! STATUS GAS!!!!!
+        -->
+
+
         <CommObjects>
             <CommObject Id="0" IdName="firmwareTransfer">
                 <Name>FOTB</Name>
@@ -128,42 +156,7 @@
                 <DataPointType>60000.60000</DataPointType>
                 <Flags>42</Flags>
             </CommObject>
-            <CommObject Id="1" IdName="temperatureValue">
-                <Name>Temperature</Name>
-                <Function>Value</Function>
-                <DataPointType>9.001</DataPointType>
-                <Flags>52</Flags>
-            </CommObject>
-            <CommObject Id="2" IdName="temperatureAlarmLow">
-                <Name>Temperature</Name>
-                <Function>Lower alarm value reached</Function>
-                <DataPointType>1.001</DataPointType>
-                <Flags>52</Flags>
-            </CommObject>
-            <CommObject Id="3" IdName="temperatureAlarmHigh">
-                <Name>Temperature</Name>
-                <Function>Upper alarm value reached</Function>
-                <DataPointType>1.001</DataPointType>
-                <Flags>52</Flags>
-            </CommObject>
-            <CommObject Id="4" IdName="humidityValue">
-                <Name>Humidity</Name>
-                <Function>Value</Function>
-                <DataPointType>9.007</DataPointType>
-                <Flags>52</Flags>
-            </CommObject>
-            <CommObject Id="5" IdName="humidityAlarmLow">
-                <Name>Humidity</Name>
-                <Function>Lower alarm value reached</Function>
-                <DataPointType>1.001</DataPointType>
-                <Flags>52</Flags>
-            </CommObject>
-            <CommObject Id="6" IdName="humidityAlarmHigh">
-                <Name>Humidity</Name>
-                <Function>Upper alarm value reached</Function>
-                <DataPointType>1.001</DataPointType>
-                <Flags>52</Flags>
-            </CommObject>
+
             <CommObject Id="7" IdName="button1">
                 <Name>Button 1</Name>
                 <Function>Touch</Function>
@@ -200,6 +193,8 @@
                 <DataPointType>1.001</DataPointType>
                 <Flags>52</Flags>
             </CommObject>
+
+
             <CommObject Id="13" IdName="button2">
                 <Name>Button 2</Name>
                 <Function>Touch</Function>
@@ -236,6 +231,8 @@
                 <DataPointType>1.001</DataPointType>
                 <Flags>52</Flags>
             </CommObject>
+
+
             <CommObject Id="19" IdName="button3">
                 <Name>Button 3</Name>
                 <Function>Touch</Function>
@@ -272,6 +269,7 @@
                 <DataPointType>1.001</DataPointType>
                 <Flags>52</Flags>
             </CommObject>
+
             <CommObject Id="25" IdName="button4">
                 <Name>Button 4</Name>
                 <Function>Touch</Function>
@@ -308,10 +306,12 @@
                 <DataPointType>1.001</DataPointType>
                 <Flags>52</Flags>
             </CommObject>
+
+
         </CommObjects>
     </Device>
     <Configuration ManufacturerId="21212" DeviceId="1" Revision="0">
-        <IndividualAddress Address="1.1.15" Description="ChriD TouchButtonSwitch"/>
+        <IndividualAddress Address="1.1."/>
         <CommObjectConfigurations>
             <CommObjectConfiguration Id="0" active="true"/>
             <CommObjectConfiguration Id="1" active="true"/>
@@ -320,7 +320,7 @@
             <CommObjectConfiguration Id="4" active="true"/>
             <CommObjectConfiguration Id="5" active="true"/>
             <CommObjectConfiguration Id="6" active="true"/>
-            <CommObjectConfiguration Id="7" GroupAddress="6/1/1" active="true"/>
+            <CommObjectConfiguration Id="7" active="true"/>
             <CommObjectConfiguration Id="8" active="true"/>
             <CommObjectConfiguration Id="9" active="true"/>
             <CommObjectConfiguration Id="10" active="true"/>
@@ -328,29 +328,6 @@
         <ParameterConfigurations>
             <ParameterConfiguration Id="0" Value="00FA"/>
             <ParameterConfiguration Id="1" Value="04E2"/>
-            <ParameterConfiguration Id="2" Value="02EE"/>
-            <ParameterConfiguration Id="3" Value="0A"/>
-            <ParameterConfiguration Id="4" Value="FF"/>
-            <ParameterConfiguration Id="5" Value="0000000A"/>
-            <ParameterConfiguration Id="6" Value="0000000A"/>
-            <ParameterConfiguration Id="7" Value="0000000A"/>
-            <ParameterConfiguration Id="8" Value="00"/>
-            <ParameterConfiguration Id="9" Value="FF"/>
-            <ParameterConfiguration Id="10" Value="00000000"/>
-            <ParameterConfiguration Id="11" Value="00000000"/>
-            <ParameterConfiguration Id="12" Value="00000000"/>
-            <ParameterConfiguration Id="13" Value="00"/>
-            <ParameterConfiguration Id="14" Value="FF"/>
-            <ParameterConfiguration Id="15" Value="00"/>
-            <ParameterConfiguration Id="16" Value="00"/>
-            <ParameterConfiguration Id="17" Value="00"/>
-            <ParameterConfiguration Id="18" Value="00"/>
-            <ParameterConfiguration Id="19" Value="00"/>
-            <ParameterConfiguration Id="20" Value="00"/>
-            <ParameterConfiguration Id="21" Value="00"/>
-            <ParameterConfiguration Id="22" Value="00"/>
-            <ParameterConfiguration Id="23" Value="02"/>
-            <ParameterConfiguration Id="24" Value="96"/>
         </ParameterConfigurations>
     </Configuration>
 </KonnektingDevice>
