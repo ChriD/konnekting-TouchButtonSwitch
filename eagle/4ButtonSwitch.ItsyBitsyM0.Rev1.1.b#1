@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="50" unitdist="mil" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="inch"/>
+<grid distance="50" unitdist="mil" unit="inch" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -217,6 +217,8 @@
 <rectangle x1="16.51" y1="13.462" x2="19.05" y2="16.002" layer="31"/>
 <rectangle x1="50.8" y1="18.288" x2="53.34" y2="20.828" layer="31"/>
 <rectangle x1="50.8" y1="13.462" x2="53.34" y2="16.002" layer="31"/>
+<text x="64.262" y="43.307" size="1.016" layer="26" rot="MR0">RST</text>
+<text x="8.382" y="43.434" size="1.016" layer="26" rot="MR0">PRG</text>
 </plain>
 <libraries>
 <library name="pinhead">
@@ -3184,6 +3186,8 @@ design rules under a new name.</description>
 </signal>
 <signal name="D11">
 <contactref element="JP1" pad="9"/>
+<contactref element="RL3" pad="1"/>
+<wire x1="48.108" y1="22.86" x2="25.785" y2="44.45" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="D10">
 <contactref element="JP1" pad="8"/>
@@ -3206,8 +3210,6 @@ design rules under a new name.</description>
 </signal>
 <signal name="D7">
 <contactref element="JP1" pad="6"/>
-<contactref element="RL3" pad="1"/>
-<wire x1="48.108" y1="22.86" x2="46.355" y2="24.613" width="0.1524" layer="1"/>
 <wire x1="46.355" y1="24.613" x2="46.355" y2="27.813" width="0.1524" layer="1"/>
 <wire x1="46.355" y1="27.813" x2="43.815" y2="30.353" width="0.1524" layer="1"/>
 <wire x1="43.815" y1="30.353" x2="42.037" y2="30.353" width="0.1524" layer="1"/>

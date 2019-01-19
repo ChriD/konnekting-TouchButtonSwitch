@@ -20,7 +20,7 @@ TODO: * add a noiso to tap ratio?! calculated by the  base noise value?
 
   #define BTN_STD_TOUCH_NOISETOTAP_GAP  10
 
-  enum class TOUCHBUTTON_MODE { NORMAL = 0, CALIBRATION = 10};
+  enum class TOUCHBUTTON_MODE { NORMAL = 0, CALIBRATION = 10, DISABLED = 99};
 
   class TouchButton : public Button
   {

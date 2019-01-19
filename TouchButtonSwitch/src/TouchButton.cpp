@@ -11,7 +11,7 @@
 TouchButton::TouchButton(uint8_t _pin, uint16_t _id) : Button()
 {
   this->pin   = _pin;
-  this->mode  =  TOUCHBUTTON_MODE::NORMAL;
+  this->mode  =  TOUCHBUTTON_MODE::DISABLED;
 
   this->parmId(_id);
   this->parmBaseNoiseOffsetValue(0);
@@ -143,7 +143,11 @@ void TouchButton::task()
       }
     }
   }
-  // let the base class do it's job, of dourse only if we are not in calibration mode
+  //  the button may be disabled, do nothing when its disables!
+  else if(this->mode == TOUCHBUTTON_MODE::DISABLED)
+  {
+  }
+  // let the base class do it's job, of dourse only if we are not in calibration or disabled mode
   else
   {
     Button::task();

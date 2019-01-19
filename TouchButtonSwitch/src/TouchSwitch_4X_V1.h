@@ -10,6 +10,7 @@
 
   #include "Arduino.h"
   #include "TouchSwitch.h"
+  #include "LEDWorker.h"
 
   #define TS_4X_V1_BTN1_ID    1
   #define TS_4X_V1_BTN2_ID    2
@@ -34,8 +35,10 @@
 
       virtual void initButtons();
       virtual void setMode(SWITCH_MODE, uint16_t _modeLevel = 0);
+      virtual void task();
 
     protected:
+      LEDWorker   *ledWorkers[4];
 
     private:
 

@@ -17,10 +17,12 @@ byte readMemory(int index) {
     return EEPROM.read(index);
 }
 
+
 void writeMemory(int index, byte val) {
     Debug.println(F("FLASH write value %d on index %d"),val, index);
     EEPROM.write(index, val);
 }
+
 
 void updateMemory(int index, byte val) {
     Debug.println(F("FLASH update"));
@@ -28,6 +30,7 @@ void updateMemory(int index, byte val) {
         EEPROM.write(index, val);
     }
 }
+
 
 void commitMemory() {
     Debug.println(F("FLASH commit"));

@@ -11,8 +11,10 @@
 BaseSwitch::BaseSwitch()
 {
   this->maxButtonIdx = -1;
-  this->callback_onButtonAction = NULL;
+  this->callback_onButtonAction   = NULL;
   this->callback_onProximityAlert = NULL;
+  this->mode      = SWITCH_MODE::UNDEFINED;
+  this->modeLevel = 0;
 }
 
 
@@ -42,6 +44,12 @@ void BaseSwitch::attachCallbackOnButtonAction(const CallbackFunction_ButtonActio
 void BaseSwitch::attachCallbackOnProximityAlert(const CallbackFunction_ProximityAlert &_callback)
 {
   this->callback_onProximityAlert = _callback;
+}
+
+
+void BaseSwitch::attachCallbackOnModeChange(const CallbackFunction_ModeChange &_callback)
+{
+  this->callback_onModeChange = _callback;
 }
 
 
@@ -141,7 +149,12 @@ void BaseSwitch::onProximityAlert(uint16_t _id, boolean _isProximity, uint16_t _
 
 void BaseSwitch::setMode(SWITCH_MODE _mode, uint16_t _modeLevel)
 {
-  this->mode = _mode;
+  SWITCH_MODE prevMode      = this->mode;
+  uint16_t    prevModeLevel = this->modeLevel;
+  this->mode      = _mode;
+  this->modeLevel = _modeLevel;
+  if(this->callback_onModeChange)
+    this->callback_onModeChange(prevMode, prevModeLevel, _mode, _modeLevel);
 }
 
 
