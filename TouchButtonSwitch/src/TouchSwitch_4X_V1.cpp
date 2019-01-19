@@ -14,6 +14,8 @@
 
 TouchSwitch_4X_V1::TouchSwitch_4X_V1() : TouchSwitch()
 {
+  for(int8_t i=0; i<=3; i++)
+    this->ledWorkers[i] = NULL;
 }
 
 

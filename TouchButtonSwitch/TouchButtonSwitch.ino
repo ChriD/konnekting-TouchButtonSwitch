@@ -25,7 +25,7 @@
 #define LIB_VERSION             "1.0"
 
 // if this define is uncommented, debugging via serial is activated. This should not be active on productive environment!
-//#define KDEBUG
+#define KDEBUG
 
 // for testing purposes without having an active bcu attached we have to skip
 // the knx connection and task codes to test the device. This can be done by setting this define
@@ -105,6 +105,7 @@ void onButtonAction(uint16_t _buttonId, uint16_t _type, uint16_t _value)
 void onProximityAlert(uint16_t _buttonId, boolean _isProximity, uint16_t _proximityValue, uint16_t _proximityLevel)
 {
   // TODO: @@@
+  //Debug.println(F("Proximity %u"));
 }
 
 
@@ -125,7 +126,7 @@ void setup()
     SERIAL_DBG.begin(115200);
     while (!SERIAL_DBG) {}
     Debug.setPrintStream(&SERIAL_DBG);
-    Debug.println(F("KONNEKTING TouchButtonSwitch Library %u"), LIB_VERSION);
+    Debug.println(F("KONNEKTING TouchButtonSwitch Library %s"), LIB_VERSION);
   #endif
 
   // attach callbacks to the switch
@@ -261,6 +262,9 @@ void loopTaskSetup()
 }
 
 
+uint64_t  lastDebugOutput = 0;
+
+
 void loop()
 {
   #ifdef KDEBUG
@@ -297,10 +301,16 @@ void loop()
       loopSum   = 0;
     }
 
-  // @@@ proximity debugging:
-    //TouchButton *t1 = (TouchButton*)baseSwitch->getButtonByIndex(4);
-    //TouchButton *t2 = (TouchButton*)baseSwitch->getButtonByIndex(5);
-    //Debug.println(F("PROXA: %uus         PROXB: %uss"), t1->getLastSampleValue(), t2->getLastSampleValue());
+    // @@@ proximity debugging:
+    if((millis() - lastDebugOutput) > 10)
+    {
+      TouchButton *t1 = (TouchButton*)baseSwitch->getButtonByIndex(0);
+      TouchButton *t2 = (TouchButton*)baseSwitch->getButtonByIndex(1);
+      TouchButton *tp1 = (TouchButton*)baseSwitch->getButtonByIndex(4);
+      TouchButton *tp2 = (TouchButton*)baseSwitch->getButtonByIndex(5);
+      Debug.println(F("Proximity: B1: %u        B2: %u        P1: %u        P2: %u"), t1->getLastSampleValue(), t2->getLastSampleValue(), tp1->getLastSampleValue(), tp2->getLastSampleValue());
+      lastDebugOutput = millis();
+    }
 
     //if(endLoop - startLoop > 400)
     //  Debug.println(F("ATTENTION: Main Loop exceeds KNX timing requirement! %uus"), (endLoop - startLoop));

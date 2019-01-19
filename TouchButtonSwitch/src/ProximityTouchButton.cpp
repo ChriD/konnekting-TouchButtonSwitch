@@ -10,8 +10,11 @@
 /*
   TODO: * check out proximity banging issue (3/0/3/0/3/0....)
         * redesign proximity level
+        *
 */
 
+// use 2 pins? // Create onw class only for proximity!
+// https://www.instructables.com/id/Building-a-Capacitive-Proximity-Sensor-using-Bare-/
 
 ProximityTouchButton::ProximityTouchButton(uint8_t _pin, uint16_t _id) : TouchButton(_pin, _id)
 {

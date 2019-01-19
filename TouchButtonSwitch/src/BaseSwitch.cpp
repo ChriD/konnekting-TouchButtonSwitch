@@ -10,11 +10,17 @@
 
 BaseSwitch::BaseSwitch()
 {
-  this->maxButtonIdx = -1;
-  this->callback_onButtonAction   = NULL;
-  this->callback_onProximityAlert = NULL;
+  for(int8_t i=0; i<=SWITCH_MAX_BUTTONCOUNT; i++)
+    this->buttons[i] = NULL;
+
   this->mode      = SWITCH_MODE::UNDEFINED;
   this->modeLevel = 0;
+
+  this->callback_onButtonAction   = NULL;
+  this->callback_onProximityAlert = NULL;
+  this->callback_onModeChange     = NULL;
+
+  this->maxButtonIdx = -1;
 }
 
 
