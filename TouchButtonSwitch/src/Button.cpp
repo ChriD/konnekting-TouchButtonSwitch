@@ -10,35 +10,32 @@
 
 Button::Button()
 {
-  this->lastButtonState = 0;
+  this->callback_onButtonAction = NULL;
+  this->callback_onButtonStateChanged = NULL;
+  this->callback_onProximityAlert = NULL;
+  this->id = 0;
   this->lastDebounceTime = 0;
+  this->debouncePeriod = BTN_STD_DEBOUNCE_PERIOD;
   this->lastTaskRunTime = 0;
-
-  this->statePollingEnabled = true;
-
+  this->lastButtonState = 0;
+  this->curButtonState = 0
   this->pressStartTime = 0;
   this->pressEndTime = 0;
   this->confirmTapThreshold = BTN_STD_CONFIRM_TAP_THRESHOLD;
   this->confirmLongPressThreshold = BTN_STD_CONFIRM_LONGPRESS_THRESHOLD;
   this->tapCounter = 0;
   this->runConfirmButtonAction = false;
-
+  this->statePollingEnabled = true;
   this->positioningModeEnabled = false;
   this->multipleTapsEnabled = false;
-
-  this->debouncePeriod = BTN_STD_DEBOUNCE_PERIOD;
-
-  this->callback_onButtonAction = NULL;
-  this->callback_onButtonStateChanged = NULL;
-  this->callback_onProximityAlert = NULL;
-
-  this->allowProximityLevels = true;
+  this->allowProximityLevels = false;
 }
 
 
 Button::~Button()
 {
 }
+
 
 uint16_t Button::getPeriod(uint64_t _lastCallTime, bool _useMicros)
 {
@@ -190,7 +187,6 @@ void Button::buttonStateChanged(uint8_t _state)
         this->callback_onButtonAction(this->id, 21, 1);
       this->tapCounter = 0;
     }
-
 
     // store the end time of the state, but only if it was no long state before
     if(this->tapCounter > 0)
