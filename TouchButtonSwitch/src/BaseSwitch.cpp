@@ -16,6 +16,8 @@ BaseSwitch::BaseSwitch()
   this->mode      = SWITCH_MODE::UNDEFINED;
   this->modeLevel = 0;
 
+  this->lastTaskRunTime = 0;
+
   this->callback_onButtonAction   = NULL;
   this->callback_onProximityAlert = NULL;
   this->callback_onModeChange     = NULL;
@@ -170,6 +172,7 @@ void BaseSwitch::task()
   {
     this->buttons[i]->task();
   }
+  this->lastTaskRunTime = millis();
 }
 
 

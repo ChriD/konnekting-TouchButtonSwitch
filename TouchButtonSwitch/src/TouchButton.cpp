@@ -18,10 +18,12 @@ TouchButton::TouchButton(uint8_t _pin, uint16_t _id) : Button()
 
   // standard calibration values will lead to a 250ms calibration with 25 samples
   // that is good in many cases
-  this->calibrationSampleNumber   = 25;
   this->calibrationSamplePeriod   = 5;
+  this->calibrationSampleNumber   = 25;
   this->resetCalibrationInternals();
 
+  this->baseNoiseLevel            = 0;
+  this->lastSampleValue           = 0;
 
   this->calcTriggerLevel();
 }
@@ -60,7 +62,6 @@ boolean TouchButton::setup()
 
   // create the SAMD touch button instance from adafruit touch library with some standard values
   this->qt = Adafruit_FreeTouch(this->pin, OVERSAMPLE_4, RESISTOR_50K, FREQ_MODE_NONE);
-  //this->qt = Adafruit_FreeTouch(this->pin, OVERSAMPLE_8, RESISTOR_0, FREQ_MODE_NONE);
   if(!this->qt.begin())
     return false;
   return true;

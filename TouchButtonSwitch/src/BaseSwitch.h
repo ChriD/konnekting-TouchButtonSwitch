@@ -53,6 +53,8 @@
       SWITCH_MODE   mode;
       uint16_t      modeLevel;
 
+      uint64_t      lastTaskRunTime ;
+
       CallbackFunction_ButtonAction     callback_onButtonAction;
       CallbackFunction_ProximityAlert   callback_onProximityAlert;
       CallbackFunction_ModeChange       callback_onModeChange;

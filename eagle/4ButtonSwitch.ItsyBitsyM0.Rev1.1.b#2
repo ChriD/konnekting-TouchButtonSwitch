@@ -2919,11 +2919,11 @@ design rules under a new name.</description>
 </element>
 <element name="JP1" library="pinhead+" package="1X14_SMT" value="" x="27.305" y="40.64" rot="R90"/>
 <element name="JP2" library="pinhead+" package="1X14_SMT" value="" x="42.545" y="40.64" rot="R90"/>
-<element name="RRST1" library="resistor" library_urn="urn:adsk.eagle:library:348" package="R1206" package3d_urn="urn:adsk.eagle:package:26062/1" value="10k" x="-5.08" y="-11.43"/>
-<element name="CRST" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C1206" package3d_urn="urn:adsk.eagle:package:23618/2" value="100nF" x="-1.4" y="-36.83">
-<attribute name="SPICEPREFIX" value="C" x="-1.4" y="-36.83" size="1.778" layer="27" display="off"/>
+<element name="RRST1" library="resistor" library_urn="urn:adsk.eagle:library:348" package="R1206" package3d_urn="urn:adsk.eagle:package:26062/1" value="10k" x="48.26" y="57.15" rot="R270"/>
+<element name="CRST" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C1206" package3d_urn="urn:adsk.eagle:package:23618/2" value="100nF" x="81.15" y="60.96">
+<attribute name="SPICEPREFIX" value="C" x="81.15" y="60.96" size="1.778" layer="27" display="off"/>
 </element>
-<element name="RRST2" library="resistor" library_urn="urn:adsk.eagle:library:348" package="R1206" package3d_urn="urn:adsk.eagle:package:26062/1" value="330" x="-5.08" y="-24.13"/>
+<element name="RRST2" library="resistor" library_urn="urn:adsk.eagle:library:348" package="R1206" package3d_urn="urn:adsk.eagle:package:26062/1" value="330" x="58.42" y="53.34" rot="R270"/>
 </elements>
 <signals>
 <signal name="+5V">
@@ -2984,12 +2984,12 @@ design rules under a new name.</description>
 <wire x1="49.9651" y1="53.34" x2="62.865" y2="29.845" width="0" layer="19" extent="1-1"/>
 <wire x1="17.78" y1="55.155" x2="25.785" y2="54.61" width="0" layer="19" extent="1-1"/>
 <wire x1="6.985" y1="40.005" x2="17.78" y2="55.155" width="0" layer="19" extent="1-1"/>
-<wire x1="0" y1="-36.83" x2="17.78" y2="14.695" width="0" layer="19" extent="1-1"/>
+<wire x1="82.55" y1="60.96" x2="17.78" y2="14.695" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="+3V3">
 <contactref element="JP2" pad="13"/>
 <contactref element="RRST1" pad="2"/>
-<wire x1="-3.658" y1="-11.43" x2="41.025" y2="54.61" width="0" layer="19" extent="1-1"/>
+<wire x1="48.26" y1="55.728" x2="41.025" y2="54.61" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="SENS_PROX_1">
 <contactref element="RP1" pad="1"/>
@@ -3151,7 +3151,7 @@ design rules under a new name.</description>
 <wire x1="62.865" y1="40.005" x2="62.865" y2="55.245" width="0.1524" layer="1"/>
 <wire x1="62.865" y1="55.245" x2="60.96" y2="57.15" width="0.1524" layer="1"/>
 <contactref element="RRST2" pad="2"/>
-<wire x1="-3.658" y1="-24.13" x2="62.865" y2="40.005" width="0" layer="19" extent="1-1"/>
+<wire x1="58.42" y1="51.918" x2="62.865" y2="40.005" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="A0">
 <contactref element="JP2" pad="10"/>
@@ -3259,8 +3259,10 @@ design rules under a new name.</description>
 <contactref element="JP2" pad="14"/>
 <contactref element="RRST1" pad="1"/>
 <contactref element="CRST" pad="1"/>
-<wire x1="-6.502" y1="-11.43" x2="44.065" y2="57.15" width="0" layer="19" extent="1-1"/>
-<wire x1="-2.8" y1="-36.83" x2="-6.502" y2="-11.43" width="0" layer="19" extent="1-1"/>
+<contactref element="RRST2" pad="1"/>
+<wire x1="58.42" y1="54.762" x2="79.75" y2="60.96" width="0" layer="19" extent="1-1"/>
+<wire x1="48.26" y1="58.572" x2="58.42" y2="54.762" width="0" layer="19" extent="1-1"/>
+<wire x1="44.065" y1="57.15" x2="48.26" y2="58.572" width="0" layer="19" extent="1-1"/>
 </signal>
 </signals>
 <errors>

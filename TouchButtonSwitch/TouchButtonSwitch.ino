@@ -6,12 +6,11 @@
 */
 
 /*
-  Issues/Todos:   * doesn't proper reboot after programming!
-                        handleMsgRestart
-                        matching IA
-                        SAMD SystemReset
-                  * lightning stuff
+  Issues/Todos:   * lightning stuff
                   * proximity stuff
+                  * 1,4,6 buttons defines
+                  * Standard KNX Button com objects (switching, dimming,...)
+
 */
 
 #include "Arduino.h"
@@ -29,7 +28,7 @@
 
 // for testing purposes without having an active bcu attached we have to skip
 // the knx connection and task codes to test the device. This can be done by setting this define
-//#define BCUDISABLED
+#define BCUDISABLED
 
 // This is the time in miliseconds how long the button should wait after startup/setup to allow touches
 // There has to be a enough time for the user to put the frontplate on the switch before recalibration of
@@ -45,12 +44,17 @@
 // sensors on top and on the button of the device. So we use the appropriate class for that switch
 BaseSwitch    *baseSwitch = new TouchSwitch_4X_V1();
 
-// store the inital boot time (last line of setup method)
-uint64_t      initialBootTime = 0;
+// store the inital boot time (last line of setup method) and some other vars for some initial stuff
+uint64_t  initialBootTime = 0;
+boolean   initialSetupDone        = false;
+boolean   initialCalibrationDone  = false;
+
+// this one states the readiness of the konnekting library
+// it does not reflect the whole readiness of the device!
+boolean   isAppReady = false;
 
 // TODO: do this one into the TouchSwitch lib?
 #define PROG_BUTTON_PIN   10
-
 
 
 // this method will be called whenever the mode on the switch changes
@@ -139,13 +143,10 @@ void setup()
   if(!baseSwitch->setup())
     Debug.println(F("Error initializing Touch Switch"));
 
-  // TODO: craete "Startup Debug" class outside of the switch? A State Shower???
-  // when starting we set the SETUP MODE on the switch with the first _proximityLevel
-  // so in most cases some led will be set to a specific color or one of four led is illuminating
-  // this is a nice to have to go into troublehooting without having a serial debugger online
-  // SETUP MODE 1 is at the very beginning and indicates as power on LED
   baseSwitch->setMode(SWITCH_MODE::SETUP, 1);
 
+  // setup the persistent "flash memory"
+  // this method is outsourced to "SetupFlashMemory.h" file for easy changing
   setupFlashMemory();
 
   // setup the connection to the KNX-BUS
@@ -153,6 +154,7 @@ void setup()
     initKNX();
     initKNXParameters();
   #endif
+
   baseSwitch->setMode(SWITCH_MODE::SETUP, 2);
 
   // setup the prog button interrupt for rising edge
@@ -183,6 +185,21 @@ void initKNXParameters()
   baseSwitch->setButtonParameters(1, button1Parms);
   Debug.println(F("Sensor %u: Mode=%u, LongTouchMode=%u, MultiTouch=%u, "), 1, 0, 0, button1Parms.allowMultiTouch);
 
+  BaseSwitchButtonParms button2Parms;
+  button1Parms.allowMultiTouch = (bool) Konnekting.getUINT8Param(PARAM_button1_multiTouchEnabled);
+  baseSwitch->setButtonParameters(2, button2Parms);
+  Debug.println(F("Sensor %u: Mode=%u, LongTouchMode=%u, MultiTouch=%u, "), 2, 0, 0, button2Parms.allowMultiTouch);
+
+  BaseSwitchButtonParms button3Parms;
+  button1Parms.allowMultiTouch = (bool) Konnekting.getUINT8Param(PARAM_button1_multiTouchEnabled);
+  baseSwitch->setButtonParameters(3, button3Parms);
+  Debug.println(F("Sensor %u: Mode=%u, LongTouchMode=%u, MultiTouch=%u, "), 3, 0, 0, button3Parms.allowMultiTouch);
+
+  BaseSwitchButtonParms button4Parms;
+  button1Parms.allowMultiTouch = (bool) Konnekting.getUINT8Param(PARAM_button1_multiTouchEnabled);
+  baseSwitch->setButtonParameters(4, button4Parms);
+  Debug.println(F("Sensor %u: Mode=%u, LongTouchMode=%u, MultiTouch=%u, "), 4, 0, 0, button4Parms.allowMultiTouch);
+
   Debug.println(F("User settings loaded"));
 }
 
@@ -203,18 +220,15 @@ void progButtonPressed()
   Konnekting.toggleProgState();
 }
 
+
+// the 'progLed' is here for visualization of the programming mode
 void progLed (bool _isPrg){
   if(_isPrg)
-  {
     baseSwitch->setMode(SWITCH_MODE::PROG);
-    //touchSwitch->changeMode(TS_MODE_PROG, false);
-  }
   else
-  {
     baseSwitch->setMode(SWITCH_MODE::NORMAL);
-    //touchSwitch->changeMode(TS_MODE_NORMAL, false);
-  }
 }
+
 
 // this method will be called when a com object is updated
 void knxEvents(byte _index)
@@ -222,15 +236,8 @@ void knxEvents(byte _index)
 }
 
 
-// TODO: @@@
-uint64_t loopSum    = 0;
-uint64_t loopCount  = 0;
-boolean isAppReady = false;
-
-boolean initialSetupDone        = false;
-boolean initialCalibrationDone  = false;
-
-
+// this is a method which is beeing called by the loop and should handle the setuo stuff
+// that has to be done after booting up (like caliration aso...)
 void loopTaskSetup()
 {
 
@@ -292,26 +299,18 @@ void loop()
   // give some info about the average duration of the loop
   #ifdef KDEBUG
     endLoop = micros();
-    loopCount++;
-    loopSum += endLoop - startLoop;
-    if(loopSum > 1000*1000)
-    {
-      //Debug.println(F("Main Loop timing: %uus"), (loopSum/loopCount));
-      loopCount = 0;
-      loopSum   = 0;
-    }
-
     // @@@ proximity debugging:
     if((millis() - lastDebugOutput) > 10)
     {
+      /*
       TouchButton *t1 = (TouchButton*)baseSwitch->getButtonByIndex(0);
       TouchButton *t2 = (TouchButton*)baseSwitch->getButtonByIndex(1);
       TouchButton *tp1 = (TouchButton*)baseSwitch->getButtonByIndex(4);
       TouchButton *tp2 = (TouchButton*)baseSwitch->getButtonByIndex(5);
       Debug.println(F("Proximity: B1: %u        B2: %u        P1: %u        P2: %u"), t1->getLastSampleValue(), t2->getLastSampleValue(), tp1->getLastSampleValue(), tp2->getLastSampleValue());
       lastDebugOutput = millis();
+      */
     }
-
     //if(endLoop - startLoop > 400)
     //  Debug.println(F("ATTENTION: Main Loop exceeds KNX timing requirement! %uus"), (endLoop - startLoop));
   #endif

@@ -12,10 +12,12 @@
 #include "TouchSwitch_4X_V1.h"
 
 
+
+
 TouchSwitch_4X_V1::TouchSwitch_4X_V1() : TouchSwitch()
 {
-  for(int8_t i=0; i<=3; i++)
-    this->ledWorkers[i] = NULL;
+  this->lastPatternRunTime = 0;
+  this->pattern = NULL;
 }
 
 
@@ -38,76 +40,53 @@ void TouchSwitch_4X_V1::initButtons()
   // TODO: Add PRG Button which is a normal "PinButton"
   //this->addButton(new PinButton(TS_4X_V1_BTN1_PIN, TS_4X_V1_BTN1_ID, FALLING));
 
-  // TODO: onlx for version 1
-  pinMode(7, INPUT);
-
-  // TODO: create AddLight() method and do it generic
-  ledWorkers[0] = new LEDWorker(12);
-  ledWorkers[1] = new LEDWorker(13);
-  ledWorkers[2] = new LEDWorker(11);
-  ledWorkers[3] = new LEDWorker(9);
-
-  ledWorkers[0]->setup();
-  ledWorkers[1]->setup();
-  ledWorkers[2]->setup();
-  ledWorkers[3]->setup();
+  // TODO: outsourcing?! LedPatternAnimator. ????
+  this->pattern = new LedPattern_Mono(11);
+  this->pattern->start(myPattern);
 
 }
 
-// TODO: Add general init()?
 
+// TODO: Add general init()?
 void TouchSwitch_4X_V1::setMode(SWITCH_MODE _mode, uint16_t _modeLevel)
 {
   TouchSwitch::setMode(_mode, _modeLevel);
+
   // TODO: update the LED controller mode (visible state of the mode)
   if(_mode == SWITCH_MODE::NORMAL)
   {
-    ledWorkers[0]->fade(500, 25);
-    ledWorkers[1]->fade(500, 25);
-    ledWorkers[2]->fade(500, 25);
-    ledWorkers[3]->fade(500, 25);
+    //LedPatternAnimator.setAnimation(ANIMATION::SHINE)
   }
   if(_mode == SWITCH_MODE::PROG)
   {
-    ledWorkers[0]->blink();
-    ledWorkers[1]->blink();
-    ledWorkers[2]->blink();
-    ledWorkers[3]->blink();
+    //ledAnimator.do(PRG)
   }
   if(_mode == SWITCH_MODE::CALIBRATION)
   {
-    ledWorkers[0]->fade(500, 255);
-    ledWorkers[1]->fade(500, 255);
-    ledWorkers[2]->fade(500, 255);
-    ledWorkers[3]->fade(500, 255);
   }
-   if(_mode == SWITCH_MODE::SETUP)
+  if(_mode == SWITCH_MODE::SETUP)
   {
-    /*
-    ledWorkers[0]->set(0);
-    ledWorkers[1]->set(0);
-    ledWorkers[2]->set(0);
-    ledWorkers[3]->set(0);
-    */
-
-    ledWorkers[_modeLevel-1]->set(25);
+    //ledAnimator.blink()
   }
-
-  ledWorkers[0]->task();
-  ledWorkers[1]->task();
-  ledWorkers[2]->task();
-  ledWorkers[3]->task();
-
 }
+
 
 void TouchSwitch_4X_V1::task()
 {
   TouchSwitch::task();
-  ledWorkers[0]->task();
-  ledWorkers[1]->task();
-  ledWorkers[2]->task();
-  ledWorkers[3]->task();
+
+  if(millis() - this->lastPatternRunTime > 10)
+  {
+    this->pattern->update();
+    this->lastPatternRunTime = millis();
+  }
 }
+
+/* TODO:  * ledTask method
+          * predefined patterns for one led
+          *
+*/
+
 
 
 

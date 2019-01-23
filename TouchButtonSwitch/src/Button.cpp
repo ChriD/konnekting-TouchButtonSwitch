@@ -18,7 +18,7 @@ Button::Button()
   this->debouncePeriod = BTN_STD_DEBOUNCE_PERIOD;
   this->lastTaskRunTime = 0;
   this->lastButtonState = 0;
-  this->curButtonState = 0
+  this->curButtonState = 0;
   this->pressStartTime = 0;
   this->pressEndTime = 0;
   this->confirmTapThreshold = BTN_STD_CONFIRM_TAP_THRESHOLD;
@@ -270,7 +270,7 @@ void Button::task()
     this->lastTaskRunTime = millis();
 
     // only poll the state of the button if its enbaled
-    // if polling is diabled the state has to be provided from an external source. For this the '@@@' has to be used
+    // if polling is disabled the state has to be provided from an external source with the use of thr 'interruptTask' method
     if(this->statePollingEnabled)
     {
       // we do a very simple but for our case effective software debounce, this will be okay for normal buttons and touch as well
