@@ -9546,22 +9546,13 @@ Source: AVX .. aphvc.pdf</description>
 <part name="+3V1" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
 <part name="P+1" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+5V" device=""/>
 <part name="GND1" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
-<part name="RL2" library="resistor" library_urn="urn:adsk.eagle:library:348" deviceset="R-EU_" device="R1206" package3d_urn="urn:adsk.eagle:package:26062/1" value="330E"/>
 <part name="RL1" library="resistor" library_urn="urn:adsk.eagle:library:348" deviceset="R-EU_" device="R1206" package3d_urn="urn:adsk.eagle:package:26062/1" value="330E"/>
-<part name="RL4" library="resistor" library_urn="urn:adsk.eagle:library:348" deviceset="R-EU_" device="R1206" package3d_urn="urn:adsk.eagle:package:26062/1" value="330E"/>
-<part name="RL3" library="resistor" library_urn="urn:adsk.eagle:library:348" deviceset="R-EU_" device="R1206" package3d_urn="urn:adsk.eagle:package:26062/1" value="330E"/>
-<part name="RS3" library="resistor" library_urn="urn:adsk.eagle:library:348" deviceset="R-EU_" device="R1206" package3d_urn="urn:adsk.eagle:package:26062/1" value="1k"/>
-<part name="RS2" library="resistor" library_urn="urn:adsk.eagle:library:348" deviceset="R-EU_" device="R1206" package3d_urn="urn:adsk.eagle:package:26062/1" value="1k"/>
 <part name="RS1" library="resistor" library_urn="urn:adsk.eagle:library:348" deviceset="R-EU_" device="R1206" package3d_urn="urn:adsk.eagle:package:26062/1" value="1k"/>
-<part name="RS4" library="resistor" library_urn="urn:adsk.eagle:library:348" deviceset="R-EU_" device="R1206" package3d_urn="urn:adsk.eagle:package:26062/1" value="1k"/>
 <part name="RP1" library="resistor" library_urn="urn:adsk.eagle:library:348" deviceset="R-EU_" device="R1206" package3d_urn="urn:adsk.eagle:package:26062/1" value="1k"/>
 <part name="RP2" library="resistor" library_urn="urn:adsk.eagle:library:348" deviceset="R-EU_" device="R1206" package3d_urn="urn:adsk.eagle:package:26062/1" value="1k"/>
 <part name="PAD_PRG" library="wirepad" library_urn="urn:adsk.eagle:library:412" deviceset="SMD5" device="" package3d_urn="urn:adsk.eagle:package:30841/1" value="0"/>
 <part name="GND_NRST" library="wirepad" library_urn="urn:adsk.eagle:library:412" deviceset="SMD5" device="" package3d_urn="urn:adsk.eagle:package:30841/1" value="0"/>
 <part name="LED1" library="led" library_urn="urn:adsk.eagle:library:259" deviceset="*P4" device="-BOTTOM" package3d_urn="urn:adsk.eagle:package:15878/1" technology="LW"/>
-<part name="LED2" library="led" library_urn="urn:adsk.eagle:library:259" deviceset="*P4" device="-BOTTOM" package3d_urn="urn:adsk.eagle:package:15878/1" technology="LW"/>
-<part name="LED3" library="led" library_urn="urn:adsk.eagle:library:259" deviceset="*P4" device="-BOTTOM" package3d_urn="urn:adsk.eagle:package:15878/1" technology="LW"/>
-<part name="LED4" library="led" library_urn="urn:adsk.eagle:library:259" deviceset="*P4" device="-BOTTOM" package3d_urn="urn:adsk.eagle:package:15878/1" technology="LW"/>
 <part name="GND_PRG" library="wirepad" library_urn="urn:adsk.eagle:library:412" deviceset="SMD5" device="" package3d_urn="urn:adsk.eagle:package:30841/1" value="0"/>
 <part name="PAD_NRST" library="wirepad" library_urn="urn:adsk.eagle:library:412" deviceset="SMD5" device="" package3d_urn="urn:adsk.eagle:package:30841/1" value="0"/>
 <part name="JP1" library="pinhead+" deviceset="PINHD-1X14" device="1X14_SMT"/>
@@ -9579,7 +9570,7 @@ Source: AVX .. aphvc.pdf</description>
 <plain>
 <text x="44.704" y="67.564" size="1.778" layer="91">SAM12235-ND</text>
 <text x="149.86" y="66.04" size="1.27" layer="91">LEDS
-OSRAM LW P473</text>
+Everlight 23-11/T7D-CQ2R2QY/2A</text>
 <text x="25.4" y="22.86" size="1.778" layer="91">https://www.digikey.com/product-detail/en/molex-llc/0015911282/0015911282-ND/3123842</text>
 </plain>
 <instances>
@@ -9587,22 +9578,13 @@ OSRAM LW P473</text>
 <instance part="+3V1" gate="G$1" x="22.86" y="63.5"/>
 <instance part="P+1" gate="1" x="30.48" y="63.5"/>
 <instance part="GND1" gate="1" x="12.7" y="48.26"/>
-<instance part="RL2" gate="G$1" x="177.8" y="43.18" rot="R180"/>
 <instance part="RL1" gate="G$1" x="177.8" y="55.88" rot="R180"/>
-<instance part="RL4" gate="G$1" x="177.8" y="17.78" rot="R180"/>
-<instance part="RL3" gate="G$1" x="177.8" y="30.48" rot="R180"/>
-<instance part="RS3" gate="G$1" x="106.68" y="-5.08" rot="R90"/>
-<instance part="RS2" gate="G$1" x="99.06" y="-5.08" rot="R90"/>
 <instance part="RS1" gate="G$1" x="91.44" y="-5.08" rot="R90"/>
-<instance part="RS4" gate="G$1" x="83.82" y="-5.08" rot="R90"/>
 <instance part="RP1" gate="G$1" x="76.2" y="-5.08" rot="R90"/>
 <instance part="RP2" gate="G$1" x="68.58" y="-5.08" rot="R90"/>
 <instance part="PAD_PRG" gate="1" x="30.48" y="-7.62" rot="MR90"/>
 <instance part="GND_NRST" gate="1" x="15.24" y="-12.7" rot="MR270"/>
 <instance part="LED1" gate="G$1" x="154.94" y="55.88" rot="R270"/>
-<instance part="LED2" gate="G$1" x="154.94" y="43.18" rot="R270"/>
-<instance part="LED3" gate="G$1" x="154.94" y="30.48" rot="R270"/>
-<instance part="LED4" gate="G$1" x="154.94" y="17.78" rot="R270"/>
 <instance part="GND_PRG" gate="1" x="30.48" y="-12.7" rot="MR270"/>
 <instance part="PAD_NRST" gate="1" x="15.24" y="-7.62" rot="MR90"/>
 <instance part="JP1" gate="A" x="86.36" y="55.88"/>
@@ -9647,18 +9629,9 @@ OSRAM LW P473</text>
 <label x="12.7" y="58.42" size="1.016" layer="95" rot="R90" xref="yes"/>
 </segment>
 <segment>
-<wire x1="149.86" y1="10.16" x2="149.86" y2="17.78" width="0.1524" layer="91"/>
 <label x="149.86" y="10.16" size="1.016" layer="95" rot="R270" xref="yes"/>
 <pinref part="LED1" gate="G$1" pin="C"/>
-<pinref part="LED2" gate="G$1" pin="C"/>
-<wire x1="149.86" y1="17.78" x2="149.86" y2="30.48" width="0.1524" layer="91"/>
-<wire x1="149.86" y1="30.48" x2="149.86" y2="43.18" width="0.1524" layer="91"/>
-<wire x1="149.86" y1="43.18" x2="149.86" y2="55.88" width="0.1524" layer="91"/>
-<junction x="149.86" y="43.18"/>
-<pinref part="LED3" gate="G$1" pin="C"/>
-<junction x="149.86" y="30.48"/>
-<pinref part="LED4" gate="G$1" pin="C"/>
-<junction x="149.86" y="17.78"/>
+<wire x1="149.86" y1="10.16" x2="149.86" y2="55.88" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="GND_NRST" gate="1" pin="P"/>
@@ -9734,27 +9707,6 @@ OSRAM LW P473</text>
 <pinref part="LED1" gate="G$1" pin="A"/>
 </segment>
 </net>
-<net name="N$20" class="0">
-<segment>
-<pinref part="RL2" gate="G$1" pin="2"/>
-<wire x1="172.72" y1="43.18" x2="157.48" y2="43.18" width="0.1524" layer="91"/>
-<pinref part="LED2" gate="G$1" pin="A"/>
-</segment>
-</net>
-<net name="N$21" class="0">
-<segment>
-<pinref part="RL3" gate="G$1" pin="2"/>
-<wire x1="172.72" y1="30.48" x2="157.48" y2="30.48" width="0.1524" layer="91"/>
-<pinref part="LED3" gate="G$1" pin="A"/>
-</segment>
-</net>
-<net name="N$22" class="0">
-<segment>
-<pinref part="RL4" gate="G$1" pin="2"/>
-<wire x1="172.72" y1="17.78" x2="157.48" y2="17.78" width="0.1524" layer="91"/>
-<pinref part="LED4" gate="G$1" pin="A"/>
-</segment>
-</net>
 <net name="SENS_PROX_2" class="0">
 <segment>
 <pinref part="RP2" gate="G$1" pin="1"/>
@@ -9767,27 +9719,6 @@ OSRAM LW P473</text>
 <pinref part="RP1" gate="G$1" pin="1"/>
 <wire x1="76.2" y1="-10.16" x2="76.2" y2="-15.24" width="0.1524" layer="91"/>
 <label x="76.2" y="-15.24" size="1.016" layer="95" rot="R270" xref="yes"/>
-</segment>
-</net>
-<net name="SENS_2" class="0">
-<segment>
-<pinref part="RS2" gate="G$1" pin="1"/>
-<wire x1="99.06" y1="-10.16" x2="99.06" y2="-15.24" width="0.1524" layer="91"/>
-<label x="99.06" y="-15.24" size="1.016" layer="95" rot="R270" xref="yes"/>
-</segment>
-</net>
-<net name="SENS_4" class="0">
-<segment>
-<pinref part="RS4" gate="G$1" pin="1"/>
-<wire x1="83.82" y1="-10.16" x2="83.82" y2="-15.24" width="0.1524" layer="91"/>
-<label x="83.82" y="-15.24" size="1.016" layer="95" rot="R270" xref="yes"/>
-</segment>
-</net>
-<net name="SENS_3" class="0">
-<segment>
-<pinref part="RS3" gate="G$1" pin="1"/>
-<wire x1="106.68" y1="-10.16" x2="106.68" y2="-15.24" width="0.1524" layer="91"/>
-<label x="106.68" y="-15.24" size="1.016" layer="95" rot="R270" xref="yes"/>
 </segment>
 </net>
 <net name="SENS_1" class="0">
@@ -9839,11 +9770,6 @@ OSRAM LW P473</text>
 <wire x1="109.22" y1="48.26" x2="101.6" y2="48.26" width="0.1524" layer="91"/>
 <label x="101.6" y="48.26" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
-<segment>
-<pinref part="RS2" gate="G$1" pin="2"/>
-<wire x1="99.06" y1="0" x2="99.06" y2="2.54" width="0.1524" layer="91"/>
-<label x="99.06" y="2.54" size="1.27" layer="95" rot="R90" xref="yes"/>
-</segment>
 </net>
 <net name="A1" class="0">
 <segment>
@@ -9875,22 +9801,12 @@ OSRAM LW P473</text>
 <wire x1="109.22" y1="60.96" x2="101.6" y2="60.96" width="0.1524" layer="91"/>
 <label x="101.6" y="60.96" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
-<segment>
-<pinref part="RS3" gate="G$1" pin="2"/>
-<wire x1="106.68" y1="0" x2="106.68" y2="2.54" width="0.1524" layer="91"/>
-<label x="106.68" y="2.54" size="1.27" layer="95" rot="R90" xref="yes"/>
-</segment>
 </net>
 <net name="A3" class="0">
 <segment>
 <pinref part="JP2" gate="A" pin="7"/>
 <wire x1="109.22" y1="55.88" x2="101.6" y2="55.88" width="0.1524" layer="91"/>
 <label x="101.6" y="55.88" size="1.27" layer="95" rot="R180" xref="yes"/>
-</segment>
-<segment>
-<pinref part="RS4" gate="G$1" pin="2"/>
-<wire x1="83.82" y1="0" x2="83.82" y2="2.54" width="0.1524" layer="91"/>
-<label x="83.82" y="2.54" size="1.27" layer="95" rot="R90" xref="yes"/>
 </segment>
 </net>
 <net name="A4" class="0">
@@ -9925,11 +9841,6 @@ OSRAM LW P473</text>
 <wire x1="83.82" y1="45.72" x2="76.2" y2="45.72" width="0.1524" layer="91"/>
 <label x="76.2" y="45.72" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
-<segment>
-<pinref part="RL2" gate="G$1" pin="1"/>
-<wire x1="182.88" y1="43.18" x2="190.5" y2="43.18" width="0.1524" layer="91"/>
-<label x="190.5" y="43.18" size="1.016" layer="95" xref="yes"/>
-</segment>
 </net>
 <net name="D12" class="0">
 <segment>
@@ -9948,11 +9859,6 @@ OSRAM LW P473</text>
 <pinref part="JP1" gate="A" pin="9"/>
 <wire x1="83.82" y1="50.8" x2="76.2" y2="50.8" width="0.1524" layer="91"/>
 <label x="76.2" y="50.8" size="1.27" layer="95" rot="R180" xref="yes"/>
-</segment>
-<segment>
-<pinref part="RL3" gate="G$1" pin="1"/>
-<wire x1="182.88" y1="30.48" x2="190.5" y2="30.48" width="0.1524" layer="91"/>
-<label x="190.5" y="30.48" size="1.016" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="D10" class="0">
@@ -9978,11 +9884,6 @@ OSRAM LW P473</text>
 <pinref part="JP1" gate="A" pin="7"/>
 <wire x1="83.82" y1="55.88" x2="76.2" y2="55.88" width="0.1524" layer="91"/>
 <label x="76.2" y="55.88" size="1.27" layer="95" rot="R180" xref="yes"/>
-</segment>
-<segment>
-<pinref part="RL4" gate="G$1" pin="1"/>
-<wire x1="182.88" y1="17.78" x2="190.5" y2="17.78" width="0.1524" layer="91"/>
-<label x="190.5" y="17.78" size="1.016" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="D7" class="0">
@@ -10022,21 +9923,36 @@ OSRAM LW P473</text>
 <label x="30.48" y="7.62" size="1.016" layer="95" rot="R90" xref="yes"/>
 </segment>
 </net>
-<net name="SDI" class="0">
+<net name="MOSI" class="0">
 <segment>
 <pinref part="U1" gate="A" pin="SDI"/>
 <wire x1="66.04" y1="-86.36" x2="48.26" y2="-86.36" width="0.1524" layer="91"/>
 <label x="48.26" y="-86.36" size="1.016" layer="95" rot="R180" xref="yes"/>
 </segment>
+<segment>
+<pinref part="JP2" gate="A" pin="3"/>
+<wire x1="109.22" y1="66.04" x2="101.6" y2="66.04" width="0.1524" layer="91"/>
+<label x="101.6" y="66.04" size="1.016" layer="95" rot="R180" xref="yes"/>
+</segment>
 </net>
-<net name="SDO" class="0">
+<net name="MISO" class="0">
 <segment>
 <pinref part="U1" gate="A" pin="SDO"/>
 <wire x1="101.6" y1="-71.12" x2="116.84" y2="-71.12" width="0.1524" layer="91"/>
 <label x="116.84" y="-71.12" size="1.016" layer="95" xref="yes"/>
 </segment>
+<segment>
+<pinref part="JP2" gate="A" pin="2"/>
+<wire x1="109.22" y1="68.58" x2="101.6" y2="68.58" width="0.1524" layer="91"/>
+<label x="101.6" y="68.58" size="1.016" layer="95" rot="R180" xref="yes"/>
+</segment>
 </net>
-<net name="SCLK" class="0">
+<net name="SCK" class="0">
+<segment>
+<pinref part="JP2" gate="A" pin="4"/>
+<wire x1="109.22" y1="63.5" x2="101.6" y2="63.5" width="0.1524" layer="91"/>
+<label x="101.6" y="63.5" size="1.016" layer="95" rot="R180" xref="yes"/>
+</segment>
 <segment>
 <pinref part="U1" gate="A" pin="SCLK"/>
 <wire x1="66.04" y1="-76.2" x2="48.26" y2="-76.2" width="0.1524" layer="91"/>

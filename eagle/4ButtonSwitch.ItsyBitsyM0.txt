@@ -7,3 +7,5 @@ Rev1.1
 *) Added labels for RST and PRG Button
 *) LED3 will now be supplied by D11 oinstead of D7 (D7 was non PWM on Standard M0) 
 *) Added external RESET circuit.
+*) Added externel PRG circuit
+*) Added ability to solder a Temperature sensor over SPI

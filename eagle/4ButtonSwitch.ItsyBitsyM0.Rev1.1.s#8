@@ -9568,6 +9568,11 @@ OSRAM LW P473</text>
 <wire x1="149.86" y1="-33.02" x2="149.86" y2="-40.64" width="0.1524" layer="91"/>
 <label x="149.86" y="-40.64" size="1.016" layer="95" rot="R270" xref="yes"/>
 </segment>
+<segment>
+<pinref part="CPRG" gate="G$1" pin="2"/>
+<wire x1="203.2" y1="-33.02" x2="203.2" y2="-38.1" width="0.1524" layer="91"/>
+<label x="203.2" y="-38.1" size="1.016" layer="95" rot="R270" xref="yes"/>
+</segment>
 </net>
 <net name="+3V3" class="0">
 <segment>
@@ -9872,13 +9877,6 @@ OSRAM LW P473</text>
 <pinref part="CRST" gate="G$1" pin="1"/>
 <pinref part="RRST2" gate="G$1" pin="1"/>
 <wire x1="142.24" y1="-22.86" x2="149.86" y2="-22.86" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$2" class="0">
-<segment>
-<pinref part="CPRG" gate="G$1" pin="2"/>
-<wire x1="203.2" y1="-33.02" x2="203.2" y2="-38.1" width="0.1524" layer="91"/>
-<label x="203.2" y="-38.1" size="1.016" layer="95" rot="R270" xref="yes"/>
 </segment>
 </net>
 <net name="PRG" class="0">
