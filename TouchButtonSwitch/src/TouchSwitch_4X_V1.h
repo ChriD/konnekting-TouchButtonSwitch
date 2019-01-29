@@ -10,8 +10,8 @@
 
   #include "Arduino.h"
   #include "TouchSwitch.h"
-  //#include "LEDWorker.h"
   #include "vendor/LedPattern_Mono.h"
+  #include "LedPatterns.h"
 
 
   #define TS_4X_V1_BTN1_ID    1
@@ -29,16 +29,6 @@
   #define TS_4X_V1_PROX2_PIN  A4
 
 
-// Define the pattern: A repeating sequence of fading the LED to on
-// in 50 cycles, then fading back to off in 100 cycles.
-const uint8_t myPattern[] = {
-    LedPattern::CMD_SET, 10,
-    LedPattern::CMD_REPEAT, LedPattern::repeatForever,
-        LedPattern::CMD_FADETO,  25, 150,
-        LedPattern::CMD_FADETO, 50, 10,
-    LedPattern::CMD_ENDREPEAT
-};
-
 
   class TouchSwitch_4X_V1 : public TouchSwitch
   {
@@ -51,11 +41,10 @@ const uint8_t myPattern[] = {
       virtual void task();
 
     protected:
-      //LEDWorker   *ledWorkers[4];
-      //AlaLed  leds;
-      //byte    ledPins[3];
-      LedPattern_Mono *pattern;
+      LedPattern_Mono *led1, *led2, *led3, *led4;
       uint64_t lastPatternRunTime;
+
+      virtual void onButtonAction(uint16_t, uint16_t, uint16_t);
 
     private:
 

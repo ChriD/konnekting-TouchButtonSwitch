@@ -101,6 +101,7 @@ void onButtonAction(uint16_t _buttonId, uint16_t _type, uint16_t _value)
   #endif
 
   // write out the KNX Command if enabled
+  // TODO: @@@ be sure we do not "overload the bus"?!?!
   if(KNXEnabled())
     Knx.write(idComObject, _value);
 }
@@ -240,7 +241,6 @@ void knxEvents(byte _index)
 // that has to be done after booting up (like caliration aso...)
 void loopTaskSetup()
 {
-
   #ifndef BCUDISABLED
     if(isAppReady != Konnekting.isReadyForApplication())
     {

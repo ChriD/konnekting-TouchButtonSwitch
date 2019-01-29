@@ -13,11 +13,13 @@
 
 
 
-
 TouchSwitch_4X_V1::TouchSwitch_4X_V1() : TouchSwitch()
 {
   this->lastPatternRunTime = 0;
-  this->pattern = NULL;
+  this->led1 = NULL;
+  this->led2 = NULL;
+  this->led3 = NULL;
+  this->led4 = NULL;
 }
 
 
@@ -41,9 +43,15 @@ void TouchSwitch_4X_V1::initButtons()
   //this->addButton(new PinButton(TS_4X_V1_BTN1_PIN, TS_4X_V1_BTN1_ID, FALLING));
 
   // TODO: outsourcing?! LedPatternAnimator. ????
-  this->pattern = new LedPattern_Mono(11);
-  this->pattern->start(myPattern);
+  this->led1 = new LedPattern_Mono(12);
+  this->led2 = new LedPattern_Mono(13);
+  this->led3 = new LedPattern_Mono(11);
+  this->led4 = new LedPattern_Mono(9);
 
+  analogWrite(12, 0);
+  analogWrite(13, 0);
+  analogWrite(11, 0);
+  analogWrite(9, 0);
 }
 
 
@@ -52,21 +60,70 @@ void TouchSwitch_4X_V1::setMode(SWITCH_MODE _mode, uint16_t _modeLevel)
 {
   TouchSwitch::setMode(_mode, _modeLevel);
 
+  this->led1->stop();
+  this->led2->stop();
+  this->led3->stop();
+  this->led4->stop();
+
   // TODO: update the LED controller mode (visible state of the mode)
   if(_mode == SWITCH_MODE::NORMAL)
   {
-    //LedPatternAnimator.setAnimation(ANIMATION::SHINE)
+    this->led1->start(ledPattern_Normal);
+    this->led2->start(ledPattern_Normal);
+    this->led3->start(ledPattern_Normal);
+    this->led4->start(ledPattern_Normal);
   }
   if(_mode == SWITCH_MODE::PROG)
   {
-    //ledAnimator.do(PRG)
+    this->led1->start(ledPattern_Prog);
+    this->led2->start(ledPattern_Prog);
+    this->led3->start(ledPattern_Prog);
+    this->led4->start(ledPattern_Prog);
   }
   if(_mode == SWITCH_MODE::CALIBRATION)
   {
+    this->led1->start(ledPattern_Calibration);
+    this->led2->start(ledPattern_Calibration);
+    this->led3->start(ledPattern_Calibration);
+    this->led4->start(ledPattern_Calibration);
   }
   if(_mode == SWITCH_MODE::SETUP)
   {
-    //ledAnimator.blink()
+    this->led1->start(ledPattern_Setup);
+    this->led2->start(ledPattern_Setup);
+    this->led3->start(ledPattern_Setup);
+    this->led4->start(ledPattern_Setup);
+  }
+}
+
+
+void TouchSwitch_4X_V1::onButtonAction(uint16_t _buttonId, uint16_t _type, uint16_t _value)
+{
+  TouchSwitch::onButtonAction(_buttonId, _type, _value);
+  if(this->mode == SWITCH_MODE::NORMAL)
+  {
+    // TODO: blink one touch
+
+    if(_buttonId == 1)
+    {
+      this->led1->stop();
+      this->led1->start(ledPattern_Touch);
+    }
+    if(_buttonId == 2)
+    {
+      this->led2->stop();
+      this->led2->start(ledPattern_Touch);
+    }
+    if(_buttonId == 3)
+    {
+      this->led3->stop();
+      this->led3->start(ledPattern_Touch);
+    }
+    if(_buttonId == 4)
+    {
+      this->led4->stop();
+      this->led4->start(ledPattern_Touch);
+    }
   }
 }
 
@@ -77,7 +134,10 @@ void TouchSwitch_4X_V1::task()
 
   if(millis() - this->lastPatternRunTime > 10)
   {
-    this->pattern->update();
+    this->led1->update();
+    this->led2->update();
+    this->led3->update();
+    this->led4->update();
     this->lastPatternRunTime = millis();
   }
 }

@@ -66,9 +66,9 @@
       virtual boolean setupButtons();
       virtual uint16_t addButton(Button*, uint16_t _buttonId = 0);
 
-      void onButtonStateChanged(uint16_t, uint16_t);
-      void onButtonAction(uint16_t, uint16_t, uint16_t);
-      void onProximityAlert(uint16_t, boolean, uint16_t, uint16_t);
+      virtual void onButtonStateChanged(uint16_t, uint16_t);
+      virtual void onButtonAction(uint16_t, uint16_t, uint16_t);
+      virtual void onProximityAlert(uint16_t, boolean, uint16_t, uint16_t);
 
     private:
 
