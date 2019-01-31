@@ -28,6 +28,8 @@
   #define TS_4X_V1_PROX1_PIN  A2
   #define TS_4X_V1_PROX2_PIN  A4
 
+  #define TS_4X_V1_LED_COUNT  4
+
 
 
   class TouchSwitch_4X_V1 : public TouchSwitch

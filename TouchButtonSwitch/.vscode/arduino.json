@@ -1,6 +1,6 @@
 {
     "board": "adafruit:samd:adafruit_itsybitsy_m0",
-    "port": "COM15",
+    "port": "COM13",
     "sketch": "TouchButtonSwitch.ino",
     "output": "../build"
 }

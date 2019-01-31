@@ -142,9 +142,7 @@ void TouchSwitch_4X_V1::task()
   }
 }
 
-/* TODO:  * ledTask method
-          * predefined patterns for one led
-          *
+/* TODO:  * make genric!!!
 */
 
 

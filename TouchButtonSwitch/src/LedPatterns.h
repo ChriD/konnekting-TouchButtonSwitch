@@ -14,12 +14,20 @@ const uint8_t ledPattern_Setup[] = {
 };
 
 
-const uint8_t ledPattern_Prog[] = {
+const uint8_t ledPattern_ProgX[] = {
     LedPattern::CMD_REPEAT, LedPattern::repeatForever,
         LedPattern::CMD_SET, 200,
-        LedPattern::CMD_WAIT, 250,
+        LedPattern::CMD_WAIT, 10,
         LedPattern::CMD_SET, 0,
-        LedPattern::CMD_WAIT, 250,
+        LedPattern::CMD_WAIT, 10,
+    LedPattern::CMD_ENDREPEAT
+};
+
+const uint8_t ledPattern_Prog[] = {
+    LedPattern::CMD_SET, 0,
+    LedPattern::CMD_REPEAT, LedPattern::repeatForever,
+        LedPattern::CMD_FADETO, 10, 150,
+        LedPattern::CMD_FADETO, 10, 0,
     LedPattern::CMD_ENDREPEAT
 };
 

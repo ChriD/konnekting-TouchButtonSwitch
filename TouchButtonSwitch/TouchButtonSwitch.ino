@@ -10,6 +10,7 @@
                   * proximity stuff
                   * 1,4,6 buttons defines
                   * Standard KNX Button com objects (switching, dimming,...)
+                  * using external SPI flash instead of internal
 
 */
 
@@ -219,6 +220,8 @@ void progButtonPressed()
   progButtonDebounceTime = tempTime;
   Debug.println(F("PROG BTN"));
   Konnekting.toggleProgState();
+
+  baseSwitch->setMode(SWITCH_MODE::PROG);
 }
 
 
