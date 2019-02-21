@@ -9830,6 +9830,83 @@ Source: AVX .. aphvc.pdf</description>
 </deviceset>
 </devicesets>
 </library>
+<library name="CSS-0575B-SMT">
+<packages>
+<package name="CUI_CSS-0575B-SMT">
+<wire x1="-0.66" y1="2.5" x2="1.5" y2="2.5" width="0.127" layer="21"/>
+<wire x1="0.583" y1="-2.5" x2="-0.65" y2="-2.5" width="0.127" layer="21"/>
+<wire x1="1.5" y1="2.5" x2="2.5" y2="1.5" width="0.127" layer="21"/>
+<wire x1="-2.5" y1="0.573" x2="-2.5" y2="-0.633" width="0.127" layer="21"/>
+<wire x1="2.5" y1="1.5" x2="2.5" y2="-0.71" width="0.127" layer="21"/>
+<text x="-4.913709375" y="3.35278125" size="1.7848" layer="25">&gt;NAME</text>
+<text x="-4.83208125" y="-5.008490625" size="1.782090625" layer="27">&gt;VALUE</text>
+<wire x1="2.5" y1="1.5" x2="2.5" y2="-2.5" width="0.127" layer="51"/>
+<wire x1="2.5" y1="-2.5" x2="-2.5" y2="-2.5" width="0.127" layer="51"/>
+<wire x1="-2.5" y1="-2.5" x2="-2.5" y2="2.5" width="0.127" layer="51"/>
+<wire x1="-2.5" y1="2.5" x2="1.5" y2="2.5" width="0.127" layer="51"/>
+<wire x1="1.5" y1="2.5" x2="2.5" y2="1.5" width="0.127" layer="51"/>
+<wire x1="-3.2" y1="2.85" x2="3.2" y2="2.85" width="0.05" layer="39"/>
+<wire x1="3.2" y1="2.85" x2="3.2" y2="-2.85" width="0.05" layer="39"/>
+<wire x1="3.2" y1="-2.85" x2="-3.2" y2="-2.85" width="0.05" layer="39"/>
+<wire x1="-3.2" y1="-2.85" x2="-3.2" y2="2.85" width="0.05" layer="39"/>
+<text x="-4.1964" y="-2.03461875" size="0.813846875" layer="21">+</text>
+<text x="3.43941875" y="-2.165559375" size="0.81526875" layer="21">-</text>
+<text x="-4.57873125" y="1.526240625" size="0.610496875" layer="21">NC</text>
+<circle x="-1.8" y="-1.7" radius="0.1" width="0.3" layer="51"/>
+<smd name="3" x="-1.9" y="1.75" dx="2.1" dy="1.7" layer="1"/>
+<smd name="2" x="1.9" y="-1.75" dx="2.1" dy="1.7" layer="1"/>
+<smd name="1" x="-1.9" y="-1.75" dx="2.1" dy="1.7" layer="1"/>
+</package>
+</packages>
+<symbols>
+<symbol name="CSS-0575B-SMT">
+<wire x1="-0.635" y1="1.27" x2="0" y2="1.27" width="0.254" layer="94"/>
+<wire x1="0" y1="1.27" x2="0.635" y2="1.27" width="0.254" layer="94"/>
+<wire x1="0.635" y1="1.27" x2="0.635" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="0.635" y1="-1.27" x2="0" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="0" y1="-1.27" x2="-0.635" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="-0.635" y1="-1.27" x2="-0.635" y2="1.27" width="0.254" layer="94"/>
+<wire x1="0.635" y1="1.27" x2="1.905" y2="3.175" width="0.254" layer="94"/>
+<wire x1="1.905" y1="3.175" x2="1.905" y2="-3.175" width="0.254" layer="94"/>
+<wire x1="1.905" y1="-3.175" x2="0.635" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="0" y1="1.27" x2="0" y2="2.54" width="0.254" layer="94"/>
+<wire x1="0" y1="-1.27" x2="0" y2="-2.54" width="0.254" layer="94"/>
+<text x="-1.907140625" y="1.27143125" size="1.78" layer="94">+</text>
+<text x="-3.8249" y="8.92476875" size="1.78495" layer="95">&gt;NAME</text>
+<text x="-4.33536875" y="-10.4559" size="1.78515" layer="96">&gt;VALUE</text>
+<text x="-1.908190625" y="-3.180309375" size="1.78098125" layer="94">-</text>
+<pin name="P" x="0" y="5.08" visible="off" length="short" direction="pas" rot="R270"/>
+<pin name="N" x="0" y="-5.08" visible="off" length="short" direction="pas" rot="R90"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="CSS-0575B-SMT" prefix="LS">
+<description>5 mm, 3 V, 75 dB, Surface Mount (SMT), Magnetic Audio Transducer Buzzer</description>
+<gates>
+<gate name="G$1" symbol="CSS-0575B-SMT" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="CUI_CSS-0575B-SMT">
+<connects>
+<connect gate="G$1" pin="N" pad="2"/>
+<connect gate="G$1" pin="P" pad="1"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="CUI_PURCHASE_URL" value="https://www.cui.com/product/audio/buzzers/audio-transducers/css-0575b-smt?utm_source=snapeda.com&amp;utm_medium=referral&amp;utm_campaign=snapedaBOM"/>
+<attribute name="DESCRIPTION" value=" AUDIO MAGNETIC XDCR 2-4V SMD "/>
+<attribute name="DIGI-KEY_PART_NUMBER" value="102-2202-1-ND"/>
+<attribute name="DIGI-KEY_PURCHASE_URL" value="https://www.digikey.com/product-detail/en/cui-inc/CSS-0575B-SMT-TR/102-2202-1-ND/2364651?utm_source=snapeda&amp;utm_medium=aggregator&amp;utm_campaign=symbol"/>
+<attribute name="MF" value="CUI Inc."/>
+<attribute name="MP" value="CSS-0575B-SMT-TR"/>
+<attribute name="PACKAGE" value=" CUI Inc."/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -9872,6 +9949,8 @@ Source: AVX .. aphvc.pdf</description>
 <part name="PAD_PRG" library="wirepad" library_urn="urn:adsk.eagle:library:412" deviceset="WIREPAD" device="SMD1,27-254" package3d_urn="urn:adsk.eagle:package:30839/1"/>
 <part name="PAD_GND1" library="wirepad" library_urn="urn:adsk.eagle:library:412" deviceset="WIREPAD" device="SMD1,27-254" package3d_urn="urn:adsk.eagle:package:30839/1"/>
 <part name="PAD_GND2" library="wirepad" library_urn="urn:adsk.eagle:library:412" deviceset="WIREPAD" device="SMD1,27-254" package3d_urn="urn:adsk.eagle:package:30839/1"/>
+<part name="LS1" library="CSS-0575B-SMT" deviceset="CSS-0575B-SMT" device=""/>
+<part name="RLS" library="resistor" library_urn="urn:adsk.eagle:library:348" deviceset="R-EU_" device="R1206" package3d_urn="urn:adsk.eagle:package:26062/1" value="0"/>
 </parts>
 <sheets>
 <sheet>
@@ -9889,7 +9968,12 @@ AM2320
 KY-052
 
 https://www.reichelt.at/entwicklerboards-temperatur-und-feuchtigkeitssensor-debo-temp-hum2-p235487.html?PROVID=2788&amp;gclid=EAIaIQobChMI09qm7oXD4AIVQqMYCh3gOg6PEAkYAiABEgKSsPD_BwE&amp;&amp;r=1</text>
-<text x="88.9" y="-45.72" size="1.778" layer="91">SOUND: PAM8301</text>
+<text x="88.9" y="-45.72" size="1.778" layer="91">SOUND: PAM8301
+CSS-0575B-SMT
+
+or speakers:
+https://www.reichelt.at/kleinlautsprecher-lsf-15m-s-0-5w-8ohm-lsf-15m-s-p145875.html?&amp;trstct=lsbght_sldr::145881
+</text>
 </plain>
 <instances>
 <instance part="SAM12235-ND" gate="A" x="53.34" y="55.88" rot="R90"/>
@@ -9924,6 +10008,8 @@ https://www.reichelt.at/entwicklerboards-temperatur-und-feuchtigkeitssensor-debo
 <instance part="PAD_PRG" gate="G$1" x="30.48" y="-7.62" rot="R90"/>
 <instance part="PAD_GND1" gate="G$1" x="15.24" y="-12.7" rot="R270"/>
 <instance part="PAD_GND2" gate="G$1" x="30.48" y="-12.7" rot="R270"/>
+<instance part="LS1" gate="G$1" x="154.94" y="-88.9"/>
+<instance part="RLS" gate="G$1" x="139.7" y="-83.82" rot="R180"/>
 </instances>
 <busses>
 </busses>
@@ -9990,6 +10076,11 @@ https://www.reichelt.at/entwicklerboards-temperatur-und-feuchtigkeitssensor-debo
 <pinref part="GND" gate="G$1" pin="P"/>
 <wire x1="7.62" y1="-88.9" x2="7.62" y2="-63.5" width="0.1524" layer="91"/>
 <label x="7.62" y="-63.5" size="1.27" layer="95" rot="R90" xref="yes"/>
+</segment>
+<segment>
+<pinref part="LS1" gate="G$1" pin="N"/>
+<wire x1="154.94" y1="-93.98" x2="129.54" y2="-93.98" width="0.1524" layer="91"/>
+<label x="129.54" y="-93.98" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="+3V3" class="0">
@@ -10373,6 +10464,20 @@ https://www.reichelt.at/entwicklerboards-temperatur-und-feuchtigkeitssensor-debo
 <pinref part="RS3" gate="G$1" pin="1"/>
 <wire x1="96.52" y1="-15.24" x2="96.52" y2="-20.32" width="0.1524" layer="91"/>
 <label x="96.52" y="-20.32" size="1.27" layer="95" rot="R270" xref="yes"/>
+</segment>
+</net>
+<net name="N$4" class="0">
+<segment>
+<pinref part="LS1" gate="G$1" pin="P"/>
+<wire x1="154.94" y1="-83.82" x2="144.78" y2="-83.82" width="0.1524" layer="91"/>
+<pinref part="RLS" gate="G$1" pin="1"/>
+</segment>
+</net>
+<net name="N$5" class="0">
+<segment>
+<pinref part="RLS" gate="G$1" pin="2"/>
+<label x="129.54" y="-83.82" size="1.27" layer="95" rot="R180" xref="yes"/>
+<wire x1="129.54" y1="-83.82" x2="134.62" y2="-83.82" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
