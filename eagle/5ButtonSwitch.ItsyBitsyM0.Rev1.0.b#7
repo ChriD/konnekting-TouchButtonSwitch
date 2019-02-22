@@ -3105,6 +3105,7 @@ design rules under a new name.</description>
 <attribute name="PACKAGE" value=" CUI Inc." x="53.975" y="26.67" size="1.778" layer="27" display="off"/>
 <attribute name="VALUE" x="49.14291875" y="21.661509375" size="1.782090625" layer="27"/>
 </element>
+<element name="RLS" library="resistor" library_urn="urn:adsk.eagle:library:348" package="R1206" package3d_urn="urn:adsk.eagle:package:26062/1" value="0" x="-5.08" y="-11.43"/>
 </elements>
 <signals>
 <signal name="+5V">
@@ -3273,8 +3274,6 @@ design rules under a new name.</description>
 </signal>
 <signal name="A0">
 <contactref element="ITSYBITSYM0" pad="10"/>
-<contactref element="LS1" pad="1"/>
-<wire x1="52.075" y1="24.92" x2="44.065" y2="46.355" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="A1">
 <contactref element="ITSYBITSYM0" pad="9"/>
@@ -3531,6 +3530,14 @@ design rules under a new name.</description>
 <wire x1="35.56" y1="46.355" x2="36.347" y2="46.355" width="0.1524" layer="1"/>
 <wire x1="35.306" y1="38.862" x2="35.306" y2="46.101" width="0.1524" layer="1"/>
 </signal>
+<signal name="N$4">
+<contactref element="LS1" pad="1"/>
+<contactref element="RLS" pad="1"/>
+<wire x1="-6.502" y1="-11.43" x2="52.075" y2="24.92" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="N$5">
+<contactref element="RLS" pad="2"/>
+</signal>
 </signals>
 <errors>
 <approved hash="4,1,61b1b8f6746e2521"/>
@@ -3604,7 +3611,6 @@ design rules under a new name.</description>
 <approved hash="4,1,76a7c7830473a598"/>
 <approved hash="4,1,869e505883a4a838"/>
 <approved hash="4,1,7801e87bf919a242"/>
-<approved hash="4,1,22d805a8985bcf84"/>
 </errors>
 </board>
 </drawing>

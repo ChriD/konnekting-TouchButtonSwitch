@@ -10181,6 +10181,11 @@ https://www.reichelt.at/kleinlautsprecher-lsf-15m-s-0-5w-8ohm-lsf-15m-s-p145875.
 <wire x1="109.22" y1="48.26" x2="101.6" y2="48.26" width="0.1524" layer="91"/>
 <label x="101.6" y="48.26" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
+<segment>
+<pinref part="RLS" gate="G$1" pin="2"/>
+<label x="129.54" y="-83.82" size="1.27" layer="95" rot="R180" xref="yes"/>
+<wire x1="129.54" y1="-83.82" x2="134.62" y2="-83.82" width="0.1524" layer="91"/>
+</segment>
 </net>
 <net name="A1" class="0">
 <segment>
@@ -10471,13 +10476,6 @@ https://www.reichelt.at/kleinlautsprecher-lsf-15m-s-0-5w-8ohm-lsf-15m-s-p145875.
 <pinref part="LS1" gate="G$1" pin="P"/>
 <wire x1="154.94" y1="-83.82" x2="144.78" y2="-83.82" width="0.1524" layer="91"/>
 <pinref part="RLS" gate="G$1" pin="1"/>
-</segment>
-</net>
-<net name="N$5" class="0">
-<segment>
-<pinref part="RLS" gate="G$1" pin="2"/>
-<label x="129.54" y="-83.82" size="1.27" layer="95" rot="R180" xref="yes"/>
-<wire x1="129.54" y1="-83.82" x2="134.62" y2="-83.82" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>

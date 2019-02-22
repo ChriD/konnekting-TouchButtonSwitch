@@ -9950,6 +9950,7 @@ Source: AVX .. aphvc.pdf</description>
 <part name="PAD_GND1" library="wirepad" library_urn="urn:adsk.eagle:library:412" deviceset="WIREPAD" device="SMD1,27-254" package3d_urn="urn:adsk.eagle:package:30839/1"/>
 <part name="PAD_GND2" library="wirepad" library_urn="urn:adsk.eagle:library:412" deviceset="WIREPAD" device="SMD1,27-254" package3d_urn="urn:adsk.eagle:package:30839/1"/>
 <part name="LS1" library="CSS-0575B-SMT" deviceset="CSS-0575B-SMT" device=""/>
+<part name="RLS" library="resistor" library_urn="urn:adsk.eagle:library:348" deviceset="R-EU_" device="R1206" package3d_urn="urn:adsk.eagle:package:26062/1" value="0"/>
 </parts>
 <sheets>
 <sheet>
@@ -10008,6 +10009,7 @@ https://www.reichelt.at/kleinlautsprecher-lsf-15m-s-0-5w-8ohm-lsf-15m-s-p145875.
 <instance part="PAD_GND1" gate="G$1" x="15.24" y="-12.7" rot="R270"/>
 <instance part="PAD_GND2" gate="G$1" x="30.48" y="-12.7" rot="R270"/>
 <instance part="LS1" gate="G$1" x="154.94" y="-88.9"/>
+<instance part="RLS" gate="G$1" x="139.7" y="-83.82" rot="R180"/>
 </instances>
 <busses>
 </busses>
@@ -10077,8 +10079,8 @@ https://www.reichelt.at/kleinlautsprecher-lsf-15m-s-0-5w-8ohm-lsf-15m-s-p145875.
 </segment>
 <segment>
 <pinref part="LS1" gate="G$1" pin="N"/>
-<wire x1="154.94" y1="-93.98" x2="139.7" y2="-93.98" width="0.1524" layer="91"/>
-<label x="139.7" y="-93.98" size="1.27" layer="95" rot="R180" xref="yes"/>
+<wire x1="154.94" y1="-93.98" x2="129.54" y2="-93.98" width="0.1524" layer="91"/>
+<label x="129.54" y="-93.98" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="+3V3" class="0">
@@ -10467,7 +10469,15 @@ https://www.reichelt.at/kleinlautsprecher-lsf-15m-s-0-5w-8ohm-lsf-15m-s-p145875.
 <net name="N$4" class="0">
 <segment>
 <pinref part="LS1" gate="G$1" pin="P"/>
-<wire x1="154.94" y1="-83.82" x2="147.32" y2="-83.82" width="0.1524" layer="91"/>
+<wire x1="154.94" y1="-83.82" x2="144.78" y2="-83.82" width="0.1524" layer="91"/>
+<pinref part="RLS" gate="G$1" pin="1"/>
+</segment>
+</net>
+<net name="N$5" class="0">
+<segment>
+<pinref part="RLS" gate="G$1" pin="2"/>
+<label x="129.54" y="-83.82" size="1.27" layer="95" rot="R180" xref="yes"/>
+<wire x1="129.54" y1="-83.82" x2="134.62" y2="-83.82" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>

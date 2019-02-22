@@ -9675,116 +9675,6 @@ Source: AVX .. aphvc.pdf</description>
 </deviceset>
 </devicesets>
 </library>
-<library name="MAX31723MUA_T (1)">
-<packages>
-<package name="SOP65P490X110-8N">
-<wire x1="-1.5494" y1="0.7874" x2="-1.5494" y2="1.143" width="0" layer="51"/>
-<wire x1="-1.5494" y1="1.143" x2="-2.5146" y2="1.143" width="0" layer="51"/>
-<wire x1="-2.5146" y1="1.143" x2="-2.5146" y2="0.7874" width="0" layer="51"/>
-<wire x1="-2.5146" y1="0.7874" x2="-1.5494" y2="0.7874" width="0" layer="51"/>
-<wire x1="-1.5494" y1="0.1524" x2="-1.5494" y2="0.508" width="0" layer="51"/>
-<wire x1="-1.5494" y1="0.508" x2="-2.5146" y2="0.508" width="0" layer="51"/>
-<wire x1="-2.5146" y1="0.508" x2="-2.5146" y2="0.1524" width="0" layer="51"/>
-<wire x1="-2.5146" y1="0.1524" x2="-1.5494" y2="0.1524" width="0" layer="51"/>
-<wire x1="-1.5494" y1="-0.508" x2="-1.5494" y2="-0.1524" width="0" layer="51"/>
-<wire x1="-1.5494" y1="-0.1524" x2="-2.5146" y2="-0.1524" width="0" layer="51"/>
-<wire x1="-2.5146" y1="-0.1524" x2="-2.5146" y2="-0.508" width="0" layer="51"/>
-<wire x1="-2.5146" y1="-0.508" x2="-1.5494" y2="-0.508" width="0" layer="51"/>
-<wire x1="-1.5494" y1="-1.143" x2="-1.5494" y2="-0.7874" width="0" layer="51"/>
-<wire x1="-1.5494" y1="-0.7874" x2="-2.5146" y2="-0.7874" width="0" layer="51"/>
-<wire x1="-2.5146" y1="-0.7874" x2="-2.5146" y2="-1.143" width="0" layer="51"/>
-<wire x1="-2.5146" y1="-1.143" x2="-1.5494" y2="-1.143" width="0" layer="51"/>
-<wire x1="1.5494" y1="-0.7874" x2="1.5494" y2="-1.143" width="0" layer="51"/>
-<wire x1="1.5494" y1="-1.143" x2="2.5146" y2="-1.143" width="0" layer="51"/>
-<wire x1="2.5146" y1="-1.143" x2="2.5146" y2="-0.7874" width="0" layer="51"/>
-<wire x1="2.5146" y1="-0.7874" x2="1.5494" y2="-0.7874" width="0" layer="51"/>
-<wire x1="1.5494" y1="-0.1524" x2="1.5494" y2="-0.508" width="0" layer="51"/>
-<wire x1="1.5494" y1="-0.508" x2="2.5146" y2="-0.508" width="0" layer="51"/>
-<wire x1="2.5146" y1="-0.508" x2="2.5146" y2="-0.1524" width="0" layer="51"/>
-<wire x1="2.5146" y1="-0.1524" x2="1.5494" y2="-0.1524" width="0" layer="51"/>
-<wire x1="1.5494" y1="0.508" x2="1.5494" y2="0.1524" width="0" layer="51"/>
-<wire x1="1.5494" y1="0.1524" x2="2.5146" y2="0.1524" width="0" layer="51"/>
-<wire x1="2.5146" y1="0.1524" x2="2.5146" y2="0.508" width="0" layer="51"/>
-<wire x1="2.5146" y1="0.508" x2="1.5494" y2="0.508" width="0" layer="51"/>
-<wire x1="1.5494" y1="1.143" x2="1.5494" y2="0.7874" width="0" layer="51"/>
-<wire x1="1.5494" y1="0.7874" x2="2.5146" y2="0.7874" width="0" layer="51"/>
-<wire x1="2.5146" y1="0.7874" x2="2.5146" y2="1.143" width="0" layer="51"/>
-<wire x1="2.5146" y1="1.143" x2="1.5494" y2="1.143" width="0" layer="51"/>
-<wire x1="-1.5494" y1="-1.5494" x2="1.5494" y2="-1.5494" width="0" layer="51"/>
-<wire x1="1.5494" y1="-1.5494" x2="1.5494" y2="1.5494" width="0" layer="51"/>
-<wire x1="1.5494" y1="1.5494" x2="0.3048" y2="1.5494" width="0" layer="51"/>
-<wire x1="0.3048" y1="1.5494" x2="-0.3048" y2="1.5494" width="0" layer="51"/>
-<wire x1="-0.3048" y1="1.5494" x2="-1.5494" y2="1.5494" width="0" layer="51"/>
-<wire x1="-1.5494" y1="1.5494" x2="-1.5494" y2="-1.5494" width="0" layer="51"/>
-<wire x1="0.3048" y1="1.5494" x2="-0.3048" y2="1.5494" width="0" layer="51" curve="-180"/>
-<wire x1="-1.5494" y1="-1.5494" x2="1.5494" y2="-1.5494" width="0.1524" layer="21"/>
-<wire x1="1.5494" y1="1.5494" x2="0.3048" y2="1.5494" width="0.1524" layer="21"/>
-<wire x1="0.3048" y1="1.5494" x2="-0.3048" y2="1.5494" width="0.1524" layer="21"/>
-<wire x1="-0.3048" y1="1.5494" x2="-1.5494" y2="1.5494" width="0.1524" layer="21"/>
-<wire x1="0.3048" y1="1.5494" x2="-0.3048" y2="1.5494" width="0.1524" layer="21" curve="-180"/>
-<text x="-3.46071875" y="2.54465" size="2.086609375" layer="25" ratio="10" rot="SR0">&gt;NAME</text>
-<text x="-3.460990625" y="-4.453490625" size="2.08678125" layer="27" ratio="10" rot="SR0">&gt;VALUE</text>
-<smd name="1" x="-2.1336" y="0.9652" dx="1.0668" dy="0.3556" layer="1"/>
-<smd name="2" x="-2.1336" y="0.3302" dx="1.0668" dy="0.3556" layer="1"/>
-<smd name="3" x="-2.1336" y="-0.3302" dx="1.0668" dy="0.3556" layer="1"/>
-<smd name="4" x="-2.1336" y="-0.9652" dx="1.0668" dy="0.3556" layer="1"/>
-<smd name="5" x="2.1336" y="-0.9652" dx="1.0668" dy="0.3556" layer="1"/>
-<smd name="6" x="2.1336" y="-0.3302" dx="1.0668" dy="0.3556" layer="1"/>
-<smd name="7" x="2.1336" y="0.3302" dx="1.0668" dy="0.3556" layer="1"/>
-<smd name="8" x="2.1336" y="0.9652" dx="1.0668" dy="0.3556" layer="1"/>
-</package>
-</packages>
-<symbols>
-<symbol name="MAX31723MUA+T">
-<wire x1="-12.7" y1="12.7" x2="-12.7" y2="-20.32" width="0.4064" layer="94"/>
-<wire x1="-12.7" y1="-20.32" x2="12.7" y2="-20.32" width="0.4064" layer="94"/>
-<wire x1="12.7" y1="-20.32" x2="12.7" y2="12.7" width="0.4064" layer="94"/>
-<wire x1="12.7" y1="12.7" x2="-12.7" y2="12.7" width="0.4064" layer="94"/>
-<text x="-5.643209375" y="15.2773" size="2.08443125" layer="95" ratio="10" rot="SR0">&gt;NAME</text>
-<text x="-7.019790625" y="-24.8236" size="2.085590625" layer="96" ratio="10" rot="SR0">&gt;VALUE</text>
-<pin name="VDD" x="-17.78" y="7.62" length="middle" direction="pwr"/>
-<pin name="SCLK" x="-17.78" y="2.54" length="middle" direction="in"/>
-<pin name="CE" x="-17.78" y="-2.54" length="middle" direction="in"/>
-<pin name="SDI" x="-17.78" y="-7.62" length="middle" direction="in"/>
-<pin name="SERMODE" x="-17.78" y="-10.16" length="middle" direction="in"/>
-<pin name="GND" x="-17.78" y="-15.24" length="middle" direction="pas"/>
-<pin name="SDO" x="17.78" y="7.62" length="middle" direction="out" rot="R180"/>
-<pin name="~TOUT" x="17.78" y="5.08" length="middle" direction="out" rot="R180"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="MAX31723MUA+T" prefix="U">
-<description>Digital Thermometers and Thermostats with SPI/3-Wire Interface</description>
-<gates>
-<gate name="A" symbol="MAX31723MUA+T" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="SOP65P490X110-8N">
-<connects>
-<connect gate="A" pin="CE" pad="2"/>
-<connect gate="A" pin="GND" pad="4"/>
-<connect gate="A" pin="SCLK" pad="3"/>
-<connect gate="A" pin="SDI" pad="6"/>
-<connect gate="A" pin="SDO" pad="5"/>
-<connect gate="A" pin="SERMODE" pad="7"/>
-<connect gate="A" pin="VDD" pad="8"/>
-<connect gate="A" pin="~TOUT" pad="1"/>
-</connects>
-<technologies>
-<technology name="">
-<attribute name="AVAILABILITY" value="Unavailable"/>
-<attribute name="DESCRIPTION" value=" Thermostat Â±2Â°C Digital SMD 8-Pin uMAX T/R "/>
-<attribute name="MF" value="Maxim Integrated"/>
-<attribute name="MP" value="MAX31723MUA+T"/>
-<attribute name="PACKAGE" value="MSOP-8 Maxim Integrated"/>
-<attribute name="PRICE" value="None"/>
-</technology>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 <library name="ChriD_TouchSwitch">
 <packages>
 <package name="PLCC4R_EX">
@@ -9929,7 +9819,6 @@ Source: AVX .. aphvc.pdf</description>
 <part name="RPRG1" library="resistor" library_urn="urn:adsk.eagle:library:348" deviceset="R-EU_" device="R1206" package3d_urn="urn:adsk.eagle:package:26062/1" value="10k"/>
 <part name="CPRG" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C1206" package3d_urn="urn:adsk.eagle:package:23618/2" value="100nF"/>
 <part name="RPRG2" library="resistor" library_urn="urn:adsk.eagle:library:348" deviceset="R-EU_" device="R1206" package3d_urn="urn:adsk.eagle:package:26062/1" value="330E"/>
-<part name="U1" library="MAX31723MUA_T (1)" deviceset="MAX31723MUA+T" device=""/>
 <part name="RS3" library="resistor" library_urn="urn:adsk.eagle:library:348" deviceset="R-EU_" device="R1206" package3d_urn="urn:adsk.eagle:package:26062/1" value="1k"/>
 <part name="RS2" library="resistor" library_urn="urn:adsk.eagle:library:348" deviceset="R-EU_" device="R1206" package3d_urn="urn:adsk.eagle:package:26062/1" value="1k"/>
 <part name="RS1" library="resistor" library_urn="urn:adsk.eagle:library:348" deviceset="R-EU_" device="R1206" package3d_urn="urn:adsk.eagle:package:26062/1" value="1k"/>
@@ -9988,7 +9877,6 @@ https://www.reichelt.at/kleinlautsprecher-lsf-15m-s-0-5w-8ohm-lsf-15m-s-p145875.
 <instance part="RPRG1" gate="G$1" x="203.2" y="-12.7" rot="R90"/>
 <instance part="CPRG" gate="G$1" x="203.2" y="-27.94"/>
 <instance part="RPRG2" gate="G$1" x="190.5" y="-22.86" rot="R180"/>
-<instance part="U1" gate="A" x="83.82" y="-78.74"/>
 <instance part="RS3" gate="G$1" x="96.52" y="-10.16" rot="R90"/>
 <instance part="RS2" gate="G$1" x="88.9" y="-10.16" rot="R90"/>
 <instance part="RS1" gate="G$1" x="81.28" y="-10.16" rot="R90"/>
@@ -10068,11 +9956,6 @@ https://www.reichelt.at/kleinlautsprecher-lsf-15m-s-0-5w-8ohm-lsf-15m-s-p145875.
 <label x="203.2" y="-38.1" size="1.016" layer="95" rot="R270" xref="yes"/>
 </segment>
 <segment>
-<pinref part="U1" gate="A" pin="GND"/>
-<wire x1="66.04" y1="-93.98" x2="55.88" y2="-93.98" width="0.1524" layer="91"/>
-<label x="55.88" y="-93.98" size="1.016" layer="95" rot="R180" xref="yes"/>
-</segment>
-<segment>
 <pinref part="GND" gate="G$1" pin="P"/>
 <wire x1="7.62" y1="-88.9" x2="7.62" y2="-63.5" width="0.1524" layer="91"/>
 <label x="7.62" y="-63.5" size="1.27" layer="95" rot="R90" xref="yes"/>
@@ -10103,20 +9986,6 @@ https://www.reichelt.at/kleinlautsprecher-lsf-15m-s-0-5w-8ohm-lsf-15m-s-p145875.
 <pinref part="RPRG1" gate="G$1" pin="2"/>
 <wire x1="203.2" y1="-7.62" x2="203.2" y2="-2.54" width="0.1524" layer="91"/>
 <label x="203.2" y="-2.54" size="1.016" layer="95" rot="R90" xref="yes"/>
-</segment>
-<segment>
-<pinref part="U1" gate="A" pin="CE"/>
-<wire x1="66.04" y1="-81.28" x2="55.88" y2="-81.28" width="0.1524" layer="91"/>
-<pinref part="U1" gate="A" pin="VDD"/>
-<wire x1="66.04" y1="-71.12" x2="55.88" y2="-71.12" width="0.1524" layer="91"/>
-<wire x1="55.88" y1="-71.12" x2="55.88" y2="-81.28" width="0.1524" layer="91"/>
-<wire x1="55.88" y1="-71.12" x2="55.88" y2="-55.88" width="0.1524" layer="91"/>
-<junction x="55.88" y="-71.12"/>
-<pinref part="U1" gate="A" pin="SERMODE"/>
-<wire x1="55.88" y1="-81.28" x2="55.88" y2="-88.9" width="0.1524" layer="91"/>
-<wire x1="55.88" y1="-88.9" x2="66.04" y2="-88.9" width="0.1524" layer="91"/>
-<junction x="55.88" y="-81.28"/>
-<label x="55.88" y="-55.88" size="1.016" layer="95" rot="R90" xref="yes"/>
 </segment>
 <segment>
 <pinref part="U$4" gate="G$1" pin="+"/>
@@ -10381,22 +10250,12 @@ https://www.reichelt.at/kleinlautsprecher-lsf-15m-s-0-5w-8ohm-lsf-15m-s-p145875.
 </net>
 <net name="MOSI" class="0">
 <segment>
-<pinref part="U1" gate="A" pin="SDI"/>
-<wire x1="66.04" y1="-86.36" x2="48.26" y2="-86.36" width="0.1524" layer="91"/>
-<label x="48.26" y="-86.36" size="1.016" layer="95" rot="R180" xref="yes"/>
-</segment>
-<segment>
 <pinref part="ITSYBITSYM0" gate="A" pin="3"/>
 <wire x1="109.22" y1="66.04" x2="101.6" y2="66.04" width="0.1524" layer="91"/>
 <label x="101.6" y="66.04" size="1.016" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="MISO" class="0">
-<segment>
-<pinref part="U1" gate="A" pin="SDO"/>
-<wire x1="101.6" y1="-71.12" x2="116.84" y2="-71.12" width="0.1524" layer="91"/>
-<label x="116.84" y="-71.12" size="1.016" layer="95" xref="yes"/>
-</segment>
 <segment>
 <pinref part="ITSYBITSYM0" gate="A" pin="2"/>
 <wire x1="109.22" y1="68.58" x2="101.6" y2="68.58" width="0.1524" layer="91"/>
@@ -10408,11 +10267,6 @@ https://www.reichelt.at/kleinlautsprecher-lsf-15m-s-0-5w-8ohm-lsf-15m-s-p145875.
 <pinref part="ITSYBITSYM0" gate="A" pin="4"/>
 <wire x1="109.22" y1="63.5" x2="101.6" y2="63.5" width="0.1524" layer="91"/>
 <label x="101.6" y="63.5" size="1.016" layer="95" rot="R180" xref="yes"/>
-</segment>
-<segment>
-<pinref part="U1" gate="A" pin="SCLK"/>
-<wire x1="66.04" y1="-76.2" x2="48.26" y2="-76.2" width="0.1524" layer="91"/>
-<label x="48.26" y="-76.2" size="1.016" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="N$1" class="0">

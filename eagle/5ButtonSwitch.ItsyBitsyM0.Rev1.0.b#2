@@ -3180,10 +3180,14 @@ design rules under a new name.</description>
 <via x="40.132" y="10.668" extent="1-16" drill="0.35"/>
 <wire x1="40.132" y1="10.668" x2="40.894" y2="11.43" width="0.3048" layer="16"/>
 <wire x1="40.894" y1="11.43" x2="43.815" y2="11.43" width="0.3048" layer="16"/>
-<wire x1="56.1086" y1="16.8402" x2="56.896" y2="17.6276" width="0.3048" layer="1"/>
-<wire x1="56.896" y1="17.6276" x2="56.896" y2="17.78" width="0.3048" layer="1"/>
-<via x="56.896" y="17.78" extent="1-16" drill="0.35"/>
 <contactref element="LS1" pad="2"/>
+<wire x1="57.145" y1="24.92" x2="59.591" y2="24.92" width="0.3048" layer="1"/>
+<via x="59.817" y="30.353" extent="1-16" drill="0.35"/>
+<wire x1="60.373" y1="25.702" x2="60.373" y2="29.797" width="0.3048" layer="1"/>
+<wire x1="60.373" y1="29.797" x2="59.817" y2="30.353" width="0.3048" layer="1"/>
+<wire x1="59.591" y1="24.92" x2="60.373" y2="25.702" width="0.3048" layer="1"/>
+<wire x1="56.1086" y1="16.8402" x2="57.145" y2="17.8766" width="0.3048" layer="1"/>
+<wire x1="57.145" y1="17.8766" x2="57.145" y2="24.92" width="0.3048" layer="1"/>
 </signal>
 <signal name="+3V3">
 <contactref element="ITSYBITSYM0" pad="13"/>

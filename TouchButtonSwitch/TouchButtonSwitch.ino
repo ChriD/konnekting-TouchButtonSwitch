@@ -19,6 +19,7 @@
 #include "KonnektingDevice.h"
 #include "TouchButtonSwitch.h"
 #include "src/TouchSwitch_4X_V1.h"
+//#include "src/TouchSwitch_1X_V1.h"
 
 
 // simple version definition for the library
@@ -44,6 +45,7 @@
 // so our touch switch device is the TouchSwitch_CODENAME_4X_V1 switch which has 4 touch buttons and 2 proximity
 // sensors on top and on the button of the device. So we use the appropriate class for that switch
 BaseSwitch    *baseSwitch = new TouchSwitch_4X_V1();
+//BaseSwitch    *baseSwitch = new TouchSwitch_1X_V1();
 
 // store the inital boot time (last line of setup method) and some other vars for some initial stuff
 uint64_t  initialBootTime = 0;

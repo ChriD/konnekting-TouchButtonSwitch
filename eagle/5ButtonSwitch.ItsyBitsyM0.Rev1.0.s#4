@@ -9968,7 +9968,11 @@ KY-052
 
 https://www.reichelt.at/entwicklerboards-temperatur-und-feuchtigkeitssensor-debo-temp-hum2-p235487.html?PROVID=2788&amp;gclid=EAIaIQobChMI09qm7oXD4AIVQqMYCh3gOg6PEAkYAiABEgKSsPD_BwE&amp;&amp;r=1</text>
 <text x="88.9" y="-45.72" size="1.778" layer="91">SOUND: PAM8301
-CSS-0575B-SMT</text>
+CSS-0575B-SMT
+
+or speakers:
+https://www.reichelt.at/kleinlautsprecher-lsf-15m-s-0-5w-8ohm-lsf-15m-s-p145875.html?&amp;trstct=lsbght_sldr::145881
+</text>
 </plain>
 <instances>
 <instance part="SAM12235-ND" gate="A" x="53.34" y="55.88" rot="R90"/>

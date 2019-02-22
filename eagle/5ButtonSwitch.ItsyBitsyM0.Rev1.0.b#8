@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="50" unitdist="mil" unit="inch" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="inch"/>
+<grid distance="50" unitdist="mil" unit="mm" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="mm"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -3273,13 +3273,6 @@ design rules under a new name.</description>
 </signal>
 <signal name="A0">
 <contactref element="ITSYBITSYM0" pad="10"/>
-<contactref element="LS1" pad="1"/>
-<wire x1="44.065" y1="46.355" x2="45.847" y2="46.355" width="0.3048" layer="1"/>
-<wire x1="45.847" y1="46.355" x2="49.53" y2="42.672" width="0.3048" layer="1"/>
-<wire x1="49.53" y1="25.527" x2="50.165" y2="24.892" width="0.3048" layer="1"/>
-<wire x1="50.165" y1="24.892" x2="50.193" y2="24.92" width="0.3048" layer="1"/>
-<wire x1="50.193" y1="24.92" x2="52.075" y2="24.92" width="0.3048" layer="1"/>
-<wire x1="49.53" y1="42.672" x2="49.53" y2="25.527" width="0.3048" layer="1"/>
 </signal>
 <signal name="A1">
 <contactref element="ITSYBITSYM0" pad="9"/>
@@ -3535,6 +3528,9 @@ design rules under a new name.</description>
 <wire x1="35.306" y1="46.101" x2="35.56" y2="46.355" width="0.1524" layer="1"/>
 <wire x1="35.56" y1="46.355" x2="36.347" y2="46.355" width="0.1524" layer="1"/>
 <wire x1="35.306" y1="38.862" x2="35.306" y2="46.101" width="0.1524" layer="1"/>
+</signal>
+<signal name="N$4">
+<contactref element="LS1" pad="1"/>
 </signal>
 </signals>
 <errors>
