@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="50" unitdist="mil" unit="mm" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="mm"/>
+<grid distance="50" unitdist="mil" unit="inch" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -328,16 +328,10 @@
 <wire x1="23.495" y1="38.608" x2="23.495" y2="29.845" width="0.1524" layer="25"/>
 <wire x1="17.145" y1="38.608" x2="23.495" y2="38.608" width="0.1524" layer="25"/>
 <wire x1="10.16" y1="14.478" x2="21.59" y2="14.478" width="0.1524" layer="25"/>
-<wire x1="48.26" y1="18.415" x2="59.69" y2="18.415" width="0.1524" layer="21"/>
-<wire x1="48.26" y1="18.415" x2="48.26" y2="10.16" width="0.1524" layer="21"/>
-<wire x1="59.69" y1="18.415" x2="59.69" y2="10.16" width="0.1524" layer="21"/>
-<wire x1="59.69" y1="10.16" x2="48.26" y2="10.16" width="0.1524" layer="21"/>
-<wire x1="48.26" y1="13.208" x2="59.69" y2="13.208" width="0.1524" layer="25"/>
-<text x="50.419" y="11.176" size="1.016" layer="21">MAX31723</text>
-<wire x1="48.26" y1="29.845" x2="59.69" y2="29.845" width="0.1524" layer="21"/>
-<wire x1="48.26" y1="29.845" x2="48.26" y2="20.955" width="0.1524" layer="21"/>
+<wire x1="46.99" y1="29.845" x2="59.69" y2="29.845" width="0.1524" layer="21"/>
+<wire x1="46.99" y1="29.845" x2="46.99" y2="20.955" width="0.1524" layer="21"/>
 <wire x1="59.69" y1="29.845" x2="59.69" y2="20.955" width="0.1524" layer="21"/>
-<wire x1="59.69" y1="20.955" x2="48.26" y2="20.955" width="0.1524" layer="21"/>
+<wire x1="59.69" y1="20.955" x2="46.99" y2="20.955" width="0.1524" layer="21"/>
 <wire x1="48.26" y1="23.368" x2="59.69" y2="23.368" width="0.1524" layer="25"/>
 <text x="51.054" y="21.59" size="1.016" layer="21">SPEAKER</text>
 <wire x1="31.75" y1="43.18" x2="38.1" y2="43.18" width="0.1524" layer="25"/>
@@ -2692,66 +2686,6 @@ Source: http://www.vishay.com/docs/20008/dcrcw.pdf</description>
 </package>
 </packages>
 </library>
-<library name="MAX31723MUA_T (1)">
-<packages>
-<package name="SOP65P490X110-8N">
-<wire x1="-1.5494" y1="0.7874" x2="-1.5494" y2="1.143" width="0" layer="51"/>
-<wire x1="-1.5494" y1="1.143" x2="-2.5146" y2="1.143" width="0" layer="51"/>
-<wire x1="-2.5146" y1="1.143" x2="-2.5146" y2="0.7874" width="0" layer="51"/>
-<wire x1="-2.5146" y1="0.7874" x2="-1.5494" y2="0.7874" width="0" layer="51"/>
-<wire x1="-1.5494" y1="0.1524" x2="-1.5494" y2="0.508" width="0" layer="51"/>
-<wire x1="-1.5494" y1="0.508" x2="-2.5146" y2="0.508" width="0" layer="51"/>
-<wire x1="-2.5146" y1="0.508" x2="-2.5146" y2="0.1524" width="0" layer="51"/>
-<wire x1="-2.5146" y1="0.1524" x2="-1.5494" y2="0.1524" width="0" layer="51"/>
-<wire x1="-1.5494" y1="-0.508" x2="-1.5494" y2="-0.1524" width="0" layer="51"/>
-<wire x1="-1.5494" y1="-0.1524" x2="-2.5146" y2="-0.1524" width="0" layer="51"/>
-<wire x1="-2.5146" y1="-0.1524" x2="-2.5146" y2="-0.508" width="0" layer="51"/>
-<wire x1="-2.5146" y1="-0.508" x2="-1.5494" y2="-0.508" width="0" layer="51"/>
-<wire x1="-1.5494" y1="-1.143" x2="-1.5494" y2="-0.7874" width="0" layer="51"/>
-<wire x1="-1.5494" y1="-0.7874" x2="-2.5146" y2="-0.7874" width="0" layer="51"/>
-<wire x1="-2.5146" y1="-0.7874" x2="-2.5146" y2="-1.143" width="0" layer="51"/>
-<wire x1="-2.5146" y1="-1.143" x2="-1.5494" y2="-1.143" width="0" layer="51"/>
-<wire x1="1.5494" y1="-0.7874" x2="1.5494" y2="-1.143" width="0" layer="51"/>
-<wire x1="1.5494" y1="-1.143" x2="2.5146" y2="-1.143" width="0" layer="51"/>
-<wire x1="2.5146" y1="-1.143" x2="2.5146" y2="-0.7874" width="0" layer="51"/>
-<wire x1="2.5146" y1="-0.7874" x2="1.5494" y2="-0.7874" width="0" layer="51"/>
-<wire x1="1.5494" y1="-0.1524" x2="1.5494" y2="-0.508" width="0" layer="51"/>
-<wire x1="1.5494" y1="-0.508" x2="2.5146" y2="-0.508" width="0" layer="51"/>
-<wire x1="2.5146" y1="-0.508" x2="2.5146" y2="-0.1524" width="0" layer="51"/>
-<wire x1="2.5146" y1="-0.1524" x2="1.5494" y2="-0.1524" width="0" layer="51"/>
-<wire x1="1.5494" y1="0.508" x2="1.5494" y2="0.1524" width="0" layer="51"/>
-<wire x1="1.5494" y1="0.1524" x2="2.5146" y2="0.1524" width="0" layer="51"/>
-<wire x1="2.5146" y1="0.1524" x2="2.5146" y2="0.508" width="0" layer="51"/>
-<wire x1="2.5146" y1="0.508" x2="1.5494" y2="0.508" width="0" layer="51"/>
-<wire x1="1.5494" y1="1.143" x2="1.5494" y2="0.7874" width="0" layer="51"/>
-<wire x1="1.5494" y1="0.7874" x2="2.5146" y2="0.7874" width="0" layer="51"/>
-<wire x1="2.5146" y1="0.7874" x2="2.5146" y2="1.143" width="0" layer="51"/>
-<wire x1="2.5146" y1="1.143" x2="1.5494" y2="1.143" width="0" layer="51"/>
-<wire x1="-1.5494" y1="-1.5494" x2="1.5494" y2="-1.5494" width="0" layer="51"/>
-<wire x1="1.5494" y1="-1.5494" x2="1.5494" y2="1.5494" width="0" layer="51"/>
-<wire x1="1.5494" y1="1.5494" x2="0.3048" y2="1.5494" width="0" layer="51"/>
-<wire x1="0.3048" y1="1.5494" x2="-0.3048" y2="1.5494" width="0" layer="51"/>
-<wire x1="-0.3048" y1="1.5494" x2="-1.5494" y2="1.5494" width="0" layer="51"/>
-<wire x1="-1.5494" y1="1.5494" x2="-1.5494" y2="-1.5494" width="0" layer="51"/>
-<wire x1="0.3048" y1="1.5494" x2="-0.3048" y2="1.5494" width="0" layer="51" curve="-180"/>
-<wire x1="-1.5494" y1="-1.5494" x2="1.5494" y2="-1.5494" width="0.1524" layer="21"/>
-<wire x1="1.5494" y1="1.5494" x2="0.3048" y2="1.5494" width="0.1524" layer="21"/>
-<wire x1="0.3048" y1="1.5494" x2="-0.3048" y2="1.5494" width="0.1524" layer="21"/>
-<wire x1="-0.3048" y1="1.5494" x2="-1.5494" y2="1.5494" width="0.1524" layer="21"/>
-<wire x1="0.3048" y1="1.5494" x2="-0.3048" y2="1.5494" width="0.1524" layer="21" curve="-180"/>
-<text x="-3.46071875" y="2.54465" size="2.086609375" layer="25" ratio="10" rot="SR0">&gt;NAME</text>
-<text x="-3.460990625" y="-4.453490625" size="2.08678125" layer="27" ratio="10" rot="SR0">&gt;VALUE</text>
-<smd name="1" x="-2.1336" y="0.9652" dx="1.0668" dy="0.3556" layer="1"/>
-<smd name="2" x="-2.1336" y="0.3302" dx="1.0668" dy="0.3556" layer="1"/>
-<smd name="3" x="-2.1336" y="-0.3302" dx="1.0668" dy="0.3556" layer="1"/>
-<smd name="4" x="-2.1336" y="-0.9652" dx="1.0668" dy="0.3556" layer="1"/>
-<smd name="5" x="2.1336" y="-0.9652" dx="1.0668" dy="0.3556" layer="1"/>
-<smd name="6" x="2.1336" y="-0.3302" dx="1.0668" dy="0.3556" layer="1"/>
-<smd name="7" x="2.1336" y="0.3302" dx="1.0668" dy="0.3556" layer="1"/>
-<smd name="8" x="2.1336" y="0.9652" dx="1.0668" dy="0.3556" layer="1"/>
-</package>
-</packages>
-</library>
 <library name="ChriD_TouchSwitch">
 <packages>
 <package name="PLCC4R_EX">
@@ -3017,15 +2951,6 @@ design rules under a new name.</description>
 <attribute name="NAME" x="12.065" y="52.705" size="1.016" layer="25" rot="R270"/>
 <attribute name="VALUE" x="10.16" y="57.15" size="1.27" layer="27" rot="R270"/>
 </element>
-<element name="U1" library="MAX31723MUA_T (1)" package="SOP65P490X110-8N" value="MAX31723MUA+T" x="53.975" y="15.875" smashed="yes" rot="R180">
-<attribute name="AVAILABILITY" value="Unavailable" x="53.975" y="15.875" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="DESCRIPTION" value=" Thermostat Â±2Â°C Digital SMD 8-Pin uMAX T/R " x="53.975" y="15.875" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MF" value="Maxim Integrated" x="53.975" y="15.875" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MP" value="MAX31723MUA+T" x="53.975" y="15.875" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="PACKAGE" value="MSOP-8 Maxim Integrated" x="53.975" y="15.875" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="PRICE" value="None" x="53.975" y="15.875" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="VALUE" x="57.435990625" y="20.328490625" size="2.08678125" layer="27" ratio="10" rot="SR180"/>
-</element>
 <element name="RS3" library="resistor" library_urn="urn:adsk.eagle:library:348" package="R1206" package3d_urn="urn:adsk.eagle:package:26062/1" value="1k" x="49.53" y="33.02" smashed="yes" rot="R180">
 <attribute name="NAME" x="50.673" y="31.75" size="1.016" layer="25" rot="R180"/>
 <attribute name="VALUE" x="50.8" y="35.56" size="1.27" layer="27" rot="R180"/>
@@ -3095,17 +3020,20 @@ design rules under a new name.</description>
 <element name="PAD_GND2" library="wirepad" library_urn="urn:adsk.eagle:library:412" package="SMD1,27-2,54" package3d_urn="urn:adsk.eagle:package:30839/1" value="WIREPADSMD1,27-254" x="51.435" y="48.26" smashed="yes" rot="MR90">
 <attribute name="VALUE" x="51.435" y="48.26" size="0.0254" layer="28" rot="MR90"/>
 </element>
-<element name="LS1" library="CSS-0575B-SMT" package="CUI_CSS-0575B-SMT" value="CSS-0575B-SMT" x="53.975" y="26.67" smashed="yes">
-<attribute name="CUI_PURCHASE_URL" value="https://www.cui.com/product/audio/buzzers/audio-transducers/css-0575b-smt?utm_source=snapeda.com&amp;utm_medium=referral&amp;utm_campaign=snapedaBOM" x="53.975" y="26.67" size="1.778" layer="27" display="off"/>
-<attribute name="DESCRIPTION" value=" AUDIO MAGNETIC XDCR 2-4V SMD " x="53.975" y="26.67" size="1.778" layer="27" display="off"/>
-<attribute name="DIGI-KEY_PART_NUMBER" value="102-2202-1-ND" x="53.975" y="26.67" size="1.778" layer="27" display="off"/>
-<attribute name="DIGI-KEY_PURCHASE_URL" value="https://www.digikey.com/product-detail/en/cui-inc/CSS-0575B-SMT-TR/102-2202-1-ND/2364651?utm_source=snapeda&amp;utm_medium=aggregator&amp;utm_campaign=symbol" x="53.975" y="26.67" size="1.778" layer="27" display="off"/>
-<attribute name="MF" value="CUI Inc." x="53.975" y="26.67" size="1.778" layer="27" display="off"/>
-<attribute name="MP" value="CSS-0575B-SMT-TR" x="53.975" y="26.67" size="1.778" layer="27" display="off"/>
-<attribute name="PACKAGE" value=" CUI Inc." x="53.975" y="26.67" size="1.778" layer="27" display="off"/>
-<attribute name="VALUE" x="49.14291875" y="21.661509375" size="1.782090625" layer="27"/>
+<element name="LS1" library="CSS-0575B-SMT" package="CUI_CSS-0575B-SMT" value="CSS-0575B-SMT" x="55.245" y="26.67" smashed="yes">
+<attribute name="CUI_PURCHASE_URL" value="https://www.cui.com/product/audio/buzzers/audio-transducers/css-0575b-smt?utm_source=snapeda.com&amp;utm_medium=referral&amp;utm_campaign=snapedaBOM" x="55.245" y="26.67" size="1.778" layer="27" display="off"/>
+<attribute name="DESCRIPTION" value=" AUDIO MAGNETIC XDCR 2-4V SMD " x="55.245" y="26.67" size="1.778" layer="27" display="off"/>
+<attribute name="DIGI-KEY_PART_NUMBER" value="102-2202-1-ND" x="55.245" y="26.67" size="1.778" layer="27" display="off"/>
+<attribute name="DIGI-KEY_PURCHASE_URL" value="https://www.digikey.com/product-detail/en/cui-inc/CSS-0575B-SMT-TR/102-2202-1-ND/2364651?utm_source=snapeda&amp;utm_medium=aggregator&amp;utm_campaign=symbol" x="55.245" y="26.67" size="1.778" layer="27" display="off"/>
+<attribute name="MF" value="CUI Inc." x="55.245" y="26.67" size="1.778" layer="27" display="off"/>
+<attribute name="MP" value="CSS-0575B-SMT-TR" x="55.245" y="26.67" size="1.778" layer="27" display="off"/>
+<attribute name="PACKAGE" value=" CUI Inc." x="55.245" y="26.67" size="1.778" layer="27" display="off"/>
+<attribute name="VALUE" x="50.41291875" y="21.661509375" size="1.782090625" layer="27"/>
 </element>
-<element name="RLS" library="resistor" library_urn="urn:adsk.eagle:library:348" package="R1206" package3d_urn="urn:adsk.eagle:package:26062/1" value="0" x="-5.08" y="-11.43"/>
+<element name="RLS" library="resistor" library_urn="urn:adsk.eagle:library:348" package="R1206" package3d_urn="urn:adsk.eagle:package:26062/1" value="0" x="48.895" y="26.67" smashed="yes" rot="R90">
+<attribute name="NAME" x="51.054" y="25.527" size="1.016" layer="25" rot="R90"/>
+<attribute name="VALUE" x="51.435" y="25.4" size="1.27" layer="27" rot="R90"/>
+</element>
 </elements>
 <signals>
 <signal name="+5V">
@@ -3143,7 +3071,6 @@ design rules under a new name.</description>
 <via x="26.035" y="11.43" extent="1-16" drill="1"/>
 <contactref element="CRST" pad="2"/>
 <contactref element="CPRG" pad="2"/>
-<contactref element="U1" pad="4"/>
 <contactref element="GND" pad="1"/>
 <contactref element="PAD_GND1" pad="1"/>
 <contactref element="PAD_GND2" pad="1"/>
@@ -3177,19 +3104,18 @@ design rules under a new name.</description>
 <via x="40.132" y="10.668" extent="1-16" drill="0.35"/>
 <wire x1="40.132" y1="10.668" x2="40.894" y2="11.43" width="0.3048" layer="16"/>
 <wire x1="40.894" y1="11.43" x2="43.815" y2="11.43" width="0.3048" layer="16"/>
-<wire x1="56.1086" y1="16.8402" x2="56.896" y2="17.6276" width="0.3048" layer="1"/>
-<wire x1="56.896" y1="17.6276" x2="56.896" y2="17.78" width="0.3048" layer="1"/>
-<via x="56.896" y="17.78" extent="1-16" drill="0.35"/>
 <contactref element="LS1" pad="2"/>
+<wire x1="57.145" y1="24.92" x2="59.591" y2="24.92" width="0.3048" layer="1"/>
+<via x="59.817" y="30.353" extent="1-16" drill="0.35"/>
+<wire x1="60.373" y1="25.702" x2="60.373" y2="29.797" width="0.3048" layer="1"/>
+<wire x1="60.373" y1="29.797" x2="59.817" y2="30.353" width="0.3048" layer="1"/>
+<wire x1="59.591" y1="24.92" x2="60.373" y2="25.702" width="0.3048" layer="1"/>
+<wire x1="57.145" y1="17.8766" x2="57.145" y2="24.92" width="0" layer="19" extent="1-16"/>
 </signal>
 <signal name="+3V3">
 <contactref element="ITSYBITSYM0" pad="13"/>
 <contactref element="RRST1" pad="2"/>
 <contactref element="RPRG1" pad="2"/>
-<contactref element="U1" pad="2"/>
-<contactref element="U1" pad="8"/>
-<contactref element="U1" pad="7"/>
-<wire x1="51.8414" y1="14.9098" x2="51.8414" y2="15.5448" width="0.3048" layer="1"/>
 <contactref element="U$4" pad="4"/>
 <contactref element="+3V3" pad="1"/>
 <contactref element="RI2C2" pad="2"/>
@@ -3226,7 +3152,6 @@ design rules under a new name.</description>
 <wire x1="38.227" y1="55.245" x2="39.497" y2="53.975" width="0.3048" layer="1"/>
 <wire x1="39.497" y1="53.975" x2="41.025" y2="53.975" width="0.3048" layer="1"/>
 <wire x1="21.107" y1="55.245" x2="38.227" y2="55.245" width="0.3048" layer="1"/>
-<wire x1="56.1086" y1="15.5448" x2="51.8414" y2="15.5448" width="0.1524" layer="1"/>
 <via x="43.815" y="13.97" extent="1-16" drill="1"/>
 <wire x1="42.40125" y1="24.2998" x2="42.3752" y2="24.2998" width="0.3048" layer="1"/>
 <wire x1="42.3752" y1="24.2998" x2="40.64" y2="26.035" width="0.3048" layer="1"/>
@@ -3236,7 +3161,6 @@ design rules under a new name.</description>
 <wire x1="40.64" y1="26.035" x2="35.687" y2="26.035" width="0.3048" layer="1"/>
 <wire x1="35.687" y1="26.035" x2="35.052" y2="26.67" width="0.3048" layer="1"/>
 <wire x1="35.052" y1="26.67" x2="35.052" y2="31.115" width="0.3048" layer="1"/>
-<wire x1="51.8414" y1="15.5448" x2="43.8658" y2="15.5448" width="0.3048" layer="1"/>
 <wire x1="43.8658" y1="15.5448" x2="43.815" y2="15.494" width="0.3048" layer="1"/>
 </signal>
 <signal name="USART1_RX">
@@ -3275,7 +3199,10 @@ design rules under a new name.</description>
 <signal name="A0">
 <contactref element="ITSYBITSYM0" pad="10"/>
 <contactref element="RLS" pad="2"/>
-<wire x1="-3.658" y1="-11.43" x2="44.065" y2="46.355" width="0" layer="19" extent="1-1"/>
+<wire x1="44.065" y1="46.355" x2="45.974" y2="46.355" width="0.3048" layer="1"/>
+<wire x1="45.974" y1="46.355" x2="49.53" y2="42.799" width="0.3048" layer="1"/>
+<wire x1="49.53" y1="28.727" x2="48.895" y2="28.092" width="0.3048" layer="1"/>
+<wire x1="49.53" y1="42.799" x2="49.53" y2="28.727" width="0.3048" layer="1"/>
 </signal>
 <signal name="A1">
 <contactref element="ITSYBITSYM0" pad="9"/>
@@ -3395,29 +3322,13 @@ design rules under a new name.</description>
 <wire x1="16.51" y1="45.72" x2="18.415" y2="45.72" width="0.1524" layer="16"/>
 </signal>
 <signal name="MOSI">
-<contactref element="U1" pad="6"/>
 <contactref element="ITSYBITSYM0" pad="3"/>
-<wire x1="41.025" y1="28.575" x2="41.025" y2="26.412" width="0.1524" layer="1"/>
-<wire x1="51.2318" y1="16.2052" x2="51.8414" y2="16.2052" width="0.1524" layer="1"/>
-<wire x1="41.025" y1="26.412" x2="51.2318" y2="16.2052" width="0.1524" layer="1"/>
 </signal>
 <signal name="MISO">
-<contactref element="U1" pad="5"/>
 <contactref element="ITSYBITSYM0" pad="2"/>
-<wire x1="44.065" y1="26.035" x2="44.323" y2="25.777" width="0.1524" layer="1"/>
-<wire x1="44.323" y1="25.777" x2="44.323" y2="23.622" width="0.1524" layer="1"/>
-<wire x1="44.323" y1="23.622" x2="51.1048" y2="16.8402" width="0.1524" layer="1"/>
-<wire x1="51.1048" y1="16.8402" x2="51.8414" y2="16.8402" width="0.1524" layer="1"/>
 </signal>
 <signal name="SCK">
 <contactref element="ITSYBITSYM0" pad="4"/>
-<contactref element="U1" pad="3"/>
-<wire x1="44.065" y1="31.115" x2="45.847" y2="29.333" width="0.1524" layer="1"/>
-<wire x1="45.847" y1="29.333" x2="45.847" y2="22.987" width="0.1524" layer="1"/>
-<wire x1="45.847" y1="22.987" x2="51.435" y2="17.399" width="0.1524" layer="1"/>
-<wire x1="51.435" y1="17.399" x2="53.721" y2="17.399" width="0.1524" layer="1"/>
-<wire x1="53.721" y1="17.399" x2="54.9148" y2="16.2052" width="0.1524" layer="1"/>
-<wire x1="54.9148" y1="16.2052" x2="56.1086" y2="16.2052" width="0.1524" layer="1"/>
 </signal>
 <signal name="SENSPAD_2">
 <polygon width="0.1524" layer="16">
@@ -3535,7 +3446,8 @@ design rules under a new name.</description>
 <signal name="N$4">
 <contactref element="LS1" pad="1"/>
 <contactref element="RLS" pad="1"/>
-<wire x1="-6.502" y1="-11.43" x2="52.075" y2="24.92" width="0" layer="19" extent="1-1"/>
+<wire x1="53.345" y1="24.92" x2="49.223" y2="24.92" width="0.3048" layer="1"/>
+<wire x1="49.223" y1="24.92" x2="48.895" y2="25.248" width="0.3048" layer="1"/>
 </signal>
 </signals>
 <errors>

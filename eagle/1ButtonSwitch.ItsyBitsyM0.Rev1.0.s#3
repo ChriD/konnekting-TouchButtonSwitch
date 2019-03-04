@@ -9573,7 +9573,7 @@ Source: AVX .. aphvc.pdf</description>
 <plain>
 <text x="44.704" y="67.564" size="1.778" layer="91">SAM12235-ND</text>
 <text x="149.86" y="66.04" size="1.27" layer="91">LEDS
-OSRAM LW P473</text>
+Everlight 23-11/T7D-CQ2R2QY/2A</text>
 <text x="25.4" y="22.86" size="1.778" layer="91">https://www.digikey.com/product-detail/en/molex-llc/0015911282/0015911282-ND/3123842</text>
 </plain>
 <instances>

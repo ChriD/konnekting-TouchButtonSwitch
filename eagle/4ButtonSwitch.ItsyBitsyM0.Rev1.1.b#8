@@ -217,8 +217,8 @@
 <rectangle x1="16.51" y1="13.462" x2="19.05" y2="16.002" layer="31"/>
 <rectangle x1="50.8" y1="18.288" x2="53.34" y2="20.828" layer="31"/>
 <rectangle x1="50.8" y1="13.462" x2="53.34" y2="16.002" layer="31"/>
-<text x="64.262" y="43.307" size="1.016" layer="26" rot="MR0">RST</text>
-<text x="8.382" y="43.434" size="1.016" layer="26" rot="MR0">PRG</text>
+<text x="64.262" y="38.227" size="1.016" layer="26" rot="MR0">RST</text>
+<text x="8.382" y="38.354" size="1.016" layer="26" rot="MR0">PRG</text>
 </plain>
 <libraries>
 <library name="pinhead">
@@ -3078,7 +3078,8 @@ design rules under a new name.</description>
 <contactref element="RRST1" pad="2"/>
 <contactref element="RPRG1" pad="2"/>
 <wire x1="41.025" y1="54.61" x2="37.063" y2="58.572" width="0.3048" layer="1"/>
-<wire x1="37.063" y1="58.572" x2="21.59" y2="58.572" width="0.3048" layer="1"/>
+<wire x1="37.063" y1="58.572" x2="35.56" y2="58.572" width="0.3048" layer="1"/>
+<wire x1="35.56" y1="58.572" x2="21.59" y2="58.572" width="0.3048" layer="1"/>
 <wire x1="41.025" y1="54.61" x2="47.142" y2="54.61" width="0.3048" layer="1"/>
 <wire x1="47.142" y1="54.61" x2="48.26" y2="55.728" width="0.3048" layer="1"/>
 <contactref element="U1" pad="2"/>
@@ -3086,7 +3087,20 @@ design rules under a new name.</description>
 <contactref element="U1" pad="7"/>
 <wire x1="43.5864" y1="15.5448" x2="43.5864" y2="16.1798" width="0.3048" layer="1"/>
 <wire x1="43.5864" y1="16.1798" x2="47.8536" y2="16.1798" width="0.3048" layer="1"/>
-<wire x1="47.8536" y1="16.1798" x2="47.142" y2="54.61" width="0" layer="19" extent="1-1"/>
+<wire x1="35.56" y1="58.572" x2="35.56" y2="56.007" width="0.3048" layer="1"/>
+<via x="35.56" y="56.007" extent="1-16" drill="0.35"/>
+<wire x1="35.56" y1="56.007" x2="35.56" y2="46.99" width="0.3048" layer="16"/>
+<wire x1="35.56" y1="46.99" x2="34.417" y2="45.847" width="0.3048" layer="16"/>
+<wire x1="34.417" y1="45.847" x2="34.417" y2="30.353" width="0.3048" layer="16"/>
+<wire x1="34.417" y1="30.353" x2="37.846" y2="26.924" width="0.3048" layer="16"/>
+<wire x1="37.846" y1="26.924" x2="37.846" y2="21.971" width="0.3048" layer="16"/>
+<via x="37.846" y="21.971" extent="1-16" drill="0.35"/>
+<wire x1="37.846" y1="21.971" x2="38.481" y2="21.336" width="0.3048" layer="1"/>
+<wire x1="38.481" y1="21.336" x2="40.64" y2="21.336" width="0.3048" layer="1"/>
+<wire x1="40.64" y1="21.336" x2="41.529" y2="20.447" width="0.3048" layer="1"/>
+<wire x1="42.2402" y1="16.1798" x2="43.5864" y2="16.1798" width="0.3048" layer="1"/>
+<wire x1="41.529" y1="20.447" x2="41.529" y2="16.891" width="0.3048" layer="1"/>
+<wire x1="41.529" y1="16.891" x2="42.2402" y2="16.1798" width="0.3048" layer="1"/>
 </signal>
 <signal name="SENS_PROX_1">
 <contactref element="RP1" pad="1"/>

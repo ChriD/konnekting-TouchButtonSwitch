@@ -36,7 +36,7 @@
 <layer number="26" name="bNames" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="27" name="tValues" color="7" fill="1" visible="no" active="yes"/>
 <layer number="28" name="bValues" color="7" fill="1" visible="no" active="yes"/>
-<layer number="29" name="tStop" color="7" fill="3" visible="no" active="yes"/>
+<layer number="29" name="tStop" color="7" fill="3" visible="yes" active="yes"/>
 <layer number="30" name="bStop" color="7" fill="6" visible="no" active="yes"/>
 <layer number="31" name="tCream" color="7" fill="4" visible="no" active="yes"/>
 <layer number="32" name="bCream" color="7" fill="5" visible="no" active="yes"/>
@@ -216,6 +216,8 @@
 <rectangle x1="50.8" y1="13.462" x2="53.34" y2="16.002" layer="31"/>
 <text x="64.262" y="38.227" size="1.016" layer="26" rot="MR0">RST</text>
 <text x="8.382" y="38.354" size="1.016" layer="26" rot="MR0">PRG</text>
+<rectangle x1="33.655" y1="36.068" x2="36.195" y2="38.608" layer="29"/>
+<rectangle x1="33.655" y1="31.242" x2="36.195" y2="33.782" layer="29"/>
 </plain>
 <libraries>
 <library name="pinhead">
