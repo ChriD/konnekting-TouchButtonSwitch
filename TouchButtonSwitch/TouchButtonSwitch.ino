@@ -77,6 +77,9 @@ void onButtonAction(uint16_t _buttonId, uint16_t _type, uint16_t _value)
   uint16_t  idOffset = 7 * (_buttonId-1);
   uint16_t  idComObject = 0;
 
+  // @@@ TEST @@@
+  tone(A0, 4000, 250);
+
   // TODO: @@@ get the mode of the button from an array which is loaded on init KNX
   // currently only the "Standalone" mode is available
   // TODO: @@@ ID and DPT has to be gathered from the button class?!

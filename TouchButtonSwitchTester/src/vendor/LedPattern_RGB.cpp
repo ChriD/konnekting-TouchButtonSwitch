@@ -1,14 +1,14 @@
 #include "LedPattern_RGB.h"
 #include <Arduino.h>
 
-//#define NODEBUG
+#define NODEBUG
 #ifndef NODEBUG
-#define debug(x)   SERIAL_PORT_USBVIRTUAL.print(x)
-#define debugln(x) SERIAL_PORT_USBVIRTUAL.println(x); SERIAL_PORT_USBVIRTUAL.flush();
+#define debug(x)   Serial.print(x)
+#define debugln(x) Serial.println(x); Serial.flush();
 #else
 #define debug(x)
 #define debugln(x)
-#endif
+#endif 
 
 LedPattern_RGB::LedPattern_RGB( const uint8_t ledPinR, const uint8_t ledPinG, const uint8_t ledPinB )
     : m_ledPins{ledPinR, ledPinG, ledPinB}
@@ -21,12 +21,6 @@ LedPattern_RGB::LedPattern_RGB( const uint8_t ledPinR, const uint8_t ledPinG, co
 
 void LedPattern_RGB::ledWrite( const uint8_t i, const uint8_t intensity )
 {
-
-    debug("-------------");
-    debug(i);
-    debug("  -> ");
-    debugln(intensity);
-
     if (0 == intensity) {
         digitalWrite(m_ledPins[i], LOW);
     } else if (255 == intensity) {
@@ -47,8 +41,7 @@ void LedPattern_RGB::ledSet(pattern& p)
 {
     for (uint8_t i = 0; i < 3; ++i)
     {
-        //const uint8_t intensity = *p++;
-        const uint8_t intensity = 255 - *p++;
+        const uint8_t intensity = *p++;
         ledWrite(i, intensity);
         #ifndef LED_PATTERN_FADE_UNSUPPORTED
             m_step[i]  = 0;

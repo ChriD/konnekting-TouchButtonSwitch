@@ -40,9 +40,15 @@ void TouchSwitch_5X_V1::initButtons()
   this->rgbLed = new LedPattern_RGB(11,12,13);
 
   // due we have a common anode, setting 255 on each pwm pins does result in no light
+  /*
+  pinMode(11, OUTPUT);
+  pinMode(12, OUTPUT);
+  pinMode(13, OUTPUT);
+
   analogWrite(11, 255);
   analogWrite(12, 255);
   analogWrite(13, 255);
+  */
 }
 
 
@@ -57,11 +63,11 @@ void TouchSwitch_5X_V1::setMode(SWITCH_MODE _mode, uint16_t _modeLevel)
   if(_mode == SWITCH_MODE::NORMAL)
     this->rgbLed->start(ledPattern_Normal);
   if(_mode == SWITCH_MODE::PROG)
-    this->rgbLed->start(ledPattern_Prog);
+    this->rgbLed->start(ledPattern_Normal);
   if(_mode == SWITCH_MODE::CALIBRATION)
-    this->rgbLed->start(ledPattern_Calibration);
+    this->rgbLed->start(ledPattern_Normal);
   if(_mode == SWITCH_MODE::SETUP)
-    this->rgbLed->start(ledPattern_Setup);
+    this->rgbLed->start(ledPattern_Normal);
 }
 
 
@@ -73,7 +79,7 @@ void TouchSwitch_5X_V1::onButtonAction(uint16_t _buttonId, uint16_t _type, uint1
   if(this->mode == SWITCH_MODE::NORMAL)
   {
     this->rgbLed->stop();
-    this->rgbLed->start(ledPattern_Touch);
+    this->rgbLed->start(ledPattern_Normal);
   }
 }
 
@@ -84,10 +90,15 @@ void TouchSwitch_5X_V1::task()
 
   if(millis() - this->lastPatternRunTime > 10)
   {
+    //SERIAL_PORT_USBVIRTUAL.println("UPD LED");
     this->rgbLed->update();
 
     // TODO:  if there is no animation running, then we do set the "current color" or "current pattern" which may
     //        represant a state
+
+    //analogWrite(11, 255); // R
+    //analogWrite(12, 255); // G
+    //analogWrite(13, 0);   // B
 
     this->lastPatternRunTime = millis();
   }
