@@ -16,6 +16,16 @@ TouchSwitch_5X_V1::TouchSwitch_5X_V1() : TouchSwitch()
 {
   this->lastPatternRunTime = 0;
   this->rgbLed = NULL;
+
+  this->lastEnvSenorsRunTime  = 0,
+
+  // activate ebvironmental sensors
+  this->envSensorsSettings.temperature  = true;
+  this->envSensorsSettings.humidity     = true;
+  this->envSensorsSettings.pressure     = true;
+
+  // activate the buzzer
+  this->speakerEnabled  = true;
 }
 
 
@@ -63,11 +73,12 @@ void TouchSwitch_5X_V1::setMode(SWITCH_MODE _mode, uint16_t _modeLevel)
   if(_mode == SWITCH_MODE::NORMAL)
     this->rgbLed->start(ledPattern_Normal);
   if(_mode == SWITCH_MODE::PROG)
-    this->rgbLed->start(ledPattern_Normal);
+    this->rgbLed->start(ledPattern_Prog);
   if(_mode == SWITCH_MODE::CALIBRATION)
-    this->rgbLed->start(ledPattern_Normal);
+    this->rgbLed->start(ledPattern_Calibration);
   if(_mode == SWITCH_MODE::SETUP)
-    this->rgbLed->start(ledPattern_Normal);
+    this->rgbLed->start(ledPattern_Setup);
+
 }
 
 
@@ -75,12 +86,54 @@ void TouchSwitch_5X_V1::onButtonAction(uint16_t _buttonId, uint16_t _type, uint1
 {
   TouchSwitch::onButtonAction(_buttonId, _type, _value);
 
-  // if we do have a touch on a button we do signalize it by a short pattern
+  // if we do have a touch on a button we do signalize it by a short pattern and a beep
   if(this->mode == SWITCH_MODE::NORMAL)
   {
+    if(this->parmSpeakerEnabled())
+      tone(A0, 4000, 250);
+
     this->rgbLed->stop();
-    this->rgbLed->start(ledPattern_Normal);
+    this->rgbLed->start(ledPattern_Touch);
   }
+}
+
+
+boolean TouchSwitch_5X_V1::setup()
+{
+  boolean ret = TouchSwitch::setup();
+
+  // if the env sensor is enabled we have to set up the I2C and do ind the sensor on the standard
+  // I2C Address forthe BME280/BMP280
+  if( this->envSensorsSettings.temperature  ||
+      this->envSensorsSettings.humidity     ||
+      this->envSensorsSettings.pressure)
+  {
+    Wire.begin();
+
+    // wait for the temp sensor to be found
+    while(!bme.begin() && millis() < 10000)
+    {
+      // TODO: show error (Blinking red LED)
+      SERIAL_PORT_USBVIRTUAL.println("Could not find BME280 sensor!");
+      ret = false;
+      delay(1000);
+    }
+
+    switch(bme.chipModel())
+    {
+      case BME280::ChipModel_BME280:
+        SERIAL_PORT_USBVIRTUAL.println("Found BME280 sensor! Success.");
+        break;
+      case BME280::ChipModel_BMP280:
+        SERIAL_PORT_USBVIRTUAL.println("Found BMP280 sensor! No Humidity available.");
+        break;
+      default:
+        SERIAL_PORT_USBVIRTUAL.println("Found UNKNOWN sensor! Error!");
+        ret = false;
+    }
+  }
+
+  return ret;
 }
 
 
@@ -88,24 +141,33 @@ void TouchSwitch_5X_V1::task()
 {
   TouchSwitch::task();
 
-  if(millis() - this->lastPatternRunTime > 10)
+  // period for led will be fixed on 10ms
+  if(this->getPeriod(this->lastPatternRunTime) > 10)
   {
-    //SERIAL_PORT_USBVIRTUAL.println("UPD LED");
     this->rgbLed->update();
-
-    // TODO:  if there is no animation running, then we do set the "current color" or "current pattern" which may
-    //        represant a state
-
-    //analogWrite(11, 255); // R
-    //analogWrite(12, 255); // G
-    //analogWrite(13, 0);   // B
-
     this->lastPatternRunTime = millis();
   }
 
-  // TODO: periodically get the temperature and humidity if enabled
+  // periodically get the temperature and humidity if period timne is enabled
+  // (period time may be auto enabled if there are any environemtn warnings active)
   // this may lead to problems if a button is clicked meanwhile?!
+  if( (this->envSensorsSettings.temperature || this->envSensorsSettings.humidity || this->envSensorsSettings.pressure) &&
+      this->getPeriod(this->lastEnvSenorsRunTime) > this->envSensorsSettings.temperaturePeriod)
+  {
+    //TODO:
+    float temp(NAN), hum(NAN), pres(NAN);
+    BME280::TempUnit tempUnit(BME280::TempUnit_Celsius);
+    BME280::PresUnit presUnit(BME280::PresUnit_Pa);
+    bme.read(pres, temp, hum, tempUnit, presUnit);
 
+    this->curEnvData.temperature  = temp  + this->envSensorsSettings.temperatureAdj;
+    this->curEnvData.humidity     = hum   + this->envSensorsSettings.humidityAdj;
+    this->curEnvData.pressure     = pres;
+
+    this->callback_onEnvDataUpdated(this->curEnvData);
+
+    this->lastEnvSenorsRunTime = millis();
+  }
 }
 
 

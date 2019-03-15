@@ -7,11 +7,24 @@
 
 /*
   Issues/Todos:   * lightning stuff
-                  * proximity stuff
                   * 1,4,6 buttons defines
                   * Standard KNX Button com objects (switching, dimming,...)
                   * using external SPI flash instead of internal
                   * let user allow to set each LED state (colors or predefined patterns)
+                  *
+                  * SETTING: TEMP offset
+                  * SETTING: TEMP PERIOD SEND (0-X)
+                  * SETTING: TMP WARNING LOW
+                  * SETTING: TMP WARNING LOW PERIOD
+                  * SETTING: TMP WARNING HIGH
+                  * SETTING: TMP WARNING HIGH PERIOD
+                  * SETTING: HUMI offset
+                  * SETTING: HUMI PERIOD SEND (0-X)
+                  * SETTING: HUMI WARNING LOW
+                  * SETTING: HUMI WARNING LOW PERIOD
+                  * SETTING: HUMI WARNING HIGH
+                  * SETTING: HUMI WARNING HIGH PERIOD
+                  * SETTING: STD LED Brightness
 
 */
 
@@ -70,15 +83,20 @@ void onModeChange(SWITCH_MODE _fromMode, uint16_t _fromModeLevel, SWITCH_MODE _t
   Debug.println(F("Switch Mode changed from %u (%u) to %u (%u)"), _fromMode, _fromModeLevel, _toMode, _toModeLevel);
 }
 
+// this method will be called whenever the switch does update the environmental values. This may be by a request or on period time (if set)
+// for now it has only debug purposes
+void onEnvDataUpdated(BaseSwitchEnvData _envData)
+{
+  Debug.println(F("EnvData: Temp: %f \t\t Humidity: %f \t\t Pressure: %f"), _envData.temperature, _envData.humidity, _envData.pressure);
+  // TODO: send out values on the bus
+}
+
 // this method will be called whenever a button action (tap, doubletap, longtap,..) was regognized by the
 // switch library. We use this method to send the approriate data to the KNX Bus for each button action
 void onButtonAction(uint16_t _buttonId, uint16_t _type, uint16_t _value)
 {
   uint16_t  idOffset = 7 * (_buttonId-1);
   uint16_t  idComObject = 0;
-
-  // @@@ TEST @@@
-  tone(A0, 4000, 250);
 
   // TODO: @@@ get the mode of the button from an array which is loaded on init KNX
   // currently only the "Standalone" mode is available
@@ -134,6 +152,12 @@ boolean KNXEnabled()
 
 void setup()
 {
+
+  // pin 3 ids our "GND" pin for the SWDIO connection on the frontplates of the switches
+  // ATTENTION. There is a maximum current draw for a PIN
+  pinMode(3, OUTPUT);
+  digitalWrite(3, LOW);
+
   // start the debugging serial and wait for it to be present before doing anything
   // of course we do only activate the serial if we have enabled debugging
   #ifdef KDEBUG
@@ -147,6 +171,7 @@ void setup()
   baseSwitch->attachCallbackOnButtonAction(makeFunctor((CallbackFunction_ButtonAction*)0,&onButtonAction));
   baseSwitch->attachCallbackOnProximityAlert(makeFunctor((CallbackFunction_ProximityAlert*)0,&onProximityAlert));
   baseSwitch->attachCallbackOnModeChange(makeFunctor((CallbackFunction_ModeChange*)0,&onModeChange));
+  baseSwitch->attachCallbackOnEnvDataUpdated(makeFunctor((CallbackFunction_EnvDataUpdated*)0,&onEnvDataUpdated));
 
   // do the setup of the switch which will add all the buttons and leds the switch
   // may work with. TODO: add some setup error code?!
@@ -191,24 +216,39 @@ void initKNXParameters()
 
   // TODO: how to get proper button id?
   BaseSwitchButtonParms button1Parms;
-  button1Parms.allowMultiTouch = (bool) Konnekting.getUINT8Param(PARAM_button1_multiTouchEnabled);
+  button1Parms.mode             = Konnekting.getUINT8Param(PARAM_button1_mode);
+  button1Parms.longTouchMode    = Konnekting.getUINT8Param(PARAM_button1_longTouchMode);
+  button1Parms.allowMultiTouch  = (bool) Konnekting.getUINT8Param(PARAM_button1_multiTouchEnabled);
   baseSwitch->setButtonParameters(1, button1Parms);
   Debug.println(F("Sensor %u: Mode=%u, LongTouchMode=%u, MultiTouch=%u, "), 1, 0, 0, button1Parms.allowMultiTouch);
 
   BaseSwitchButtonParms button2Parms;
-  button1Parms.allowMultiTouch = (bool) Konnekting.getUINT8Param(PARAM_button1_multiTouchEnabled);
+  button2Parms.mode             = Konnekting.getUINT8Param(PARAM_button2_mode);
+  button2Parms.longTouchMode    = Konnekting.getUINT8Param(PARAM_button2_longTouchMode);
+  button2Parms.allowMultiTouch  = (bool) Konnekting.getUINT8Param(PARAM_button2_multiTouchEnabled);
   baseSwitch->setButtonParameters(2, button2Parms);
   Debug.println(F("Sensor %u: Mode=%u, LongTouchMode=%u, MultiTouch=%u, "), 2, 0, 0, button2Parms.allowMultiTouch);
 
   BaseSwitchButtonParms button3Parms;
-  button1Parms.allowMultiTouch = (bool) Konnekting.getUINT8Param(PARAM_button1_multiTouchEnabled);
+  button3Parms.mode             = Konnekting.getUINT8Param(PARAM_button3_mode);
+  button3Parms.longTouchMode    = Konnekting.getUINT8Param(PARAM_button3_longTouchMode);
+  button3Parms.allowMultiTouch  = (bool) Konnekting.getUINT8Param(PARAM_button3_multiTouchEnabled);
   baseSwitch->setButtonParameters(3, button3Parms);
   Debug.println(F("Sensor %u: Mode=%u, LongTouchMode=%u, MultiTouch=%u, "), 3, 0, 0, button3Parms.allowMultiTouch);
 
   BaseSwitchButtonParms button4Parms;
-  button1Parms.allowMultiTouch = (bool) Konnekting.getUINT8Param(PARAM_button1_multiTouchEnabled);
+  button4Parms.mode             = Konnekting.getUINT8Param(PARAM_button4_mode);
+  button4Parms.longTouchMode    = Konnekting.getUINT8Param(PARAM_button4_longTouchMode);
+  button4Parms.allowMultiTouch = (bool) Konnekting.getUINT8Param(PARAM_button4_multiTouchEnabled);
   baseSwitch->setButtonParameters(4, button4Parms);
   Debug.println(F("Sensor %u: Mode=%u, LongTouchMode=%u, MultiTouch=%u, "), 4, 0, 0, button4Parms.allowMultiTouch);
+
+  BaseSwitchButtonParms button5Parms;
+  button5Parms.mode             = Konnekting.getUINT8Param(PARAM_button5_mode);
+  button5Parms.longTouchMode    = Konnekting.getUINT8Param(PARAM_button5_longTouchMode);
+  button5Parms.allowMultiTouch  = (bool) Konnekting.getUINT8Param(PARAM_button5_multiTouchEnabled);
+  baseSwitch->setButtonParameters(5, button5Parms);
+  Debug.println(F("Sensor %u: Mode=%u, LongTouchMode=%u, MultiTouch=%u, "), 5, 0, 0, button5Parms.allowMultiTouch);
 
   Debug.println(F("User settings loaded"));
 }

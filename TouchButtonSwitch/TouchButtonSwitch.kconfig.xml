@@ -12,7 +12,7 @@
                 </Parameter>
                 <Parameter Id="1" IdName="button1_longTouchMode">
                     <Description>Long Touch Mode</Description>
-                    <Value Type="uint8" Default="00" Options="00=No Function|01=Long Touch|02=State Touch" Min="00" Max="02"/>
+                    <Value Type="uint8" Default="00" Options="00=No Function|01=Long Touch|02=State Touch|03=Pulse Touch" Min="00" Max="02"/>
                 </Parameter>
                 <Parameter Id="2" IdName="button1_multiTouchEnabled">
                     <Description>Multi Touch Enabled</Description>
@@ -27,7 +27,7 @@
                 </Parameter>
                 <Parameter Id="4" IdName="button2_longTouchMode">
                     <Description>Long Touch Mode</Description>
-                    <Value Type="uint8" Default="00" Options="00=No Function|01=Long Touch|02=State Touch" Min="00" Max="02"/>
+                    <Value Type="uint8" Default="00" Options="00=No Function|01=Long Touch|02=State Touch|03=Pulse Touch" Min="00" Max="02"/>
                 </Parameter>
                 <Parameter Id="5" IdName="button2_multiTouchEnabled">
                     <Description>Multi Touch Enabled</Description>
@@ -42,7 +42,7 @@
                 </Parameter>
                 <Parameter Id="7" IdName="button3_longTouchMode">
                     <Description>Long Touch Mode</Description>
-                    <Value Type="uint8" Default="00" Options="00=No Function|01=Long Touch|02=State Touch" Min="00" Max="02"/>
+                    <Value Type="uint8" Default="00" Options="00=No Function|01=Long Touch|02=State Touch|03=Pulse Touch" Min="00" Max="02"/>
                 </Parameter>
                 <Parameter Id="8" IdName="button3_multiTouchEnabled">
                     <Description>Multi Touch Enabled</Description>
@@ -57,9 +57,24 @@
                 </Parameter>
                 <Parameter Id="10" IdName="button4_longTouchMode">
                     <Description>Long Touch Mode</Description>
-                    <Value Type="uint8" Default="00" Options="00=No Function|01=Long Touch|02=State Touch" Min="00" Max="02"/>
+                    <Value Type="uint8" Default="00" Options="00=No Function|01=Long Touch|02=State Touch|03=Pulse Touch" Min="00" Max="02"/>
                 </Parameter>
                 <Parameter Id="11" IdName="button4_multiTouchEnabled">
+                    <Description>Multi Touch Enabled</Description>
+                    <Value Type="uint8" Default="00" Options="00=No|01=Yes" Min="00" Max="01"/>
+                </Parameter>
+            </ParameterGroup>
+
+            <ParameterGroup Name="Button 5" Id="4">
+                <Parameter Id="12" IdName="button5_mode">
+                    <Description>Mode</Description>
+                    <Value Type="uint8" Default="00" Options="00=No Function|01=Standalone|02=Switch|03=Dimming|04=Blinds|05=Valuator 1 Byte|06=Valuator 2 Byte|07=Scene" Min="00" Max="07"/>
+                </Parameter>
+                <Parameter Id="13" IdName="button5_longTouchMode">
+                    <Description>Long Touch Mode</Description>
+                    <Value Type="uint8" Default="00" Options="00=No Function|01=Long Touch|02=State Touch|03=Pulse Touch" Min="00" Max="02"/>
+                </Parameter>
+                <Parameter Id="14" IdName="button5_multiTouchEnabled">
                     <Description>Multi Touch Enabled</Description>
                     <Value Type="uint8" Default="00" Options="00=No|01=Yes" Min="00" Max="01"/>
                 </Parameter>
@@ -254,6 +269,49 @@
                 <Flags>52</Flags>
             </CommObject>
 
+            <CommObject Id="29" IdName="button5">
+                <Name>Button 5</Name>
+                <Function>Touch</Function>
+                <DataPointType>1.001</DataPointType>
+                <Flags>52</Flags>
+            </CommObject>
+            <CommObject Id="30" IdName="button5_double">
+                <Name>Button 5</Name>
+                <Function>Double Touch</Function>
+                <DataPointType>1.001</DataPointType>
+                <Flags>52</Flags>
+            </CommObject>
+            <CommObject Id="21" IdName="button5_multi">
+                <Name>Button 5</Name>
+                <Function>Multi Touch</Function>
+                <DataPointType>5.004</DataPointType>
+                <Flags>52</Flags>
+            </CommObject>
+            <CommObject Id="32" IdName="button5_long">
+                <Name>Button 5</Name>
+                <Function>Long Touch</Function>
+                <DataPointType>1.001</DataPointType>
+                <Flags>52</Flags>
+            </CommObject>
+            <CommObject Id="33" IdName="button5_long_touchstart">
+                <Name>Button 5</Name>
+                <Function>Long Touch start</Function>
+                <DataPointType>1.001</DataPointType>
+                <Flags>52</Flags>
+            </CommObject>
+            <CommObject Id="34" IdName="button5_long_touchend">
+                <Name>Button 5</Name>
+                <Function>Long Touch end</Function>
+                <DataPointType>1.001</DataPointType>
+                <Flags>52</Flags>
+            </CommObject>
+            <CommObject Id="35" IdName="button5_long_touchState">
+                <Name>Button 5</Name>
+                <Function>Long Touch State</Function>
+                <DataPointType>1.001</DataPointType>
+                <Flags>52</Flags>
+            </CommObject>
+
 
         </CommObjects>
         <Dependencies>
@@ -297,6 +355,16 @@
             <CommObjectDependency CommObjId="26" TestParamId="9" Test="eq" TestValue="01"/>
             <CommObjectDependency CommObjId="27" TestParamId="9" Test="eq" TestValue="01"/>
             <CommObjectDependency CommObjId="28" TestParamId="9" Test="eq" TestValue="01"/>
+
+            <!-- Button 5 -->
+            <CommObjectDependency CommObjId="29" TestParamId="12" Test="eq" TestValue="01"/>
+            <CommObjectDependency CommObjId="30" TestParamId="12" Test="eq" TestValue="01"/>
+            <CommObjectDependency CommObjId="31" TestParamId="12" Test="eq" TestValue="01"/>
+            <CommObjectDependency CommObjId="32" TestParamId="12" Test="eq" TestValue="01"/>
+            <CommObjectDependency CommObjId="33" TestParamId="12" Test="eq" TestValue="01"/>
+            <CommObjectDependency CommObjId="34" TestParamId="12" Test="eq" TestValue="01"/>
+            <CommObjectDependency CommObjId="35" TestParamId="12" Test="eq" TestValue="01"/>
+
         </Dependencies>
     </Device>
 </KonnektingDevice>

@@ -21,8 +21,23 @@ BaseSwitch::BaseSwitch()
   this->callback_onButtonAction   = NULL;
   this->callback_onProximityAlert = NULL;
   this->callback_onModeChange     = NULL;
+  this->callback_onEnvDataUpdated = NULL;
 
   this->maxButtonIdx = -1;
+
+  this->envSensorsSettings.temperature        = false;
+  this->envSensorsSettings.temperatureAdj     = 0.0;
+  this->envSensorsSettings.temperaturePeriod  = 1000*60*3;
+  this->envSensorsSettings.humidity           = false;
+  this->envSensorsSettings.humidityAdj        = 0.0;
+  this->envSensorsSettings.humidityPeriod     = 1000*60*30;
+  this->envSensorsSettings.pressure           = 0;
+
+   this->curEnvData.temperature       = 0;
+   this->curEnvData.humidity          = 0;
+   this->curEnvData.pressure          = 0;
+
+  this->speakerEnabled    = false;
 }
 
 
@@ -58,6 +73,11 @@ void BaseSwitch::attachCallbackOnProximityAlert(const CallbackFunction_Proximity
 void BaseSwitch::attachCallbackOnModeChange(const CallbackFunction_ModeChange &_callback)
 {
   this->callback_onModeChange = _callback;
+}
+
+void BaseSwitch::attachCallbackOnEnvDataUpdated(const CallbackFunction_EnvDataUpdated &_callback)
+{
+  this->callback_onEnvDataUpdated = _callback;
 }
 
 
@@ -166,6 +186,32 @@ void BaseSwitch::setMode(SWITCH_MODE _mode, uint16_t _modeLevel)
 }
 
 
+void BaseSwitch::requestEnvironmentData()
+{
+  // has to be overwritten.
+  // Should start gathering the environemntal data and if finished is has to call
+  // the callback method 'CallbackFunction_EnvironmentDataUpdated'
+}
+
+
+uint64_t BaseSwitch::getPeriod(uint64_t _lastCallTime, bool _useMicros)
+{
+  uint64_t cur;
+
+  if(_useMicros)
+    cur = micros();
+  else
+    cur = millis();
+  // if we had an overflow we have to calculate the period in a special way
+  // in fact we have to add "(max)uint16_t - LastCallTime"  to  "cur"
+  // but ofr our purpose its okay to only return "cur".
+  if(cur < _lastCallTime)
+    return (uint64_t)(cur + (UINT64_MAX - _lastCallTime));
+  else
+    return (uint64_t)(cur - _lastCallTime);
+}
+
+
 void BaseSwitch::task()
 {
   for(uint8_t i=0; i<=this->maxButtonIdx; i++)
@@ -173,6 +219,22 @@ void BaseSwitch::task()
     this->buttons[i]->task();
   }
   this->lastTaskRunTime = millis();
+}
+
+
+void BaseSwitch::parmEnvSensorsSettings(BaseSwitchEnvSensors _envSensors){
+  this->envSensorsSettings = _envSensors;
+}
+BaseSwitchEnvSensors BaseSwitch::parmEnvSensorsSettings(){
+  return this->envSensorsSettings;
+}
+
+
+void BaseSwitch::parmSpeakerEnabled(boolean _enabled){
+  this->speakerEnabled = _enabled;
+}
+boolean BaseSwitch::parmSpeakerEnabled(){
+  return this->speakerEnabled;
 }
 
 

@@ -31,6 +31,13 @@
 #define COMOBJ_button4_long_touchstart 26
 #define COMOBJ_button4_long_touchend 27
 #define COMOBJ_button4_long_touchState 28
+#define COMOBJ_button5 29
+#define COMOBJ_button5_double 30
+#define COMOBJ_button5_multi 21
+#define COMOBJ_button5_long 32
+#define COMOBJ_button5_long_touchstart 33
+#define COMOBJ_button5_long_touchend 34
+#define COMOBJ_button5_long_touchState 35
 #define PARAM_button1_mode 0
 #define PARAM_button1_longTouchMode 1
 #define PARAM_button1_multiTouchEnabled 2
@@ -43,6 +50,9 @@
 #define PARAM_button4_mode 9
 #define PARAM_button4_longTouchMode 10
 #define PARAM_button4_multiTouchEnabled 11
+#define PARAM_button5_mode 12
+#define PARAM_button5_longTouchMode 13
+#define PARAM_button5_multiTouchEnabled 14
 
 KnxComObject KnxDevice::_comObjectsList[] = {
     /* Index 0 - firmwareTransfer */ KnxComObject(KNX_DPT_60000_60000, 0x2a),
@@ -73,7 +83,14 @@ KnxComObject KnxDevice::_comObjectsList[] = {
     /* Index 25 - button4_long */ KnxComObject(KNX_DPT_1_001, 0x34),
     /* Index 26 - button4_long_touchstart */ KnxComObject(KNX_DPT_1_001, 0x34),
     /* Index 27 - button4_long_touchend */ KnxComObject(KNX_DPT_1_001, 0x34),
-    /* Index 28 - button4_long_touchState */ KnxComObject(KNX_DPT_1_001, 0x34)
+    /* Index 28 - button4_long_touchState */ KnxComObject(KNX_DPT_1_001, 0x34),
+    /* Index 29 - button5 */ KnxComObject(KNX_DPT_1_001, 0x34),
+    /* Index 30 - button5_double */ KnxComObject(KNX_DPT_1_001, 0x34),
+    /* Index 21 - button5_multi */ KnxComObject(KNX_DPT_5_004, 0x34),
+    /* Index 32 - button5_long */ KnxComObject(KNX_DPT_1_001, 0x34),
+    /* Index 33 - button5_long_touchstart */ KnxComObject(KNX_DPT_1_001, 0x34),
+    /* Index 34 - button5_long_touchend */ KnxComObject(KNX_DPT_1_001, 0x34),
+    /* Index 35 - button5_long_touchState */ KnxComObject(KNX_DPT_1_001, 0x34)
 };
 const byte KnxDevice::_numberOfComObjects = sizeof (_comObjectsList) / sizeof (KnxComObject); // do not change this code
 
@@ -89,6 +106,9 @@ byte KonnektingDevice::_paramSizeList[] = {
     /* Index 8 - button3_multiTouchEnabled */ PARAM_UINT8,
     /* Index 9 - button4_mode */ PARAM_UINT8,
     /* Index 10 - button4_longTouchMode */ PARAM_UINT8,
-    /* Index 11 - button4_multiTouchEnabled */ PARAM_UINT8
+    /* Index 11 - button4_multiTouchEnabled */ PARAM_UINT8,
+    /* Index 12 - button5_mode */ PARAM_UINT8,
+    /* Index 13 - button5_longTouchMode */ PARAM_UINT8,
+    /* Index 14 - button5_multiTouchEnabled */ PARAM_UINT8
 };
 const int KonnektingDevice::_numberOfParams = sizeof (_paramSizeList); // do not change this code

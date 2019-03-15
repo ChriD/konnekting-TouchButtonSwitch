@@ -118,7 +118,7 @@
       // indicates if proximity recognize can output levels of proximity (distance)
       boolean allowProximityLevels;
 
-      virtual uint16_t getPeriod(uint64_t _lastCallTime, bool _useMicros = false);
+      virtual uint64_t getPeriod(uint64_t _lastCallTime, bool _useMicros = false);
       virtual int8_t calcButtonState();
       virtual void buttonStateChanged(uint8_t _state);
       virtual void confirmButtonAction();

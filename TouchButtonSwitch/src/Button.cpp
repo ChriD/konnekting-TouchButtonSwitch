@@ -37,7 +37,7 @@ Button::~Button()
 }
 
 
-uint16_t Button::getPeriod(uint64_t _lastCallTime, bool _useMicros)
+uint64_t Button::getPeriod(uint64_t _lastCallTime, bool _useMicros)
 {
   uint64_t cur;
 
@@ -50,11 +50,11 @@ uint16_t Button::getPeriod(uint64_t _lastCallTime, bool _useMicros)
   // but ofr our purpose its okay to only return "cur".
   if(cur < _lastCallTime)
   {
-    return (uint16_t)(cur + (UINT64_MAX - _lastCallTime));
+    return (uint64_t)(cur + (UINT64_MAX - _lastCallTime));
   }
   else
   {
-    return (uint16_t)(cur - _lastCallTime);
+    return (uint64_t)(cur - _lastCallTime);
   }
 }
 
