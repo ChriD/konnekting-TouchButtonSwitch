@@ -80,6 +80,51 @@
                 </Parameter>
             </ParameterGroup>
 
+            <ParameterGroup Name="General" Id="5">
+                <Parameter Id="15" IdName="clickFeedback_active">
+                    <Description>Click Feedback Active</Description>
+                    <Value Type="uint8" Default="00" Options="00=No|01=Yes" Min="00" Max="01"/>
+                </Parameter>
+                <Parameter Id="16" IdName="clickFeedback_frequency">
+                    <Description>Click Feedback Frequency</Description>
+                    <Value Type="uint32" Default="00000FA0" Options="" Min="00000000" Max="FFFFFFFF"/>
+                </Parameter>
+                <Parameter Id="17" IdName="clickFeedback_duration">
+                    <Description>Click Feedback Duration</Description>
+                    <Value Type="uint32" Default="000000FA" Options="" Min="00000000" Max="FFFFFFFF"/>
+                </Parameter>
+                <Parameter Id="18" IdName="led_color_red">
+                    <Description>LED Color RED</Description>
+                    <Value Type="uint8" Default="28" Options="" Min="00" Max="FF"/>
+                </Parameter>
+                <Parameter Id="19" IdName="led_color_green">
+                    <Description>LED Color GRREN</Description>
+                    <Value Type="uint8" Default="28" Options="" Min="00" Max="FF"/>
+                </Parameter>
+                <Parameter Id="20" IdName="led_color_blue">
+                    <Description>LED Color BLUE</Description>
+                    <Value Type="uint8" Default="28" Options="" Min="00" Max="FF"/>
+                </Parameter>
+                 <Parameter Id="21" IdName="led_brightness">
+                    <Description>LED Brightness</Description>
+                    <Value Type="uint8" Default="28" Options="" Min="00" Max="64"/>
+                </Parameter>
+            </ParameterGroup>
+
+            <ParameterGroup Name="Environmental Sensors" Id="6">
+                <Parameter Id="22" IdName="temp_offset">
+                    <Description>Temperature offset [1° = 10]</Description>
+                    <Value Type="int16" Default="00" Options=""/>
+                </Parameter>
+                <Parameter Id="23" IdName="humidity_offset">
+                    <Description>Humidity offset [1% = 10]</Description>
+                    <Value Type="int16" Default="00" Options=""/>
+                </Parameter>
+                <Parameter Id="24" IdName="envData_sendPeriod">
+                    <Description>Environmental data sending period</Description>
+                    <Value Type="uint32" Default="0000000A" Options="" Min="00000000" Max="FFFFFFFF"/>
+                </Parameter>
+            </ParameterGroup>
 
         </Parameters>
         <CommObjects>
@@ -311,6 +356,8 @@
                 <DataPointType>1.001</DataPointType>
                 <Flags>52</Flags>
             </CommObject>
+
+
 
 
         </CommObjects>

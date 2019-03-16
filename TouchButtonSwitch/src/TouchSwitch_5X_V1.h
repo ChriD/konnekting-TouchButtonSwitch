@@ -38,6 +38,7 @@
       virtual void onButtonAction(uint16_t, uint16_t, uint16_t);
 
     private:
+      uint8_t ledPattern_Default[9];
 
 
   };

@@ -4,7 +4,7 @@
 #ifndef LedPatternsRGB_h
 #define LedPatternsRGB_h
 
-#define STD_BRIGHTNESS 50
+#define STD_BRIGHTNESS 30
 
 #define RED     STD_BRIGHTNESS,0,0
 #define YELLOW  STD_BRIGHTNESS,STD_BRIGHTNESS,0
@@ -47,7 +47,7 @@ const uint8_t ledPattern_Prog[] = {
 const uint8_t ledPattern_Calibration[] = {
       LedPattern::CMD_SET, OFF,
       LedPattern::CMD_REPEAT, LedPattern::repeatForever,
-         LedPattern::CMD_SET, MAGENTA,
+         LedPattern::CMD_SET, WHITE,
          LedPattern::CMD_WAIT, 5,
          LedPattern::CMD_SET, OFF,
          LedPattern::CMD_WAIT, 5,

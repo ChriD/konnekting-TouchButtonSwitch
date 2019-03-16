@@ -53,6 +53,16 @@
 #define PARAM_button5_mode 12
 #define PARAM_button5_longTouchMode 13
 #define PARAM_button5_multiTouchEnabled 14
+#define PARAM_clickFeedback_active 15
+#define PARAM_clickFeedback_frequency 16
+#define PARAM_clickFeedback_duration 17
+#define PARAM_led_color_red 18
+#define PARAM_led_color_green 19
+#define PARAM_led_color_blue 20
+#define PARAM_led_brightness 21
+#define PARAM_temp_offset 22
+#define PARAM_humidity_offset 23
+#define PARAM_envData_sendPeriod 24
 
 KnxComObject KnxDevice::_comObjectsList[] = {
     /* Index 0 - firmwareTransfer */ KnxComObject(KNX_DPT_60000_60000, 0x2a),
@@ -109,6 +119,16 @@ byte KonnektingDevice::_paramSizeList[] = {
     /* Index 11 - button4_multiTouchEnabled */ PARAM_UINT8,
     /* Index 12 - button5_mode */ PARAM_UINT8,
     /* Index 13 - button5_longTouchMode */ PARAM_UINT8,
-    /* Index 14 - button5_multiTouchEnabled */ PARAM_UINT8
+    /* Index 14 - button5_multiTouchEnabled */ PARAM_UINT8,
+    /* Index 15 - clickFeedback_active */ PARAM_UINT8,
+    /* Index 16 - clickFeedback_frequency */ PARAM_UINT32,
+    /* Index 17 - clickFeedback_duration */ PARAM_UINT32,
+    /* Index 18 - led_color_red */ PARAM_UINT8,
+    /* Index 19 - led_color_green */ PARAM_UINT8,
+    /* Index 20 - led_color_blue */ PARAM_UINT8,
+    /* Index 21 - led_brightness */ PARAM_UINT8,
+    /* Index 22 - temp_offset */ PARAM_INT16,
+    /* Index 23 - humidity_offset */ PARAM_INT16,
+    /* Index 24 - envData_sendPeriod */ PARAM_UINT32
 };
 const int KonnektingDevice::_numberOfParams = sizeof (_paramSizeList); // do not change this code

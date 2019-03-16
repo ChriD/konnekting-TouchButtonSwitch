@@ -24,8 +24,12 @@ TouchSwitch_5X_V1::TouchSwitch_5X_V1() : TouchSwitch()
   this->envSensorsSettings.humidity     = true;
   this->envSensorsSettings.pressure     = true;
 
-  // activate the buzzer
-  this->speakerEnabled  = true;
+
+  this->ledPattern_Default[0] = LedPattern::CMD_SET;
+  this->ledPattern_Default[1] = 30;
+  this->ledPattern_Default[2] = 0;
+  this->ledPattern_Default[3] = 30;
+  this->ledPattern_Default[4] = LedPattern::CMD_FINISHED;
 }
 
 
@@ -46,19 +50,7 @@ void TouchSwitch_5X_V1::initButtons()
   // TODO: Add PRG Button which is a normal "PinButton"
   //this->addButton(new PinButton(TS_4X_V1_BTN1_PIN, TS_4X_V1_BTN1_ID, FALLING));
 
-  // TODO: reverse due common anode!
   this->rgbLed = new LedPattern_RGB(11,12,13);
-
-  // due we have a common anode, setting 255 on each pwm pins does result in no light
-  /*
-  pinMode(11, OUTPUT);
-  pinMode(12, OUTPUT);
-  pinMode(13, OUTPUT);
-
-  analogWrite(11, 255);
-  analogWrite(12, 255);
-  analogWrite(13, 255);
-  */
 }
 
 
@@ -67,18 +59,17 @@ void TouchSwitch_5X_V1::setMode(SWITCH_MODE _mode, uint16_t _modeLevel)
 {
   TouchSwitch::setMode(_mode, _modeLevel);
 
-  // when chaangeing the mode we have to stop the current pattern which is running
+  // when changeing the mode we have to stop the current pattern which is running
   this->rgbLed->stop();
 
   if(_mode == SWITCH_MODE::NORMAL)
-    this->rgbLed->start(ledPattern_Normal);
+    this->rgbLed->start(this->ledPattern_Default);
   if(_mode == SWITCH_MODE::PROG)
     this->rgbLed->start(ledPattern_Prog);
   if(_mode == SWITCH_MODE::CALIBRATION)
     this->rgbLed->start(ledPattern_Calibration);
   if(_mode == SWITCH_MODE::SETUP)
     this->rgbLed->start(ledPattern_Setup);
-
 }
 
 
@@ -89,8 +80,8 @@ void TouchSwitch_5X_V1::onButtonAction(uint16_t _buttonId, uint16_t _type, uint1
   // if we do have a touch on a button we do signalize it by a short pattern and a beep
   if(this->mode == SWITCH_MODE::NORMAL)
   {
-    if(this->parmSpeakerEnabled())
-      tone(A0, 4000, 250);
+    if(this->speakerSettings.clickFeedbackEnabled)
+      tone(A0, this->speakerSettings.clickFeedbackFrequency, this->speakerSettings.clickFeedbackDuration);
 
     this->rgbLed->stop();
     this->rgbLed->start(ledPattern_Touch);
@@ -145,16 +136,18 @@ void TouchSwitch_5X_V1::task()
   if(this->getPeriod(this->lastPatternRunTime) > 10)
   {
     this->rgbLed->update();
+    // everytime a pattern is finished, we have to load the "standard" pattern
+    if(this->rgbLed->finished())
+      this->rgbLed->start(this->ledPattern_Default);
     this->lastPatternRunTime = millis();
   }
 
-  // periodically get the temperature and humidity if period timne is enabled
-  // (period time may be auto enabled if there are any environemtn warnings active)
+  // periodically get the temperature and humidity if period time is enabled
+  // (period time may be auto enabled if there are any environmental warnings are active)
   // this may lead to problems if a button is clicked meanwhile?!
   if( (this->envSensorsSettings.temperature || this->envSensorsSettings.humidity || this->envSensorsSettings.pressure) &&
       this->getPeriod(this->lastEnvSenorsRunTime) > this->envSensorsSettings.temperaturePeriod)
   {
-    //TODO:
     float temp(NAN), hum(NAN), pres(NAN);
     BME280::TempUnit tempUnit(BME280::TempUnit_Celsius);
     BME280::PresUnit presUnit(BME280::PresUnit_Pa);

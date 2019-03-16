@@ -15,16 +15,15 @@
                   * SETTING: TEMP offset
                   * SETTING: TEMP PERIOD SEND (0-X)
                   * SETTING: TMP WARNING LOW
-                  * SETTING: TMP WARNING LOW PERIOD
                   * SETTING: TMP WARNING HIGH
-                  * SETTING: TMP WARNING HIGH PERIOD
+                  * SETTING: TMP WARNING PERIOD
                   * SETTING: HUMI offset
                   * SETTING: HUMI PERIOD SEND (0-X)
                   * SETTING: HUMI WARNING LOW
-                  * SETTING: HUMI WARNING LOW PERIOD
                   * SETTING: HUMI WARNING HIGH
-                  * SETTING: HUMI WARNING HIGH PERIOD
+                  * SETTING: HUMI WARNING PERIOD
                   * SETTING: STD LED Brightness
+                  * SPEAKER FREQ
 
 */
 
@@ -220,35 +219,63 @@ void initKNXParameters()
   button1Parms.longTouchMode    = Konnekting.getUINT8Param(PARAM_button1_longTouchMode);
   button1Parms.allowMultiTouch  = (bool) Konnekting.getUINT8Param(PARAM_button1_multiTouchEnabled);
   baseSwitch->setButtonParameters(1, button1Parms);
-  Debug.println(F("Sensor %u: Mode=%u, LongTouchMode=%u, MultiTouch=%u, "), 1, 0, 0, button1Parms.allowMultiTouch);
+  Debug.println(F("Sensor %u: Mode=%u, LongTouchMode=%u, MultiTouch=%u"), 1, 0, button1Parms.longTouchMode, button1Parms.allowMultiTouch);
 
   BaseSwitchButtonParms button2Parms;
   button2Parms.mode             = Konnekting.getUINT8Param(PARAM_button2_mode);
   button2Parms.longTouchMode    = Konnekting.getUINT8Param(PARAM_button2_longTouchMode);
   button2Parms.allowMultiTouch  = (bool) Konnekting.getUINT8Param(PARAM_button2_multiTouchEnabled);
   baseSwitch->setButtonParameters(2, button2Parms);
-  Debug.println(F("Sensor %u: Mode=%u, LongTouchMode=%u, MultiTouch=%u, "), 2, 0, 0, button2Parms.allowMultiTouch);
+  Debug.println(F("Sensor %u: Mode=%u, LongTouchMode=%u, MultiTouch=%u"), 2, 0, button2Parms.longTouchMode, button2Parms.allowMultiTouch);
 
   BaseSwitchButtonParms button3Parms;
   button3Parms.mode             = Konnekting.getUINT8Param(PARAM_button3_mode);
   button3Parms.longTouchMode    = Konnekting.getUINT8Param(PARAM_button3_longTouchMode);
   button3Parms.allowMultiTouch  = (bool) Konnekting.getUINT8Param(PARAM_button3_multiTouchEnabled);
   baseSwitch->setButtonParameters(3, button3Parms);
-  Debug.println(F("Sensor %u: Mode=%u, LongTouchMode=%u, MultiTouch=%u, "), 3, 0, 0, button3Parms.allowMultiTouch);
+  Debug.println(F("Sensor %u: Mode=%u, LongTouchMode=%u, MultiTouch=%u"), 3, 0, button3Parms.longTouchMode, button3Parms.allowMultiTouch);
 
   BaseSwitchButtonParms button4Parms;
   button4Parms.mode             = Konnekting.getUINT8Param(PARAM_button4_mode);
   button4Parms.longTouchMode    = Konnekting.getUINT8Param(PARAM_button4_longTouchMode);
   button4Parms.allowMultiTouch = (bool) Konnekting.getUINT8Param(PARAM_button4_multiTouchEnabled);
   baseSwitch->setButtonParameters(4, button4Parms);
-  Debug.println(F("Sensor %u: Mode=%u, LongTouchMode=%u, MultiTouch=%u, "), 4, 0, 0, button4Parms.allowMultiTouch);
+  Debug.println(F("Sensor %u: Mode=%u, LongTouchMode=%u, MultiTouch=%u"), 4, 0, button4Parms.longTouchMode, button4Parms.allowMultiTouch);
 
   BaseSwitchButtonParms button5Parms;
   button5Parms.mode             = Konnekting.getUINT8Param(PARAM_button5_mode);
   button5Parms.longTouchMode    = Konnekting.getUINT8Param(PARAM_button5_longTouchMode);
   button5Parms.allowMultiTouch  = (bool) Konnekting.getUINT8Param(PARAM_button5_multiTouchEnabled);
   baseSwitch->setButtonParameters(5, button5Parms);
-  Debug.println(F("Sensor %u: Mode=%u, LongTouchMode=%u, MultiTouch=%u, "), 5, 0, 0, button5Parms.allowMultiTouch);
+  Debug.println(F("Sensor %u: Mode=%u, LongTouchMode=%u, MultiTouch=%u"), 5, 0, button5Parms.longTouchMode, button5Parms.allowMultiTouch);
+
+  // Environmental Sensor Settings
+  BaseSwitchEnvSensors envSensorsSettings = baseSwitch->parmEnvSensorsSettings();
+  envSensorsSettings.temperaturePeriod  = Konnekting.getUINT32Param(PARAM_envData_sendPeriod) / 10;
+  envSensorsSettings.temperatureAdj     = Konnekting.getINT16Param(PARAM_temp_offset) / 10;
+  envSensorsSettings.humidityPeriod     = Konnekting.getUINT32Param(PARAM_envData_sendPeriod) / 10;
+  envSensorsSettings.humidityAdj        = Konnekting.getINT16Param(PARAM_humidity_offset) / 10;
+  baseSwitch->parmEnvSensorsSettings(envSensorsSettings);
+  Debug.println(F("Evn.Data | read period: %u, TempAdj.: %u, HumiAdj.: %u"), envSensorsSettings.temperaturePeriod, envSensorsSettings.temperatureAdj, envSensorsSettings.humidityAdj);
+
+  // LED Settings
+  BaseSwitchLightning lightningSettings =  baseSwitch->parmLightningSettings();
+  lightningSettings.stdR          = Konnekting.getUINT8Param(PARAM_led_color_red);
+  lightningSettings.stdG          = Konnekting.getUINT8Param(PARAM_led_color_green);
+  lightningSettings.stdB          = Konnekting.getUINT8Param(PARAM_led_color_blue);
+  lightningSettings.stdBrightness = Konnekting.getUINT8Param(PARAM_led_brightness);
+  baseSwitch->parmLightningSettings(lightningSettings);
+  Debug.println(F("LED settings | R: %u, G: %u, B: %u, Brightness: %u"), lightningSettings.stdR, lightningSettings.stdG, lightningSettings.stdB, lightningSettings.stdBrightness);
+
+
+  // Buzzer Settings
+  BaseSwitchSpeaker speakerSettings =  baseSwitch->parmSpeakerSettings();
+  speakerSettings.clickFeedbackEnabled    = (bool) Konnekting.getUINT8Param(PARAM_clickFeedback_active);
+  speakerSettings.clickFeedbackFrequency  = Konnekting.getUINT32Param(PARAM_clickFeedback_frequency);
+  speakerSettings.clickFeedbackDuration   = Konnekting.getUINT32Param(PARAM_clickFeedback_duration);
+  baseSwitch->parmSpeakerSettings(speakerSettings);
+  Debug.println(F("Buzzer settings | Feedback enabled: %u, FeedbackFreq.: %u, FeedbackDuration.: %u"), speakerSettings.clickFeedbackEnabled , speakerSettings.clickFeedbackFrequency , speakerSettings.clickFeedbackDuration);
+
 
   Debug.println(F("User settings loaded"));
 }

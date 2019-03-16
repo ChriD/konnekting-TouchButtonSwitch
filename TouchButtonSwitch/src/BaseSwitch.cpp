@@ -25,19 +25,29 @@ BaseSwitch::BaseSwitch()
 
   this->maxButtonIdx = -1;
 
-  this->envSensorsSettings.temperature        = false;
-  this->envSensorsSettings.temperatureAdj     = 0.0;
-  this->envSensorsSettings.temperaturePeriod  = 1000*60*3;
-  this->envSensorsSettings.humidity           = false;
-  this->envSensorsSettings.humidityAdj        = 0.0;
-  this->envSensorsSettings.humidityPeriod     = 1000*60*30;
-  this->envSensorsSettings.pressure           = 0;
+  this->envSensorsSettings.temperature            = false;
+  this->envSensorsSettings.temperatureAdj         = 0.0;
+  this->envSensorsSettings.temperaturePeriod      = 1000*60*3;
+  this->envSensorsSettings.temperatureWarningHigh = 300;
+  this->envSensorsSettings.temperatureWarningLow  = -300;
+  this->envSensorsSettings.humidity               = false;
+  this->envSensorsSettings.humidityAdj            = 0.0;
+  this->envSensorsSettings.humidityPeriod         = 1000*60*30;
+  this->envSensorsSettings.pressure               = 0;
 
-   this->curEnvData.temperature       = 0;
-   this->curEnvData.humidity          = 0;
-   this->curEnvData.pressure          = 0;
+  this->curEnvData.temperature          = 0;
+  this->curEnvData.humidity             = 0;
+  this->curEnvData.pressure             = 0;
 
-  this->speakerEnabled    = false;
+  this->lightningSettings.stdR          = 255;
+  this->lightningSettings.stdG          = 0;
+  this->lightningSettings.stdB          = 255;
+  this->lightningSettings.stdBrightness = 15;
+
+  this->speakerSettings.clickFeedbackEnabled    = true;
+  this->speakerSettings.clickFeedbackFrequency  = 4000;
+  this->speakerSettings.clickFeedbackDuration   = 250;
+
 }
 
 
@@ -230,12 +240,17 @@ BaseSwitchEnvSensors BaseSwitch::parmEnvSensorsSettings(){
 }
 
 
-void BaseSwitch::parmSpeakerEnabled(boolean _enabled){
-  this->speakerEnabled = _enabled;
+void BaseSwitch::parmLightningSettings(BaseSwitchLightning _lightningSettings){
+  this->lightningSettings = _lightningSettings;
 }
-boolean BaseSwitch::parmSpeakerEnabled(){
-  return this->speakerEnabled;
+BaseSwitchLightning BaseSwitch::parmLightningSettings(){
+  return this->lightningSettings;
 }
 
 
-
+void BaseSwitch::parmSpeakerSettings(BaseSwitchSpeaker _speakerSettings){
+  this->speakerSettings = _speakerSettings;
+}
+BaseSwitchSpeaker BaseSwitch::parmSpeakerSettings(){
+  return this->speakerSettings;
+}

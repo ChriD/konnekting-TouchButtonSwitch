@@ -27,25 +27,47 @@
   typedef struct BaseSwitchButtonParmsStruct BaseSwitchButtonParms;
 
 
+  struct BaseSwitchSpeakerStruct
+  {
+    boolean clickFeedbackEnabled;
+    uint32_t clickFeedbackFrequency;
+    uint16_t clickFeedbackDuration;
+  };
+  typedef struct BaseSwitchSpeakerStruct BaseSwitchSpeaker;
+
+
+  struct BaseSwitchLightningStruct
+  {
+    uint8_t stdR;
+    uint8_t stdG;
+    uint8_t stdB;
+    uint8_t stdBrightness; //(0-100)
+  };
+  typedef struct BaseSwitchLightningStruct BaseSwitchLightning;
+
 
   // some structures and typedefs for the evironmentla sensors a button may have
   struct BaseSwitchEnvSensorStruct
   {
-    boolean   temperature       = false;
-    float     temperatureAdj    = 0.0;
-    uint64_t  temperaturePeriod = 1000*60*3;
-    boolean   humidity          = false;
-    float     humidityAdj       = 0;
-    uint64_t  humidityPeriod    = 1000*60*3;
-    boolean   pressure          = false;
+    boolean   temperature;
+    float     temperatureAdj;
+    uint64_t  temperaturePeriod;
+    float     temperatureWarningLow;
+    float     temperatureWarningHigh;
+    boolean   humidity;
+    float     humidityAdj;
+    uint64_t  humidityPeriod;
+    float     humidityWarningLow;
+    float     humidityWarningHigh;
+    boolean   pressure;
   };
   typedef struct BaseSwitchEnvSensorStruct BaseSwitchEnvSensors;
 
   struct BaseSwitchEnvDataStruct
   {
-    float temperature = 0;
-    float humidity    = 0;
-    float pressure    = 0;
+    float temperature;
+    float humidity;
+    float pressure;
   };
   typedef struct BaseSwitchEnvDataStruct BaseSwitchEnvData;
 
@@ -78,8 +100,12 @@
       BaseSwitchEnvSensors parmEnvSensorsSettings();
       void parmEnvSensorsSettings(BaseSwitchEnvSensors);
 
-      boolean parmSpeakerEnabled();
-      void parmSpeakerEnabled(boolean);
+      BaseSwitchLightning parmLightningSettings();
+      void parmLightningSettings(BaseSwitchLightning);
+
+      BaseSwitchSpeaker parmSpeakerSettings();
+      void parmSpeakerSettings(BaseSwitchSpeaker);
+
 
     protected:
       Button      *buttons[SWITCH_MAX_BUTTONCOUNT];
@@ -93,8 +119,9 @@
       // holds the last data read by the environmental sensors
       BaseSwitchEnvData     curEnvData;
 
-      boolean               speakerEnabled;
       BaseSwitchEnvSensors  envSensorsSettings;
+      BaseSwitchLightning   lightningSettings;
+      BaseSwitchSpeaker     speakerSettings;
 
       CallbackFunction_ButtonAction       callback_onButtonAction;
       CallbackFunction_ProximityAlert     callback_onProximityAlert;
