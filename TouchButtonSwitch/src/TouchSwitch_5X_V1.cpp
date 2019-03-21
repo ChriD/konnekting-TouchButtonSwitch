@@ -26,9 +26,9 @@ TouchSwitch_5X_V1::TouchSwitch_5X_V1() : TouchSwitch()
 
 
   this->ledPattern_Default[0] = LedPattern::CMD_SET;
-  this->ledPattern_Default[1] = 30;
+  this->ledPattern_Default[1] = 255;
   this->ledPattern_Default[2] = 0;
-  this->ledPattern_Default[3] = 30;
+  this->ledPattern_Default[3] = 255;
   this->ledPattern_Default[4] = LedPattern::CMD_FINISHED;
 }
 
@@ -86,6 +86,16 @@ void TouchSwitch_5X_V1::onButtonAction(uint16_t _buttonId, uint16_t _type, uint1
     this->rgbLed->stop();
     this->rgbLed->start(ledPattern_Touch);
   }
+}
+
+
+void TouchSwitch_5X_V1::parmLightningSettings(BaseSwitchLightning _lightningSettings)
+{
+  TouchSwitch::parmLightningSettings(_lightningSettings);
+  this->ledPattern_Default[1] = _lightningSettings.stdR;
+  this->ledPattern_Default[2] = _lightningSettings.stdG;
+  this->ledPattern_Default[3] = _lightningSettings.stdB;
+  this->rgbLed->setBrightness(_lightningSettings.stdBrightness);
 }
 
 

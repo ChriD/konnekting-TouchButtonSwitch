@@ -42,7 +42,7 @@ BaseSwitch::BaseSwitch()
   this->lightningSettings.stdR          = 255;
   this->lightningSettings.stdG          = 0;
   this->lightningSettings.stdB          = 255;
-  this->lightningSettings.stdBrightness = 15;
+  this->lightningSettings.stdBrightness = 10;
 
   this->speakerSettings.clickFeedbackEnabled    = true;
   this->speakerSettings.clickFeedbackFrequency  = 4000;

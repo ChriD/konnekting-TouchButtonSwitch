@@ -83,7 +83,7 @@
             <ParameterGroup Name="General" Id="5">
                 <Parameter Id="15" IdName="clickFeedback_active">
                     <Description>Click Feedback Active</Description>
-                    <Value Type="uint8" Default="00" Options="00=No|01=Yes" Min="00" Max="01"/>
+                    <Value Type="uint8" Default="01" Options="00=No|01=Yes" Min="00" Max="01"/>
                 </Parameter>
                 <Parameter Id="16" IdName="clickFeedback_frequency">
                     <Description>Click Feedback Frequency</Description>
@@ -114,11 +114,11 @@
             <ParameterGroup Name="Environmental Sensors" Id="6">
                 <Parameter Id="22" IdName="temp_offset">
                     <Description>Temperature offset [1° = 10]</Description>
-                    <Value Type="int16" Default="00" Options=""/>
+                    <Value Type="int16" Default="0000" Options="" Min="0000" Max="0064"/>
                 </Parameter>
                 <Parameter Id="23" IdName="humidity_offset">
                     <Description>Humidity offset [1% = 10]</Description>
-                    <Value Type="int16" Default="00" Options=""/>
+                    <Value Type="int16" Default="0000" Options="" Min="000" Max="0064"/>
                 </Parameter>
                 <Parameter Id="24" IdName="envData_sendPeriod">
                     <Description>Environmental data sending period</Description>
@@ -354,6 +354,26 @@
                 <Name>Button 5</Name>
                 <Function>Long Touch State</Function>
                 <DataPointType>1.001</DataPointType>
+                <Flags>52</Flags>
+            </CommObject>
+
+
+            <CommObject Id="36" IdName="env_temperature">
+                <Name>Temperature</Name>
+                <Function>Long Touch State</Function>
+                <DataPointType>9.001</DataPointType>
+                <Flags>52</Flags>
+            </CommObject>
+            <CommObject Id="37" IdName="env_humidity">
+                <Name>Humidity</Name>
+                <Function>Long Touch State</Function>
+                <DataPointType>9.001</DataPointType>
+                <Flags>52</Flags>
+            </CommObject>
+            <CommObject Id="37" IdName="env_pressure">
+                <Name>Humidity</Name>
+                <Function>Long Touch State</Function>
+                <DataPointType>14.001</DataPointType>
                 <Flags>52</Flags>
             </CommObject>
 

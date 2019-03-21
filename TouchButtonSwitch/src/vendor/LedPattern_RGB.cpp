@@ -21,12 +21,6 @@ LedPattern_RGB::LedPattern_RGB( const uint8_t ledPinR, const uint8_t ledPinG, co
 
 void LedPattern_RGB::ledWrite( const uint8_t i, const uint8_t intensity )
 {
-
-    debug("-------------");
-    debug(m_ledPins[i]);
-    debug("  -> ");
-    debugln(intensity);
-
     if (0 == intensity) {
         pinMode(m_ledPins[i], INPUT); // turn off PWM @@@
         pinMode(m_ledPins[i], OUTPUT); // @@@
@@ -52,7 +46,10 @@ void LedPattern_RGB::ledSet(pattern& p)
     for (uint8_t i = 0; i < 3; ++i)
     {
         //const uint8_t intensity = *p++;
-        const uint8_t intensity = 255 - *p++; // @@@
+        uint8_t value = *p++;
+        //const uint8_t intensity = (255 - (value *(this->brightness / 100)) ); // @@@
+        value = (value / 100) * this->brightness;
+        const uint8_t intensity = (255 - value ); // @@@
         ledWrite(i, intensity);
         #ifndef LED_PATTERN_FADE_UNSUPPORTED
             m_step[i]  = 0;

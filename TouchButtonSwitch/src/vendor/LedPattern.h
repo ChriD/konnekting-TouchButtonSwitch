@@ -82,7 +82,7 @@ class LedPattern
     } CMD;
 
     const static uint8_t repeatForever = 255;   /**< Symbolic value, indicating pattern should repeat forever. */
-    
+
     /**
       * Update the pattern.
       * This function is to be called on a regular interval to update Led state.
@@ -90,6 +90,8 @@ class LedPattern
       * measurement for the WAIT-command.
       */
     virtual void update(void);
+
+    virtual void setBrightness(uint8_t _brightness);
 
   protected:
     virtual void intStop(void);
@@ -126,6 +128,8 @@ class LedPattern
 
     pattern  m_pattern;     /**< Current position in the pattern. */
 
+    uint8_t brightness;
+
     /**
       * Storage type for repetitions.
       */
@@ -133,7 +137,7 @@ class LedPattern
         pattern m_pc;       /**< Location in pattern where repetation should start. */
         uint8_t m_repeat;   /**< Number of repetitions remaining, or LED_PATTERN_REPEAT_FOREVER. */
     } repeat;
-    
+
     uint8_t  m_wait;                                        /**< Number of remaining cycles to wait. */
     repeat   m_repeatStack[LED_PATTERN_REPEAT_STACK_SIZE];  /**< Stack keeping track of active repetitions. */
     int8_t   m_repeatStackIdx;                              /**< Current index in repetition stack. */

@@ -87,7 +87,13 @@ void onModeChange(SWITCH_MODE _fromMode, uint16_t _fromModeLevel, SWITCH_MODE _t
 void onEnvDataUpdated(BaseSwitchEnvData _envData)
 {
   Debug.println(F("EnvData: Temp: %f \t\t Humidity: %f \t\t Pressure: %f"), _envData.temperature, _envData.humidity, _envData.pressure);
-  // TODO: send out values on the bus
+
+  if(!KNXEnabled())
+    return;
+
+  Knx.write(COMOBJ_env_temperature, _envData.temperature);
+  Knx.write(COMOBJ_env_humidity,    _envData.humidity);
+  Knx.write(COMOBJ_env_pressure,    _envData.pressure);
 }
 
 // this method will be called whenever a button action (tap, doubletap, longtap,..) was regognized by the
@@ -267,7 +273,6 @@ void initKNXParameters()
   baseSwitch->parmLightningSettings(lightningSettings);
   Debug.println(F("LED settings | R: %u, G: %u, B: %u, Brightness: %u"), lightningSettings.stdR, lightningSettings.stdG, lightningSettings.stdB, lightningSettings.stdBrightness);
 
-
   // Buzzer Settings
   BaseSwitchSpeaker speakerSettings =  baseSwitch->parmSpeakerSettings();
   speakerSettings.clickFeedbackEnabled    = (bool) Konnekting.getUINT8Param(PARAM_clickFeedback_active);
@@ -276,27 +281,25 @@ void initKNXParameters()
   baseSwitch->parmSpeakerSettings(speakerSettings);
   Debug.println(F("Buzzer settings | Feedback enabled: %u, FeedbackFreq.: %u, FeedbackDuration.: %u"), speakerSettings.clickFeedbackEnabled , speakerSettings.clickFeedbackFrequency , speakerSettings.clickFeedbackDuration);
 
-
   Debug.println(F("User settings loaded"));
 }
 
-
 // if the prog button is pressed we have to switch the device into the prog mode
 // we have to debounce the button because we do not have hardware debounce
-volatile unsigned long progButtonDebounceTime = 0;
+// newer hardware revisions does have hardware debounce, so no need for software debounce anymore!
+//volatile unsigned long progButtonDebounceTime = 0;
 void progButtonPressed()
 {
-  unsigned long tempTime = millis();
+  /*unsigned long tempTime = millis();
   if(tempTime >= progButtonDebounceTime)
   {
     if(tempTime - progButtonDebounceTime < 200)
       return;
   }
   progButtonDebounceTime = tempTime;
+  */
   Debug.println(F("PROG BTN"));
   Konnekting.toggleProgState();
-
-  baseSwitch->setMode(SWITCH_MODE::PROG);
 }
 
 

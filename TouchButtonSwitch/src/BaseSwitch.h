@@ -98,13 +98,13 @@
       void attachCallbackOnEnvDataUpdated(const CallbackFunction_EnvDataUpdated &);
 
       BaseSwitchEnvSensors parmEnvSensorsSettings();
-      void parmEnvSensorsSettings(BaseSwitchEnvSensors);
+      virtual void parmEnvSensorsSettings(BaseSwitchEnvSensors);
 
       BaseSwitchLightning parmLightningSettings();
-      void parmLightningSettings(BaseSwitchLightning);
+      virtual void parmLightningSettings(BaseSwitchLightning);
 
       BaseSwitchSpeaker parmSpeakerSettings();
-      void parmSpeakerSettings(BaseSwitchSpeaker);
+      virtual void parmSpeakerSettings(BaseSwitchSpeaker);
 
 
     protected:

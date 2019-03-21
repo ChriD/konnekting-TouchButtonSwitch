@@ -27,6 +27,8 @@
       virtual boolean setup();
       virtual void task();
 
+      virtual void parmLightningSettings(BaseSwitchLightning);
+
     protected:
       LedPattern_RGB *rgbLed;
       uint64_t lastPatternRunTime;

@@ -4,7 +4,7 @@
 #ifndef LedPatternsRGB_h
 #define LedPatternsRGB_h
 
-#define STD_BRIGHTNESS 30
+#define STD_BRIGHTNESS 255
 
 #define RED     STD_BRIGHTNESS,0,0
 #define YELLOW  STD_BRIGHTNESS,STD_BRIGHTNESS,0

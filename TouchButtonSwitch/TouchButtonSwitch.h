@@ -38,6 +38,9 @@
 #define COMOBJ_button5_long_touchstart 33
 #define COMOBJ_button5_long_touchend 34
 #define COMOBJ_button5_long_touchState 35
+#define COMOBJ_env_temperature 36
+#define COMOBJ_env_humidity 37
+#define COMOBJ_env_pressure 37
 #define PARAM_button1_mode 0
 #define PARAM_button1_longTouchMode 1
 #define PARAM_button1_multiTouchEnabled 2
@@ -100,7 +103,10 @@ KnxComObject KnxDevice::_comObjectsList[] = {
     /* Index 32 - button5_long */ KnxComObject(KNX_DPT_1_001, 0x34),
     /* Index 33 - button5_long_touchstart */ KnxComObject(KNX_DPT_1_001, 0x34),
     /* Index 34 - button5_long_touchend */ KnxComObject(KNX_DPT_1_001, 0x34),
-    /* Index 35 - button5_long_touchState */ KnxComObject(KNX_DPT_1_001, 0x34)
+    /* Index 35 - button5_long_touchState */ KnxComObject(KNX_DPT_1_001, 0x34),
+    /* Index 36 - env_temperature */ KnxComObject(KNX_DPT_9_001, 0x34),
+    /* Index 37 - env_humidity */ KnxComObject(KNX_DPT_9_001, 0x34),
+    /* Index 37 - env_pressure */ KnxComObject(KNX_DPT_14_001, 0x34)
 };
 const byte KnxDevice::_numberOfComObjects = sizeof (_comObjectsList) / sizeof (KnxComObject); // do not change this code
 

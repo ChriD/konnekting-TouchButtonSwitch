@@ -11,11 +11,12 @@
 #else
 #define debug(x)
 #define debugln(x)
-#endif 
+#endif
 
 LedPattern::LedPattern(void)
 {
     stop();
+    this->brightness = 100;
 }
 
 LedPattern::~LedPattern(void)
@@ -60,6 +61,12 @@ bool LedPattern::finished(void)
     return finished;
 }
 
+
+void LedPattern::setBrightness(uint8_t _brightness)
+{
+    this->brightness = _brightness;
+}
+
 void LedPattern::update( void )
 {
     LED_PATTERN_CRITICAL_SECTION_START
@@ -80,7 +87,7 @@ void LedPattern::update( void )
             break;
         }
         for (;;)
-        {    
+        {
             CMD cmd = CMD(*m_pattern++);
             if (CMD_SET == cmd)
             {
