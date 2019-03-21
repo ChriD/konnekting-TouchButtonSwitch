@@ -26,7 +26,7 @@
       virtual void setMode(SWITCH_MODE, uint16_t _modeLevel = 0);
       virtual boolean setup();
       virtual void task();
-
+      virtual void requestEnvironmentData();
       virtual void parmLightningSettings(BaseSwitchLightning);
 
     protected:

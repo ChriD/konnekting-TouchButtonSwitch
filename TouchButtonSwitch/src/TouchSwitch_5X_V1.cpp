@@ -51,6 +51,10 @@ void TouchSwitch_5X_V1::initButtons()
   //this->addButton(new PinButton(TS_4X_V1_BTN1_PIN, TS_4X_V1_BTN1_ID, FALLING));
 
   this->rgbLed = new LedPattern_RGB(11,12,13);
+
+  // on setup be sure that there is some lightning.
+  // these setting will be overwritten when the memory with the knx settings was loaded!
+  this->rgbLed->setBrightness(25);
 }
 
 
@@ -95,7 +99,8 @@ void TouchSwitch_5X_V1::parmLightningSettings(BaseSwitchLightning _lightningSett
   this->ledPattern_Default[1] = _lightningSettings.stdR;
   this->ledPattern_Default[2] = _lightningSettings.stdG;
   this->ledPattern_Default[3] = _lightningSettings.stdB;
-  this->rgbLed->setBrightness(_lightningSettings.stdBrightness);
+  if(this->rgbLed)
+    this->rgbLed->setBrightness(_lightningSettings.stdBrightness);
 }
 
 
@@ -138,6 +143,21 @@ boolean TouchSwitch_5X_V1::setup()
 }
 
 
+void TouchSwitch_5X_V1::requestEnvironmentData()
+{
+  float temp(NAN), hum(NAN), pres(NAN);
+  BME280::TempUnit tempUnit(BME280::TempUnit_Celsius);
+  BME280::PresUnit presUnit(BME280::PresUnit_Pa);
+  bme.read(pres, temp, hum, tempUnit, presUnit);
+
+  this->curEnvData.temperature  = temp  + this->envSensorsSettings.temperatureAdj;
+  this->curEnvData.humidity     = hum   + this->envSensorsSettings.humidityAdj;
+  this->curEnvData.pressure     = pres;
+
+  this->callback_onEnvDataUpdated(this->curEnvData);
+}
+
+
 void TouchSwitch_5X_V1::task()
 {
   TouchSwitch::task();
@@ -156,19 +176,9 @@ void TouchSwitch_5X_V1::task()
   // (period time may be auto enabled if there are any environmental warnings are active)
   // this may lead to problems if a button is clicked meanwhile?!
   if( (this->envSensorsSettings.temperature || this->envSensorsSettings.humidity || this->envSensorsSettings.pressure) &&
-      this->getPeriod(this->lastEnvSenorsRunTime) > this->envSensorsSettings.temperaturePeriod)
+      (this->getPeriod(this->lastEnvSenorsRunTime) > this->envSensorsSettings.temperaturePeriod || !this->lastEnvSenorsRunTime))
   {
-    float temp(NAN), hum(NAN), pres(NAN);
-    BME280::TempUnit tempUnit(BME280::TempUnit_Celsius);
-    BME280::PresUnit presUnit(BME280::PresUnit_Pa);
-    bme.read(pres, temp, hum, tempUnit, presUnit);
-
-    this->curEnvData.temperature  = temp  + this->envSensorsSettings.temperatureAdj;
-    this->curEnvData.humidity     = hum   + this->envSensorsSettings.humidityAdj;
-    this->curEnvData.pressure     = pres;
-
-    this->callback_onEnvDataUpdated(this->curEnvData);
-
+    this->requestEnvironmentData();
     this->lastEnvSenorsRunTime = millis();
   }
 }
