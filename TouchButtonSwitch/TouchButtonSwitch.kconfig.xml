@@ -95,34 +95,34 @@
                 </Parameter>
                 <Parameter Id="18" IdName="led_color_red">
                     <Description>LED Color RED</Description>
-                    <Value Type="uint8" Default="28" Options="" Min="00" Max="FF"/>
+                    <Value Type="uint8" Default="FF" Options="" Min="00" Max="FF"/>
                 </Parameter>
                 <Parameter Id="19" IdName="led_color_green">
                     <Description>LED Color GRREN</Description>
-                    <Value Type="uint8" Default="28" Options="" Min="00" Max="FF"/>
+                    <Value Type="uint8" Default="00" Options="" Min="00" Max="FF"/>
                 </Parameter>
                 <Parameter Id="20" IdName="led_color_blue">
                     <Description>LED Color BLUE</Description>
-                    <Value Type="uint8" Default="28" Options="" Min="00" Max="FF"/>
+                    <Value Type="uint8" Default="FF" Options="" Min="00" Max="FF"/>
                 </Parameter>
                  <Parameter Id="21" IdName="led_brightness">
                     <Description>LED Brightness</Description>
-                    <Value Type="uint8" Default="28" Options="" Min="00" Max="64"/>
+                    <Value Type="uint8" Default="1E" Options="" Min="00" Max="64"/>
                 </Parameter>
             </ParameterGroup>
 
             <ParameterGroup Name="Environmental Sensors" Id="6">
                 <Parameter Id="22" IdName="temp_offset">
                     <Description>Temperature offset [1° = 10]</Description>
-                    <Value Type="int16" Default="0000" Options="" Min="0000" Max="0064"/>
+                    <Value Type="int16" Default="0000" Options="" Min="FF9C" Max="0064"/>
                 </Parameter>
                 <Parameter Id="23" IdName="humidity_offset">
                     <Description>Humidity offset [1% = 10]</Description>
-                    <Value Type="int16" Default="0000" Options="" Min="000" Max="0064"/>
+                    <Value Type="int16" Default="0000" Options="" Min="FF9C" Max="0064"/>
                 </Parameter>
                 <Parameter Id="24" IdName="envData_sendPeriod">
                     <Description>Environmental data sending period</Description>
-                    <Value Type="uint32" Default="0000000A" Options="" Min="00000000" Max="FFFFFFFF"/>
+                    <Value Type="uint32" Default="0000012C" Options="" Min="00000000" Max="FFFFFFFF"/>
                 </Parameter>
             </ParameterGroup>
 
@@ -360,19 +360,19 @@
 
             <CommObject Id="36" IdName="env_temperature">
                 <Name>Temperature</Name>
-                <Function>Long Touch State</Function>
+                <Function>Temperature</Function>
                 <DataPointType>9.001</DataPointType>
                 <Flags>52</Flags>
             </CommObject>
             <CommObject Id="37" IdName="env_humidity">
                 <Name>Humidity</Name>
-                <Function>Long Touch State</Function>
+                <Function>Humidity</Function>
                 <DataPointType>9.001</DataPointType>
                 <Flags>52</Flags>
             </CommObject>
-            <CommObject Id="37" IdName="env_pressure">
-                <Name>Humidity</Name>
-                <Function>Long Touch State</Function>
+            <CommObject Id="38" IdName="env_pressure">
+                <Name>Pressure</Name>
+                <Function>Pressure</Function>
                 <DataPointType>14.001</DataPointType>
                 <Flags>52</Flags>
             </CommObject>

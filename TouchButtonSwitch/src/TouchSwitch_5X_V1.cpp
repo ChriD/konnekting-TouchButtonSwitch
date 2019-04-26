@@ -176,7 +176,8 @@ void TouchSwitch_5X_V1::task()
   // (period time may be auto enabled if there are any environmental warnings are active)
   // this may lead to problems if a button is clicked meanwhile?!
   if( (this->envSensorsSettings.temperature || this->envSensorsSettings.humidity || this->envSensorsSettings.pressure) &&
-      (this->getPeriod(this->lastEnvSenorsRunTime) > this->envSensorsSettings.temperaturePeriod || !this->lastEnvSenorsRunTime))
+      (this->getPeriod(this->lastEnvSenorsRunTime) > this->envSensorsSettings.temperaturePeriod || !this->lastEnvSenorsRunTime) &&
+      this->envSensorsSettings.temperaturePeriod)
   {
     this->requestEnvironmentData();
     this->lastEnvSenorsRunTime = millis();

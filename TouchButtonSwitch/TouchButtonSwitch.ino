@@ -12,18 +12,13 @@
                   * using external SPI flash instead of internal
                   * let user allow to set each LED state (colors or predefined patterns)
                   *
-                  * SETTING: TEMP offset
-                  * SETTING: TEMP PERIOD SEND (0-X)
                   * SETTING: TMP WARNING LOW
                   * SETTING: TMP WARNING HIGH
                   * SETTING: TMP WARNING PERIOD
-                  * SETTING: HUMI offset
-                  * SETTING: HUMI PERIOD SEND (0-X)
                   * SETTING: HUMI WARNING LOW
                   * SETTING: HUMI WARNING HIGH
                   * SETTING: HUMI WARNING PERIOD
-                  * SETTING: STD LED Brightness
-                  * SPEAKER FREQ
+                  * only beep when GA set?!
 
 */
 
@@ -40,11 +35,11 @@
 #define LIB_VERSION             "1.0"
 
 // if this define is uncommented, debugging via serial is activated. This should not be active on productive environment!
-#define KDEBUG
+//#define KDEBUG
 
 // for testing purposes without having an active bcu attached we have to skip
 // the knx connection and task codes to test the device. This can be done by setting this define
-#define BCUDISABLED
+//#define BCUDISABLED
 
 // This is the time in miliseconds how long the button should wait after startup/setup to allow touches
 // There has to be a enough time for the user to put the frontplate on the switch before recalibration of
@@ -122,6 +117,7 @@ void onButtonAction(uint16_t _buttonId, uint16_t _type, uint16_t _value)
     idComObject = COMOBJ_button1_long_touchend;
   else
     Debug.println(F("Unknown button event type %d"), _type);
+
 
   if(idComObject)
     idComObject += idOffset;
@@ -257,9 +253,9 @@ void initKNXParameters()
 
   // Environmental Sensor Settings
   BaseSwitchEnvSensors envSensorsSettings = baseSwitch->parmEnvSensorsSettings();
-  envSensorsSettings.temperaturePeriod  = Konnekting.getUINT32Param(PARAM_envData_sendPeriod) / 10;
+  envSensorsSettings.temperaturePeriod  = Konnekting.getUINT32Param(PARAM_envData_sendPeriod) * 1000;
   envSensorsSettings.temperatureAdj     = Konnekting.getINT16Param(PARAM_temp_offset) / 10;
-  envSensorsSettings.humidityPeriod     = Konnekting.getUINT32Param(PARAM_envData_sendPeriod) / 10;
+  envSensorsSettings.humidityPeriod     = Konnekting.getUINT32Param(PARAM_envData_sendPeriod) * 1000;
   envSensorsSettings.humidityAdj        = Konnekting.getINT16Param(PARAM_humidity_offset) / 10;
   baseSwitch->parmEnvSensorsSettings(envSensorsSettings);
   Debug.println(F("Evn.Data | read period: %u, TempAdj.: %u, HumiAdj.: %u"), envSensorsSettings.temperaturePeriod, envSensorsSettings.temperatureAdj, envSensorsSettings.humidityAdj);
@@ -287,17 +283,8 @@ void initKNXParameters()
 // if the prog button is pressed we have to switch the device into the prog mode
 // we have to debounce the button because we do not have hardware debounce
 // newer hardware revisions does have hardware debounce, so no need for software debounce anymore!
-//volatile unsigned long progButtonDebounceTime = 0;
 void progButtonPressed()
 {
-  /*unsigned long tempTime = millis();
-  if(tempTime >= progButtonDebounceTime)
-  {
-    if(tempTime - progButtonDebounceTime < 200)
-      return;
-  }
-  progButtonDebounceTime = tempTime;
-  */
   Debug.println(F("PROG BTN"));
   Konnekting.toggleProgState();
 }

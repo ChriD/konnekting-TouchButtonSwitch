@@ -40,7 +40,7 @@
 #define COMOBJ_button5_long_touchState 35
 #define COMOBJ_env_temperature 36
 #define COMOBJ_env_humidity 37
-#define COMOBJ_env_pressure 37
+#define COMOBJ_env_pressure 38
 #define PARAM_button1_mode 0
 #define PARAM_button1_longTouchMode 1
 #define PARAM_button1_multiTouchEnabled 2
