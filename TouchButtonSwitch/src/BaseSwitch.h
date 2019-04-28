@@ -23,6 +23,7 @@
     uint8_t mode;
     uint8_t longTouchMode;
     boolean allowMultiTouch;
+    uint16_t noiseOffsetValue;
   };
   typedef struct BaseSwitchButtonParmsStruct BaseSwitchButtonParms;
 

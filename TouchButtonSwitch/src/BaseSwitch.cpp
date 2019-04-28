@@ -150,6 +150,8 @@ void BaseSwitch::setButtonParameters(uint16_t _buttonId, BaseSwitchButtonParms _
   if(!button)
     return;
   button->parmMultipleTapsEnabled(_parameters.allowMultiTouch);
+  // TODO: @@@
+  //button->parmBaseNoiseOffsetValue(_parameters.noiseOffsetValue);
   //button->parmPositioningModeEnabled(longTouchMode == 2 ? true : false);
 }
 

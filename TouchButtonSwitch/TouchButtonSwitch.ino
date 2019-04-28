@@ -35,11 +35,11 @@
 #define LIB_VERSION             "1.0"
 
 // if this define is uncommented, debugging via serial is activated. This should not be active on productive environment!
-//#define KDEBUG
+#define KDEBUG
 
 // for testing purposes without having an active bcu attached we have to skip
 // the knx connection and task codes to test the device. This can be done by setting this define
-//#define BCUDISABLED
+#define BCUDISABLED
 
 // This is the time in miliseconds how long the button should wait after startup/setup to allow touches
 // There has to be a enough time for the user to put the frontplate on the switch before recalibration of
@@ -220,6 +220,7 @@ void initKNXParameters()
   button1Parms.mode             = Konnekting.getUINT8Param(PARAM_button1_mode);
   button1Parms.longTouchMode    = Konnekting.getUINT8Param(PARAM_button1_longTouchMode);
   button1Parms.allowMultiTouch  = (bool) Konnekting.getUINT8Param(PARAM_button1_multiTouchEnabled);
+  //button1Parms.noiseOffsetValue = 0
   baseSwitch->setButtonParameters(1, button1Parms);
   Debug.println(F("Sensor %u: Mode=%u, LongTouchMode=%u, MultiTouch=%u"), 1, 0, button1Parms.longTouchMode, button1Parms.allowMultiTouch);
 
@@ -227,6 +228,7 @@ void initKNXParameters()
   button2Parms.mode             = Konnekting.getUINT8Param(PARAM_button2_mode);
   button2Parms.longTouchMode    = Konnekting.getUINT8Param(PARAM_button2_longTouchMode);
   button2Parms.allowMultiTouch  = (bool) Konnekting.getUINT8Param(PARAM_button2_multiTouchEnabled);
+  //button2Parms.noiseOffsetValue = 0
   baseSwitch->setButtonParameters(2, button2Parms);
   Debug.println(F("Sensor %u: Mode=%u, LongTouchMode=%u, MultiTouch=%u"), 2, 0, button2Parms.longTouchMode, button2Parms.allowMultiTouch);
 
@@ -234,6 +236,7 @@ void initKNXParameters()
   button3Parms.mode             = Konnekting.getUINT8Param(PARAM_button3_mode);
   button3Parms.longTouchMode    = Konnekting.getUINT8Param(PARAM_button3_longTouchMode);
   button3Parms.allowMultiTouch  = (bool) Konnekting.getUINT8Param(PARAM_button3_multiTouchEnabled);
+  //button3Parms.noiseOffsetValue = 0
   baseSwitch->setButtonParameters(3, button3Parms);
   Debug.println(F("Sensor %u: Mode=%u, LongTouchMode=%u, MultiTouch=%u"), 3, 0, button3Parms.longTouchMode, button3Parms.allowMultiTouch);
 
@@ -241,6 +244,7 @@ void initKNXParameters()
   button4Parms.mode             = Konnekting.getUINT8Param(PARAM_button4_mode);
   button4Parms.longTouchMode    = Konnekting.getUINT8Param(PARAM_button4_longTouchMode);
   button4Parms.allowMultiTouch = (bool) Konnekting.getUINT8Param(PARAM_button4_multiTouchEnabled);
+  //button4Parms.noiseOffsetValue = 0
   baseSwitch->setButtonParameters(4, button4Parms);
   Debug.println(F("Sensor %u: Mode=%u, LongTouchMode=%u, MultiTouch=%u"), 4, 0, button4Parms.longTouchMode, button4Parms.allowMultiTouch);
 
@@ -248,6 +252,7 @@ void initKNXParameters()
   button5Parms.mode             = Konnekting.getUINT8Param(PARAM_button5_mode);
   button5Parms.longTouchMode    = Konnekting.getUINT8Param(PARAM_button5_longTouchMode);
   button5Parms.allowMultiTouch  = (bool) Konnekting.getUINT8Param(PARAM_button5_multiTouchEnabled);
+  //button5Parms.noiseOffsetValue = 0
   baseSwitch->setButtonParameters(5, button5Parms);
   Debug.println(F("Sensor %u: Mode=%u, LongTouchMode=%u, MultiTouch=%u"), 5, 0, button5Parms.longTouchMode, button5Parms.allowMultiTouch);
 
@@ -368,17 +373,19 @@ void loop()
   #ifdef KDEBUG
     endLoop = micros();
     // @@@ proximity debugging:
-    if((millis() - lastDebugOutput) > 10)
+    /*
+    if(initialCalibrationDone && (millis() - lastDebugOutput) > 25)
     {
-      /*
+
       TouchButton *t1 = (TouchButton*)baseSwitch->getButtonByIndex(0);
       TouchButton *t2 = (TouchButton*)baseSwitch->getButtonByIndex(1);
-      TouchButton *tp1 = (TouchButton*)baseSwitch->getButtonByIndex(4);
-      TouchButton *tp2 = (TouchButton*)baseSwitch->getButtonByIndex(5);
-      Debug.println(F("Proximity: B1: %u        B2: %u        P1: %u        P2: %u"), t1->getLastSampleValue(), t2->getLastSampleValue(), tp1->getLastSampleValue(), tp2->getLastSampleValue());
+      TouchButton *tp1 = (TouchButton*)baseSwitch->getButtonByIndex(2);
+      TouchButton *tp2 = (TouchButton*)baseSwitch->getButtonByIndex(3);
+      TouchButton *tp3 = (TouchButton*)baseSwitch->getButtonByIndex(4);
+      Debug.println(F("Proximity: B1: %u        B2: %u        P1: %u        P2: %u      P4: %u"), t1->getLastSampleValue(), t2->getLastSampleValue(), tp1->getLastSampleValue(), tp2->getLastSampleValue(), tp3->getLastSampleValue());
       lastDebugOutput = millis();
-      */
-    }
+
+    }*/
     //if(endLoop - startLoop > 400)
     //  Debug.println(F("ATTENTION: Main Loop exceeds KNX timing requirement! %uus"), (endLoop - startLoop));
   #endif

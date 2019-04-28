@@ -18,14 +18,14 @@ TODO: * add a noiso to tap ratio?! calculated by the  base noise value?
   #include "Arduino.h"
   #include "Adafruit_FreeTouch.h"
 
-  #define BTN_STD_TOUCH_NOISETOTAP_GAP  10
+  #define BTN_STD_TOUCH_NOISETOTAP_GAP  3 // 10 = blank, 5= 4mm Plexi
 
   enum class TOUCHBUTTON_MODE { NORMAL = 0, CALIBRATION = 10, DISABLED = 99};
 
   class TouchButton : public Button
   {
     public:
-      TouchButton(uint8_t _pin, uint16_t _id = 0);
+      TouchButton(uint8_t _pin, uint16_t _id = 0, uint16_t _noiseOffsetValue = 7);
       ~TouchButton();
 
       virtual boolean setup();

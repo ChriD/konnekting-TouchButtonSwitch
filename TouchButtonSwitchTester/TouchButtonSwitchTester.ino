@@ -61,7 +61,7 @@ uint64_t lastBMETestRunTime = 0;
 
 
 // ### Touch Buttons ############################################################################################
-Button              *buttons[5];
+TouchButton         *buttons[5];
 uint64_t            lastButtonRunTime  = 0;
 
 
@@ -230,6 +230,22 @@ void loop()
    buttons[2]->task();
    buttons[3]->task();
    buttons[4]->task();
+
+  // button info
+  if(!startCalib && (millis() - lastButtonRunTime) > 50)
+  {
+    SERIAL_DBG.print(buttons[0]->getLastSampleValue())
+    SERIAL_DBG.print("    ");
+    SERIAL_DBG.print(buttons[1]->getLastSampleValue())
+    SERIAL_DBG.print("    ");
+    SERIAL_DBG.print(buttons[2]->getLastSampleValue())
+    SERIAL_DBG.print("    ");
+    SERIAL_DBG.print(buttons[3]->getLastSampleValue())
+    SERIAL_DBG.print("    ");
+    SERIAL_DBG.println(buttons[4]->getLastSampleValue());
+    lastButtonRunTime = millis();
+  }
+
 }
 
 

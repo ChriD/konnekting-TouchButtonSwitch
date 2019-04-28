@@ -1,3 +1,4 @@
 {
-    "port": "COM6"
+    "port": "COM6",
+    "board": "adafruit:samd:adafruit_itsybitsy_m0"
 }

@@ -8,13 +8,13 @@
 #include "TouchButton.h"
 
 
-TouchButton::TouchButton(uint8_t _pin, uint16_t _id) : Button()
+TouchButton::TouchButton(uint8_t _pin, uint16_t _id, uint16_t _noiseOffsetValue) : Button()
 {
   this->pin   = _pin;
   this->mode  =  TOUCHBUTTON_MODE::DISABLED;
 
   this->parmId(_id);
-  this->parmBaseNoiseOffsetValue(0);
+  this->parmBaseNoiseOffsetValue(_noiseOffsetValue);
 
   // standard calibration values will lead to a 250ms calibration with 25 samples
   // that is good in many cases
