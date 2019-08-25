@@ -1,5 +1,5 @@
 {
     "board": "adafruit:samd:adafruit_itsybitsy_m0",
     "sketch": "TouchButtonSwitchTester.ino",
-    "port": "COM21"
+    "port": "COM11"
 }

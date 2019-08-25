@@ -3,7 +3,7 @@
   Konnekting - TouchButtonSwitch  Test App (0xCDDC)
   Created by Christian Dürnberger (ChriD), 2019
   https://github.com/ChriD
-  App for testiung the Switch Hardware
+  App for testing the Switch Hardware
 */
 
 #include "Arduino.h"
@@ -15,6 +15,8 @@
 // define seriald for the Adafruit Itsy-Bitsy M0
 // SERIAL_BCU is mandatory to work, the SERIAL_DBG will only be used in DEBUG Mode
 #define SERIAL_DBG              SERIAL_PORT_USBVIRTUAL
+
+
 
 #define PROG_BUTTON_PIN   10
 
@@ -39,7 +41,7 @@ const uint8_t ledPattern_Test[] = {
      LedPattern::CMD_REPEAT, LedPattern::repeatForever,
         LedPattern::CMD_FADETO, 100, RED,
         LedPattern::CMD_FADETO, 100, GREEN,
-        LedPattern::CMD_FADETO, 100, BLUE,
+        LedPattern::CMD_FADETO, 500, BLUE,
      LedPattern::CMD_ENDREPEAT,
   };
 
@@ -65,6 +67,8 @@ TouchButton         *buttons[5];
 uint64_t            lastButtonRunTime  = 0;
 
 
+
+
 // this method will be called whenever a button action (tap, doubletap, longtap,..) was regognized by the
 // switch library. We use this method to send the approriate data to the KNX Bus for each button action
 void onButtonAction(uint16_t _buttonId, uint16_t _type, uint16_t _value)
@@ -77,7 +81,6 @@ void onButtonAction(uint16_t _buttonId, uint16_t _type, uint16_t _value)
   SERIAL_DBG.print("\t\Value: ");
   SERIAL_DBG.println(_type);
 }
-
 
 
 void setup()
@@ -179,7 +182,6 @@ void loop()
 {
 
 
-
   // RGB LED TEST
   if(millis() - lastLedPatternRunTime > 10)
   {
@@ -208,6 +210,7 @@ void loop()
     lastSpeakerTestRunTime = millis();
   }
 
+
   // BME test
   if(millis() - lastBMETestRunTime > 2000)
   {
@@ -231,22 +234,25 @@ void loop()
    buttons[3]->task();
    buttons[4]->task();
 
+
   // button info
   if(!startCalib && (millis() - lastButtonRunTime) > 50)
   {
-    SERIAL_DBG.print(buttons[0]->getLastSampleValue())
+    SERIAL_DBG.print(buttons[0]->getLastSampleValue());
     SERIAL_DBG.print("    ");
-    SERIAL_DBG.print(buttons[1]->getLastSampleValue())
+    SERIAL_DBG.print(buttons[1]->getLastSampleValue());
     SERIAL_DBG.print("    ");
-    SERIAL_DBG.print(buttons[2]->getLastSampleValue())
+    SERIAL_DBG.print(buttons[2]->getLastSampleValue());
     SERIAL_DBG.print("    ");
-    SERIAL_DBG.print(buttons[3]->getLastSampleValue())
+    SERIAL_DBG.print(buttons[3]->getLastSampleValue());
     SERIAL_DBG.print("    ");
     SERIAL_DBG.println(buttons[4]->getLastSampleValue());
     lastButtonRunTime = millis();
+
   }
 
 }
+
 
 
 

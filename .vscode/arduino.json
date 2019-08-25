@@ -1,4 +1,5 @@
 {
-    "port": "COM6",
-    "board": "adafruit:samd:adafruit_itsybitsy_m0"
+    "port": "COM22",
+    "board": "adafruit:samd:adafruit_itsybitsy_m0",
+    "sketch": "TouchButtonSwitchTester\\TouchButtonSwitchTester.ino"
 }
