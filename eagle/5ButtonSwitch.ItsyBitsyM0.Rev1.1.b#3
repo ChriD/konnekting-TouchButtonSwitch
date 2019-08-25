@@ -53,13 +53,13 @@
 <layer number="43" name="vRestrict" color="2" fill="10" visible="no" active="yes"/>
 <layer number="44" name="Drills" color="7" fill="1" visible="no" active="yes"/>
 <layer number="45" name="Holes" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="46" name="Milling" color="3" fill="1" visible="no" active="yes"/>
+<layer number="46" name="Milling" color="3" fill="1" visible="yes" active="yes"/>
 <layer number="47" name="Measures" color="7" fill="1" visible="no" active="yes"/>
 <layer number="48" name="Document" color="7" fill="1" visible="no" active="yes"/>
 <layer number="49" name="Reference" color="7" fill="1" visible="no" active="yes"/>
 <layer number="50" name="dxf" color="7" fill="1" visible="no" active="no"/>
-<layer number="51" name="tDocu" color="7" fill="1" visible="no" active="yes"/>
-<layer number="52" name="bDocu" color="7" fill="1" visible="no" active="yes"/>
+<layer number="51" name="tDocu" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="52" name="bDocu" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="53" name="tGND_GNDA" color="7" fill="9" visible="no" active="no"/>
 <layer number="54" name="bGND_GNDA" color="1" fill="9" visible="no" active="no"/>
 <layer number="56" name="wert" color="7" fill="1" visible="no" active="no"/>
@@ -3156,11 +3156,11 @@ design rules under a new name.</description>
 <wire x1="35.687" y1="26.035" x2="34.925" y2="26.797" width="0.3048" layer="1"/>
 <wire x1="43.8658" y1="15.5448" x2="43.815" y2="15.494" width="0.3048" layer="1"/>
 <wire x1="34.925" y1="30.099" x2="34.163" y2="30.861" width="0.3048" layer="1"/>
-<wire x1="34.163" y1="30.861" x2="34.163" y2="31.8876" width="0.3048" layer="1"/>
+<wire x1="34.163" y1="31.8876" x2="34.163" y2="30.861" width="0.3048" layer="1"/>
 <wire x1="34.925" y1="26.797" x2="34.925" y2="30.099" width="0.3048" layer="1"/>
 <wire x1="34.163" y1="30.861" x2="32.639" y2="30.861" width="0.3048" layer="1"/>
 <wire x1="32.639" y1="30.861" x2="28.575" y2="34.925" width="0.3048" layer="1"/>
-<wire x1="34.163" y1="31.8876" x2="34.163" y2="32.258" width="0" layer="19" extent="1-1"/>
+<wire x1="34.163" y1="32.258" x2="34.163" y2="31.8876" width="0.1524" layer="1"/>
 </signal>
 <signal name="USART1_RX">
 <contactref element="SAM12235-ND" pad="3"/>
@@ -3412,17 +3412,36 @@ design rules under a new name.</description>
 <signal name="N$1">
 <contactref element="U$4" pad="1"/>
 <contactref element="RB" pad="2"/>
-<wire x1="35.687" y1="32.258" x2="36.347" y2="46.355" width="0" layer="19" extent="1-1"/>
+<wire x1="36.347" y1="46.355" x2="35.4838" y2="46.355" width="0.1524" layer="1"/>
+<wire x1="35.4838" y1="46.355" x2="35.2298" y2="46.101" width="0.1524" layer="1"/>
+<wire x1="35.2298" y1="46.101" x2="35.2298" y2="39.8272" width="0.1524" layer="1"/>
+<wire x1="35.941" y1="39.116" x2="36.957" y2="39.116" width="0.1524" layer="1"/>
+<wire x1="36.957" y1="39.116" x2="38.354" y2="37.719" width="0.1524" layer="1"/>
+<wire x1="38.354" y1="37.719" x2="38.354" y2="33.782" width="0.1524" layer="1"/>
+<wire x1="38.354" y1="33.782" x2="36.5358" y2="31.9638" width="0.1524" layer="1"/>
+<wire x1="35.687" y1="31.9638" x2="36.5358" y2="31.9638" width="0.1524" layer="1"/>
+<wire x1="35.2298" y1="39.8272" x2="35.941" y2="39.116" width="0.1524" layer="1"/>
+<wire x1="35.687" y1="32.258" x2="35.687" y2="31.9638" width="0.1524" layer="1"/>
 </signal>
 <signal name="N$2">
 <contactref element="U$4" pad="2"/>
 <contactref element="RG" pad="2"/>
-<wire x1="35.687" y1="37.565" x2="36.347" y2="50.165" width="0" layer="19" extent="1-1"/>
+<wire x1="36.347" y1="50.165" x2="35.179" y2="50.165" width="0.1524" layer="1"/>
+<wire x1="35.179" y1="50.165" x2="34.925" y2="49.911" width="0.1524" layer="1"/>
+<wire x1="34.925" y1="49.911" x2="34.925" y2="38.6482" width="0.1524" layer="1"/>
+<wire x1="34.925" y1="38.6482" x2="35.5166" y2="38.0566" width="0.1524" layer="1"/>
+<wire x1="35.687" y1="37.565" x2="35.687" y2="37.8862" width="0.1524" layer="1"/>
+<wire x1="35.687" y1="37.8862" x2="35.5166" y2="38.0566" width="0.1524" layer="1"/>
 </signal>
 <signal name="N$3">
 <contactref element="U$4" pad="3"/>
 <contactref element="RR" pad="2"/>
-<wire x1="34.163" y1="37.565" x2="36.347" y2="53.975" width="0" layer="19" extent="1-1"/>
+<wire x1="36.347" y1="53.975" x2="35.052" y2="53.975" width="0.1524" layer="1"/>
+<wire x1="34.6202" y1="38.3434" x2="34.3334" y2="38.0566" width="0.1524" layer="1"/>
+<wire x1="34.6202" y1="53.5432" x2="34.6202" y2="38.3434" width="0.1524" layer="1"/>
+<wire x1="35.052" y1="53.975" x2="34.6202" y2="53.5432" width="0.1524" layer="1"/>
+<wire x1="34.163" y1="37.565" x2="34.163" y2="37.8862" width="0.1524" layer="1"/>
+<wire x1="34.163" y1="37.8862" x2="34.3334" y2="38.0566" width="0.1524" layer="1"/>
 </signal>
 <signal name="N$4">
 <contactref element="LS1" pad="1"/>
@@ -3504,6 +3523,7 @@ design rules under a new name.</description>
 <approved hash="4,1,869e505883a4a838"/>
 <approved hash="4,1,7801e87bf919a242"/>
 <approved hash="4,1,22d805a8985bcf84"/>
+<approved hash="4,1,4634fe0b34821af4"/>
 </errors>
 </board>
 </drawing>
