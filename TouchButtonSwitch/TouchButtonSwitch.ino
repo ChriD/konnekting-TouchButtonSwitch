@@ -1,6 +1,6 @@
 
 /*
-  Konnekting - TouchButtonSwitch (0xCDDC)
+  Konnekting - 5xTouchButtonSwitch (0xCDDC)
   Created by Christian Dürnberger (ChriD), 2019
   https://github.com/ChriD
 */
@@ -18,7 +18,7 @@
                   * SETTING: HUMI WARNING LOW
                   * SETTING: HUMI WARNING HIGH
                   * SETTING: HUMI WARNING PERIOD
-                  * only beep when GA set?!
+                  * only beep when GA is sent?!
 
 */
 
@@ -27,8 +27,6 @@
 #include "KonnektingDevice.h"
 #include "TouchButtonSwitch.h"
 #include "src/TouchSwitch_5X_V1.h"
-//#include "src/TouchSwitch_4X_V1.h"
-//#include "src/TouchSwitch_1X_V1.h"
 
 
 // simple version definition for the library
@@ -51,11 +49,8 @@
 #define SERIAL_DBG              SERIAL_PORT_USBVIRTUAL
 #define SERIAL_BCU              Serial1
 
-// so our touch switch device is the TouchSwitch_CODENAME_4X_V1 switch which has 4 touch buttons and 2 proximity
-// sensors on top and on the button of the device. So we use the appropriate class for that switch
+// so our touch switch device is the TouchSwitch_5X_V1 switch which has 5 touch buttons
 BaseSwitch    *baseSwitch = new TouchSwitch_5X_V1();
-//BaseSwitch    *baseSwitch = new TouchSwitch_4X_V1();
-//BaseSwitch    *baseSwitch = new TouchSwitch_1X_V1();
 
 // store the inital boot time (last line of setup method) and some other vars for some initial stuff
 uint64_t  initialBootTime = 0;
@@ -66,7 +61,7 @@ boolean   initialCalibrationDone  = false;
 // it does not reflect the whole readiness of the device!
 boolean   isAppReady = false;
 
-// TODO: do this one into the TouchSwitch lib?
+// TODO: do this one into the TouchSwitch lib? Because reset pin may differ each switch type?
 #define PROG_BUTTON_PIN   10
 
 
@@ -137,7 +132,7 @@ void onButtonAction(uint16_t _buttonId, uint16_t _type, uint16_t _value)
 
 void onProximityAlert(uint16_t _buttonId, boolean _isProximity, uint16_t _proximityValue, uint16_t _proximityLevel)
 {
-  // TODO: @@@
+  // 5xTouch Switch does not have any proximity sensors
   //Debug.println(F("Proximity %u"));
 }
 
@@ -154,7 +149,7 @@ boolean KNXEnabled()
 void setup()
 {
 
-  // pin 3 ids our "GND" pin for the SWDIO connection on the frontplates of the switches
+  // pin 3 ids our "GND" pin for the SWDIO connection on the frontplate of the switche
   // ATTENTION. There is a maximum current draw for a PIN
   pinMode(3, OUTPUT);
   digitalWrite(3, LOW);
@@ -215,12 +210,11 @@ void initKNXParameters()
   if (Konnekting.isFactorySetting())
     return;
 
-  // TODO: how to get proper button id?
   BaseSwitchButtonParms button1Parms;
   button1Parms.mode             = Konnekting.getUINT8Param(PARAM_button1_mode);
   button1Parms.longTouchMode    = Konnekting.getUINT8Param(PARAM_button1_longTouchMode);
   button1Parms.allowMultiTouch  = (bool) Konnekting.getUINT8Param(PARAM_button1_multiTouchEnabled);
-  //button1Parms.noiseOffsetValue = 0
+  button1Parms.noiseOffsetValue = Konnekting.getINT16Param(PARAM_cap_trigger_offset_main);
   baseSwitch->setButtonParameters(1, button1Parms);
   Debug.println(F("Sensor %u: Mode=%u, LongTouchMode=%u, MultiTouch=%u"), 1, 0, button1Parms.longTouchMode, button1Parms.allowMultiTouch);
 
@@ -228,7 +222,7 @@ void initKNXParameters()
   button2Parms.mode             = Konnekting.getUINT8Param(PARAM_button2_mode);
   button2Parms.longTouchMode    = Konnekting.getUINT8Param(PARAM_button2_longTouchMode);
   button2Parms.allowMultiTouch  = (bool) Konnekting.getUINT8Param(PARAM_button2_multiTouchEnabled);
-  //button2Parms.noiseOffsetValue = 0
+  button2Parms.noiseOffsetValue = Konnekting.getINT16Param(PARAM_cap_trigger_offset_sub);
   baseSwitch->setButtonParameters(2, button2Parms);
   Debug.println(F("Sensor %u: Mode=%u, LongTouchMode=%u, MultiTouch=%u"), 2, 0, button2Parms.longTouchMode, button2Parms.allowMultiTouch);
 
@@ -236,7 +230,7 @@ void initKNXParameters()
   button3Parms.mode             = Konnekting.getUINT8Param(PARAM_button3_mode);
   button3Parms.longTouchMode    = Konnekting.getUINT8Param(PARAM_button3_longTouchMode);
   button3Parms.allowMultiTouch  = (bool) Konnekting.getUINT8Param(PARAM_button3_multiTouchEnabled);
-  //button3Parms.noiseOffsetValue = 0
+  button3Parms.noiseOffsetValue = Konnekting.getINT16Param(PARAM_cap_trigger_offset_sub);
   baseSwitch->setButtonParameters(3, button3Parms);
   Debug.println(F("Sensor %u: Mode=%u, LongTouchMode=%u, MultiTouch=%u"), 3, 0, button3Parms.longTouchMode, button3Parms.allowMultiTouch);
 
@@ -244,7 +238,7 @@ void initKNXParameters()
   button4Parms.mode             = Konnekting.getUINT8Param(PARAM_button4_mode);
   button4Parms.longTouchMode    = Konnekting.getUINT8Param(PARAM_button4_longTouchMode);
   button4Parms.allowMultiTouch = (bool) Konnekting.getUINT8Param(PARAM_button4_multiTouchEnabled);
-  //button4Parms.noiseOffsetValue = 0
+  button4Parms.noiseOffsetValue = Konnekting.getINT16Param(PARAM_cap_trigger_offset_sub);
   baseSwitch->setButtonParameters(4, button4Parms);
   Debug.println(F("Sensor %u: Mode=%u, LongTouchMode=%u, MultiTouch=%u"), 4, 0, button4Parms.longTouchMode, button4Parms.allowMultiTouch);
 
@@ -252,7 +246,7 @@ void initKNXParameters()
   button5Parms.mode             = Konnekting.getUINT8Param(PARAM_button5_mode);
   button5Parms.longTouchMode    = Konnekting.getUINT8Param(PARAM_button5_longTouchMode);
   button5Parms.allowMultiTouch  = (bool) Konnekting.getUINT8Param(PARAM_button5_multiTouchEnabled);
-  //button5Parms.noiseOffsetValue = 0
+  button5Parms.noiseOffsetValue = Konnekting.getINT16Param(PARAM_cap_trigger_offset_sub);
   baseSwitch->setButtonParameters(5, button5Parms);
   Debug.println(F("Sensor %u: Mode=%u, LongTouchMode=%u, MultiTouch=%u"), 5, 0, button5Parms.longTouchMode, button5Parms.allowMultiTouch);
 

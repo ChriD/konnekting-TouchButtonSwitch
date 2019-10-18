@@ -3,10 +3,12 @@
         {
             "name": "Win32",
             "includePath": [
-                "C:\\\\Users\\\\ChristianD\\\\AppData\\\\Local\\\\Arduino15\\\\packages\\\\adafruit\\\\hardware\\\\samd\\\\1.2.9\\\\**"
+                "C:\\Users\\ChristianD\\AppData\\Local\\Arduino15\\packages\\adafruit\\hardware\\samd\\1.2.9\\**",
+                "C:\\Users\\ChristianD\\AppData\\Local\\Arduino15\\packages\\adafruit\\hardware\\samd\\1.5.3\\**"
             ],
             "forcedInclude": [
-                "C:\\\\Users\\\\ChristianD\\\\AppData\\\\Local\\\\Arduino15\\\\packages\\\\adafruit\\\\hardware\\\\samd\\\\1.2.9\\\\cores\\\\arduino\\\\Arduino.h"
+                "C:\\Users\\ChristianD\\AppData\\Local\\Arduino15\\packages\\adafruit\\hardware\\samd\\1.2.9\\cores\\arduino\\Arduino.h",
+                "C:\\Users\\ChristianD\\AppData\\Local\\Arduino15\\packages\\adafruit\\hardware\\samd\\1.5.3\\cores\\arduino\\Arduino.h"
             ],
             "intelliSenseMode": "msvc-x64",
             "compilerPath": "D:\\Programme\\MinGW\\bin\\gcc.exe",

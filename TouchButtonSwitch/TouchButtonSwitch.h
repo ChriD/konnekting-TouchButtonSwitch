@@ -66,6 +66,8 @@
 #define PARAM_temp_offset 22
 #define PARAM_humidity_offset 23
 #define PARAM_envData_sendPeriod 24
+#define PARAM_cap_trigger_offset_main 25
+#define PARAM_cap_trigger_offset_sub 26
 
 KnxComObject KnxDevice::_comObjectsList[] = {
     /* Index 0 - firmwareTransfer */ KnxComObject(KNX_DPT_60000_60000, 0x2a),
@@ -106,7 +108,7 @@ KnxComObject KnxDevice::_comObjectsList[] = {
     /* Index 35 - button5_long_touchState */ KnxComObject(KNX_DPT_1_001, 0x34),
     /* Index 36 - env_temperature */ KnxComObject(KNX_DPT_9_001, 0x34),
     /* Index 37 - env_humidity */ KnxComObject(KNX_DPT_9_001, 0x34),
-    /* Index 37 - env_pressure */ KnxComObject(KNX_DPT_14_001, 0x34)
+    /* Index 38 - env_pressure */ KnxComObject(KNX_DPT_14_001, 0x34)
 };
 const byte KnxDevice::_numberOfComObjects = sizeof (_comObjectsList) / sizeof (KnxComObject); // do not change this code
 
@@ -135,6 +137,8 @@ byte KonnektingDevice::_paramSizeList[] = {
     /* Index 21 - led_brightness */ PARAM_UINT8,
     /* Index 22 - temp_offset */ PARAM_INT16,
     /* Index 23 - humidity_offset */ PARAM_INT16,
-    /* Index 24 - envData_sendPeriod */ PARAM_UINT32
+    /* Index 24 - envData_sendPeriod */ PARAM_UINT32,
+    /* Index 25 - cap_trigger_offset_main */ PARAM_INT16,
+    /* Index 26 - cap_trigger_offset_sub */ PARAM_INT16
 };
 const int KonnektingDevice::_numberOfParams = sizeof (_paramSizeList); // do not change this code

@@ -126,6 +126,17 @@
                 </Parameter>
             </ParameterGroup>
 
+            <ParameterGroup Name="Capacity Touchfields" Id="6">
+                <Parameter Id="25" IdName="cap_trigger_offset_main">
+                    <Description>Trigger-offset for main touch field</Description>
+                    <Value Type="int16" Default="0002" Options="" Min="FF9C" Max="0064"/>
+                </Parameter>
+                <Parameter Id="26" IdName="cap_trigger_offset_sub">
+                    <Description>Trigger-offset for sub touch fields</Description>
+                    <Value Type="int16" Default="0007" Options="" Min="FF9C" Max="0064"/>
+                </Parameter>
+            </ParameterGroup>
+
         </Parameters>
         <CommObjects>
 

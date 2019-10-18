@@ -41,7 +41,7 @@ TouchSwitch_5X_V1::~TouchSwitch_5X_V1()
 void TouchSwitch_5X_V1::initButtons()
 {
   // we have to set up ours switch by defining the touch buttons it does have
-  this->addButton(new TouchButton(A2, 1, 2)); // main pad
+  this->addButton(new TouchButton(A2, 1, 0)); // main pad
   this->addButton(new TouchButton(A1, 2));
   this->addButton(new TouchButton(A3, 3));
   this->addButton(new TouchButton(A4, 4));

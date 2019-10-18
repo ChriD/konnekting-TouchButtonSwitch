@@ -11,6 +11,7 @@
   #include "Arduino.h"
   #include "Button.h"
 
+
   #define SWITCH_MAX_BUTTONCOUNT       10
 
   // a switch does have some standrt modes
@@ -90,7 +91,7 @@
       virtual Button* getButtonById(uint16_t);
       virtual Button* getButtonByIndex(uint16_t);
       virtual void setMode(SWITCH_MODE, uint16_t _modeLevel = 0);
-      virtual void setButtonParameters(uint16_t, BaseSwitchButtonParms _parameters);
+      virtual void setButtonParameters(uint16_t, BaseSwitchButtonParms);
       virtual void requestEnvironmentData();
 
       void attachCallbackOnButtonAction(const CallbackFunction_ButtonAction &);
