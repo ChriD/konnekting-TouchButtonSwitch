@@ -19,16 +19,6 @@
   enum class SWITCH_MODE { NORMAL = 0, PROG = 10, SETUP = 20, CALIBRATION = 30, UNDEFINED = 99};
 
 
-  struct BaseSwitchButtonParmsStruct
-  {
-    uint8_t mode;
-    uint8_t longTouchMode;
-    boolean allowMultiTouch;
-    uint16_t noiseOffsetValue;
-  };
-  typedef struct BaseSwitchButtonParmsStruct BaseSwitchButtonParms;
-
-
   struct BaseSwitchSpeakerStruct
   {
     boolean clickFeedbackEnabled;
@@ -91,7 +81,7 @@
       virtual Button* getButtonById(uint16_t);
       virtual Button* getButtonByIndex(uint16_t);
       virtual void setMode(SWITCH_MODE, uint16_t _modeLevel = 0);
-      virtual void setButtonParameters(uint16_t, BaseSwitchButtonParms);
+      virtual void setButtonParameters(uint16_t, ButtonParms);
       virtual void requestEnvironmentData();
 
       void attachCallbackOnButtonAction(const CallbackFunction_ButtonAction &);

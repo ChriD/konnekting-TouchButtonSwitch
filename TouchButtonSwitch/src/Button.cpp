@@ -136,6 +136,13 @@ void Button::startCalibration()
 {
 }
 
+void Button::setButtonParameters(ButtonParms _parameters)
+{
+  this->parmMultipleTapsEnabled(_parameters.allowMultiTouch);
+   // TODO: @@@
+  //button->parmPositioningModeEnabled(longTouchMode == 2 ? true : false);
+}
+
 
 int8_t Button::calcButtonState()
 {

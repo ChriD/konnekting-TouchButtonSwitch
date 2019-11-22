@@ -33,11 +33,11 @@
 #define LIB_VERSION             "1.0"
 
 // if this define is uncommented, debugging via serial is activated. This should not be active on productive environment!
-#define KDEBUG
+//#define KDEBUG
 
 // for testing purposes without having an active bcu attached we have to skip
 // the knx connection and task codes to test the device. This can be done by setting this define
-#define BCUDISABLED
+//#define BCUDISABLED
 
 // This is the time in miliseconds how long the button should wait after startup/setup to allow touches
 // There has to be a enough time for the user to put the frontplate on the switch before recalibration of
@@ -210,7 +210,7 @@ void initKNXParameters()
   if (Konnekting.isFactorySetting())
     return;
 
-  BaseSwitchButtonParms button1Parms;
+  ButtonParms button1Parms;
   button1Parms.mode             = Konnekting.getUINT8Param(PARAM_button1_mode);
   button1Parms.longTouchMode    = Konnekting.getUINT8Param(PARAM_button1_longTouchMode);
   button1Parms.allowMultiTouch  = (bool) Konnekting.getUINT8Param(PARAM_button1_multiTouchEnabled);
@@ -218,7 +218,7 @@ void initKNXParameters()
   baseSwitch->setButtonParameters(1, button1Parms);
   Debug.println(F("Sensor %u: Mode=%u, LongTouchMode=%u, MultiTouch=%u"), 1, 0, button1Parms.longTouchMode, button1Parms.allowMultiTouch);
 
-  BaseSwitchButtonParms button2Parms;
+  ButtonParms button2Parms;
   button2Parms.mode             = Konnekting.getUINT8Param(PARAM_button2_mode);
   button2Parms.longTouchMode    = Konnekting.getUINT8Param(PARAM_button2_longTouchMode);
   button2Parms.allowMultiTouch  = (bool) Konnekting.getUINT8Param(PARAM_button2_multiTouchEnabled);
@@ -226,7 +226,7 @@ void initKNXParameters()
   baseSwitch->setButtonParameters(2, button2Parms);
   Debug.println(F("Sensor %u: Mode=%u, LongTouchMode=%u, MultiTouch=%u"), 2, 0, button2Parms.longTouchMode, button2Parms.allowMultiTouch);
 
-  BaseSwitchButtonParms button3Parms;
+  ButtonParms button3Parms;
   button3Parms.mode             = Konnekting.getUINT8Param(PARAM_button3_mode);
   button3Parms.longTouchMode    = Konnekting.getUINT8Param(PARAM_button3_longTouchMode);
   button3Parms.allowMultiTouch  = (bool) Konnekting.getUINT8Param(PARAM_button3_multiTouchEnabled);
@@ -234,7 +234,7 @@ void initKNXParameters()
   baseSwitch->setButtonParameters(3, button3Parms);
   Debug.println(F("Sensor %u: Mode=%u, LongTouchMode=%u, MultiTouch=%u"), 3, 0, button3Parms.longTouchMode, button3Parms.allowMultiTouch);
 
-  BaseSwitchButtonParms button4Parms;
+  ButtonParms button4Parms;
   button4Parms.mode             = Konnekting.getUINT8Param(PARAM_button4_mode);
   button4Parms.longTouchMode    = Konnekting.getUINT8Param(PARAM_button4_longTouchMode);
   button4Parms.allowMultiTouch = (bool) Konnekting.getUINT8Param(PARAM_button4_multiTouchEnabled);
@@ -242,7 +242,7 @@ void initKNXParameters()
   baseSwitch->setButtonParameters(4, button4Parms);
   Debug.println(F("Sensor %u: Mode=%u, LongTouchMode=%u, MultiTouch=%u"), 4, 0, button4Parms.longTouchMode, button4Parms.allowMultiTouch);
 
-  BaseSwitchButtonParms button5Parms;
+  ButtonParms button5Parms;
   button5Parms.mode             = Konnekting.getUINT8Param(PARAM_button5_mode);
   button5Parms.longTouchMode    = Konnekting.getUINT8Param(PARAM_button5_longTouchMode);
   button5Parms.allowMultiTouch  = (bool) Konnekting.getUINT8Param(PARAM_button5_multiTouchEnabled);

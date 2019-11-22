@@ -144,15 +144,12 @@ boolean BaseSwitch::setupButtons()
   return ret;
 }
 
-void BaseSwitch::setButtonParameters(uint16_t _buttonId, BaseSwitchButtonParms _parameters)
+void BaseSwitch::setButtonParameters(uint16_t _buttonId, ButtonParms _parameters)
 {
   Button* button = this->getButtonById(_buttonId);
   if(!button)
     return;
-  button->parmMultipleTapsEnabled(_parameters.allowMultiTouch);
-  // TODO: @@@
-  //button->parmBaseNoiseOffsetValue(_parameters.noiseOffsetValue);
-  //button->parmPositioningModeEnabled(longTouchMode == 2 ? true : false);
+  button->setButtonParameters(_parameters);
 }
 
 

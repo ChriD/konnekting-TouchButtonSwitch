@@ -22,6 +22,16 @@
 
   //enum class BUTTON_TYPE { MECHANIC = 0, TOUCH = 10};
 
+  struct ButtonParmsStruct
+  {
+    uint8_t mode;
+    uint8_t longTouchMode;
+    boolean allowMultiTouch;
+    uint16_t noiseOffsetValue;
+  };
+  typedef struct ButtonParmsStruct ButtonParms;
+
+
   class Button
   {
     public:
@@ -35,6 +45,8 @@
       virtual void interruptTask(uint8_t);
       // a button, no matter of which type, may have the ability to calibrate
       virtual void startCalibration();
+      //
+      virtual void setButtonParameters(ButtonParms);
 
       void attachCallbackOnButtonAction(const CallbackFunction_ButtonAction &);
       void attachCallbackOnButtonStateChanged(const CallbackFunction_ButtonStateChanged &);

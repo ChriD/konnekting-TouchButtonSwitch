@@ -93,6 +93,12 @@ void TouchButton::calcTriggerLevel()
   this->triggerLevel = this->baseNoiseMaxLevel + BTN_STD_TOUCH_NOISETOTAP_GAP + this->baseNoiseOffsetValue;
 }
 
+void TouchButton::setButtonParameters(ButtonParms _parameters)
+{
+  Button::setButtonParameters(_parameters);
+  this->parmBaseNoiseOffsetValue(_parameters.noiseOffsetValue);
+}
+
 
 uint16_t TouchButton::getLastSampleValue()
 {

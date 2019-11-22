@@ -32,12 +32,13 @@ TODO: * add a noiso to tap ratio?! calculated by the  base noise value?
       virtual void task();
 
       virtual void startCalibration();
+      virtual void setButtonParameters(ButtonParms);
       virtual uint16_t getLastSampleValue();
       virtual uint16_t getTriggerLevel();
 
       // baseNoiseOffsetValue parm methods
-      uint16_t parmBaseNoiseOffsetValue();
-      void parmBaseNoiseOffsetValue(uint16_t);
+      virtual uint16_t parmBaseNoiseOffsetValue();
+      virtual void parmBaseNoiseOffsetValue(uint16_t);
 
     protected:
       // the pin where the touch button is beeing set up
