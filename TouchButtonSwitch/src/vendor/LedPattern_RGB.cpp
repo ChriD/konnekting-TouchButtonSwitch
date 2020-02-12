@@ -48,7 +48,7 @@ void LedPattern_RGB::ledSet(pattern& p)
         //const uint8_t intensity = *p++;
         uint8_t value = *p++;
         //const uint8_t intensity = (255 - (value *(this->brightness / 100)) ); // @@@
-        value = (value / 100) * this->brightness;
+        value = (value / 255) * this->brightness;
         const uint8_t intensity = (255 - value ); // @@@
         ledWrite(i, intensity);
         #ifndef LED_PATTERN_FADE_UNSUPPORTED

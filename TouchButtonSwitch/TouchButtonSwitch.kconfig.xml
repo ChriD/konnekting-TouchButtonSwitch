@@ -107,7 +107,7 @@
                 </Parameter>
                  <Parameter Id="21" IdName="led_brightness">
                     <Description>LED Brightness</Description>
-                    <Value Type="uint8" Default="1E" Options="" Min="00" Max="64"/>
+                    <Value Type="uint8" Default="1E" Options="" Min="00" Max="FF"/>
                 </Parameter>
             </ParameterGroup>
 

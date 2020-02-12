@@ -33,7 +33,7 @@
     uint8_t stdR;
     uint8_t stdG;
     uint8_t stdB;
-    uint8_t stdBrightness; //(0-100)
+    uint8_t stdBrightness; //(0-255)
   };
   typedef struct BaseSwitchLightningStruct BaseSwitchLightning;
 
